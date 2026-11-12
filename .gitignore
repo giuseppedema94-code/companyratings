@@ -1,0 +1,14 @@
+# File temporanei di Excel/LibreOffice
+~$*
+.~lock.*#
+
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dati privati o non anonimizzati: non caricarli mai
+privato/
+dati_reali/
+*.local.xlsx
+.env
