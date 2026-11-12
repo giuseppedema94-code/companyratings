@@ -26,3 +26,7 @@ Ogni indicatore vale da 0 a 100 punti, con interpolazione lineare tra un valore 
 | Percezione dei dipendenti (Glassdoor, Indeed, minimo 30 recensioni) | 5% |
 
 Voti: A+ ≥90 · A ≥80 · B ≥70 · C ≥60 · D ≥50 · E ≥40 · F <40
+
+## Il sito (demo)
+
+`index.html` è il prototipo del sito: classifica, card, scheda azienda, confronto e metodo. È un unico file statico, senza dipendenze. **Aziende e dati sono fittizi.**

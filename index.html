@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CompanyRatings</title>
+<meta name="description" content="CompanyRatings, la pagella delle aziende italiane: un voto da A+ a F calcolato su bilanci, contratti integrativi e accordi sindacali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/*
+  CompanyRatings - token di progetto
+  Idea: l'etichetta energetica europea applicata alle aziende.
+  Tutta l'audacia sta nella scala a frecce A+..F. Il resto e' un documento tecnico:
+  griglia a 12 colonne allineata a sinistra, filetti sottili, numeri tabellari,
+  diciture mono in maiuscoletto (CLASSE, PUNTEGGIO, FONTE).
+  Layout: [testata] / [hero: tesi + ricerca | etichetta viva] / [vista attiva] / [piede]
+*/
+:root {
+  color-scheme: light;
+  /* neutri */
+  --paper:   #F2F5F8;   /* carta fredda */
+  --sheet:   #FFFFFF;   /* superficie etichetta e tabelle */
+  --ink:     #0D1B2E;   /* inchiostro blu-nero */
+  --ink-2:   #4B5B71;   /* testo secondario */
+  --rule:    #CDD6E1;   /* filetti */
+  --rule-2:  #E3E9F0;   /* filetti leggeri, tracce barre */
+  --accent:  #1846FF;   /* blu elettrico: link e controlli */
+  --accent-ink: #FFFFFF;
+  --focus:   #1846FF;
+  --row-top: #E8EEFF;
+  /* scala semantica, riservata ai voti */
+  --g-ap: #00813C;
+  --g-a:  #3DA535;
+  --g-b:  #A9CB2A;
+  --g-c:  #FFDD17;
+  --g-d:  #F6AE1A;
+  --g-e:  #EC6E1C;
+  --g-f:  #D3221B;
+  --g-ap-ink: #FFFFFF; --g-a-ink: #FFFFFF; --g-b-ink: #0D1B2E; --g-c-ink: #0D1B2E;
+  --g-d-ink: #0D1B2E;  --g-e-ink: #FFFFFF; --g-f-ink: #FFFFFF;
+  /* tipografia */
+  --f-display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-text: "Instrument Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* misure */
+  --maxw: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --r: 2px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper:  #0A1322;
+    --sheet:  #101C2F;
+    --ink:    #E7EDF5;
+    --ink-2:  #9AA9BD;
+    --rule:   #2A3A52;
+    --rule-2: #1C2A3F;
+    --accent: #6E8BFF;
+    --accent-ink: #0A1322;
+    --focus:  #8CA3FF;
+    --row-top: #17264A;
+    --g-b-ink: #0A1322; --g-c-ink: #0A1322; --g-d-ink: #0A1322;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:  #0A1322;
+  --sheet:  #101C2F;
+  --ink:    #E7EDF5;
+  --ink-2:  #9AA9BD;
+  --rule:   #2A3A52;
+  --rule-2: #1C2A3F;
+  --accent: #6E8BFF;
+  --accent-ink: #0A1322;
+  --focus:  #8CA3FF;
+  --row-top: #17264A;
+  --g-b-ink: #0A1322; --g-c-ink: #0A1322; --g-d-ink: #0A1322;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: var(--f-display); text-wrap: balance; margin: 0; font-weight: 800; letter-spacing: -0.01em; }
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--accent); text-underline-offset: 3px; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.num, td, .mono { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* banner demo */
+.demo-banner {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--f-mono); font-size: .75rem; letter-spacing: .03em;
+  padding: 6px var(--gutter); text-align: left;
+}
+.demo-banner .wrap { padding: 0; }
+
+/* testata */
+.site-head { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.site-head .wrap { display: flex; align-items: center; gap: 24px; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand-mark { display: grid; gap: 2px; width: 26px; }
+.brand-mark i { display: block; height: 4px; clip-path: polygon(0 0, calc(100% - 3px) 0, 100% 50%, calc(100% - 3px) 100%, 0 100%); }
+.brand-mark i:nth-child(1) { width: 55%; background: var(--g-ap); }
+.brand-mark i:nth-child(2) { width: 70%; background: var(--g-c); }
+.brand-mark i:nth-child(3) { width: 85%; background: var(--g-e); }
+.brand-mark i:nth-child(4) { width: 100%; background: var(--g-f); }
+.brand-name { font-family: var(--f-display); font-weight: 800; font-size: 1.3rem; font-stretch: 85%; letter-spacing: -0.02em; line-height: 1; }
+.brand-sub { display: block; font-family: var(--f-text); font-weight: 500; font-size: .78rem; color: var(--ink-2); letter-spacing: 0; margin-top: 3px; }
+.nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.nav a { color: var(--ink); text-decoration: none; padding: 8px 10px; font-weight: 600; font-size: .94rem; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom-color: var(--rule); }
+.nav a[aria-current="page"] { border-bottom-color: var(--accent); color: var(--accent); }
+.theme-btn { background: transparent; border: 1px solid var(--rule); border-radius: var(--r); padding: 6px 10px; cursor: pointer; font-family: var(--f-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+.theme-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+/* hero */
+.hero { border-bottom: 1px solid var(--rule); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); padding-top: clamp(32px, 6vw, 72px); padding-bottom: clamp(32px, 6vw, 64px); align-items: start; }
+.hero h1 { font-size: clamp(2.9rem, 7.4vw, 6.4rem); line-height: .9; font-stretch: 76%; letter-spacing: -0.03em; max-width: 9.5em; }
+.hero-sub { margin-top: 22px; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--ink-2); max-width: 34em; }
+.search { position: relative; margin-top: 30px; max-width: 560px; }
+.search label { display: block; font-weight: 600; margin-bottom: 8px; }
+.search input {
+  width: 100%; padding: 15px 16px; font-size: 1.05rem;
+  background: var(--sheet); border: 1.5px solid var(--ink); border-radius: var(--r);
+}
+.search input::placeholder { color: var(--ink-2); }
+.search input:focus-visible { outline-offset: 0; }
+.suggest { position: absolute; left: 0; right: 0; top: 100%; margin: 4px 0 0; padding: 4px 0; list-style: none; background: var(--sheet); border: 1px solid var(--ink); border-radius: var(--r); z-index: 10; max-height: 340px; overflow-y: auto; box-shadow: 0 10px 30px -12px rgba(13, 27, 46, .35); }
+.suggest[hidden] { display: none; }
+.suggest li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; padding: 8px 12px; cursor: pointer; }
+.suggest li[aria-selected="true"], .suggest li:hover { background: var(--row-top); }
+.suggest .s-name { font-weight: 600; display: block; }
+.suggest .s-meta { font-size: .85rem; color: var(--ink-2); }
+.suggest .s-empty { display: block; padding: 8px 12px; color: var(--ink-2); cursor: default; }
+.hero-links { display: flex; gap: 12px 20px; flex-wrap: wrap; margin-top: 22px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none;
+  background: var(--accent); color: var(--accent-ink); border: 1.5px solid var(--accent);
+  padding: 10px 16px; border-radius: var(--r); font-weight: 600; font-size: .95rem;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn-ghost:hover { background: var(--row-top); filter: none; }
+.hero-aside { display: grid; gap: 10px; }
+.hero-aside-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.link-btn { background: none; border: 0; padding: 4px 0; color: var(--accent); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; font-size: .9rem; }
+
+/* etichetta energetica */
+.elabel { margin: 0; background: var(--sheet); border: 2px solid var(--ink); border-radius: 4px; color: var(--ink); }
+.elabel-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 2px solid var(--ink); }
+.elabel-head .brand-name { font-size: 1rem; }
+.elabel-who { padding: 12px 14px 10px; border-bottom: 1px solid var(--rule); }
+.elabel-who a, .elabel-who strong { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; line-height: 1.1; color: var(--ink); text-decoration: none; font-stretch: 85%; display: block; }
+.elabel-who a:hover { text-decoration: underline; }
+.elabel-who span { font-size: .88rem; color: var(--ink-2); }
+.elabel-scale { padding: 14px 14px 12px; display: grid; gap: 5px; }
+.e-row { display: grid; grid-template-columns: 1fr 74px; align-items: center; gap: 10px; height: 30px; }
+.e-bar {
+  height: 100%; width: var(--w); display: flex; align-items: center; justify-content: space-between;
+  padding: 0 22px 0 9px; font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; line-height: 1;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+  transform-origin: left center;
+}
+.e-bar small { font-family: var(--f-mono); font-size: .62rem; font-weight: 500; opacity: .85; letter-spacing: .02em; }
+.e-row.is-dim .e-bar { opacity: .62; }
+.e-marker {
+  height: 38px; margin: -4px 0; display: flex; align-items: center; justify-content: center; padding-left: 12px;
+  background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 800; font-size: 1.55rem;
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+}
+.elabel-score { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 14px; border-top: 2px solid var(--ink); }
+.elabel-score strong { font-family: var(--f-display); font-size: 2.6rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; font-stretch: 80%; }
+.elabel-score strong span { font-size: 1rem; color: var(--ink-2); font-weight: 600; margin-left: 2px; }
+.elabel-pillars { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
+.elabel-pillars div { padding: 8px 12px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.elabel-pillars div:nth-child(3n) { border-right: 0; }
+.elabel-pillars div:nth-last-child(-n+3) { border-bottom: 0; }
+.elabel-pillars b { display: block; font-family: var(--f-mono); font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.elabel-foot { padding: 8px 14px; border-top: 2px solid var(--ink); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+.g-ap { background: var(--g-ap); color: var(--g-ap-ink); }
+.g-a  { background: var(--g-a);  color: var(--g-a-ink); }
+.g-b  { background: var(--g-b);  color: var(--g-b-ink); }
+.g-c  { background: var(--g-c);  color: var(--g-c-ink); }
+.g-d  { background: var(--g-d);  color: var(--g-d-ink); }
+.g-e  { background: var(--g-e);  color: var(--g-e-ink); }
+.g-f  { background: var(--g-f);  color: var(--g-f-ink); }
+
+/* animazione unica di caricamento */
+@media (prefers-reduced-motion: no-preference) {
+  .elabel.is-anim .e-bar { animation: grow .75s cubic-bezier(.2, .75, .2, 1) both; animation-delay: calc(var(--i) * 70ms); }
+  .elabel.is-anim .e-marker { animation: slidein .45s cubic-bezier(.2, .75, .2, 1) both; animation-delay: .62s; }
+  @keyframes grow { from { transform: scaleX(.12); } to { transform: scaleX(1); } }
+  @keyframes slidein { from { transform: translateX(18px); opacity: 0; } to { transform: none; opacity: 1; } }
+}
+
+/* targhetta voto a freccia */
+.tag {
+  display: inline-flex; align-items: center; justify-content: flex-start;
+  min-width: 46px; height: 26px; padding: 0 16px 0 8px;
+  font-family: var(--f-display); font-weight: 800; font-size: 1rem; line-height: 1;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+}
+.tag-lg { height: 52px; min-width: 92px; font-size: 2rem; padding: 0 26px 0 14px; clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%); }
+
+/* sezioni */
+.view { padding: clamp(36px, 6vw, 64px) 0 clamp(48px, 7vw, 80px); }
+.view[hidden] { display: none; }
+.view-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: end; margin-bottom: 28px; }
+.view-head h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: .95; font-stretch: 80%; letter-spacing: -0.025em; }
+.view-head p { color: var(--ink-2); margin-top: 10px; max-width: 46em; }
+
+/* filtri */
+.filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; padding: 16px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.field label { display: block; margin-bottom: 6px; }
+.field select {
+  width: 100%; padding: 9px 34px 9px 10px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--r);
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 55%, calc(100% - 12px) 55%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.field select:hover { border-color: var(--ink); }
+.quick { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0 18px; align-items: center; }
+.chip { background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-weight: 600; font-size: .88rem; color: var(--ink); }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.count-line { margin-left: auto; }
+
+/* tabella */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--rule); background: var(--sheet); }
+table { border-collapse: collapse; width: 100%; }
+.rank { min-width: 980px; }
+.rank th, .rank td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule-2); vertical-align: middle; }
+.rank thead th { border-bottom: 2px solid var(--ink); background: var(--sheet); white-space: nowrap; vertical-align: bottom; }
+.sort-btn { background: none; border: 0; padding: 2px 0; cursor: pointer; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; display: inline-flex; gap: 6px; align-items: center; text-align: left; }
+.sort-btn:hover { color: var(--ink); }
+th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
+.sort-btn .arr { width: 8px; display: inline-block; }
+.rank .pos { font-family: var(--f-mono); font-weight: 500; width: 48px; color: var(--ink-2); }
+.rank tr.is-top td { background: var(--row-top); }
+.rank tr.is-top .pos { color: var(--ink); font-weight: 700; }
+.rank tr.is-top td:first-child { box-shadow: inset 4px 0 0 var(--ink); }
+.rank .az a { font-weight: 700; color: var(--ink); text-decoration: none; }
+.rank .az a:hover { text-decoration: underline; color: var(--accent); }
+.rank .az { min-width: 230px; }
+.rank .az span { display: block; white-space: nowrap; font-size: .84rem; color: var(--ink-2); }
+.rank .score { font-family: var(--f-mono); font-weight: 700; font-size: 1.05rem; }
+.rank tbody tr:hover td { background: var(--row-top); }
+.top-note { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-left: 6px; border: 1px solid var(--ink); padding: 1px 4px; vertical-align: 2px; }
+.empty { padding: 28px 16px; }
+.empty p { margin-bottom: 12px; }
+
+/* mini barre */
+.mb { display: inline-grid; grid-template-columns: 64px 24px; gap: 8px; align-items: center; }
+.mb-track { display: block; height: 6px; background: var(--rule-2); position: relative; }
+.mb-track i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.mb-n { font-family: var(--f-mono); font-size: .78rem; text-align: right; color: var(--ink); }
+
+/* card */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 0; border-top: 2px solid var(--ink); border-left: 1px solid var(--rule); }
+.card {
+  display: grid; gap: 14px; align-content: start; padding: 18px 18px 20px 0; color: var(--ink); text-decoration: none;
+  background: var(--sheet); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  transition: background-color .15s ease;
+}
+.card:hover { background: var(--row-top); }
+.card:hover .tag-lg { transform: translateX(4px); }
+.card .tag-lg { transition: transform .2s ease; }
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-right: 0; }
+.card-score { text-align: right; }
+.card-score b { display: block; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.card-body { padding-left: 18px; display: grid; gap: 14px; }
+.card h3 { font-size: 1.35rem; line-height: 1.1; font-stretch: 85%; }
+.card .meta { font-size: .88rem; color: var(--ink-2); margin-top: 4px; }
+.pill-bars { display: grid; gap: 5px; }
+.pill-bars div { display: grid; grid-template-columns: 82px 1fr 26px; gap: 8px; align-items: center; }
+.pill-bars span:first-child { font-size: .78rem; color: var(--ink-2); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; border-top: 1px solid var(--rule); padding-top: 12px; gap: 8px; }
+.facts div { min-width: 0; }
+.facts dt { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.facts dd { margin: 3px 0 0; font-weight: 700; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 6px; font-size: .95rem; }
+.spark { display: inline-block; vertical-align: middle; color: var(--ink); overflow: visible; }
+
+/* scheda */
+.back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
+.sheet-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: end; padding-bottom: 22px; border-bottom: 2px solid var(--ink); }
+.sheet-head h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: .95; font-stretch: 78%; letter-spacing: -0.025em; }
+.sheet-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 14px; }
+.sheet-meta div { display: grid; }
+.sheet-meta b { font-weight: 600; }
+.sheet-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.status { min-height: 1.4em; font-size: .88rem; color: var(--ink-2); }
+.sheet-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); padding-top: 28px; align-items: start; }
+.sheet-side { display: grid; gap: 24px; }
+.block h3 { font-size: 1.35rem; font-stretch: 85%; margin-bottom: 12px; }
+.contrib th, .contrib td { padding: 9px 10px; border-bottom: 1px solid var(--rule-2); text-align: left; }
+.contrib thead th { border-bottom: 2px solid var(--ink); }
+.contrib td.r, .contrib th.r { text-align: right; font-family: var(--f-mono); }
+.contrib tfoot td { border-top: 2px solid var(--ink); border-bottom: 0; font-weight: 700; }
+.fw { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); }
+.fw > div { padding: 14px 16px 16px 0; }
+.fw > div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.fw ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; }
+.fw li { display: grid; gap: 2px; }
+.fw li b { font-weight: 600; }
+.fw li span { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-2); }
+.fw h3 { font-size: 1.15rem; margin: 0; display: flex; gap: 8px; align-items: center; }
+.fw h3::before { content: ""; width: 10px; height: 10px; display: inline-block; }
+.fw .plus h3::before { background: var(--ink); }
+.fw .minus h3::before { border: 2px solid var(--ink); }
+.rev { border: 1px solid var(--rule); background: var(--sheet); padding: 14px 16px; }
+.rev-years { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 10px; }
+.rev-years div { border-left: 1px solid var(--rule); padding-left: 8px; }
+.rev-years b { display: block; font-family: var(--f-mono); font-size: .9rem; }
+.pillar { margin-top: 30px; }
+.pillar-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 20px; align-items: end; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.pillar-head h3 { font-size: 1.5rem; font-stretch: 82%; }
+.pillar-score { display: flex; align-items: baseline; gap: 10px; }
+.pillar-score b { font-family: var(--f-mono); font-size: 1.5rem; }
+.ind { min-width: 640px; table-layout: fixed; }
+.ind th:nth-child(1) { width: 38%; } .ind th:nth-child(2) { width: 17%; } .ind th:nth-child(3) { width: 15%; }
+.ind th, .ind td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+.ind thead th { font-weight: 500; }
+.ind td.val { font-family: var(--f-mono); font-weight: 700; white-space: nowrap; }
+.ind td.src { font-size: .86rem; color: var(--ink-2); }
+.ind .range { display: block; font-family: var(--f-mono); font-size: .68rem; color: var(--ink-2); margin-top: 2px; }
+
+/* confronta */
+.cmp-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 16px; padding: 16px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
+.cmp { min-width: 640px; table-layout: fixed; }
+.cmp th, .cmp td { padding: 11px 12px; border-bottom: 1px solid var(--rule-2); text-align: left; vertical-align: middle; }
+.cmp thead th { border-bottom: 2px solid var(--ink); vertical-align: bottom; }
+.cmp thead a { font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; color: var(--ink); text-decoration: none; font-stretch: 85%; line-height: 1.1; display: block; }
+.cmp thead a:hover { text-decoration: underline; }
+.cmp thead span { display: block; font-size: .82rem; color: var(--ink-2); font-weight: 400; margin-top: 2px; }
+.cmp th[scope="row"] { font-weight: 600; width: 26%; }
+.cmp th[scope="row"] small { display: block; font-weight: 400; color: var(--ink-2); font-size: .78rem; }
+.cmp td { font-family: var(--f-mono); }
+.cmp td.best { background: var(--row-top); font-weight: 700; box-shadow: inset 3px 0 0 var(--ink); }
+.best-note { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; margin-left: 8px; border: 1px solid var(--ink); padding: 1px 4px; color: var(--ink); vertical-align: 2px; font-weight: 500; }
+.cmp tr.sep th { padding-top: 22px; border-bottom: 1px solid var(--rule); font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+
+/* metodo */
+.method-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.method-text { display: grid; gap: 16px; max-width: 38em; }
+.method-text h3 { font-size: 1.35rem; font-stretch: 85%; margin-top: 10px; }
+.formula { font-family: var(--f-mono); font-size: .88rem; background: var(--sheet); border: 1px solid var(--rule); border-left: 3px solid var(--ink); padding: 12px 14px; line-height: 1.6; }
+.principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); margin-top: 48px; }
+.principles div { padding: 16px 18px 18px 0; }
+.principles div + div { padding-left: 18px; border-left: 1px solid var(--rule); }
+.principles h3 { font-size: 1.3rem; line-height: 1.05; font-stretch: 82%; margin-bottom: 8px; }
+.principles p { color: var(--ink-2); font-size: .95rem; }
+.weights { min-width: 560px; }
+.weights th, .weights td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+.weights thead th { border-bottom: 2px solid var(--ink); }
+.weights tr.p-row td { border-top: 1px solid var(--ink); font-weight: 700; padding-top: 12px; background: var(--paper); }
+.weights td.r { font-family: var(--f-mono); text-align: right; white-space: nowrap; }
+.scale-key { display: grid; gap: 4px; margin-top: 4px; }
+.scale-key .e-row { grid-template-columns: 1fr; height: 28px; }
+
+/* piede */
+.site-foot { border-top: 2px solid var(--ink); background: var(--sheet); }
+.foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding-top: 32px; padding-bottom: 28px; }
+.foot-grid > div { padding-right: 24px; }
+.foot-grid > div + div { padding-left: 24px; border-left: 1px solid var(--rule); }
+.foot-grid h2 { font-size: 1.35rem; font-stretch: 85%; margin-bottom: 8px; }
+.foot-grid p { color: var(--ink-2); font-size: .95rem; }
+.foot-grid p + p { margin-top: 8px; }
+.soon { display: inline-block; margin-top: 10px; border: 1px dashed var(--ink-2); padding: 3px 8px; }
+.foot-base { border-top: 1px solid var(--rule); padding-top: 14px; padding-bottom: 18px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+/* responsive */
+@media (max-width: 960px) {
+  .hero .wrap, .sheet-grid, .method-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-aside { max-width: 520px; }
+  .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .principles div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .principles div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+@media (max-width: 720px) {
+  .view-head, .sheet-head { grid-template-columns: minmax(0, 1fr); }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); }
+  .foot-grid > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 18px; }
+  .cmp-pick { grid-template-columns: minmax(0, 1fr); }
+  .fw { grid-template-columns: minmax(0, 1fr); }
+  .fw > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .site-head .wrap { gap: 8px 16px; }
+  .nav { width: 100%; margin-left: -10px; }
+  .count-line { margin-left: 0; width: 100%; }
+}
+@media (max-width: 480px) {
+  .filters { grid-template-columns: minmax(0, 1fr); }
+  .principles { grid-template-columns: minmax(0, 1fr); }
+  .principles div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .e-row { grid-template-columns: 1fr 62px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .facts div:last-child { grid-column: 1 / -1; }
+  .nav a { padding: 8px 7px; font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<div class="demo-banner" role="note"><div class="wrap">Versione demo: aziende e dati sono fittizi.</div></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="CompanyRatings, torna alla home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><span class="brand-name">CompanyRatings</span><span class="brand-sub">La pagella delle aziende italiane</span></span>
+    </a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="#classifica" data-nav="classifica">Classifica</a>
+      <a href="#aziende" data-nav="aziende">Aziende</a>
+      <a href="#confronta" data-nav="confronta">Confronta</a>
+      <a href="#metodo" data-nav="metodo">Metodo</a>
+    </nav>
+    <button class="theme-btn" id="theme-toggle" type="button" aria-label="Cambia tema">Tema: auto</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="view-hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Prima di firmare, guarda il voto.</h1>
+        <p class="hero-sub">Bilanci, contratti integrativi e accordi sindacali diventano una classe da A+ a F. Gratis, per chi cerca lavoro.</p>
+        <div class="search" role="search">
+          <label for="search-input">Cerca un'azienda</label>
+          <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="Nome, settore o città"
+                 role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-list">
+          <ul class="suggest" id="search-list" role="listbox" aria-label="Aziende trovate" hidden></ul>
+        </div>
+        <div class="hero-links">
+          <a class="btn" href="#aziende">Sfoglia le aziende</a>
+          <a href="#metodo">Come calcoliamo il voto</a>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <div class="hero-aside-bar">
+          <span class="mono">Etichetta di esempio</span>
+          <button class="link-btn" id="hero-next" type="button">Mostra un'altra azienda</button>
+        </div>
+        <div id="hero-label" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-classifica" aria-labelledby="classifica-title">
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <h2 id="classifica-title">La classifica</h2>
+          <p>Ordina per il pilastro che conta per te. Le prime tre dell'ordinamento sono evidenziate.</p>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="field"><label class="mono" for="f-settore">Settore</label><select id="f-settore"></select></div>
+        <div class="field"><label class="mono" for="f-citta">Città</label><select id="f-citta"></select></div>
+        <div class="field"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
+        <div class="field"><label class="mono" for="f-ordina">Ordina per</label><select id="f-ordina"></select></div>
+      </div>
+      <div class="quick" role="group" aria-label="Classifiche rapide">
+        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori in assoluto</button>
+        <button class="chip" type="button" id="q-flex" data-sort="flex">Migliori per smart working e sede</button>
+        <button class="chip" type="button" id="q-ret" data-sort="ret">Migliori per retribuzione</button>
+        <button class="chip" type="button" id="q-stab" data-sort="stab">Migliori per stabilità</button>
+        <span class="mono count-line" id="rank-count" aria-live="polite"></span>
+      </div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella classifica, scorre in orizzontale">
+        <table class="rank" id="rank-table">
+          <caption class="sr-only">Classifica delle aziende per punteggio e pilastri</caption>
+          <thead id="rank-head"></thead>
+          <tbody id="rank-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-aziende" aria-labelledby="aziende-title" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <h2 id="aziende-title">Tutte le aziende</h2>
+          <p>Ogni card mostra la classe, i sei pilastri e tre fatti da sapere prima del colloquio.</p>
+        </div>
+        <div class="field"><label class="mono" for="g-ordina">Ordina per</label><select id="g-ordina"></select></div>
+      </div>
+      <div class="grid" id="card-grid"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-scheda" aria-labelledby="scheda-title" hidden>
+    <div class="wrap" id="scheda-root"></div>
+  </section>
+
+  <section class="view" id="view-confronta" aria-labelledby="confronta-title" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <h2 id="confronta-title">Confronta</h2>
+          <p>Scegli due o tre aziende. Per ogni riga segniamo la migliore.</p>
+        </div>
+      </div>
+      <div class="cmp-pick">
+        <div class="field"><label class="mono" for="cmp-1">Azienda 1</label><select id="cmp-1"></select></div>
+        <div class="field"><label class="mono" for="cmp-2">Azienda 2</label><select id="cmp-2"></select></div>
+        <div class="field"><label class="mono" for="cmp-3">Azienda 3 (facoltativa)</label><select id="cmp-3"></select></div>
+      </div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella di confronto, scorre in orizzontale">
+        <table class="cmp" id="cmp-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-metodo" aria-labelledby="metodo-title" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <div>
+          <h2 id="metodo-title">Come diamo il voto</h2>
+          <p>Diciannove indicatori, sei pilastri, una classe. Tutto si calcola da dati pubblici o documentati.</p>
+        </div>
+      </div>
+      <div class="method-grid">
+        <div class="method-text">
+          <h3>Dal dato al punto</h3>
+          <p>Ogni indicatore ha un valore peggiore, che vale 0 punti, e un valore migliore, che vale 100. In mezzo il punteggio sale in modo lineare. Oltre gli estremi resta fermo a 0 o a 100.</p>
+          <p class="formula">punti = (valore − peggiore) ÷ (migliore − peggiore) × 100<br>poi limitato tra 0 e 100</p>
+          <h3>Dal punto alla classe</h3>
+          <p>Il punteggio di un pilastro è la media dei suoi indicatori. Il totale somma i pilastri, ciascuno moltiplicato per il suo peso. Il totale va da 0 a 100 e decide la classe.</p>
+          <div class="scale-key" id="scale-key" aria-label="Soglie delle classi"></div>
+          <h3>Le recensioni</h3>
+          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Un'azienda non sale di classe con qualche voto entusiasta.</p>
+        </div>
+        <div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie, scorre in orizzontale">
+            <table class="weights" id="weights-table">
+              <caption class="sr-only">Pilastri, pesi e soglie degli indicatori</caption>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="principles">
+        <div><h3>Nessuna azienda paga</h3><p>Non vendiamo posizioni, badge o profili premium. Il voto non si compra.</p></div>
+        <div><h3>Ogni dato ha una fonte</h3><p>Accanto a ogni numero c'è il documento da cui viene: bilancio, contratto, rapporto sulla parità.</p></div>
+        <div><h3>Solo aziende da 100 dipendenti in su</h3><p>Sotto questa soglia i dati pubblici sono pochi e un caso singolo sposta troppo il voto.</p></div>
+        <div><h3>Le recensioni pesano solo il 5%</h3><p>Le opinioni contano, i fatti di più. Il 95% del voto viene da dati verificabili.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h2>Segnala un dato</h2>
+      <p>Hai un contratto integrativo, un accordo o un bilancio che manca? Potrai inviarcelo con la fonte allegata.</p>
+      <span class="mono soon">Funzione in arrivo</span>
+    </div>
+    <div>
+      <h2>Contesta un voto</h2>
+      <p>Lavori in un'azienda valutata e un numero non torna? Potrai chiedere una revisione indicando il documento corretto.</p>
+      <span class="mono soon">Funzione in arrivo</span>
+    </div>
+    <div>
+      <h2>Chi siamo</h2>
+      <p>Un progetto indipendente e gratuito per la trasparenza retributiva in Italia. Nessuna azienda paga per esserci.</p>
+      <p><a href="#metodo">Leggi il metodo</a></p>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span class="mono">CompanyRatings · versione demo 2026</span>
+    <span class="mono">Aziende e dati fittizi</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+/*@@CALC-START@@*/
+/* =========================================================================
+   DATI DEMO. Tutte le aziende sono inventate.
+   Per usare dati veri sostituisci solo l'array AZIENDE: stessi campi, stesse unità.
+   - fatturato: ultimi 4 esercizi in milioni di euro, dal più vecchio (la crescita media
+     a 3 anni si calcola da qui).
+   - valori: un campo per indicatore, nelle unità indicate in INDICATORI.
+   - fonti: facoltativo, sostituisce la fonte standard di un singolo indicatore.
+   ========================================================================= */
+const ANNI = [2022, 2023, 2024, 2025];
+const AZIENDE = [
+  { slug: "brera-digital", nome: "Brera Digital S.r.l.", settore: "Software", citta: "Milano", dipendenti: 420, ccnl: "Commercio e Terziario",
+    fatturato: [75.6, 85.2, 92.7, 101.6],
+    valori: { ebitMargin: 13, crescitaEbit: 14, debitoEbitda: 1.3, costoMedio: 80600, buonoPasto: 11, premio: 3370, welfare: 2240, termine: 1, cig: 1, licColl: 0, turnover: 3.9, smart: 3, minutiMetro: 6, integrativo: 1, vertenze: 1, gapGenere: 6.7, glassdoor: 4, indeed: 3.7 } },
+  { slug: "felsina-biotech", nome: "Felsina Biotech S.p.A.", settore: "Farmaceutico", citta: "Bologna", dipendenti: 1350, ccnl: "Chimico-farmaceutico",
+    fatturato: [313.2, 321.8, 340.2, 356.8],
+    valori: { ebitMargin: 11.3, crescitaEbit: 15.5, debitoEbitda: 0.7, costoMedio: 64700, buonoPasto: 8, premio: 3460, welfare: 2310, termine: 1, cig: 0, licColl: 0, turnover: 3.1, smart: 3, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.1, glassdoor: 4.4, indeed: 3.8 } },
+  { slug: "euganea-volt", nome: "Euganea Volt S.p.A.", settore: "Energia", citta: "Padova", dipendenti: 780, ccnl: "Elettrico",
+    fatturato: [226.2, 257.9, 279.6, 315.5],
+    valori: { ebitMargin: 12.6, crescitaEbit: 10.6, debitoEbitda: 0.1, costoMedio: 66100, buonoPasto: 10, premio: 1810, welfare: 1490, termine: 3.8, cig: 1, licColl: 1, turnover: 11.1, smart: 3, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.2, glassdoor: 3.8, indeed: 4.3 } },
+  { slug: "bora-finanza", nome: "Bora Finanza S.p.A.", settore: "Banca e finanza", citta: "Trieste", dipendenti: 960, ccnl: "Credito",
+    fatturato: [249.6, 259.4, 272.4, 288.7],
+    valori: { ebitMargin: 13.8, crescitaEbit: 16, debitoEbitda: 0, costoMedio: 61400, buonoPasto: 9.5, premio: 1920, welfare: 1250, termine: 1, cig: 0, licColl: 0, turnover: 3.9, smart: 2, minutiMetro: 12, integrativo: 1, vertenze: 1, gapGenere: 8, glassdoor: 3.7, indeed: 4.6 } },
+  { slug: "mole-dati", nome: "Mole Dati S.r.l.", settore: "Software", citta: "Torino", dipendenti: 260, ccnl: "Metalmeccanico Industria",
+    fatturato: [84.5, 94.5, 105.3, 118.7],
+    valori: { ebitMargin: 8, crescitaEbit: 11.4, debitoEbitda: 1.2, costoMedio: 57500, buonoPasto: 6.5, premio: 2810, welfare: 1870, termine: 9.8, cig: 1, licColl: 0, turnover: 5.2, smart: 2, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.8, glassdoor: 4, indeed: 3.8 } },
+  { slug: "alfa-meccanica", nome: "Alfa Meccanica S.p.A.", settore: "Meccanica", citta: "Torino", dipendenti: 1120, ccnl: "Metalmeccanico Industria",
+    fatturato: [352.8, 380.8, 393.8, 412.5],
+    valori: { ebitMargin: 7.3, crescitaEbit: 9.8, debitoEbitda: 1, costoMedio: 64100, buonoPasto: 5, premio: 2850, welfare: 1680, termine: 1, cig: 1, licColl: 1, turnover: 11.8, smart: 2, minutiMetro: 3, integrativo: 1, vertenze: 1, gapGenere: 0.5, glassdoor: 4, indeed: 4.1 } },
+  { slug: "ticino-chimica", nome: "Ticino Chimica S.p.A.", settore: "Chimico", citta: "Milano", dipendenti: 640, ccnl: "Chimico-farmaceutico",
+    fatturato: [177.3, 178.9, 183.1, 184.5],
+    valori: { ebitMargin: 10.8, crescitaEbit: 5.7, debitoEbitda: 1.8, costoMedio: 59800, buonoPasto: 5, premio: 1990, welfare: 1390, termine: 6, cig: 0, licColl: 1, turnover: 10.4, smart: 2, minutiMetro: 7, integrativo: 1, vertenze: 0, gapGenere: 6.1, glassdoor: 4, indeed: 4.3 } },
+  { slug: "scaligera-vini", nome: "Scaligera Vini S.p.A.", settore: "Alimentare", citta: "Verona", dipendenti: 310, ccnl: "Industria alimentare",
+    fatturato: [106, 104.6, 104.4, 106.4],
+    valori: { ebitMargin: 12.8, crescitaEbit: 9.7, debitoEbitda: 0.7, costoMedio: 53400, buonoPasto: 5, premio: 2330, welfare: 1690, termine: 15, cig: 1, licColl: 0, turnover: 12.9, smart: 2, minutiMetro: 10, integrativo: 1, vertenze: 0, gapGenere: 2.9, glassdoor: 4, indeed: 4 } },
+  { slug: "dora-robotica", nome: "Dora Robotica S.r.l.", settore: "Meccanica", citta: "Torino", dipendenti: 230, ccnl: "Metalmeccanico Industria",
+    fatturato: [66, 72, 79.9, 88.9],
+    valori: { ebitMargin: 9.8, crescitaEbit: 8.5, debitoEbitda: 0.4, costoMedio: 56600, buonoPasto: 7, premio: 2020, welfare: 1690, termine: 5, cig: 1, licColl: 1, turnover: 8.9, smart: 1, minutiMetro: 7, integrativo: 1, vertenze: 1, gapGenere: 11, glassdoor: 3.5, indeed: 4.1 } },
+  { slug: "partenope-software", nome: "Partenope Software S.r.l.", settore: "Software", citta: "Napoli", dipendenti: 380, ccnl: "Metalmeccanico Industria",
+    fatturato: [49, 53.4, 58.3, 62.2],
+    valori: { ebitMargin: 9.4, crescitaEbit: 7.3, debitoEbitda: 1.6, costoMedio: 66500, buonoPasto: 6, premio: 2560, welfare: 830, termine: 17.1, cig: 2, licColl: 1, turnover: 9.9, smart: 2, minutiMetro: 2, integrativo: 1, vertenze: 1, gapGenere: 9.7, glassdoor: 3, indeed: 3.3 } },
+  { slug: "velabro-consulting", nome: "Velabro Consulting S.r.l.", settore: "Consulenza", citta: "Roma", dipendenti: 540, ccnl: "Commercio e Terziario",
+    fatturato: [71.3, 73.4, 75, 78.3],
+    valori: { ebitMargin: 4.3, crescitaEbit: 0, debitoEbitda: 0.9, costoMedio: 58700, buonoPasto: 9, premio: 1560, welfare: 800, termine: 5.8, cig: 1, licColl: 1, turnover: 13, smart: 1, minutiMetro: 13, integrativo: 1, vertenze: 0, gapGenere: 3, glassdoor: 3.8, indeed: 3.9 } },
+  { slug: "antenore-packaging", nome: "Antenore Packaging S.p.A.", settore: "Packaging", citta: "Padova", dipendenti: 450, ccnl: "Carta e cartotecnica",
+    fatturato: [102.6, 109.4, 115.5, 121.2],
+    valori: { ebitMargin: 3.3, crescitaEbit: 8.6, debitoEbitda: 2.8, costoMedio: 68300, buonoPasto: 5.5, premio: 2010, welfare: 1280, termine: 12, cig: 1, licColl: 1, turnover: 11.9, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 8.3, glassdoor: 4.1, indeed: 3.5 } },
+  { slug: "arno-sanita", nome: "Arno Sanità S.r.l.", settore: "Sanità privata", citta: "Firenze", dipendenti: 870, ccnl: "Sanità privata",
+    fatturato: [254.9, 262.7, 256.6, 263.5],
+    valori: { ebitMargin: 4.8, crescitaEbit: 0.9, debitoEbitda: 1.2, costoMedio: 59500, buonoPasto: 5, premio: 2050, welfare: 1340, termine: 10.4, cig: 0, licColl: 0, turnover: 15, smart: 1, minutiMetro: 6, integrativo: 0, vertenze: 2, gapGenere: 3.1, glassdoor: 3.1, indeed: 3.9 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "quadrilatero-moda", nome: "Quadrilatero Moda S.p.A.", settore: "Moda", citta: "Milano", dipendenti: 690, ccnl: "Tessile e abbigliamento",
+    fatturato: [115.2, 116.1, 112.9, 112.1],
+    valori: { ebitMargin: 2.8, crescitaEbit: 8.3, debitoEbitda: 0.9, costoMedio: 67800, buonoPasto: 7.5, premio: 2030, welfare: 1350, termine: 10.4, cig: 2, licColl: 1, turnover: 10, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 1, gapGenere: 4.7, glassdoor: 3, indeed: 3.2 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "murgia-alimentare", nome: "Murgia Alimentare S.p.A.", settore: "Alimentare", citta: "Bari", dipendenti: 520, ccnl: "Industria alimentare",
+    fatturato: [64.5, 65.8, 64.4, 65.1],
+    valori: { ebitMargin: 9.8, crescitaEbit: -2.9, debitoEbitda: 3.1, costoMedio: 66500, buonoPasto: 7.5, premio: 2400, welfare: 930, termine: 18.7, cig: 2, licColl: 1, turnover: 14.2, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 11.5, glassdoor: 3.6, indeed: 3.4 } },
+  { slug: "lanterna-logistica", nome: "Lanterna Logistica S.p.A.", settore: "Logistica", citta: "Genova", dipendenti: 1480, ccnl: "Logistica e spedizione",
+    fatturato: [371.5, 356.5, 337.1, 313.8],
+    valori: { ebitMargin: 9.8, crescitaEbit: -2.1, debitoEbitda: 2.8, costoMedio: 66100, buonoPasto: 4.5, premio: 1800, welfare: 1570, termine: 9, cig: 2, licColl: 1, turnover: 13.1, smart: 1, minutiMetro: 20, integrativo: 1, vertenze: 2, gapGenere: 12.3, glassdoor: 3.9, indeed: 3.1 } },
+  { slug: "porta-romana-media", nome: "Porta Romana Media S.r.l.", settore: "Media", citta: "Milano", dipendenti: 180, ccnl: "Grafici editoriali",
+    fatturato: [41.4, 41.6, 43.2, 43.3],
+    valori: { ebitMargin: 4.1, crescitaEbit: 5.3, debitoEbitda: 1.7, costoMedio: 61700, buonoPasto: 4.5, premio: 1250, welfare: 1350, termine: 17.1, cig: 2, licColl: 1, turnover: 19.2, smart: 2, minutiMetro: 19, integrativo: 0, vertenze: 2, gapGenere: 8.6, glassdoor: 3.4, indeed: 3.6 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "nettuno-costruzioni", nome: "Nettuno Costruzioni S.p.A.", settore: "Edilizia", citta: "Bologna", dipendenti: 610, ccnl: "Edilizia Industria",
+    fatturato: [212.9, 216.6, 222.1, 230.7],
+    valori: { ebitMargin: 6.1, crescitaEbit: 1.8, debitoEbitda: 2.3, costoMedio: 51100, buonoPasto: 5.5, premio: 930, welfare: 700, termine: 13, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 12, integrativo: 0, vertenze: 2, gapGenere: 8.9, glassdoor: 3.6, indeed: 3.6 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "etna-lumen", nome: "Etna Lumen S.r.l.", settore: "Energia", citta: "Catania", dipendenti: 210, ccnl: "Elettrico",
+    fatturato: [52.9, 51.1, 51.3, 51.8],
+    valori: { ebitMargin: 7, crescitaEbit: -5, debitoEbitda: 3.2, costoMedio: 52200, buonoPasto: 4.5, premio: 1010, welfare: 1260, termine: 13.2, cig: 2, licColl: 1, turnover: 12.8, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 15.8, glassdoor: 3.6, indeed: 3.5 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "trulli-mare-hotels", nome: "Trulli e Mare Hotels S.r.l.", settore: "Turismo", citta: "Bari", dipendenti: 350, ccnl: "Turismo",
+    fatturato: [78.8, 75, 69.6, 66.1],
+    valori: { ebitMargin: 5.4, crescitaEbit: 4.3, debitoEbitda: 3.7, costoMedio: 42400, buonoPasto: 3.5, premio: 1930, welfare: 620, termine: 13.3, cig: 2, licColl: 1, turnover: 18.5, smart: 1, minutiMetro: 15, integrativo: 1, vertenze: 2, gapGenere: 14.9, glassdoor: 3.4, indeed: 3.5 } },
+  { slug: "sette-colli-retail", nome: "Sette Colli Retail S.p.A.", settore: "Grande distribuzione", citta: "Roma", dipendenti: 2300, ccnl: "Commercio e Terziario",
+    fatturato: [347.3, 333.9, 318.5, 302.9],
+    valori: { ebitMargin: 5.4, crescitaEbit: -10.4, debitoEbitda: 3.8, costoMedio: 48600, buonoPasto: 4, premio: 670, welfare: 1210, termine: 20.4, cig: 2, licColl: 1, turnover: 16.5, smart: 2, minutiMetro: 11, integrativo: 0, vertenze: 2, gapGenere: 7.7, glassdoor: 3.3, indeed: 3.5 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "vesuvio-trasporti", nome: "Vesuvio Trasporti S.r.l.", settore: "Logistica", citta: "Napoli", dipendenti: 730, ccnl: "Logistica e spedizione",
+    fatturato: [260.6, 256.7, 256.2, 245.9],
+    valori: { ebitMargin: 2, crescitaEbit: -11.2, debitoEbitda: 4, costoMedio: 53500, buonoPasto: 2.5, premio: 960, welfare: 860, termine: 14.3, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 14.5, glassdoor: 2.7, indeed: 2.6 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "tiburtina-servizi", nome: "Tiburtina Servizi S.r.l.", settore: "Contact center", citta: "Roma", dipendenti: 1650, ccnl: "Telecomunicazioni",
+    fatturato: [549.5, 522.2, 484.4, 450.7],
+    valori: { ebitMargin: -3.2, crescitaEbit: 0.1, debitoEbitda: 4.1, costoMedio: 54900, buonoPasto: 4, premio: 830, welfare: 160, termine: 16.3, cig: 2, licColl: 2, turnover: 17.5, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 3, gapGenere: 12.3, glassdoor: 2.9, indeed: 3.1 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+  { slug: "salento-call", nome: "Salento Call S.r.l.", settore: "Contact center", citta: "Lecce", dipendenti: 940, ccnl: "Telecomunicazioni",
+    fatturato: [182.4, 160.3, 140.9, 128.5],
+    valori: { ebitMargin: -1.3, crescitaEbit: -2, debitoEbitda: 4.2, costoMedio: 45900, buonoPasto: 0, premio: 600, welfare: 700, termine: 25.9, cig: 2, licColl: 1, turnover: 16.8, smart: 0, minutiMetro: 25, integrativo: 0, vertenze: 2, gapGenere: 20.2, glassdoor: 2.7, indeed: 3.1 },
+    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } }
+];
+
+/* Modello: identico al foglio rating_aziende_esempio.xlsx */
+const INDICATORI = {
+  crescitaFatt: { nome: "Crescita del fatturato, media 3 anni", v0: -10, v100: 10, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
+  ebitMargin:   { nome: "EBIT margin, media 3 anni", v0: -5, v100: 15, u: "pct", fonte: "Bilanci depositati 2023-2025" },
+  crescitaEbit: { nome: "Crescita dell'EBIT, media 3 anni", v0: -15, v100: 15, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
+  debitoEbitda: { nome: "Debito netto / EBITDA", v0: 5, v100: 0, u: "x", fonte: "Bilancio depositato 2025, nota integrativa" },
+  costoMedio:   { nome: "Costo medio per dipendente", v0: 35000, v100: 75000, u: "eurY", fonte: "Bilancio 2025, costo del personale / organico medio" },
+  buonoPasto:   { nome: "Buono pasto giornaliero", v0: 0, v100: 10, u: "eur", fonte: "Contratto integrativo" },
+  premio:       { nome: "Premio di risultato medio", v0: 0, v100: 3000, u: "eurY", fonte: "Accordo sul premio di risultato" },
+  welfare:      { nome: "Welfare e contributo ai fondi", v0: 0, v100: 2000, u: "eurY", fonte: "Contratto integrativo e CCNL" },
+  termine:      { nome: "Contratti a termine e somministrati", v0: 30, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità" },
+  cig:          { nome: "Anni con cassa integrazione, ultimi 3", v0: 3, v100: 0, u: "anni", fonte: "Accordi sindacali e decreti INPS" },
+  licColl:      { nome: "Licenziamenti collettivi, ultimi 5 anni", v0: 2, v100: 0, u: "n", fonte: "Procedure ex L. 223/1991" },
+  turnover:     { nome: "Turnover annuo", v0: 25, v100: 5, u: "pct", fonte: "Rapporto biennale sulla parità" },
+  smart:        { nome: "Smart working a settimana", v0: 0, v100: 3, u: "gg", fonte: "Accordo aziendale sul lavoro agile" },
+  minutiMetro:  { nome: "Minuti a piedi da metro o treno", v0: 30, v100: 0, u: "min", fonte: "Indirizzo sede e mappa trasporto pubblico" },
+  integrativo:  { nome: "Contratto integrativo", v0: 0, v100: 1, u: "bool", fonte: "Archivio contratti CNEL" },
+  vertenze:     { nome: "Vertenze o scioperi aziendali, ultimi 3 anni", v0: 3, v100: 0, u: "n", fonte: "Comunicati sindacali e stampa locale" },
+  gapGenere:    { nome: "Gap retributivo di genere", v0: 20, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità 2024" },
+  glassdoor:    { nome: "Media recensioni Glassdoor", v0: 2, v100: 4.5, u: "stelle", fonte: "Glassdoor, almeno 30 recensioni" },
+  indeed:       { nome: "Media recensioni Indeed", v0: 2, v100: 4.5, u: "stelle", fonte: "Indeed, almeno 30 recensioni" }
+};
+const PILASTRI = [
+  { id: "eco",  nome: "Solidità economica", breve: "Solidità", peso: 0.25, ind: ["crescitaFatt", "ebitMargin", "crescitaEbit", "debitoEbitda"] },
+  { id: "ret",  nome: "Retribuzione e benefit", breve: "Retribuzione", peso: 0.25, ind: ["costoMedio", "buonoPasto", "premio", "welfare"] },
+  { id: "stab", nome: "Stabilità del lavoro", breve: "Stabilità", peso: 0.20, ind: ["termine", "cig", "licColl", "turnover"] },
+  { id: "flex", nome: "Flessibilità e sede", breve: "Flessibilità", peso: 0.15, ind: ["smart", "minutiMetro"] },
+  { id: "rel",  nome: "Relazioni industriali e parità", breve: "Relazioni", peso: 0.10, ind: ["integrativo", "vertenze", "gapGenere"] },
+  { id: "perc", nome: "Percezione dei dipendenti", breve: "Percezione", peso: 0.05, ind: ["glassdoor", "indeed"] }
+];
+const CLASSI = [
+  { v: "A+", min: 90, c: "g-ap" }, { v: "A", min: 80, c: "g-a" }, { v: "B", min: 70, c: "g-b" },
+  { v: "C", min: 60, c: "g-c" }, { v: "D", min: 50, c: "g-d" }, { v: "E", min: 40, c: "g-e" }, { v: "F", min: -Infinity, c: "g-f" }
+];
+
+function punti(k, valore) {
+  const d = INDICATORI[k];
+  const p = (valore - d.v0) / (d.v100 - d.v0) * 100;
+  return Math.max(0, Math.min(100, p));
+}
+function classe(score) { return CLASSI.find(c => score >= c.min); }
+function crescitaMedia(serie) {
+  let s = 0;
+  for (let i = 1; i < serie.length; i++) s += (serie[i] / serie[i - 1] - 1) * 100;
+  return s / (serie.length - 1);
+}
+function valuta(az) {
+  const valori = Object.assign({ crescitaFatt: crescitaMedia(az.fatturato) }, az.valori);
+  const pt = {}, pil = {};
+  let totale = 0;
+  for (const p of PILASTRI) {
+    let s = 0;
+    for (const k of p.ind) { pt[k] = punti(k, valori[k]); s += pt[k]; }
+    pil[p.id] = s / p.ind.length;
+    totale += pil[p.id] * p.peso;
+  }
+  const cl = classe(totale);
+  return Object.assign({}, az, { v: valori, pt: pt, pil: pil, totale: totale, voto: cl.v, gc: cl.c });
+}
+const RATED = AZIENDE.map(valuta);
+/*@@CALC-END@@*/
+
+/* ======================= formattazione ======================= */
+const nf = (d) => new Intl.NumberFormat("it-IT", { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: "always" });
+const f0 = nf(0), f1 = nf(1);
+function fmt(k, v) {
+  const u = INDICATORI[k].u;
+  switch (u) {
+    case "pctS": return (v > 0 ? "+" : "") + f1.format(v) + "%";
+    case "pct": return f1.format(v) + "%";
+    case "x": return f1.format(v) + "x";
+    case "eurY": return f0.format(v) + " €/anno";
+    case "eur": return (Number.isInteger(v) ? f0 : nf(2)).format(v) + " €";
+    case "anni": return v + " su 3";
+    case "n": return String(v);
+    case "gg": return v + (v === 1 ? " giorno" : " giorni");
+    case "min": return v + " min";
+    case "bool": return v ? "Sì" : "No";
+    case "stelle": return f1.format(v) + " / 5";
+  }
+  return String(v);
+}
+function fmtSoglia(k, v) {
+  const u = INDICATORI[k].u;
+  if (u === "bool") return v ? "Sì" : "No";
+  if (u === "eurY") return f0.format(v) + " €";
+  return fmt(k, v).replace(" €/anno", " €");
+}
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const sc = (x) => f1.format(x);
+const BY_SLUG = Object.fromEntries(RATED.map(a => [a.slug, a]));
+const $ = (id) => document.getElementById(id);
+const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+function tag(a, lg) { return `<span class="tag ${lg ? "tag-lg " : ""}${a.gc}" aria-label="Classe ${a.voto}">${a.voto}</span>`; }
+function miniBar(x) {
+  return `<span class="mb"><span class="mb-track" aria-hidden="true"><i style="width:${x.toFixed(1)}%"></i></span><span class="mb-n">${f0.format(x)}</span></span>`;
+}
+function spark(serie, w, h) {
+  w = w || 56; h = h || 18;
+  const min = Math.min.apply(null, serie), max = Math.max.apply(null, serie);
+  const r = max - min || 1, pad = 2;
+  const pts = serie.map((v, i) => [pad + i * (w - 2 * pad) / (serie.length - 1), pad + (h - 2 * pad) * (1 - (v - min) / r)]);
+  const d = pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
+  const last = pts[pts.length - 1];
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="currentColor"/></svg>`;
+}
+
+/* ======================= etichetta ======================= */
+function labelHTML(a, opts) {
+  opts = opts || {};
+  const rows = CLASSI.map((c, i) => {
+    const hit = c.v === a.voto;
+    const range = i === 0 ? "90-100" : (c.min === -Infinity ? "0-39" : c.min + "-" + (CLASSI[i - 1].min - 1));
+    return `<div class="e-row${hit ? "" : " is-dim"}"><span class="e-bar ${c.c}" style="--w:${34 + i * 11}%;--i:${i}">${c.v}<small>${range}</small></span>${hit ? `<span class="e-marker" aria-hidden="true">${a.voto}</span>` : "<span></span>"}</div>`;
+  }).join("");
+  const name = opts.link ? `<a href="#${a.slug}">${esc(a.nome)}</a>` : `<strong>${esc(a.nome)}</strong>`;
+  const pill = PILASTRI.map(p => `<div><span class="mono">${p.breve}</span><b>${f0.format(a.pil[p.id])}</b></div>`).join("");
+  return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: classe ${a.voto}, punteggio ${sc(a.totale)} su 100">
+    <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Classe</span></div>
+    <div class="elabel-who">${name}<span>${esc(a.settore)} · ${esc(a.citta)} · ${f0.format(a.dipendenti)} dipendenti</span></div>
+    <div class="elabel-scale" aria-hidden="true">${rows}</div>
+    <div class="elabel-score"><span class="mono">Punteggio 0–100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
+    <div class="elabel-pillars">${pill}</div>
+    <div class="elabel-foot"><span class="mono">Schema CR-2026 · 19 indicatori</span><span class="mono">Demo</span></div>
+  </figure>`;
+}
+const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function countUp(el) {
+  const target = parseFloat(el.getAttribute("data-count"));
+  if (reduceMotion()) { el.textContent = sc(target); return; }
+  const t0 = performance.now(), dur = 1100, delay = 250;
+  el.textContent = sc(0);
+  function step(t) {
+    const k = Math.max(0, Math.min(1, (t - t0 - delay) / dur));
+    const e = 1 - Math.pow(1 - k, 3);
+    el.textContent = sc(target * e);
+    if (k < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const HERO_ORDER = ["mole-dati", "partenope-software", "brera-digital", "lanterna-logistica", "felsina-biotech", "trulli-mare-hotels", "alfa-meccanica", "salento-call"].filter(s => BY_SLUG[s]);
+let heroIdx = 0;
+function renderHero(anim) {
+  const a = BY_SLUG[HERO_ORDER[heroIdx]] || RATED[0];
+  $("hero-label").innerHTML = labelHTML(a, { anim: anim, link: true });
+  if (anim) countUp($("hero-label").querySelector("[data-count]"));
+}
+
+/* ======================= classifica ======================= */
+const SORTS = [{ id: "totale", nome: "Punteggio totale" }].concat(PILASTRI.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome (A-Z)" }]);
+const state = { settore: "", citta: "", voto: "", sort: "totale" };
+function sortVal(a, s) { return s === "totale" ? a.totale : a.pil[s]; }
+function sorted(list, s) {
+  return list.slice().sort((x, y) => s === "nome" ? x.nome.localeCompare(y.nome, "it") : (sortVal(y, s) - sortVal(x, s)) || (y.totale - x.totale));
+}
+function fillSelect(sel, opts, value) {
+  sel.innerHTML = opts.map(o => `<option value="${esc(o[0])}"${o[0] === value ? " selected" : ""}>${esc(o[1])}</option>`).join("");
+}
+function initFilters() {
+  const uniq = (k) => Array.from(new Set(RATED.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
+  fillSelect($("f-settore"), [["", "Tutti i settori"]].concat(uniq("settore").map(s => [s, s])), "");
+  fillSelect($("f-citta"), [["", "Tutte le città"]].concat(uniq("citta").map(s => [s, s])), "");
+  fillSelect($("f-voto"), [["", "Tutte le classi"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v + " o superiore"])), "");
+  const sortOpts = SORTS.map(s => [s.id, s.nome]);
+  fillSelect($("f-ordina"), sortOpts, "totale");
+  fillSelect($("g-ordina"), sortOpts, "totale");
+  $("f-settore").addEventListener("change", e => { state.settore = e.target.value; renderRank(); });
+  $("f-citta").addEventListener("change", e => { state.citta = e.target.value; renderRank(); });
+  $("f-voto").addEventListener("change", e => { state.voto = e.target.value; renderRank(); });
+  $("f-ordina").addEventListener("change", e => { state.sort = e.target.value; renderRank(); });
+  $("g-ordina").addEventListener("change", () => renderCards());
+  document.querySelectorAll(".quick .chip").forEach(b => b.addEventListener("click", () => { state.sort = b.getAttribute("data-sort"); renderRank(); }));
+}
+function renderRank() {
+  const minIdx = state.voto ? CLASSI.findIndex(c => c.v === state.voto) : CLASSI.length;
+  const list = sorted(RATED.filter(a =>
+    (!state.settore || a.settore === state.settore) &&
+    (!state.citta || a.citta === state.citta) &&
+    CLASSI.findIndex(c => c.v === a.voto) <= minIdx), state.sort);
+  $("f-ordina").value = state.sort;
+  document.querySelectorAll(".quick .chip").forEach(b => b.setAttribute("aria-pressed", String(b.getAttribute("data-sort") === state.sort)));
+  const cols = [["pos", "#", false], ["nome", "Azienda", true], ["voto", "Classe", false], ["totale", "Punteggio", true]].concat(PILASTRI.map(p => [p.id, p.breve + " " + Math.round(p.peso * 100) + "%", true]));
+  $("rank-head").innerHTML = "<tr>" + cols.map(c => {
+    if (!c[2]) return `<th scope="col"><span class="mono">${c[1]}</span></th>`;
+    const on = state.sort === c[0];
+    return `<th scope="col"${on ? ` aria-sort="${c[0] === "nome" ? "ascending" : "descending"}"` : ""}><button type="button" class="sort-btn" id="sort-${c[0]}" data-sort="${c[0]}">${esc(c[1])}<span class="arr" aria-hidden="true">${on ? (c[0] === "nome" ? "▲" : "▼") : ""}</span></button></th>`;
+  }).join("") + "</tr>";
+  $("rank-head").querySelectorAll(".sort-btn").forEach(b => b.addEventListener("click", () => {
+    state.sort = b.getAttribute("data-sort"); renderRank();
+    const nb = $("sort-" + state.sort); if (nb) nb.focus();
+  }));
+  const top = state.sort !== "nome";
+  $("rank-body").innerHTML = list.length ? list.map((a, i) => `<tr class="${top && i < 3 ? "is-top" : ""}">
+      <td class="pos">${i + 1}</td>
+      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a>${top && i < 3 ? '<span class="top-note sr-only">Prime tre</span>' : ""}<span>${esc(a.settore)} · ${esc(a.citta)}</span></td>
+      <td>${tag(a)}</td>
+      <td class="score">${sc(a.totale)}</td>
+      ${PILASTRI.map(p => `<td>${miniBar(a.pil[p.id])}</td>`).join("")}
+    </tr>`).join("")
+    : `<tr><td colspan="${cols.length}" class="empty"><p>Nessuna azienda corrisponde a questi filtri.</p><button type="button" class="btn btn-ghost" id="reset-filters">Azzera i filtri</button></td></tr>`;
+  const rb = $("reset-filters");
+  if (rb) rb.addEventListener("click", () => {
+    state.settore = state.citta = state.voto = "";
+    $("f-settore").value = $("f-citta").value = $("f-voto").value = "";
+    renderRank();
+  });
+  const sname = SORTS.find(s => s.id === state.sort).nome.toLowerCase();
+  $("rank-count").textContent = list.length + " aziende · ordinate per " + sname;
+}
+
+/* ======================= card ======================= */
+function cardHTML(a) {
+  const g = a.v.crescitaFatt;
+  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, classe ${a.voto}, punteggio ${sc(a.totale)}">
+    <div class="card-top">${tag(a, true)}<div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
+    <div class="card-body">
+      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(a.settore)} · ${esc(a.citta)} <span class="mono">· demo</span></p></div>
+      <div class="pill-bars">${PILASTRI.map(p => `<div><span>${p.breve}</span><span class="mb-track" aria-hidden="true"><i style="width:${a.pil[p.id].toFixed(1)}%"></i></span><span class="mb-n">${f0.format(a.pil[p.id])}</span></div>`).join("")}</div>
+      <dl class="facts">
+        <div><dt>Smart working</dt><dd>${a.v.smart} gg/sett.</dd></div>
+        <div><dt>Buono pasto</dt><dd>${fmt("buonoPasto", a.v.buonoPasto)}</dd></div>
+        <div><dt>Fatturato</dt><dd>${(g > 0 ? "+" : "") + f1.format(g)}% ${spark(a.fatturato)}</dd></div>
+      </dl>
+    </div>
+  </a>`;
+}
+function renderCards() { $("card-grid").innerHTML = sorted(RATED, $("g-ordina").value).map(cardHTML).join(""); }
+
+/* ======================= scheda ======================= */
+function strengths(a) {
+  const all = [];
+  PILASTRI.forEach(p => p.ind.forEach(k => all.push({ k: k, p: a.pt[k], w: p.peso })));
+  const best = all.slice().sort((x, y) => (y.p - x.p) || (y.w - x.w)).slice(0, 3);
+  const worst = all.slice().sort((x, y) => (x.p - y.p) || (y.w - x.w)).slice(0, 3);
+  return { best: best, worst: worst };
+}
+function fonte(a, k) { return (a.fonti && a.fonti[k]) || INDICATORI[k].fonte; }
+function renderScheda(a) {
+  const sw = strengths(a);
+  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(fmt(x.k, a.v[x.k]))} · ${f0.format(x.p)} punti</span></li>`;
+  const contrib = PILASTRI.map(p => `<tr><td>${p.nome}</td><td class="r">${Math.round(p.peso * 100)}%</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${sc(a.pil[p.id] * p.peso)}</td></tr>`).join("");
+  const pillars = PILASTRI.map(p => `<div class="pillar">
+      <div class="pillar-head"><div><span class="mono">Pilastro · peso ${Math.round(p.peso * 100)}%</span><h3>${p.nome}</h3></div>
+      <div class="pillar-score"><span class="mono">Punteggio 0–100</span><b>${sc(a.pil[p.id])}</b></div></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Indicatori di ${esc(p.nome)}"><table class="ind">
+        <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">Fonte</th></tr></thead>
+        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti a ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 a ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
+      </table></div></div>`).join("");
+  const years = a.fatturato.map((v, i) => `<div><span class="mono">${ANNI[i]}</span><b>${f1.format(v)}</b></div>`).join("");
+  $("scheda-root").innerHTML = `
+    <a class="back" href="#classifica">Torna alla classifica</a>
+    <div class="sheet-head">
+      <div>
+        <span class="mono">Scheda azienda · demo</span>
+        <h2 id="scheda-title">${esc(a.nome)}</h2>
+        <div class="sheet-meta">
+          <div><span class="mono">Settore</span><b>${esc(a.settore)}</b></div>
+          <div><span class="mono">Città</span><b>${esc(a.citta)}</b></div>
+          <div><span class="mono">Dipendenti</span><b class="num">${f0.format(a.dipendenti)}</b></div>
+          <div><span class="mono">CCNL applicato</span><b>${esc(a.ccnl)}</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="sheet-actions">
+          <button type="button" class="btn" id="btn-confronta">Confronta</button>
+          <button type="button" class="btn btn-ghost" id="btn-copia">Copia link</button>
+        </div>
+        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="sheet-grid">
+      <div class="sheet-side">
+        ${labelHTML(a, {})}
+        <div class="rev">
+          <span class="mono">Fatturato, milioni di euro · fonte bilanci depositati</span>
+          <div style="margin-top:8px">${spark(a.fatturato, 320, 64).replace('class="spark"', 'class="spark" style="width:100%;height:64px" preserveAspectRatio="none"')}</div>
+          <div class="rev-years">${years}</div>
+        </div>
+      </div>
+      <div>
+        <div class="block">
+          <h3>Come si arriva a ${sc(a.totale)}</h3>
+          <div class="table-wrap"><table class="contrib">
+            <thead><tr><th scope="col" class="mono">Pilastro</th><th scope="col" class="mono r">Peso</th><th scope="col" class="mono r">Punteggio</th><th scope="col" class="mono r">Contributo</th></tr></thead>
+            <tbody>${contrib}</tbody>
+            <tfoot><tr><td>Totale · classe ${a.voto}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
+          </table></div>
+        </div>
+        <div class="fw" style="margin-top:28px">
+          <div class="plus"><h3>Punti di forza</h3><ul>${sw.best.map(li).join("")}</ul></div>
+          <div class="minus"><h3>Attenzione a</h3><ul>${sw.worst.map(li).join("")}</ul></div>
+        </div>
+      </div>
+    </div>
+    ${pillars}`;
+  $("btn-confronta").addEventListener("click", () => {
+    const cur = loadCmp().filter(s => s !== a.slug);
+    const other = cur[0] || RATED.find(x => x.slug !== a.slug).slug;
+    saveCmp([a.slug, other, cur[1] || ""]);
+    location.hash = "confronta";
+  });
+  $("btn-copia").addEventListener("click", async () => {
+    const url = location.href.split("#")[0] + "#" + a.slug;
+    try {
+      await navigator.clipboard.writeText(url);
+      $("copy-status").textContent = "Link copiato.";
+    } catch (e) {
+      $("copy-status").textContent = "Copia non riuscita. Il link è: " + url;
+    }
+  });
+}
+
+/* ======================= confronta ======================= */
+const CMP_KEY = "cr-ultimo-confronto";
+function loadCmp() {
+  try { const v = JSON.parse(localStorage.getItem(CMP_KEY) || "null"); if (Array.isArray(v)) return v.filter(s => s === "" || BY_SLUG[s]); } catch (e) { /* storage non disponibile */ }
+  return [];
+}
+function saveCmp(list) { try { localStorage.setItem(CMP_KEY, JSON.stringify(list)); } catch (e) { /* ignorato */ } cmpSel = list.slice(0, 3); }
+let cmpSel = [];
+function initCmp() {
+  const saved = loadCmp();
+  cmpSel = saved.length >= 2 ? saved.slice(0, 3) : ["brera-digital", "lanterna-logistica", ""];
+  const base = RATED.slice().sort((x, y) => x.nome.localeCompare(y.nome, "it")).map(a => [a.slug, a.nome + " (" + a.voto + ")"]);
+  ["cmp-1", "cmp-2", "cmp-3"].forEach((id, i) => {
+    $(id).addEventListener("change", () => {
+      const v = ["cmp-1", "cmp-2", "cmp-3"].map(x => $(x).value);
+      saveCmp(v); renderCmp();
+    });
+    $(id).dataset.opts = JSON.stringify(i === 2 ? [["", "Nessuna"]].concat(base) : base);
+  });
+}
+function renderCmp() {
+  ["cmp-1", "cmp-2", "cmp-3"].forEach((id, i) => fillSelect($(id), JSON.parse($(id).dataset.opts), cmpSel[i] || ""));
+  const list = cmpSel.filter((s, i, arr) => s && BY_SLUG[s] && arr.indexOf(s) === i).map(s => BY_SLUG[s]);
+  if (list.length < 2) {
+    $("cmp-table").innerHTML = `<tbody><tr><td class="empty" style="font-family:var(--f-text)">Scegli almeno due aziende diverse per vedere il confronto.</td></tr></tbody>`;
+    return;
+  }
+  const row = (label, sub, vals, scores) => {
+    const max = Math.max.apply(null, scores);
+    const ties = scores.filter(s => s === max).length;
+    return `<tr><th scope="row">${label}${sub ? `<small>${sub}</small>` : ""}</th>${vals.map((v, i) => {
+      const best = scores[i] === max && ties < scores.length;
+      return `<td class="${best ? "best" : ""}">${v}${best ? '<span class="best-note">Migliore</span>' : ""}</td>`;
+    }).join("")}</tr>`;
+  };
+  let body = row("Classe", "", list.map(a => tag(a)), list.map(a => a.totale));
+  body += row("Punteggio totale", "0–100", list.map(a => sc(a.totale)), list.map(a => a.totale));
+  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Pilastri</th></tr>`;
+  PILASTRI.forEach(p => { body += row(p.nome, "peso " + Math.round(p.peso * 100) + "%", list.map(a => miniBar(a.pil[p.id])), list.map(a => Math.round(a.pil[p.id] * 10) / 10)); });
+  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Fatti chiave</th></tr>`;
+  ["costoMedio", "buonoPasto", "premio", "smart", "minutiMetro", "crescitaFatt", "termine", "turnover", "gapGenere"].forEach(k => {
+    body += row(INDICATORI[k].nome, "", list.map(a => esc(fmt(k, a.v[k]))), list.map(a => Math.round(a.pt[k] * 10) / 10));
+  });
+  $("cmp-table").innerHTML = `<caption class="sr-only">Confronto tra aziende</caption><thead><tr><th scope="col"><span class="mono">Voce</span></th>${list.map(a => `<th scope="col"><a href="#${a.slug}">${esc(a.nome)}</a><span>${esc(a.settore)} · ${esc(a.citta)}</span></th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+}
+
+/* ======================= metodo ======================= */
+function renderMetodo() {
+  $("scale-key").innerHTML = CLASSI.map((c, i) => {
+    const range = i === 0 ? "da 90" : (c.min === -Infinity ? "sotto 40" : "da " + c.min + " a " + (CLASSI[i - 1].min - 1));
+    return `<div class="e-row"><span class="e-bar ${c.c}" style="--w:${40 + i * 10}%">${c.v}<small>${range}</small></span></div>`;
+  }).join("");
+  $("weights-table").insertAdjacentHTML("beforeend", `<thead><tr><th scope="col" class="mono">Pilastro e indicatore</th><th scope="col" class="mono r">0 punti</th><th scope="col" class="mono r">100 punti</th></tr></thead><tbody>${PILASTRI.map(p =>
+    `<tr class="p-row"><td>${p.nome}</td><td class="r" colspan="2">peso ${Math.round(p.peso * 100)}%</td></tr>` +
+    p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v0))}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v100))}</td></tr>`).join("")
+  ).join("")}</tbody>`);
+}
+
+/* ======================= ricerca ======================= */
+function initSearch() {
+  const input = $("search-input"), list = $("search-list");
+  let items = [], idx = -1;
+  function close() { list.hidden = true; input.setAttribute("aria-expanded", "false"); input.removeAttribute("aria-activedescendant"); idx = -1; }
+  function mark() {
+    Array.from(list.querySelectorAll("li[role=option]")).forEach((li, i) => li.setAttribute("aria-selected", String(i === idx)));
+    if (idx >= 0) input.setAttribute("aria-activedescendant", "opt-" + items[idx].slug); else input.removeAttribute("aria-activedescendant");
+  }
+  function go(a) { close(); input.value = ""; location.hash = a.slug; }
+  function update() {
+    const q = norm(input.value.trim());
+    if (!q) { close(); return; }
+    items = RATED.filter(a => norm(a.nome + " " + a.settore + " " + a.citta).includes(q)).sort((x, y) => y.totale - x.totale).slice(0, 8);
+    idx = -1;
+    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}</span><span class="s-meta">${esc(a.settore)} · ${esc(a.citta)} · ${sc(a.totale)}</span></span></li>`).join("")
+      : `<li class="s-empty" role="presentation">Nessuna azienda trovata. Prova con un settore o una città.</li>`;
+    list.hidden = false; input.setAttribute("aria-expanded", "true");
+  }
+  input.addEventListener("input", update);
+  input.addEventListener("focus", () => { if (input.value.trim()) update(); });
+  input.addEventListener("keydown", (e) => {
+    if (list.hidden) return;
+    if (e.key === "ArrowDown") { e.preventDefault(); if (items.length) { idx = (idx + 1) % items.length; mark(); } }
+    else if (e.key === "ArrowUp") { e.preventDefault(); if (items.length) { idx = (idx - 1 + items.length) % items.length; mark(); } }
+    else if (e.key === "Enter") { e.preventDefault(); const a = items[idx >= 0 ? idx : 0]; if (a) go(a); }
+    else if (e.key === "Escape") { close(); }
+  });
+  list.addEventListener("mousedown", (e) => { const li = e.target.closest("li[data-slug]"); if (li) { e.preventDefault(); go(BY_SLUG[li.getAttribute("data-slug")]); } });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".search")) close(); });
+}
+
+/* ======================= tema ======================= */
+function initTheme() {
+  const modes = ["auto", "light", "dark"], names = { auto: "auto", light: "chiaro", dark: "scuro" };
+  let m = 0;
+  const b = $("theme-toggle");
+  b.addEventListener("click", () => {
+    m = (m + 1) % 3;
+    if (modes[m] === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", modes[m]);
+    b.textContent = "Tema: " + names[modes[m]];
+  });
+}
+
+/* ======================= router ======================= */
+const VIEWS = ["classifica", "aziende", "scheda", "confronta", "metodo"];
+let firstRoute = true;
+function route() {
+  const h = decodeURIComponent(location.hash.replace(/^#/, ""));
+  let view = "classifica";
+  if (VIEWS.includes(h) && h !== "scheda") view = h;
+  else if (BY_SLUG[h]) view = "scheda";
+  const home = view === "classifica";
+  $("view-hero").hidden = !home;
+  VIEWS.forEach(v => { $("view-" + v).hidden = v !== view; });
+  document.querySelectorAll("[data-nav]").forEach(a => {
+    if (a.getAttribute("data-nav") === view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  if (view === "scheda") { renderScheda(BY_SLUG[h]); document.title = BY_SLUG[h].nome + " · classe " + BY_SLUG[h].voto + " · CompanyRatings"; }
+  else document.title = "CompanyRatings";
+  if (view === "confronta") renderCmp();
+  if (!firstRoute) {
+    if (home && h === "classifica") $("view-classifica").scrollIntoView();
+    else window.scrollTo(0, 0);
+  }
+  firstRoute = false;
+}
+
+function init() {
+  initTheme();
+  initFilters();
+  renderRank();
+  renderCards();
+  initCmp();
+  renderMetodo();
+  initSearch();
+  renderHero(true);
+  $("hero-next").addEventListener("click", () => { heroIdx = (heroIdx + 1) % HERO_ORDER.length; renderHero(true); });
+  window.addEventListener("hashchange", route);
+  route();
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+</script>
+</body>
+</html>
