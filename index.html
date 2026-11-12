@@ -444,7 +444,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
     <div class="wrap">
       <div>
         <h1 id="hero-title">Prima di firmare, guarda il voto.</h1>
-        <p class="hero-sub">Bilanci, contratti integrativi e accordi sindacali diventano una classe da A+ a F. Gratis, per chi cerca lavoro.</p>
+        <p class="hero-sub">Un voto da A+ a F calcolato su bilanci, contratti integrativi e accordi sindacali. Gratis per chi cerca lavoro.</p>
         <div class="search" role="search">
           <label for="search-input">Cerca un'azienda</label>
           <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="Nome, settore o città"
@@ -471,7 +471,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="classifica-title">La classifica</h2>
-          <p>Ordina per il pilastro che conta per te. Le prime tre dell'ordinamento sono evidenziate.</p>
+          <p>Ordina per il pilastro che ti interessa. Le prime tre sono evidenziate.</p>
         </div>
       </div>
       <div class="filters">
@@ -480,8 +480,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         <div class="field"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
         <div class="field"><label class="mono" for="f-ordina">Ordina per</label><select id="f-ordina"></select></div>
       </div>
-      <div class="quick" role="group" aria-label="Classifiche rapide">
-        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori in assoluto</button>
+      <div class="quick" role="group" aria-label="Ordinamenti rapidi">
+        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori per punteggio totale</button>
         <button class="chip" type="button" id="q-flex" data-sort="flex">Migliori per smart working e sede</button>
         <button class="chip" type="button" id="q-ret" data-sort="ret">Migliori per retribuzione</button>
         <button class="chip" type="button" id="q-stab" data-sort="stab">Migliori per stabilità</button>
@@ -502,7 +502,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="aziende-title">Tutte le aziende</h2>
-          <p>Ogni card mostra la classe, i sei pilastri e tre fatti da sapere prima del colloquio.</p>
+          <p>Per ogni azienda: classe, punteggio dei sei pilastri e tre dati chiave.</p>
         </div>
         <div class="field"><label class="mono" for="g-ordina">Ordina per</label><select id="g-ordina"></select></div>
       </div>
@@ -538,7 +538,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="metodo-title">Come diamo il voto</h2>
-          <p>Diciannove indicatori, sei pilastri, una classe. Tutto si calcola da dati pubblici o documentati.</p>
+          <p>Il voto si calcola su 19 indicatori, raggruppati in sei pilastri, da dati pubblici o documentati.</p>
         </div>
       </div>
       <div class="method-grid">
@@ -550,7 +550,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
           <p>Il punteggio di un pilastro è la media dei suoi indicatori. Il totale somma i pilastri, ciascuno moltiplicato per il suo peso. Il totale va da 0 a 100 e decide la classe.</p>
           <div class="scale-key" id="scale-key" aria-label="Soglie delle classi"></div>
           <h3>Le recensioni</h3>
-          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Un'azienda non sale di classe con qualche voto entusiasta.</p>
+          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Poche recensioni positive non bastano a cambiare classe.</p>
         </div>
         <div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie, scorre in orizzontale">
@@ -561,10 +561,10 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         </div>
       </div>
       <div class="principles">
-        <div><h3>Nessuna azienda paga</h3><p>Non vendiamo posizioni, badge o profili premium. Il voto non si compra.</p></div>
+        <div><h3>Nessuna azienda paga</h3><p>Non vendiamo posizioni in classifica né profili premium.</p></div>
         <div><h3>Ogni dato ha una fonte</h3><p>Accanto a ogni numero c'è il documento da cui viene: bilancio, contratto, rapporto sulla parità.</p></div>
         <div><h3>Solo aziende da 100 dipendenti in su</h3><p>Sotto questa soglia i dati pubblici sono pochi e un caso singolo sposta troppo il voto.</p></div>
-        <div><h3>Le recensioni pesano solo il 5%</h3><p>Le opinioni contano, i fatti di più. Il 95% del voto viene da dati verificabili.</p></div>
+        <div><h3>Le recensioni pesano solo il 5%</h3><p>Il 95% del voto viene da dati verificabili.</p></div>
       </div>
     </div>
   </section>
@@ -574,17 +574,17 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   <div class="wrap foot-grid">
     <div>
       <h2>Segnala un dato</h2>
-      <p>Hai un contratto integrativo, un accordo o un bilancio che manca? Potrai inviarcelo con la fonte allegata.</p>
+      <p>Potrai inviarci un contratto integrativo, un accordo o un bilancio che manca, con la fonte allegata.</p>
       <span class="mono soon">Funzione in arrivo</span>
     </div>
     <div>
       <h2>Contesta un voto</h2>
-      <p>Lavori in un'azienda valutata e un numero non torna? Potrai chiedere una revisione indicando il documento corretto.</p>
+      <p>Se un numero della tua azienda non torna, potrai chiedere una revisione indicando il documento corretto.</p>
       <span class="mono soon">Funzione in arrivo</span>
     </div>
     <div>
       <h2>Chi siamo</h2>
-      <p>Un progetto indipendente e gratuito per la trasparenza retributiva in Italia. Nessuna azienda paga per esserci.</p>
+      <p>Progetto indipendente e gratuito sulla trasparenza retributiva in Italia.</p>
       <p><a href="#metodo">Leggi il metodo</a></p>
     </div>
   </div>
