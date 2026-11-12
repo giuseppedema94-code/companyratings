@@ -1,0 +1,788 @@
+{
+ "stato": "solo dati, senza voto",
+ "societa": [
+  {
+   "slug": "dovalue",
+   "nome": "doValue",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Verona",
+   "perimetro": "Gruppo consolidato",
+   "anno_dati": 2025,
+   "dipendenti": 3072,
+   "voto": null,
+   "dati_presenti": 19,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     485.7,
+     482.1,
+     580.4
+    ],
+    "ebitda": [
+     178.4,
+     164.8,
+     217.2
+    ],
+    "utile": [
+     -18.9,
+     1.9,
+     -8.2
+    ],
+    "dipendenti": [
+     null,
+     2754,
+     3072
+    ],
+    "spese_personale": [
+     196.2,
+     203.4,
+     236.4
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": 580.4,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": 217.2,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": -8.2,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": 2.0,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": 236.4,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 3072,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 1219,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.7,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 26.66,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Viale del Commercio, 47 - 37135 Verona",
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: il modello di punteggio per le società di gestione crediti non è ancora definito e mancano turnover, formazione e dati contrattuali.",
+    "Il 2025 include Gardant, acquisita: ricavi, costi e dipendenti non sono confrontabili con il 2024.",
+    "Il 2023 include le attività in Portogallo, poi cedute.",
+    "Utile 2025 negativo per 8,2 milioni; senza voci straordinarie è positivo per 25,3 milioni.",
+    "Dei 3.072 dipendenti, 1.219 lavorano in Italia.",
+    "Turnover e formazione sono pubblicati solo per paese o per genere, non per il gruppo."
+   ]
+  },
+  {
+   "slug": "amco",
+   "nome": "AMCO",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Milano",
+   "perimetro": "Gruppo consolidato",
+   "anno_dati": 2025,
+   "dipendenti": 743,
+   "voto": null,
+   "dati_presenti": 18,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     484.7,
+     437.7,
+     408.8
+    ],
+    "ebitda": [
+     304.3,
+     237.1,
+     191.5
+    ],
+    "utile": [
+     -388.0,
+     28.941,
+     26.095
+    ],
+    "dipendenti": [
+     null,
+     444,
+     743
+    ],
+    "spese_personale": [
+     49.6,
+     53.3,
+     68.5
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": 408.8,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": 191.5,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": 26.095,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": 68.5,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 743,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 31,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 10,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": 8,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Milano, sede legale e Direzione Generale",
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: il modello di punteggio per le società di gestione crediti non è ancora definito e mancano turnover, tempo indeterminato e divario retributivo.",
+    "Nel 2025 sono entrate Exacta (dal 30 aprile) e GHT (dal 31 agosto): ricavi, costi e dipendenti non sono confrontabili con il 2024.",
+    "Utile 2023 negativo per 388,0 milioni, dato di gruppo.",
+    "Divario retributivo pubblicato solo come 'inferiore al 5%' per categoria, senza un numero unico.",
+    "Buono pasto e lavoro agile dall'accordo 2026-2028 firmato a dicembre 2025."
+   ]
+  },
+  {
+   "slug": "intrum-italy",
+   "nome": "Intrum Italy",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Milano",
+   "perimetro": "Attività in Italia del gruppo svedese Intrum",
+   "anno_dati": 2025,
+   "dipendenti": 655,
+   "voto": null,
+   "dati_presenti": 4,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "SEK",
+    "ricavi": [
+     1981,
+     2040,
+     2003
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln SEK",
+     "valore": 2003,
+     "fonte": {
+      "titolo": "Intrum Annual Report 2025 (inglese)",
+      "url": "https://www.intrum.com/media/ccgbzhb3/intrum-ar-2025-eng.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 655,
+     "fonte": {
+      "titolo": "Intrum Annual Report 2025 (inglese)",
+      "url": "https://www.intrum.com/media/ccgbzhb3/intrum-ar-2025-eng.pdf"
+     }
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    }
+   ],
+   "limiti": [
+    "Senza voto: per l'Italia il gruppo pubblica solo i ricavi e il numero di dipendenti.",
+    "Ricavi in milioni di corone svedesi (SEK), come pubblicati. Nessuna conversione in euro.",
+    "I dati sul personale del gruppo mondiale (8.695 dipendenti, turnover 22,6%, divario retributivo 31%) non riguardano l'Italia e non sono usati."
+   ]
+  },
+  {
+   "slug": "cerved",
+   "nome": "Cerved Group",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "San Donato Milanese",
+   "perimetro": "Gruppo Cerved",
+   "anno_dati": 2025,
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 1,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via dell’Unione Europea n. 6/A-6/B – 20097 San Donato Milanese (MI)",
+     "fonte": {
+      "titolo": "Sustainability Report - Cerved (footer del sito)",
+      "url": "https://company.cerved.com/en/sustainability-report"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: nessun bilancio 2025 e nessun comunicato sui risultati trovato tra le fonti ammesse.",
+    "La società non è quotata dal 2021.",
+    "L'ultimo rendiconto di sostenibilità trovato riguarda il 2023 e usa definizioni diverse: non usato."
+   ]
+  }
+ ]
+}

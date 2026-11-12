@@ -1646,6 +1646,295 @@
     "Cost/income da tabella UILCA sui bilanci 2025, non dal comunicato Credem.",
     "Dipendenti nel grafico: dipendenti attivi (6.731 nel 2025). L'utile 2025 include 98,6 milioni dalla cessione di un ramo d'azienda."
    ]
+  },
+  {
+   "slug": "banca-ifis",
+   "nome": "Banca Ifis",
+   "settore": "Banche",
+   "citta": "Venezia Mestre",
+   "anno_dati": 2025,
+   "dipendenti": 2695,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "proventi": [
+     704.6,
+     699.2,
+     666.8
+    ],
+    "utile": [
+     160.1,
+     161.6,
+     328.0
+    ],
+    "dipendenti": [
+     null,
+     2013,
+     2004
+    ],
+    "spese_personale": [
+     163.8,
+     169.9,
+     177.0
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -2.72,
+     "punti": 15.2,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.95,
+     "punti": 89.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 63.3,
+     "punti": 6.8,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 12.95,
+     "punti": 32.5,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 88323,
+     "punti": 70.8,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "punti": null,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 98.3,
+     "punti": 83.0,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 6,
+     "punti": 75.0,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 31,
+     "punti": 22.0,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 26,
+     "punti": 30.0,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 36.0,
+    "Retribuzione": 70.8,
+    "Stabilità": 79.0,
+    "Crescita e parità": 26.0
+   },
+   "indicatori_presenti": 9,
+   "punteggio": 51.3,
+   "voto": "D",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": {
+      "titolo": "FABI - Accordo PVR 2022 Gruppo Ifis (22/12/2022)",
+      "url": "https://www.fabi.it/wp-content/uploads/2023/01/2022_12_22_cu_gruppoifis_accordo_PVRWelfareRiorganizzazione.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 120,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 2668,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Sustainability performance (pagina sito)",
+      "url": "https://www.bancaifis.it/en/about-us/sustainability/performance/"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "Via Terraglio, 63 30174 Mestre - Venice (Italy)",
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Dal 1° luglio 2025 il gruppo include illimity Bank. Per confrontare gli anni, crescita dei proventi, andamento e costo medio del personale e grafici usano i dati 2025 senza illimity (proventi 666,8, spese per il personale 177,0, dipendenti 2.004).",
+    "Crescita dell'utile non calcolata: l'utile 2025 (328,0 milioni) include un provento straordinario di 309,9 milioni legato all'acquisizione. Utile normalizzato pubblicato: 108,1 milioni.",
+    "Cost/income, CET1, turnover, divario retributivo, formazione e tempo indeterminato sono di gruppo, illimity inclusa.",
+    "CET1 12,95%: il documento non dichiara se è a regime. Pro forma 13,7%.",
+    "Dipendenti 2023 non pubblicati nei documenti letti."
+   ]
   }
  ]
 }
