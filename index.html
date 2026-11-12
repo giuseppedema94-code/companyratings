@@ -502,7 +502,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="aziende-title">Tutte le aziende</h2>
-          <p>Per ogni azienda: classe, punteggio dei sei pilastri e tre dati chiave.</p>
+          <p>Per ogni azienda: voto, punteggio dei sei pilastri e tre dati chiave.</p>
         </div>
         <div class="field"><label class="mono" for="g-ordina">Ordina per</label><select id="g-ordina"></select></div>
       </div>
@@ -546,11 +546,11 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
           <h3>Dal dato al punto</h3>
           <p>Ogni indicatore ha un valore peggiore, che vale 0 punti, e un valore migliore, che vale 100. In mezzo il punteggio sale in modo lineare. Oltre gli estremi resta fermo a 0 o a 100.</p>
           <p class="formula">punti = (valore − peggiore) ÷ (migliore − peggiore) × 100<br>poi limitato tra 0 e 100</p>
-          <h3>Dal punto alla classe</h3>
-          <p>Il punteggio di un pilastro è la media dei suoi indicatori. Il totale somma i pilastri, ciascuno moltiplicato per il suo peso. Il totale va da 0 a 100 e decide la classe.</p>
-          <div class="scale-key" id="scale-key" aria-label="Soglie delle classi"></div>
+          <h3>Dal punto al voto</h3>
+          <p>Il punteggio di un pilastro è la media dei suoi indicatori. Il totale somma i pilastri, ciascuno moltiplicato per il suo peso. Il totale va da 0 a 100 e decide il voto.</p>
+          <div class="scale-key" id="scale-key" aria-label="Soglie dei voti"></div>
           <h3>Le recensioni</h3>
-          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Poche recensioni positive non bastano a cambiare classe.</p>
+          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Poche recensioni positive non bastano a cambiare voto.</p>
         </div>
         <div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie, scorre in orizzontale">
@@ -784,7 +784,7 @@ const BY_SLUG = Object.fromEntries(RATED.map(a => [a.slug, a]));
 const $ = (id) => document.getElementById(id);
 const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
-function tag(a, lg) { return `<span class="tag ${lg ? "tag-lg " : ""}${a.gc}" aria-label="Classe ${a.voto}">${a.voto}</span>`; }
+function tag(a, lg) { return `<span class="tag ${lg ? "tag-lg " : ""}${a.gc}" aria-label="Voto ${a.voto}">${a.voto}</span>`; }
 function miniBar(x) {
   return `<span class="mb"><span class="mb-track" aria-hidden="true"><i style="width:${x.toFixed(1)}%"></i></span><span class="mb-n">${f0.format(x)}</span></span>`;
 }
@@ -808,8 +808,8 @@ function labelHTML(a, opts) {
   }).join("");
   const name = opts.link ? `<a href="#${a.slug}">${esc(a.nome)}</a>` : `<strong>${esc(a.nome)}</strong>`;
   const pill = PILASTRI.map(p => `<div><span class="mono">${p.breve}</span><b>${f0.format(a.pil[p.id])}</b></div>`).join("");
-  return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: classe ${a.voto}, punteggio ${sc(a.totale)} su 100">
-    <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Classe</span></div>
+  return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: voto ${a.voto}, punteggio ${sc(a.totale)} su 100">
+    <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Voto</span></div>
     <div class="elabel-who">${name}<span>${esc(a.settore)} · ${esc(a.citta)} · ${f0.format(a.dipendenti)} dipendenti</span></div>
     <div class="elabel-scale" aria-hidden="true">${rows}</div>
     <div class="elabel-score"><span class="mono">Punteggio 0–100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
@@ -853,7 +853,7 @@ function initFilters() {
   const uniq = (k) => Array.from(new Set(RATED.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
   fillSelect($("f-settore"), [["", "Tutti i settori"]].concat(uniq("settore").map(s => [s, s])), "");
   fillSelect($("f-citta"), [["", "Tutte le città"]].concat(uniq("citta").map(s => [s, s])), "");
-  fillSelect($("f-voto"), [["", "Tutte le classi"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v + " o superiore"])), "");
+  fillSelect($("f-voto"), [["", "Tutti i voti"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v + " o superiore"])), "");
   const sortOpts = SORTS.map(s => [s.id, s.nome]);
   fillSelect($("f-ordina"), sortOpts, "totale");
   fillSelect($("g-ordina"), sortOpts, "totale");
@@ -872,7 +872,7 @@ function renderRank() {
     CLASSI.findIndex(c => c.v === a.voto) <= minIdx), state.sort);
   $("f-ordina").value = state.sort;
   document.querySelectorAll(".quick .chip").forEach(b => b.setAttribute("aria-pressed", String(b.getAttribute("data-sort") === state.sort)));
-  const cols = [["pos", "#", false], ["nome", "Azienda", true], ["voto", "Classe", false], ["totale", "Punteggio", true]].concat(PILASTRI.map(p => [p.id, p.breve + " " + Math.round(p.peso * 100) + "%", true]));
+  const cols = [["pos", "#", false], ["nome", "Azienda", true], ["voto", "Voto", false], ["totale", "Punteggio", true]].concat(PILASTRI.map(p => [p.id, p.breve + " " + Math.round(p.peso * 100) + "%", true]));
   $("rank-head").innerHTML = "<tr>" + cols.map(c => {
     if (!c[2]) return `<th scope="col"><span class="mono">${c[1]}</span></th>`;
     const on = state.sort === c[0];
@@ -904,7 +904,7 @@ function renderRank() {
 /* ======================= card ======================= */
 function cardHTML(a) {
   const g = a.v.crescitaFatt;
-  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, classe ${a.voto}, punteggio ${sc(a.totale)}">
+  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, voto ${a.voto}, punteggio ${sc(a.totale)}">
     <div class="card-top">${tag(a, true)}<div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
     <div class="card-body">
       <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(a.settore)} · ${esc(a.citta)} <span class="mono">· demo</span></p></div>
@@ -976,7 +976,7 @@ function renderScheda(a) {
           <div class="table-wrap"><table class="contrib">
             <thead><tr><th scope="col" class="mono">Pilastro</th><th scope="col" class="mono r">Peso</th><th scope="col" class="mono r">Punteggio</th><th scope="col" class="mono r">Contributo</th></tr></thead>
             <tbody>${contrib}</tbody>
-            <tfoot><tr><td>Totale · classe ${a.voto}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
+            <tfoot><tr><td>Totale · voto ${a.voto}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
           </table></div>
         </div>
         <div class="fw" style="margin-top:28px">
@@ -1038,7 +1038,7 @@ function renderCmp() {
       return `<td class="${best ? "best" : ""}">${v}${best ? '<span class="best-note">Migliore</span>' : ""}</td>`;
     }).join("")}</tr>`;
   };
-  let body = row("Classe", "", list.map(a => tag(a)), list.map(a => a.totale));
+  let body = row("Voto", "", list.map(a => tag(a)), list.map(a => a.totale));
   body += row("Punteggio totale", "0–100", list.map(a => sc(a.totale)), list.map(a => a.totale));
   body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Pilastri</th></tr>`;
   PILASTRI.forEach(p => { body += row(p.nome, "peso " + Math.round(p.peso * 100) + "%", list.map(a => miniBar(a.pil[p.id])), list.map(a => Math.round(a.pil[p.id] * 10) / 10)); });
@@ -1120,7 +1120,7 @@ function route() {
   document.querySelectorAll("[data-nav]").forEach(a => {
     if (a.getAttribute("data-nav") === view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
-  if (view === "scheda") { renderScheda(BY_SLUG[h]); document.title = BY_SLUG[h].nome + " · classe " + BY_SLUG[h].voto + " · CompanyRatings"; }
+  if (view === "scheda") { renderScheda(BY_SLUG[h]); document.title = BY_SLUG[h].nome + " · voto " + BY_SLUG[h].voto + " · CompanyRatings"; }
   else document.title = "CompanyRatings";
   if (view === "confronta") renderCmp();
   if (!firstRoute) {
