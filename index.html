@@ -325,17 +325,31 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 .fw h3::before { content: ""; width: 10px; height: 10px; display: inline-block; }
 .fw .plus h3::before { background: var(--ink); }
 .fw .minus h3::before { border: 2px solid var(--ink); }
-.rev { border: 1px solid var(--rule); background: var(--sheet); padding: 14px 16px; }
-.rev-years { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 10px; }
-.rev-years div { border-left: 1px solid var(--rule); padding-left: 8px; }
-.rev-years b { display: block; font-family: var(--f-mono); font-size: .9rem; }
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.ch { background: var(--sheet); padding: 12px 14px 10px; margin: 0; min-width: 0; }
+.ch-now { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; margin-top: 4px; }
+.ch-now b { font-family: var(--f-mono); font-size: 1.05rem; }
+.ch-now span { font-family: var(--f-mono); font-size: .74rem; color: var(--ink-2); }
+.ch svg { display: block; width: 100%; height: auto; margin-top: 8px; color: var(--ink); overflow: visible; }
+.ch-years { position: relative; height: 1.3em; margin-top: 4px; }
+.ch-years span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--f-mono); font-size: .66rem; color: var(--ink-2); }
+.charts-note { font-size: .82rem; color: var(--ink-2); margin-top: 8px; }
+.bench-note { font-size: .88rem; color: var(--ink-2); margin-top: 14px; }
 .pillar { margin-top: 30px; }
 .pillar-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 20px; align-items: end; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
 .pillar-head h3 { font-size: 1.5rem; font-stretch: 82%; }
-.pillar-score { display: flex; align-items: baseline; gap: 10px; }
+.pillar-score { display: grid; grid-template-columns: auto auto auto; align-items: baseline; gap: 6px 10px; }
 .pillar-score b { font-family: var(--f-mono); font-size: 1.5rem; }
-.ind { min-width: 640px; table-layout: fixed; }
-.ind th:nth-child(1) { width: 38%; } .ind th:nth-child(2) { width: 17%; } .ind th:nth-child(3) { width: 15%; }
+.pillar-score .pm { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-2); white-space: nowrap; }
+.pillar-score .pm::before { content: ""; display: inline-block; width: 2px; height: .95em; background: var(--ink); margin-right: 6px; vertical-align: -2px; }
+.pbar { grid-column: 1 / -1; position: relative; display: block; height: 6px; background: var(--rule-2); margin: 4px 0 2px; min-width: 200px; }
+.pbar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.pbar em { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--ink); box-shadow: 0 0 0 1.5px var(--paper); }
+.ind { min-width: 720px; table-layout: fixed; }
+.ind th:nth-child(1) { width: 33%; } .ind th:nth-child(2) { width: 15%; } .ind th:nth-child(3) { width: 14%; } .ind th:nth-child(4) { width: 15%; }
+.ind td.bm { font-family: var(--f-mono); font-size: .86rem; }
+.ind td.bm .sig { display: block; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); margin-top: 2px; }
+.ind td.bm .sig.up { color: var(--ink); font-weight: 700; }
 .ind th, .ind td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
 .ind thead th { font-weight: 500; }
 .ind td.val { font-family: var(--f-mono); font-weight: 700; white-space: nowrap; }
@@ -401,6 +415,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   .foot-grid > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 18px; }
   .cmp-pick { grid-template-columns: minmax(0, 1fr); }
   .fw { grid-template-columns: minmax(0, 1fr); }
+  .pillar-head { grid-template-columns: minmax(0, 1fr); }
   .fw > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
   .site-head .wrap { gap: 8px 16px; }
   .nav { width: 100%; margin-left: -10px; }
@@ -412,6 +427,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   .principles div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
   .e-row { grid-template-columns: 1fr 62px; }
   .facts { grid-template-columns: 1fr 1fr; }
+  .charts { grid-template-columns: minmax(0, 1fr); }
   .facts div:last-child { grid-column: 1 / -1; }
   .nav a { padding: 8px 7px; font-size: .9rem; }
 }
@@ -538,7 +554,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="metodo-title">Come calcoliamo il voto</h2>
-          <p>Il voto nasce da 19 indicatori, divisi in sei aree, presi da bilanci, contratti, accordi sindacali e altre fonti pubbliche. La tabella mostra quanto pesa ogni area e le soglie di ogni indicatore.</p>
+          <p>Il voto nasce da 20 indicatori, divisi in sei aree, presi da bilanci, contratti, accordi sindacali e altre fonti pubbliche. La tabella mostra quanto pesa ogni area e le soglie di ogni indicatore.</p>
         </div>
       </div>
       <div class="method-grid">
@@ -546,6 +562,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
           <h3>Come diamo i punti</h3>
           <p>Ogni dato diventa un numero da 0 a 100. Prendi il buono pasto: 0 € valgono 0 punti, 10 € o più ne valgono 100, 8 € ne valgono 80. Dove meno è meglio, la scala si inverte: se ogni anno lascia l'azienda il 5% dei dipendenti o meno, sono 100 punti; dal 25% in su, 0.</p>
           <p class="formula">punti = (valore − soglia da 0) ÷ (soglia da 100 − soglia da 0) × 100<br>con un minimo di 0 e un massimo di 100</p>
+          <p>Il costo del personale conta in positivo quando cresce. Se scende, di solito l'azienda ha ridotto le persone o gli stipendi: un calo medio del 5% l'anno vale 0 punti, una crescita del 5% ne vale 100.</p>
           <h3>Dai punti al voto</h3>
           <p>Il punteggio di un'area è la media dei punti dei suoi indicatori. Il punteggio finale, da 0 a 100, è la media delle sei aree pesata come in tabella: retribuzione e solidità economica valgono un quarto ciascuna. Da lì si ricava il voto.</p>
           <div class="scale-key" id="scale-key" aria-label="Soglie dei voti"></div>
@@ -600,6 +617,9 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
    Per usare dati veri sostituisci solo l'array AZIENDE: stessi campi, stesse unità.
    - fatturato: ultimi 4 esercizi in milioni di euro, dal più vecchio (la crescita media
      a 3 anni si calcola da qui).
+   - costoPersonale e utileNetto: stessi 4 esercizi, in milioni di euro. Dal costo del
+     personale si calcola il suo andamento medio a 3 anni.
+   - organico: dipendenti negli stessi 4 esercizi; l'ultimo coincide con dipendenti.
    - valori: un campo per indicatore, nelle unità indicate in INDICATORI.
    - fonti: facoltativo, sostituisce la fonte standard di un singolo indicatore.
    ========================================================================= */
@@ -607,83 +627,107 @@ const ANNI = [2022, 2023, 2024, 2025];
 const AZIENDE = [
   { slug: "brera-digital", nome: "Brera Digital S.r.l.", settore: "Software", citta: "Milano", dipendenti: 420, ccnl: "Commercio e Terziario",
     fatturato: [75.6, 85.2, 92.7, 101.6],
+    costoPersonale: [29.67, 30.79, 32.31, 33.85], organico: [392, 397, 409, 420], utileNetto: [5.8, 6.9, 8.1, 9.4],
     valori: { ebitMargin: 13, crescitaEbit: 14, debitoEbitda: 1.3, costoMedio: 80600, buonoPasto: 11, premio: 3370, welfare: 2240, termine: 1, cig: 1, licColl: 0, turnover: 3.9, smart: 3, minutiMetro: 6, integrativo: 1, vertenze: 1, gapGenere: 6.7, glassdoor: 4, indeed: 3.7 } },
   { slug: "felsina-biotech", nome: "Felsina Biotech S.p.A.", settore: "Farmaceutico", citta: "Bologna", dipendenti: 1350, ccnl: "Chimico-farmaceutico",
     fatturato: [313.2, 321.8, 340.2, 356.8],
+    costoPersonale: [78.78, 81.58, 84.45, 87.35], organico: [1302, 1322, 1335, 1350], utileNetto: [20.6, 23.3, 26.3, 28.6],
     valori: { ebitMargin: 11.3, crescitaEbit: 15.5, debitoEbitda: 0.7, costoMedio: 64700, buonoPasto: 8, premio: 3460, welfare: 2310, termine: 1, cig: 0, licColl: 0, turnover: 3.1, smart: 3, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.1, glassdoor: 4.4, indeed: 3.8 } },
   { slug: "euganea-volt", nome: "Euganea Volt S.p.A.", settore: "Energia", citta: "Padova", dipendenti: 780, ccnl: "Elettrico",
     fatturato: [226.2, 257.9, 279.6, 315.5],
+    costoPersonale: [45.84, 47.79, 49.63, 51.56], organico: [742, 759, 770, 780], utileNetto: [18.3, 22.2, 24.8, 29],
     valori: { ebitMargin: 12.6, crescitaEbit: 10.6, debitoEbitda: 0.1, costoMedio: 66100, buonoPasto: 10, premio: 1810, welfare: 1490, termine: 3.8, cig: 1, licColl: 1, turnover: 11.1, smart: 3, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.2, glassdoor: 3.8, indeed: 4.3 } },
   { slug: "bora-finanza", nome: "Bora Finanza S.p.A.", settore: "Banca e finanza", citta: "Trieste", dipendenti: 960, ccnl: "Credito",
     fatturato: [249.6, 259.4, 272.4, 288.7],
+    costoPersonale: [54.74, 56.16, 57.58, 58.94], organico: [952, 957, 962, 960], utileNetto: [21.8, 23.5, 25.9, 29.2],
     valori: { ebitMargin: 13.8, crescitaEbit: 16, debitoEbitda: 0, costoMedio: 61400, buonoPasto: 9.5, premio: 1920, welfare: 1250, termine: 1, cig: 0, licColl: 0, turnover: 3.9, smart: 2, minutiMetro: 12, integrativo: 1, vertenze: 1, gapGenere: 8, glassdoor: 3.7, indeed: 4.6 } },
   { slug: "mole-dati", nome: "Mole Dati S.r.l.", settore: "Software", citta: "Torino", dipendenti: 260, ccnl: "Metalmeccanico Industria",
     fatturato: [84.5, 94.5, 105.3, 118.7],
+    costoPersonale: [12.99, 13.6, 14.25, 14.95], organico: [242, 248, 254, 260], utileNetto: [3.9, 4.4, 5.4, 6.6],
     valori: { ebitMargin: 8, crescitaEbit: 11.4, debitoEbitda: 1.2, costoMedio: 57500, buonoPasto: 6.5, premio: 2810, welfare: 1870, termine: 9.8, cig: 1, licColl: 0, turnover: 5.2, smart: 2, minutiMetro: 1, integrativo: 1, vertenze: 0, gapGenere: 5.8, glassdoor: 4, indeed: 3.8 } },
   { slug: "alfa-meccanica", nome: "Alfa Meccanica S.p.A.", settore: "Meccanica", citta: "Torino", dipendenti: 1120, ccnl: "Metalmeccanico Industria",
     fatturato: [352.8, 380.8, 393.8, 412.5],
+    costoPersonale: [66.67, 68.34, 70.03, 71.79], organico: [1107, 1114, 1114, 1120], utileNetto: [14.3, 16.6, 19, 21.7],
     valori: { ebitMargin: 7.3, crescitaEbit: 9.8, debitoEbitda: 1, costoMedio: 64100, buonoPasto: 5, premio: 2850, welfare: 1680, termine: 1, cig: 1, licColl: 1, turnover: 11.8, smart: 2, minutiMetro: 3, integrativo: 1, vertenze: 1, gapGenere: 0.5, glassdoor: 4, indeed: 4.1 } },
   { slug: "ticino-chimica", nome: "Ticino Chimica S.p.A.", settore: "Chimico", citta: "Milano", dipendenti: 640, ccnl: "Chimico-farmaceutico",
     fatturato: [177.3, 178.9, 183.1, 184.5],
+    costoPersonale: [36.6, 37.16, 37.69, 38.27], organico: [651, 647, 644, 640], utileNetto: [11.6, 11.9, 12.7, 13.2],
     valori: { ebitMargin: 10.8, crescitaEbit: 5.7, debitoEbitda: 1.8, costoMedio: 59800, buonoPasto: 5, premio: 1990, welfare: 1390, termine: 6, cig: 0, licColl: 1, turnover: 10.4, smart: 2, minutiMetro: 7, integrativo: 1, vertenze: 0, gapGenere: 6.1, glassdoor: 4, indeed: 4.3 } },
   { slug: "scaligera-vini", nome: "Scaligera Vini S.p.A.", settore: "Alimentare", citta: "Verona", dipendenti: 310, ccnl: "Industria alimentare",
     fatturato: [106, 104.6, 104.4, 106.4],
+    costoPersonale: [16.07, 16.17, 16.37, 16.55], organico: [319, 315, 312, 310], utileNetto: [8.6, 8.8, 9.1, 9.7],
     valori: { ebitMargin: 12.8, crescitaEbit: 9.7, debitoEbitda: 0.7, costoMedio: 53400, buonoPasto: 5, premio: 2330, welfare: 1690, termine: 15, cig: 1, licColl: 0, turnover: 12.9, smart: 2, minutiMetro: 10, integrativo: 1, vertenze: 0, gapGenere: 2.9, glassdoor: 4, indeed: 4 } },
   { slug: "dora-robotica", nome: "Dora Robotica S.r.l.", settore: "Meccanica", citta: "Torino", dipendenti: 230, ccnl: "Metalmeccanico Industria",
     fatturato: [66, 72, 79.9, 88.9],
+    costoPersonale: [11.57, 12.11, 12.55, 13.02], organico: [218, 223, 227, 230], utileNetto: [4, 4.6, 5.3, 6.3],
     valori: { ebitMargin: 9.8, crescitaEbit: 8.5, debitoEbitda: 0.4, costoMedio: 56600, buonoPasto: 7, premio: 2020, welfare: 1690, termine: 5, cig: 1, licColl: 1, turnover: 8.9, smart: 1, minutiMetro: 7, integrativo: 1, vertenze: 1, gapGenere: 11, glassdoor: 3.5, indeed: 4.1 } },
   { slug: "partenope-software", nome: "Partenope Software S.r.l.", settore: "Software", citta: "Napoli", dipendenti: 380, ccnl: "Metalmeccanico Industria",
     fatturato: [49, 53.4, 58.3, 62.2],
+    costoPersonale: [22.79, 23.71, 24.46, 25.27], organico: [365, 372, 377, 380], utileNetto: [2.6, 3, 3.6, 3.8],
     valori: { ebitMargin: 9.4, crescitaEbit: 7.3, debitoEbitda: 1.6, costoMedio: 66500, buonoPasto: 6, premio: 2560, welfare: 830, termine: 17.1, cig: 2, licColl: 1, turnover: 9.9, smart: 2, minutiMetro: 2, integrativo: 1, vertenze: 1, gapGenere: 9.7, glassdoor: 3, indeed: 3.3 } },
   { slug: "velabro-consulting", nome: "Velabro Consulting S.r.l.", settore: "Consulenza", citta: "Roma", dipendenti: 540, ccnl: "Commercio e Terziario",
     fatturato: [71.3, 73.4, 75, 78.3],
+    costoPersonale: [29.87, 30.52, 31.08, 31.7], organico: [542, 543, 541, 540], utileNetto: [2, 2.1, 2.1, 2.2],
     valori: { ebitMargin: 4.3, crescitaEbit: 0, debitoEbitda: 0.9, costoMedio: 58700, buonoPasto: 9, premio: 1560, welfare: 800, termine: 5.8, cig: 1, licColl: 1, turnover: 13, smart: 1, minutiMetro: 13, integrativo: 1, vertenze: 0, gapGenere: 3, glassdoor: 3.8, indeed: 3.9 } },
   { slug: "antenore-packaging", nome: "Antenore Packaging S.p.A.", settore: "Packaging", citta: "Padova", dipendenti: 450, ccnl: "Carta e cartotecnica",
     fatturato: [102.6, 109.4, 115.5, 121.2],
+    costoPersonale: [28.96, 29.71, 30.23, 30.74], organico: [449, 452, 452, 450], utileNetto: [0.6, 0.9, 1.6, 1.8],
     valori: { ebitMargin: 3.3, crescitaEbit: 8.6, debitoEbitda: 2.8, costoMedio: 68300, buonoPasto: 5.5, premio: 2010, welfare: 1280, termine: 12, cig: 1, licColl: 1, turnover: 11.9, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 8.3, glassdoor: 4.1, indeed: 3.5 } },
   { slug: "arno-sanita", nome: "Arno Sanità S.r.l.", settore: "Sanità privata", citta: "Firenze", dipendenti: 870, ccnl: "Sanità privata",
     fatturato: [254.9, 262.7, 256.6, 263.5],
+    costoPersonale: [50.84, 51.32, 51.54, 51.77], organico: [904, 893, 883, 870], utileNetto: [7.1, 7.5, 7.9, 7.4],
     valori: { ebitMargin: 4.8, crescitaEbit: 0.9, debitoEbitda: 1.2, costoMedio: 59500, buonoPasto: 5, premio: 2050, welfare: 1340, termine: 10.4, cig: 0, licColl: 0, turnover: 15, smart: 1, minutiMetro: 6, integrativo: 0, vertenze: 2, gapGenere: 3.1, glassdoor: 3.1, indeed: 3.9 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "quadrilatero-moda", nome: "Quadrilatero Moda S.p.A.", settore: "Moda", citta: "Milano", dipendenti: 690, ccnl: "Tessile e abbigliamento",
     fatturato: [115.2, 116.1, 112.9, 112.1],
+    costoPersonale: [46.36, 46.5, 46.59, 46.78], organico: [727, 714, 702, 690], utileNetto: [1, 1.8, 1.7, 2.4],
     valori: { ebitMargin: 2.8, crescitaEbit: 8.3, debitoEbitda: 0.9, costoMedio: 67800, buonoPasto: 7.5, premio: 2030, welfare: 1350, termine: 10.4, cig: 2, licColl: 1, turnover: 10, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 1, gapGenere: 4.7, glassdoor: 3, indeed: 3.2 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "murgia-alimentare", nome: "Murgia Alimentare S.p.A.", settore: "Alimentare", citta: "Bari", dipendenti: 520, ccnl: "Industria alimentare",
     fatturato: [64.5, 65.8, 64.4, 65.1],
+    costoPersonale: [34.37, 34.47, 34.54, 34.58], organico: [542, 535, 528, 520], utileNetto: [3.9, 3.7, 3.8, 3.7],
     valori: { ebitMargin: 9.8, crescitaEbit: -2.9, debitoEbitda: 3.1, costoMedio: 66500, buonoPasto: 7.5, premio: 2400, welfare: 930, termine: 18.7, cig: 2, licColl: 1, turnover: 14.2, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 11.5, glassdoor: 3.6, indeed: 3.4 } },
   { slug: "lanterna-logistica", nome: "Lanterna Logistica S.p.A.", settore: "Logistica", citta: "Genova", dipendenti: 1480, ccnl: "Logistica e spedizione",
     fatturato: [371.5, 356.5, 337.1, 313.8],
+    costoPersonale: [102.37, 101.14, 99.47, 97.83], organico: [1609, 1563, 1520, 1480], utileNetto: [21.8, 21.5, 20.4, 17.7],
     valori: { ebitMargin: 9.8, crescitaEbit: -2.1, debitoEbitda: 2.8, costoMedio: 66100, buonoPasto: 4.5, premio: 1800, welfare: 1570, termine: 9, cig: 2, licColl: 1, turnover: 13.1, smart: 1, minutiMetro: 20, integrativo: 1, vertenze: 2, gapGenere: 12.3, glassdoor: 3.9, indeed: 3.1 } },
   { slug: "porta-romana-media", nome: "Porta Romana Media S.r.l.", settore: "Media", citta: "Milano", dipendenti: 180, ccnl: "Grafici editoriali",
     fatturato: [41.4, 41.6, 43.2, 43.3],
+    costoPersonale: [10.78, 10.95, 11.03, 11.11], organico: [186, 185, 183, 180], utileNetto: [0.8, 0.8, 1, 1.1],
     valori: { ebitMargin: 4.1, crescitaEbit: 5.3, debitoEbitda: 1.7, costoMedio: 61700, buonoPasto: 4.5, premio: 1250, welfare: 1350, termine: 17.1, cig: 2, licColl: 1, turnover: 19.2, smart: 2, minutiMetro: 19, integrativo: 0, vertenze: 2, gapGenere: 8.6, glassdoor: 3.4, indeed: 3.6 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "nettuno-costruzioni", nome: "Nettuno Costruzioni S.p.A.", settore: "Edilizia", citta: "Bologna", dipendenti: 610, ccnl: "Edilizia Industria",
     fatturato: [212.9, 216.6, 222.1, 230.7],
+    costoPersonale: [29.81, 30.21, 30.67, 31.17], organico: [624, 619, 613, 610], utileNetto: [7, 7.5, 7.9, 8],
     valori: { ebitMargin: 6.1, crescitaEbit: 1.8, debitoEbitda: 2.3, costoMedio: 51100, buonoPasto: 5.5, premio: 930, welfare: 700, termine: 13, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 12, integrativo: 0, vertenze: 2, gapGenere: 8.9, glassdoor: 3.6, indeed: 3.6 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "etna-lumen", nome: "Etna Lumen S.r.l.", settore: "Energia", citta: "Catania", dipendenti: 210, ccnl: "Elettrico",
     fatturato: [52.9, 51.1, 51.3, 51.8],
+    costoPersonale: [11.06, 11.06, 11.01, 10.96], organico: [224, 219, 214, 210], utileNetto: [2.3, 2, 2, 2],
     valori: { ebitMargin: 7, crescitaEbit: -5, debitoEbitda: 3.2, costoMedio: 52200, buonoPasto: 4.5, premio: 1010, welfare: 1260, termine: 13.2, cig: 2, licColl: 1, turnover: 12.8, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 15.8, glassdoor: 3.6, indeed: 3.5 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "trulli-mare-hotels", nome: "Trulli e Mare Hotels S.r.l.", settore: "Turismo", citta: "Bari", dipendenti: 350, ccnl: "Turismo",
     fatturato: [78.8, 75, 69.6, 66.1],
+    costoPersonale: [14.84, 14.78, 14.81, 14.84], organico: [368, 360, 355, 350], utileNetto: [1.8, 1.9, 1.7, 1.7],
     valori: { ebitMargin: 5.4, crescitaEbit: 4.3, debitoEbitda: 3.7, costoMedio: 42400, buonoPasto: 3.5, premio: 1930, welfare: 620, termine: 13.3, cig: 2, licColl: 1, turnover: 18.5, smart: 1, minutiMetro: 15, integrativo: 1, vertenze: 2, gapGenere: 14.9, glassdoor: 3.4, indeed: 3.5 } },
   { slug: "sette-colli-retail", nome: "Sette Colli Retail S.p.A.", settore: "Grande distribuzione", citta: "Roma", dipendenti: 2300, ccnl: "Commercio e Terziario",
     fatturato: [347.3, 333.9, 318.5, 302.9],
+    costoPersonale: [118.76, 116.3, 113.94, 111.78], organico: [2553, 2464, 2380, 2300], utileNetto: [10.9, 9.7, 7.6, 6.7],
     valori: { ebitMargin: 5.4, crescitaEbit: -10.4, debitoEbitda: 3.8, costoMedio: 48600, buonoPasto: 4, premio: 670, welfare: 1210, termine: 20.4, cig: 2, licColl: 1, turnover: 16.5, smart: 2, minutiMetro: 11, integrativo: 0, vertenze: 2, gapGenere: 7.7, glassdoor: 3.3, indeed: 3.5 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "vesuvio-trasporti", nome: "Vesuvio Trasporti S.r.l.", settore: "Logistica", citta: "Napoli", dipendenti: 730, ccnl: "Logistica e spedizione",
     fatturato: [260.6, 256.7, 256.2, 245.9],
+    costoPersonale: [42.14, 40.81, 39.9, 39.06], organico: [821, 783, 757, 730], utileNetto: [1.7, 0.7, 0.2, -1],
     valori: { ebitMargin: 2, crescitaEbit: -11.2, debitoEbitda: 4, costoMedio: 53500, buonoPasto: 2.5, premio: 960, welfare: 860, termine: 14.3, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 14.5, glassdoor: 2.7, indeed: 2.6 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "tiburtina-servizi", nome: "Tiburtina Servizi S.r.l.", settore: "Contact center", citta: "Roma", dipendenti: 1650, ccnl: "Telecomunicazioni",
     fatturato: [549.5, 522.2, 484.4, 450.7],
+    costoPersonale: [100.81, 96.68, 93.63, 90.59], organico: [1932, 1821, 1734, 1650], utileNetto: [-19.8, -18.2, -18.7, -16.1],
     valori: { ebitMargin: -3.2, crescitaEbit: 0.1, debitoEbitda: 4.1, costoMedio: 54900, buonoPasto: 4, premio: 830, welfare: 160, termine: 16.3, cig: 2, licColl: 2, turnover: 17.5, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 3, gapGenere: 12.3, glassdoor: 2.9, indeed: 3.1 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "salento-call", nome: "Salento Call S.r.l.", settore: "Contact center", citta: "Lecce", dipendenti: 940, ccnl: "Telecomunicazioni",
     fatturato: [182.4, 160.3, 140.9, 128.5],
+    costoPersonale: [49.54, 47.38, 45.23, 43.15], organico: [1121, 1061, 1002, 940], utileNetto: [-4.4, -4, -3.6, -3.4],
     valori: { ebitMargin: -1.3, crescitaEbit: -2, debitoEbitda: 4.2, costoMedio: 45900, buonoPasto: 0, premio: 600, welfare: 700, termine: 25.9, cig: 2, licColl: 1, turnover: 16.8, smart: 0, minutiMetro: 25, integrativo: 0, vertenze: 2, gapGenere: 20.2, glassdoor: 2.7, indeed: 3.1 },
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } }
 ];
@@ -694,6 +738,7 @@ const INDICATORI = {
   ebitMargin:   { nome: "Utile operativo in % dei ricavi (EBIT margin, media 3 anni)", v0: -5, v100: 15, u: "pct", fonte: "Bilanci depositati 2023-2025" },
   crescitaEbit: { nome: "Crescita dell'utile operativo (EBIT, media 3 anni)", v0: -15, v100: 15, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
   debitoEbitda: { nome: "Anni di margine lordo per ripagare i debiti (debito netto / EBITDA)", v0: 5, v100: 0, u: "x", fonte: "Bilancio depositato 2025, nota integrativa" },
+  crescitaCosto: { nome: "Andamento del costo del personale (media annua, 3 anni)", v0: -5, v100: 5, u: "pctS", fonte: "Bilancio depositato" },
   costoMedio:   { nome: "Costo aziendale medio per dipendente", v0: 35000, v100: 75000, u: "eurY", fonte: "Bilancio 2025: costo del personale diviso per l'organico medio" },
   buonoPasto:   { nome: "Buono pasto al giorno", v0: 0, v100: 10, u: "eur", fonte: "Contratto integrativo" },
   premio:       { nome: "Premio di risultato medio", v0: 0, v100: 3000, u: "eurY", fonte: "Accordo sul premio di risultato" },
@@ -711,7 +756,7 @@ const INDICATORI = {
   indeed:       { nome: "Stelle medie su Indeed", v0: 2, v100: 4.5, u: "stelle", fonte: "Indeed, con almeno 30 recensioni" }
 };
 const PILASTRI = [
-  { id: "eco",  nome: "Solidità economica", breve: "Solidità", peso: 0.25, ind: ["crescitaFatt", "ebitMargin", "crescitaEbit", "debitoEbitda"] },
+  { id: "eco",  nome: "Solidità economica", breve: "Solidità", peso: 0.25, ind: ["crescitaFatt", "ebitMargin", "crescitaEbit", "debitoEbitda", "crescitaCosto"] },
   { id: "ret",  nome: "Retribuzione e benefit", breve: "Retribuzione", peso: 0.25, ind: ["costoMedio", "buonoPasto", "premio", "welfare"] },
   { id: "stab", nome: "Stabilità del lavoro", breve: "Stabilità", peso: 0.20, ind: ["termine", "cig", "licColl", "turnover"] },
   { id: "flex", nome: "Flessibilità e sede", breve: "Flessibilità", peso: 0.15, ind: ["smart", "minutiMetro"] },
@@ -735,7 +780,7 @@ function crescitaMedia(serie) {
   return s / (serie.length - 1);
 }
 function valuta(az) {
-  const valori = Object.assign({ crescitaFatt: crescitaMedia(az.fatturato) }, az.valori);
+  const valori = Object.assign({ crescitaFatt: crescitaMedia(az.fatturato), crescitaCosto: crescitaMedia(az.costoPersonale) }, az.valori);
   const pt = {}, pil = {};
   let totale = 0;
   for (const p of PILASTRI) {
@@ -748,6 +793,28 @@ function valuta(az) {
   return Object.assign({}, az, { v: valori, pt: pt, pil: pil, totale: totale, voto: cl.v, gc: cl.c });
 }
 const RATED = AZIENDE.map(valuta);
+
+/* Media di confronto: aziende dello stesso settore (azienda inclusa).
+   Sotto le 3 aziende si usa la media di tutte. */
+function mediaConfronto(a) {
+  const stessi = RATED.filter(x => x.settore === a.settore);
+  const settore = stessi.length >= 3;
+  const gruppo = settore ? stessi : RATED;
+  const avg = (f) => gruppo.reduce((s, x) => s + f(x), 0) / gruppo.length;
+  const v = {}, pil = {};
+  Object.keys(INDICATORI).forEach(k => { v[k] = avg(x => x.v[k]); });
+  PILASTRI.forEach(p => { pil[p.id] = avg(x => x.pil[p.id]); });
+  return { settore: settore, n: gruppo.length, v: v, pil: pil,
+    nome: settore ? "media del settore" : "media di tutte le aziende",
+    breve: settore ? "media settore" : "media di tutte" };
+}
+/* 1 = meglio della media, -1 = peggio, 0 = in linea. Il verso viene dalle soglie. */
+function versoMedia(k, valore, media) {
+  const d = INDICATORI[k];
+  const diff = (valore - media) * Math.sign(d.v100 - d.v0);
+  const tol = Math.abs(d.v100 - d.v0) * 0.02;
+  return diff > tol ? 1 : (diff < -tol ? -1 : 0);
+}
 /*@@CALC-END@@*/
 
 /* ======================= formattazione ======================= */
@@ -796,6 +863,48 @@ function spark(serie, w, h) {
   return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="currentColor"/></svg>`;
 }
 
+function fmtMedia(k, v) {
+  switch (INDICATORI[k].u) {
+    case "bool": return "Sì nel " + f0.format(v * 100) + "%";
+    case "anni": return f1.format(v) + " su 3";
+    case "n": return f1.format(v);
+    case "gg": return f1.format(v) + " giorni";
+    case "min": return f0.format(v) + " min";
+    case "eur": return fmt(k, Math.round(v * 100) / 100);
+  }
+  return fmt(k, v);
+}
+const fMln = (v) => f1.format(v) + " mln €";
+function chartHTML(titolo, serie, fv, assoluta) {
+  const W = 240, H = 64, px = 16, py = 6, n = serie.length;
+  const min = Math.min.apply(null, serie), max = Math.max.apply(null, serie);
+  const span = Math.max(max - min, Math.max(Math.abs(max), Math.abs(min)) * 0.08) || 1;
+  const lo = (max + min) / 2 - span / 2, hi = lo + span;
+  const X = (i) => px + i * (W - 2 * px) / (n - 1), Y = (v) => py + (H - 2 * py) * (1 - (v - lo) / (hi - lo));
+  const pts = serie.map((v, i) => [X(i), Y(v)]);
+  const zero = lo < 0 && hi > 0;
+  const base = zero ? Y(0) : (hi <= 0 ? 0 : H);
+  const line = pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
+  const area = `${px},${base.toFixed(1)} ${line} ${(W - px)},${base.toFixed(1)}`;
+  const last = pts[n - 1], a0 = serie[0], a1 = serie[n - 1];
+  const pct = !assoluta && a0 > 0;
+  const dv = pct ? (a1 / a0 - 1) * 100 : a1 - a0;
+  const segno = dv > 0 ? "+" : (dv < 0 ? "−" : "");
+  const varTxt = segno + (pct ? f1.format(Math.abs(dv)) + "%" : fv(Math.abs(dv))) + " sul " + ANNI[0];
+  return `<figure class="ch">
+      <figcaption class="mono">${titolo}</figcaption>
+      <div class="ch-now"><b>${fv(a1)}</b><span>${varTxt}</span></div>
+      <svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
+        <polygon points="${area}" fill="currentColor" fill-opacity=".08"/>
+        ${zero ? `<line x1="${px}" x2="${W - px}" y1="${base.toFixed(1)}" y2="${base.toFixed(1)}" stroke="currentColor" stroke-opacity=".35" stroke-dasharray="2 3"/>` : ""}
+        <polyline points="${line}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.4" fill="currentColor" stroke="var(--sheet)" stroke-width="2"/>
+      </svg>
+      <div class="ch-years" aria-hidden="true">${ANNI.map((y, i) => `<span style="left:${(X(i) / W * 100).toFixed(2)}%">${y}</span>`).join("")}</div>
+      <span class="sr-only">${ANNI.map((y, i) => y + ": " + fv(serie[i])).join("; ")}</span>
+    </figure>`;
+}
+
 /* ======================= etichetta ======================= */
 function labelHTML(a, opts) {
   opts = opts || {};
@@ -812,7 +921,7 @@ function labelHTML(a, opts) {
     <div class="elabel-scale" aria-hidden="true">${rows}</div>
     <div class="elabel-score"><span class="mono">Punteggio su 100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
     <div class="elabel-pillars">${pill}</div>
-    <div class="elabel-foot"><span class="mono">19 indicatori · 6 aree</span><span class="mono">Demo</span></div>
+    <div class="elabel-foot"><span class="mono">20 indicatori · 6 aree</span><span class="mono">Demo</span></div>
   </figure>`;
 }
 const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -928,16 +1037,30 @@ function strengths(a) {
 function fonte(a, k) { return (a.fonti && a.fonti[k]) || INDICATORI[k].fonte; }
 function renderScheda(a) {
   const sw = strengths(a);
-  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(fmt(x.k, a.v[x.k]))} · ${f0.format(x.p)} punti su 100</span></li>`;
+  const bm = mediaConfronto(a);
+  const confronto = (k) => INDICATORI[k].u === "bool"
+    ? `${fmt(k, a.v[k])}; ${bm.settore ? "nel settore" : "tra tutte le aziende"} ce l'ha il ${f0.format(bm.v[k] * 100)}%`
+    : `${fmt(k, a.v[k])} contro una ${bm.nome} di ${fmtMedia(k, bm.v[k])}`;
+  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(confronto(x.k))} · ${f0.format(x.p)} punti su 100</span></li>`;
+  const SIG = { "1": ["up", "▲", "meglio"], "-1": ["", "▼", "peggio"], "0": ["", "=", "in linea"] };
+  const sig = (k) => { const s = SIG[versoMedia(k, a.v[k], bm.v[k])]; return `<span class="sig ${s[0]}"><span aria-hidden="true">${s[1]}</span> ${s[2]}</span>`; };
+  const colMedia = bm.settore ? "Media settore" : "Media di tutte";
   const contrib = PILASTRI.map(p => `<tr><td>${p.nome}</td><td class="r">${Math.round(p.peso * 100)}%</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${sc(a.pil[p.id] * p.peso)}</td></tr>`).join("");
   const pillars = PILASTRI.map(p => `<div class="pillar">
       <div class="pillar-head"><div><span class="mono">Area · vale il ${Math.round(p.peso * 100)}% del punteggio</span><h3>${p.nome}</h3></div>
-      <div class="pillar-score"><span class="mono">Punteggio su 100</span><b>${sc(a.pil[p.id])}</b></div></div>
+      <div class="pillar-score"><span class="mono">Punteggio su 100</span><b>${sc(a.pil[p.id])}</b><span class="pm">${bm.breve} ${sc(bm.pil[p.id])}</span>
+        <span class="pbar" role="img" aria-label="Punteggio ${sc(a.pil[p.id])}, ${bm.nome} ${sc(bm.pil[p.id])}"><i style="width:${a.pil[p.id].toFixed(1)}%"></i><em style="left:${bm.pil[p.id].toFixed(1)}%"></em></span></div></div>
       <div class="table-wrap" tabindex="0" role="region" aria-label="Indicatori di ${esc(p.nome)}"><table class="ind">
-        <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">Fonte</th></tr></thead>
-        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti con ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 con ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
+        <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">${colMedia}</th><th scope="col" class="mono">Fonte</th></tr></thead>
+        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti con ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 con ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="bm">${esc(fmtMedia(k, bm.v[k]))}${sig(k)}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
       </table></div></div>`).join("");
-  const years = a.fatturato.map((v, i) => `<div><span class="mono">${ANNI[i]}</span><b>${f1.format(v)}</b></div>`).join("");
+  const costoMedioSerie = a.costoPersonale.map((c, i) => c * 1e6 / a.organico[i]);
+  const charts = [
+    chartHTML("Fatturato", a.fatturato, fMln),
+    chartHTML("Utile netto", a.utileNetto, fMln, true),
+    chartHTML("Numero di dipendenti", a.organico, (v) => f0.format(v)),
+    chartHTML("Costo medio per dipendente", costoMedioSerie, (v) => f0.format(Math.round(v / 100) * 100) + " €")
+  ].join("");
   $("scheda-root").innerHTML = `
     <a class="back" href="#classifica">Torna alla classifica</a>
     <div class="sheet-head">
@@ -962,10 +1085,9 @@ function renderScheda(a) {
     <div class="sheet-grid">
       <div class="sheet-side">
         ${labelHTML(a, {})}
-        <div class="rev">
-          <span class="mono">Fatturato in milioni di euro, dai bilanci depositati</span>
-          <div style="margin-top:8px">${spark(a.fatturato, 320, 64).replace('class="spark"', 'class="spark" style="width:100%;height:64px" preserveAspectRatio="none"')}</div>
-          <div class="rev-years">${years}</div>
+        <div>
+          <div class="charts">${charts}</div>
+          <p class="charts-note">Dati ${ANNI[0]}-${ANNI[ANNI.length - 1]} dai bilanci depositati. Il costo medio è il costo del personale diviso per i dipendenti.</p>
         </div>
       </div>
       <div>
@@ -981,6 +1103,9 @@ function renderScheda(a) {
           <div class="plus"><h3>Punti forti</h3><ul>${sw.best.map(li).join("")}</ul></div>
           <div class="minus"><h3>Punti deboli</h3><ul>${sw.worst.map(li).join("")}</ul></div>
         </div>
+        <p class="bench-note">${bm.settore
+          ? `I confronti usano la media delle ${bm.n} aziende del settore ${esc(a.settore)}, questa compresa.`
+          : `Nel settore ${esc(a.settore)} ci sono meno di 3 aziende: i confronti usano la media di tutte le ${bm.n} aziende.`}</p>
       </div>
     </div>
     ${pillars}`;
