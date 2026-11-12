@@ -301,6 +301,54 @@
       "note": "Sede legale della capogruppo (non la sede operativa). Home e contatti di group.bper.it non riportano indirizzo, quindi il dato viene dal resoconto 2025 (fonte non tra quelle del regolamento: il sito non lo riporta). Il CAP non compare nel testo letto e non e' stato aggiunto.",
       "verifica": "confermato (controllo automatico)",
       "verifica_note": "Letto nel txt: 'con sede legale in Modena, Via San Carlo, 8/20 - Italia' (BPER Banca s.p.a., capogruppo). Fonte diversa dal sito, da segnalare."
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 2001.4,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "BPER Group - Risultati consolidati al 31 dicembre 2024 (comunicato stampa, PDF)",
+      "fonte_url": "https://group.bper.it/documents/133577364/2795028367/25.02.06+BPER+Risultati+2024+-+all+-+def_EN.pdf/75433bd0-b322-6aad-3323-8124643db480?t=1738868471043",
+      "fonte_file": "/tmp/fonti/bper-banca/risultati2024.pdf.txt",
+      "citazione": "Staff costs (1,915,500) (2,001,397) 85,897 -4.29",
+      "note": "Colonna 2023 del conto economico riclassificato di gruppo nel comunicato 2024 (2.001.397 migliaia, convertite in mln). Dato riclassificato, non schema Circolare 262. Il comunicato indica che il 2023 non include -€294,5 mln di Staff costs della manovra occupazionale: dato non usato, perche' la regola richiede il riclassificato.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 1915.5,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "BPER Group - Risultati consolidati al 31 dicembre 2024 (comunicato stampa, PDF)",
+      "fonte_url": "https://group.bper.it/documents/133577364/2795028367/25.02.06+BPER+Risultati+2024+-+all+-+def_EN.pdf/75433bd0-b322-6aad-3323-8124643db480?t=1738868471043",
+      "fonte_file": "/tmp/fonti/bper-banca/risultati2024.pdf.txt",
+      "citazione": "Staff costs (1,915,500) (2,001,397) 85,897 -4.29",
+      "note": "Colonna 2024 del conto economico riclassificato di gruppo nel comunicato 2024 (testo: 'staff costs amounted to €1,915.5 mn'). Include -€193,5 mln di costi della manovra di ottimizzazione del personale. Coincide con la colonna comparativa del comunicato 2025 (1.915.500).",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 20224,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "BPER Group - Risultati consolidati al 31 dicembre 2024 (comunicato stampa, PDF)",
+      "fonte_url": "https://group.bper.it/documents/133577364/2795028367/25.02.06+BPER+Risultati+2024+-+all+-+def_EN.pdf/75433bd0-b322-6aad-3323-8124643db480?t=1738868471043",
+      "fonte_file": "/tmp/fonti/bper-banca/risultati2024.pdf.txt",
+      "citazione": "Group employees totalled 19,508 (20,224 at year-end 2023).",
+      "note": "Dipendenti di gruppo a fine 2023 (valore fra parentesi nella frase del comunicato 2024, sezione risultati). Perimetro del bilancio consolidato, come il 2024 di questo comunicato. Il 2025 gia' nel file (22.300) e' la tabella S1-6 di sostenibilita' (perimetro piu' ampio): non confrontabile in senso stretto; il 2024 in S1-6 e' 19.532 (resoconti 2025), non usato per coerenza con il 2023.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 19508,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "BPER Group - Risultati consolidati al 31 dicembre 2024 (comunicato stampa, PDF)",
+      "fonte_url": "https://group.bper.it/documents/133577364/2795028367/25.02.06+BPER+Risultati+2024+-+all+-+def_EN.pdf/75433bd0-b322-6aad-3323-8124643db480?t=1738868471043",
+      "fonte_file": "/tmp/fonti/bper-banca/risultati2024.pdf.txt",
+      "citazione": "Group employees totalled 19,508 (20,224 at year-end 2023).",
+      "note": "Dipendenti di gruppo a fine 2024, stessa frase del comunicato 2024. Stesso perimetro del dato 2023. Il dato 2025 del file (22.300, S1-6) e' di perimetro diverso: vedi nota su dipendenti_2023. Il comunicato 2025 riporta 22.259 dipendenti al 31.12.2025 (perimetro bilancio).",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }

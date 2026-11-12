@@ -295,6 +295,54 @@
       "citazione": "Piazza San carlo, 156  10121 Torino",
       "note": "Indirizzo della sede sociale (Torino), non della direzione generale: la pagina contatti indica come 'Sede secondaria' Via Monte di Pietà 8, Milano. Letto 12/11/2026",
       "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 7026,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Intesa Sanpaolo - Bilanci 2024 (Relazione sull'andamento della gestione)",
+      "fonte_url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/Contenuti/Bilanci_2024.pdf",
+      "fonte_file": "/tmp/fonti/intesa-sanpaolo/bilanci2024.txt",
+      "citazione": "Spese del personale                                                                                         -7.185               -7.026       159         2,3",
+      "note": "Conto economico consolidato riclassificato, pag. PDF 69, colonna 31.12.2023 (dato di confronto nel Bilancio 2024). Stessa tabella di spese_personale_2024; comunicato FY24 non riporta la voce. Riesposizioni non verificate. Letto 12/11/2026",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 7185,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Intesa Sanpaolo - Bilanci 2024 (Relazione sull'andamento della gestione)",
+      "fonte_url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/Contenuti/Bilanci_2024.pdf",
+      "fonte_file": "/tmp/fonti/intesa-sanpaolo/bilanci2024.txt",
+      "citazione": "Spese del personale                                                                                         -7.185               -7.026       159         2,3",
+      "note": "Conto economico consolidato riclassificato, pag. PDF 69, colonna 31.12.2024. Stesso valore nel Bilancio 2025 (pag. PDF 73, dato di confronto); comunicato FY24 non riporta la voce. Letto 12/11/2026",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 95366,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "Intesa Sanpaolo - Bilanci 2024 (Relazione sull'andamento della gestione)",
+      "fonte_url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/Contenuti/Bilanci_2024.pdf",
+      "fonte_file": "/tmp/fonti/intesa-sanpaolo/bilanci2024.txt",
+      "citazione": "Numero dei dipendenti (e)                                                                                        94.736                       95.366                           -630",
+      "note": "Tabella Struttura operativa, pag. PDF 29, colonna 31.12.2023 (dato di raffronto). Organico puntuale a fine periodo, part time conteggiato come 1 (nota e). Perimetro finanziario consolidato; riesposizioni non verificate. Letto 12/11/2026",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 94736,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "Intesa Sanpaolo - Bilanci 2024 (Relazione sull'andamento della gestione)",
+      "fonte_url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/Contenuti/Bilanci_2024.pdf",
+      "fonte_file": "/tmp/fonti/intesa-sanpaolo/bilanci2024.txt",
+      "citazione": "Numero dei dipendenti (e)                                                                                        94.736                       95.366                           -630",
+      "note": "Tabella Struttura operativa, pag. PDF 29, colonna 31.12.2024. Stesso perimetro di dipendenti_2023. La rendicontazione di sostenibilita (S1-6, perimetro diverso) riporta 93.539 al 31.12.2024: non usato. Letto 12/11/2026",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }

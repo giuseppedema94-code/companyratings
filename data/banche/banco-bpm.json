@@ -292,6 +292,54 @@
       "fonte_url": null,
       "citazione": null,
       "note": "non disponibile da fonte ammessa. Letti 12/11/2026: comunicato risultati 2025, relazione sulla gestione risultati 2024, pagina 'Contattaci' (gruppo.bancobpm.it/contattaci/): nessuna sede legale con indirizzo. Una scheda Google Places riporta un indirizzo in Piazza Filippo Meda, Milano: non è fonte ammessa, non usato."
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 1745.2,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Relazione sulla gestione del gruppo - Risultati (bilancio 2024)",
+      "fonte_url": "https://gruppo.bancobpm.it/download/03-relazione-sulla-gestione-del-gruppo-risultati-4",
+      "fonte_file": "/tmp/fonti/banco-bpm/rel2024.txt",
+      "citazione": "Le spese per il personale, pari a 1.745,2 milioni",
+      "note": "Oneri operativi consolidati, PDF p. 34 (pag. 72 stampata). Tabella in migliaia: (1.745.204) per il 2024. Valore 2024 invariato nel comunicato 2025 (-1.745.204). Testo in milioni arrotondato a un decimale.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 1672.0,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Relazione sulla gestione del gruppo - Risultati (bilancio 2024)",
+      "fonte_url": "https://gruppo.bancobpm.it/download/03-relazione-sulla-gestione-del-gruppo-risultati-4",
+      "fonte_file": "/tmp/fonti/banco-bpm/rel2024.txt",
+      "citazione": "rispetto a 1.672,0 milioni",
+      "note": "Stessa tabella e stessa pagina (PDF p. 34), colonna 2023 in migliaia: (1.671.952). Riga 2023 nel testo: 1.672,0 milioni. Nel 2023 la voce includeva componenti non ricorrenti nette per +10,6 mln (cfr. sezione componenti non ricorrenti del documento). Vera Vita e BBPM Life consolidate da fine 2023.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 19490,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "Relazione sulla gestione del gruppo - Risultati (bilancio 2024)",
+      "fonte_url": "https://gruppo.bancobpm.it/download/03-relazione-sulla-gestione-del-gruppo-risultati-4",
+      "fonte_file": "/tmp/fonti/banco-bpm/rel2024.txt",
+      "citazione": "il numero totale dei dipendenti è pari a n. 19.490",
+      "note": "Dipendenti totali a 31/12/2024 (PDF p. 34), incluse 150 risorse delle compagnie assicurative. Fonte: testo della relazione, non tabella.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 19761,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "Relazione sulla gestione del gruppo - Risultati (bilancio 2024)",
+      "fonte_url": "https://gruppo.bancobpm.it/download/03-relazione-sulla-gestione-del-gruppo-risultati-4",
+      "fonte_file": "/tmp/fonti/banco-bpm/rel2024.txt",
+      "citazione": "rispetto alle n. 19.761 risorse in organico al 31 dicembre 2023",
+      "note": "Dipendenti totali a 31/12/2023 (PDF p. 34), incluse 146 risorse delle compagnie assicurative. Stesso documento, stesso perimetro del 2024.",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }

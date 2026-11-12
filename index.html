@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CompanyRatings</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23fff'/><path d='M3 4h12l3 2.5-3 2.5H3z' fill='%2300813C'/><path d='M3 10.5h17l3 2.5-3 2.5H3z' fill='%23FFDD17'/><path d='M3 17h22l3 2.5-3 2.5H3z' fill='%23EC6E1C'/><path d='M3 23.5h26l3 2.5-3 2.5H3z' fill='%23D3221B'/></svg>">
-<meta name="description" content="Il voto da A+ a F delle aziende italiane, calcolato su bilanci, contratti integrativi e accordi sindacali.">
+<meta name="description" content="Il voto da A+ a F delle aziende italiane, calcolato su bilanci, contratti integrativi e accordi sindacali. Banche con dati reali 2025.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -102,7 +102,7 @@ button, input, select { font: inherit; color: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
 
-/* banner demo */
+/* banner sui dati */
 .demo-banner {
   position: sticky; top: 0; z-index: 20;
   background: var(--ink); color: var(--paper);
@@ -291,7 +291,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 .card h3 { font-size: 1.35rem; line-height: 1.1; font-stretch: 85%; }
 .card .meta { font-size: .88rem; color: var(--ink-2); margin-top: 4px; }
 .pill-bars { display: grid; gap: 5px; }
-.pill-bars div { display: grid; grid-template-columns: 82px 1fr 26px; gap: 8px; align-items: center; }
+.pill-bars div { display: grid; grid-template-columns: 104px 1fr 26px; gap: 8px; align-items: center; }
 .pill-bars span:first-child { font-size: .78rem; color: var(--ink-2); }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; border-top: 1px solid var(--rule); padding-top: 12px; gap: 8px; }
 .facts div { min-width: 0; }
@@ -401,6 +401,52 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 .soon { display: inline-block; margin-top: 10px; border: 1px dashed var(--ink-2); padding: 3px 8px; }
 .foot-base { border-top: 1px solid var(--rule); padding-top: 14px; padding-bottom: 18px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 
+/* voto provvisorio, senza voto */
+.g-nd { background: var(--rule); color: var(--ink); }
+.prov { display: inline-block; margin-left: 6px; font-size: .6rem; vertical-align: 6px; }
+.tag-lg + .prov { display: block; margin: 4px 0 0; vertical-align: 0; }
+.card-vt { display: block; }
+.nd-note { display: block; font-size: .8rem; color: var(--ink-2); margin-top: 2px; }
+.rank .az .nd-note { white-space: normal; }
+.nd-box { border: 1px solid var(--rule); border-left: 3px solid var(--ink-2); background: var(--sheet); padding: 10px 12px; margin-bottom: 12px; }
+.elabel-nd { padding: 0 14px 10px; font-size: .88rem; color: var(--ink-2); }
+.elabel-score .tag { font-size: 1.2rem; }
+.elabel-pillars.c2 { grid-template-columns: repeat(2, 1fr); }
+.elabel-pillars.c2 div:nth-child(3n) { border-right: 1px solid var(--rule); }
+.elabel-pillars.c2 div:nth-child(2n) { border-right: 0; }
+.elabel-pillars.c2 div:nth-last-child(-n+3) { border-bottom: 1px solid var(--rule); }
+.elabel-pillars.c2 div:nth-last-child(-n+2) { border-bottom: 0; }
+
+/* scelta dell'insieme: banche o demo */
+.set-pick { display: inline-flex; flex-wrap: wrap; border: 1.5px solid var(--ink); border-radius: var(--r); margin-bottom: 18px; background: var(--sheet); }
+.seg { background: transparent; border: 0; padding: 9px 14px; font-weight: 600; font-size: .92rem; cursor: pointer; color: var(--ink); }
+.seg + .seg { border-left: 1.5px solid var(--ink); }
+.seg:hover { background: var(--row-top); }
+.seg[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.field[hidden] { display: none; }
+.field input { width: 100%; padding: 9px 10px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--r); }
+.field input:hover { border-color: var(--ink); }
+.quick-chips { display: contents; }
+.s-demo { font-size: .6rem; border: 1px solid var(--ink-2); padding: 0 4px; vertical-align: 2px; margin-left: 4px; }
+#cmp-note { margin-top: 8px; }
+
+/* scheda: fonti, cassa integrazione, limiti */
+.ind td.src a { color: var(--accent); overflow-wrap: anywhere; }
+.ind td.val.nd { font-weight: 400; color: var(--ink-2); white-space: normal; }
+.ind.other { min-width: 640px; }
+.ind.other th:nth-child(1) { width: 40%; } .ind.other th:nth-child(2) { width: 22%; } .ind.other th:nth-child(3) { width: auto; }
+.cap-note { margin-top: 10px; padding: 8px 12px; border-left: 3px solid var(--g-e); background: var(--sheet); font-size: .9rem; }
+.fw li.none { color: var(--ink-2); }
+.limits { margin-top: 30px; border: 1px solid var(--rule); border-top: 2px solid var(--ink); background: var(--sheet); padding: 14px 18px 16px; }
+.limits h3 { font-size: 1.2rem; font-stretch: 85%; margin-bottom: 8px; }
+.limits ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-2); }
+
+/* metodo: due modelli */
+.method-part { margin: 40px 0 18px; padding-top: 14px; border-top: 2px solid var(--ink); }
+.method-part:first-of-type { margin-top: 0; }
+.part-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-stretch: 80%; margin-top: 4px; }
+.w-sub { display: block; font-size: .78rem; color: var(--ink-2); }
+
 /* responsive */
 @media (max-width: 960px) {
   .hero .wrap, .sheet-grid, .method-grid { grid-template-columns: minmax(0, 1fr); }
@@ -438,7 +484,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 </style>
 </head>
 <body>
-<div class="demo-banner" role="note"><div class="wrap">Versione demo: aziende e dati sono fittizi.</div></div>
+<div class="demo-banner" role="note"><div class="wrap">Banche: dati reali 2025, voti provvisori. Le altre aziende sono demo con dati fittizi.</div></div>
 
 <header class="site-head">
   <div class="wrap">
@@ -460,7 +506,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   <section class="hero" id="view-hero" aria-labelledby="hero-title">
     <div class="wrap">
       <div>
-        <h1 id="hero-title">Prima di firmare, guarda il voto.</h1>
+        <h1 id="hero-title">Il colloquio lo fai anche tu.</h1>
         <p class="hero-sub">Come l'etichetta energetica del frigo, ma per il tuo prossimo datore di lavoro.</p>
         <div class="search" role="search">
           <label for="search-input">Cerca un'azienda</label>
@@ -475,7 +521,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       </div>
       <div class="hero-aside">
         <div class="hero-aside-bar">
-          <span class="mono">Etichetta di esempio</span>
+          <span class="mono">Banche · dati reali 2025</span>
           <button class="link-btn" id="hero-next" type="button">Mostra un'altra azienda</button>
         </div>
         <div id="hero-label" aria-live="polite"></div>
@@ -488,20 +534,19 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="classifica-title">Classifica</h2>
-          <p>Metti in cima l'area che conta di più per te, dallo stipendio alla stabilità del posto. Le prime tre aziende sono evidenziate.</p>
+          <p>Metti in cima l'area che conta di più per te, dallo stipendio alla stabilità del posto. Le prime tre sono evidenziate.</p>
         </div>
       </div>
+      <div class="set-pick" role="group" aria-label="Quali aziende mostrare"></div>
       <div class="filters">
-        <div class="field"><label class="mono" for="f-settore">Settore</label><select id="f-settore"></select></div>
-        <div class="field"><label class="mono" for="f-citta">Città</label><select id="f-citta"></select></div>
+        <div class="field" id="fld-cerca"><label class="mono" for="f-cerca">Cerca</label><input id="f-cerca" type="search" autocomplete="off" spellcheck="false" placeholder="Nome della banca"></div>
+        <div class="field" id="fld-settore"><label class="mono" for="f-settore">Settore</label><select id="f-settore"></select></div>
+        <div class="field" id="fld-citta"><label class="mono" for="f-citta">Città</label><select id="f-citta"></select></div>
         <div class="field"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
         <div class="field"><label class="mono" for="f-ordina">Ordina per</label><select id="f-ordina"></select></div>
       </div>
       <div class="quick" role="group" aria-label="Ordina con un clic">
-        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori in assoluto</button>
-        <button class="chip" type="button" id="q-flex" data-sort="flex">Migliori per flessibilità e sede</button>
-        <button class="chip" type="button" id="q-ret" data-sort="ret">Migliori per retribuzione</button>
-        <button class="chip" type="button" id="q-stab" data-sort="stab">Migliori per stabilità</button>
+        <span id="quick-chips" class="quick-chips"></span>
         <span class="mono count-line" id="rank-count" aria-live="polite"></span>
       </div>
       <div class="table-wrap" tabindex="0" role="region" aria-label="Classifica, scorre in orizzontale">
@@ -519,10 +564,11 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="aziende-title">Tutte le aziende</h2>
-          <p>Voto, punteggio delle sei aree e tre numeri da guardare subito. Apri un'azienda per vedere da dove viene ogni dato.</p>
+          <p id="aziende-note"></p>
         </div>
         <div class="field"><label class="mono" for="g-ordina">Ordina per</label><select id="g-ordina"></select></div>
       </div>
+      <div class="set-pick" role="group" aria-label="Quali aziende mostrare"></div>
       <div class="grid" id="card-grid"></div>
     </div>
   </section>
@@ -536,7 +582,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="confronta-title">Confronta le aziende</h2>
-          <p>Scegli due o tre aziende. In ogni riga evidenziamo chi fa meglio.</p>
+          <p>Scegli due o tre aziende dello stesso gruppo: banche con banche, demo con demo. In ogni riga evidenziamo chi fa meglio.</p>
+          <p class="mono" id="cmp-note"></p>
         </div>
       </div>
       <div class="cmp-pick">
@@ -555,8 +602,35 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="metodo-title">Come calcoliamo il voto</h2>
-          <p>Il voto nasce da 20 indicatori, divisi in sei aree, presi da bilanci, contratti, accordi sindacali e altre fonti pubbliche. La tabella mostra quanto pesa ogni area e le soglie di ogni indicatore.</p>
+          <p>Usiamo due modelli. Le banche hanno un modello proprio, con 11 indicatori in quattro aree e dati reali del 2025. Le aziende demo usano il modello generale, con 20 indicatori in sei aree e dati fittizi. Il modo di dare i punti è lo stesso.</p>
         </div>
+      </div>
+      <div class="method-part">
+        <span class="mono">Modello banche · dati reali 2025</span>
+        <h3 class="part-title">Banche</h3>
+      </div>
+      <div class="method-grid">
+        <div class="method-text">
+          <h3>Aree e pesi</h3>
+          <p>I bilanci delle banche non hanno fatturato ed EBIT come quelli delle altre aziende, quindi usano indicatori propri. Le aree sono quattro: <span id="m-banche-aree"></span>.</p>
+          <p>Ogni indicatore vale da 0 a 100 punti tra due soglie, con la formula qui sotto. Il punteggio di un'area è la media degli indicatori che hanno un dato. Il punteggio finale è la media pesata delle aree con dati.</p>
+          <h3>Quando manca il voto</h3>
+          <p>Il voto c'è solo se la banca ha almeno <span id="m-banche-min"></span>. Con meno dati mostriamo i numeri che abbiamo e un'etichetta grigia "n.d.".</p>
+          <h3>Come raccogliamo i dati</h3>
+          <p>Usiamo solo documenti ufficiali del gruppo, cioè bilanci, comunicati sui risultati e rendiconti di sostenibilità, e i comunicati dei sindacati del credito. Ogni numero ha una fonte, con il link al documento. Se un dato non si trova, resta "non disponibile": niente stime.</p>
+          <p>I voti delle banche sono provvisori. Soglie e dati possono ancora cambiare.</p>
+        </div>
+        <div>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie delle banche, scorre in orizzontale">
+            <table class="weights" id="weights-banche">
+              <caption class="sr-only">Banche: aree, pesi e soglie degli indicatori</caption>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="method-part">
+        <span class="mono">Modello generale · aziende demo</span>
+        <h3 class="part-title">Tutte le altre aziende</h3>
       </div>
       <div class="method-grid">
         <div class="method-text">
@@ -564,23 +638,25 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
           <p>Ogni dato diventa un numero da 0 a 100. Prendi il buono pasto: 0 € valgono 0 punti, 10 € o più ne valgono 100, 8 € ne valgono 80. Dove meno è meglio, la scala si inverte: se ogni anno lascia l'azienda il 5% dei dipendenti o meno, sono 100 punti; dal 25% in su, 0.</p>
           <p class="formula">punti = (valore − soglia da 0) ÷ (soglia da 100 − soglia da 0) × 100<br>con un minimo di 0 e un massimo di 100</p>
           <p>Il costo del personale conta in positivo quando cresce. Se scende, di solito l'azienda ha ridotto le persone o gli stipendi: un calo medio del 5% l'anno vale 0 punti, una crescita del 5% ne vale 100.</p>
+          <h3>La cassa integrazione</h3>
+          <p>Per la cassa integrazione i punti scendono subito: nessun anno negli ultimi tre vale 100 punti, un anno 20, due anni 5, tre anni 0. Con almeno un anno di cassa integrazione, la Stabilità del lavoro non può superare 50 punti.</p>
           <h3>Dai punti al voto</h3>
-          <p>Il punteggio di un'area è la media dei punti dei suoi indicatori. Il punteggio finale, da 0 a 100, è la media delle sei aree pesata come in tabella: retribuzione e solidità economica valgono un quarto ciascuna. Da lì si ricava il voto.</p>
+          <p>Il punteggio di un'area è la media dei punti dei suoi indicatori. Il punteggio finale, da 0 a 100, è la media delle sei aree pesata come in tabella: retribuzione e solidità economica valgono un quarto ciascuna. Da lì si ricava il voto, con la stessa scala per i due modelli.</p>
           <div class="scale-key" id="scale-key" aria-label="Soglie dei voti"></div>
         </div>
         <div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie, scorre in orizzontale">
             <table class="weights" id="weights-table">
-              <caption class="sr-only">Aree, pesi e soglie degli indicatori</caption>
+              <caption class="sr-only">Modello generale: aree, pesi e soglie degli indicatori</caption>
             </table>
           </div>
         </div>
       </div>
       <div class="principles">
         <div><h3>Le aziende non pagano</h3><p>Non vendiamo posizioni in classifica né profili a pagamento.</p></div>
-        <div><h3>Ogni dato ha una fonte</h3><p>Nella pagina di ogni azienda, accanto a ogni numero, trovi il documento da cui viene: bilancio, contratto integrativo, rapporto sulla parità.</p></div>
+        <div><h3>Ogni dato ha una fonte</h3><p>Nella pagina di ogni banca, accanto a ogni numero, trovi il link al documento da cui viene: bilancio, comunicato, rendiconto di sostenibilità.</p></div>
         <div><h3>Almeno 100 dipendenti</h3><p>Nelle aziende più piccole i dati pubblici sono pochi e un singolo caso sposterebbe troppo il voto.</p></div>
-        <div><h3>Le recensioni contano poco</h3><p>Glassdoor e Indeed valgono il 5% del punteggio, e solo con almeno 30 recensioni. Il resto viene da documenti verificabili.</p></div>
+        <div><h3>Le recensioni contano poco</h3><p>Nel modello generale Glassdoor e Indeed valgono il 5% del punteggio, e solo con almeno 30 recensioni. Per le banche non entrano nel punteggio.</p></div>
       </div>
     </div>
   </section>
@@ -605,8 +681,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
     </div>
   </div>
   <div class="wrap foot-base">
-    <span class="mono">CompanyRatings · versione demo 2026</span>
-    <span class="mono">Aziende e dati fittizi</span>
+    <span class="mono">CompanyRatings · 2026</span>
+    <span class="mono">Banche: dati reali 2025 · altre aziende: demo</span>
   </div>
 </footer>
 
@@ -614,8 +690,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 "use strict";
 /*@@CALC-START@@*/
 /* =========================================================================
-   DATI DEMO. Tutte le aziende sono inventate.
-   Per usare dati veri sostituisci solo l'array AZIENDE: stessi campi, stesse unità.
+   MODELLO GENERALE. DATI DEMO: tutte le aziende sono inventate.
+   Stessi campi e stesse unità per ogni azienda.
    - fatturato: ultimi 4 esercizi in milioni di euro, dal più vecchio (la crescita media
      a 3 anni si calcola da qui).
    - costoPersonale e utileNetto: stessi 4 esercizi, in milioni di euro. Dal costo del
@@ -673,7 +749,7 @@ const AZIENDE = [
   { slug: "antenore-packaging", nome: "Antenore Packaging S.p.A.", settore: "Packaging", citta: "Padova", dipendenti: 450, ccnl: "Carta e cartotecnica",
     fatturato: [102.6, 109.4, 115.5, 121.2],
     costoPersonale: [28.96, 29.71, 30.23, 30.74], organico: [449, 452, 452, 450], utileNetto: [0.6, 0.9, 1.6, 1.8],
-    valori: { ebitMargin: 3.3, crescitaEbit: 8.6, debitoEbitda: 2.8, costoMedio: 68300, buonoPasto: 5.5, premio: 2010, welfare: 1280, termine: 12, cig: 1, licColl: 1, turnover: 11.9, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 8.3, glassdoor: 4.1, indeed: 3.5 } },
+    valori: { ebitMargin: 3.3, crescitaEbit: 8.6, debitoEbitda: 2.8, costoMedio: 68300, buonoPasto: 5.5, premio: 1900, welfare: 1280, termine: 12, cig: 1, licColl: 1, turnover: 11.9, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 8.3, glassdoor: 4.1, indeed: 3.5 } },
   { slug: "arno-sanita", nome: "Arno Sanità S.r.l.", settore: "Sanità privata", citta: "Firenze", dipendenti: 870, ccnl: "Sanità privata",
     fatturato: [254.9, 262.7, 256.6, 263.5],
     costoPersonale: [50.84, 51.32, 51.54, 51.77], organico: [904, 893, 883, 870], utileNetto: [7.1, 7.5, 7.9, 7.4],
@@ -733,7 +809,8 @@ const AZIENDE = [
     fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } }
 ];
 
-/* Modello: identico al foglio rating_aziende_esempio.xlsx */
+/* Modello generale: 20 indicatori in 6 aree.
+   Il foglio rating_aziende_esempio.xlsx usa ancora la versione a 19 indicatori. */
 const INDICATORI = {
   crescitaFatt: { nome: "Crescita del fatturato (media annua, 3 anni)", v0: -10, v100: 10, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
   ebitMargin:   { nome: "Utile operativo in % dei ricavi (EBIT margin, media 3 anni)", v0: -5, v100: 15, u: "pct", fonte: "Bilanci depositati 2023-2025" },
@@ -769,8 +846,218 @@ const CLASSI = [
   { v: "C", min: 60, c: "g-c" }, { v: "D", min: 50, c: "g-d" }, { v: "E", min: 40, c: "g-e" }, { v: "F", min: -Infinity, c: "g-f" }
 ];
 
-function punti(k, valore) {
-  const d = INDICATORI[k];
+/* Cassa integrazione: punti non lineari e tetto sulla Stabilità del lavoro */
+const PUNTI_CIG = [100, 20, 5, 0];   /* 0, 1, 2, 3 anni negli ultimi 3 */
+const TETTO_CIG = 50;
+
+/* =========================================================================
+   MODELLO BANCHE. Dati reali, esercizio 2025: copia di data/banche/sito.json
+   (senza i campi calcolati: punti, aree, punteggio e voto li calcola il sito).
+   ========================================================================= */
+const BANCHE_MODELLO = {"pesi": {"Solidità": 35, "Retribuzione": 25, "Stabilità": 20, "Crescita e parità": 20}, "minimo_indicatori": 8, "totale_indicatori": 11, "stato": "provvisorio"};
+const BANCHE = [
+  {
+    "slug": "intesa-sanpaolo",
+    "nome": "Intesa Sanpaolo",
+    "settore": "Banche",
+    "citta": "Torino",
+    "anno_dati": 2025,
+    "dipendenti": 90789,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [25227, 27107, 27270], "utile": [7724, 8666, 9321], "dipendenti": [95366, 94736, 90831], "spese_personale": [7026, 7185, 7019]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 3.97, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)", "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 9.85, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": -0.05, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 42.2, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)", "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 13.2, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 77311, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 10, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)", "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"}},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 97.0, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 8.24, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 63.9, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Intesa Sanpaolo - Impegno verso le persone: i numeri (sostenibilità)", "url": "https://group.intesasanpaolo.com/it/sostenibilita/persone/impegno-verso-le-persone-i-numeri"}},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 26.8, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": 4.5, "fonte": {"titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)", "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"}},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 68894, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": "3.8 / 365", "fonte": {"titolo": "Indeed - Intesa Sanpaolo (valutazioni aziendali, it.indeed.com)", "url": "https://it.indeed.com/cmp/Intesa-Sanpaolo"}},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Piazza San Carlo, 156 - 10121 Torino", "fonte": {"titolo": "Intesa Sanpaolo - Contatti (pagina footer, sede sociale)", "url": "https://group.intesasanpaolo.com/it/pagine-footer/contatti"}}
+    ],
+    "limiti": ["Dipendenti nel grafico: perimetro 'Struttura operativa', che include i collaboratori (90.831 nel 2025). Per gli indicatori vale il dato del rendiconto di sostenibilità (90.789).", "Utile 2023 dal comunicato 2024, senza lettura della riga dei soci di minoranza."]
+  },
+  {
+    "slug": "unicredit",
+    "nome": "UniCredit",
+    "settore": "Banche",
+    "citta": "Milano",
+    "anno_dati": 2025,
+    "dipendenti": 72110,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [23843, 24844, 24536], "utile": [9507, 9719, 10915], "dipendenti": [76580, 75265, 72110], "spese_personale": [5861, 5853, 5872]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 1.44, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 7.15, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 0.09, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF)", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 38.5, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 14.75, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 81431, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF)", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 8, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato Uilca/First Cisl su VAP e buoni pasto UniCredit (10/02/2026)", "url": "https://www.firstcisl.it/wp-content/uploads/2026/02/Comunicato_Unicredit_20260210_Vap_2025.pdf"}},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 96.8, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per tipo di contratto", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 6.2, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 turnover", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 38, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-13 formazione", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 32, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), S1-16 divario retributivo", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1100, "fonte": {"titolo": "Vap 2025 definitivo (First Cisl Gruppo UniCredit, aprile 2026)", "url": "https://www.firstcisl.it/gruppounicredit/wp-content/uploads/sites/8/2026/04/Vap-2025-definitivo.pdf"}},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 1130, "fonte": {"titolo": "Uilca - comunicato accordo uscite e ricambio generazionale (21/04/2026)", "url": "https://www.uilca.it/wp-content/uploads/CS-Uilca_Unicredit-21042026.pdf"}},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 1624, "fonte": null},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 34903, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per paese", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": null, "fonte": null},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": "UniCredit Tower, Piazza Gae Aulenti 3, Milano", "fonte": {"titolo": "UniCredit in breve - UniCredit", "url": "https://www.unicreditgroup.eu/it/unicredit-at-a-glance.html?topmenu=INT-TM_ABO0_it060"}}
+    ],
+    "limiti": ["Circa metà del personale lavora fuori dall'Italia: i dati di gruppo descrivono solo in parte il lavoro in Italia.", "Turnover pubblicato (6,2%) senza base di calcolo dichiarata.", "Spese per il personale 2023 riesposte nel comunicato 2024."]
+  },
+  {
+    "slug": "banco-bpm",
+    "nome": "Banco BPM",
+    "settore": "Banche",
+    "citta": null,
+    "anno_dati": 2025,
+    "dipendenti": 18965,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [5341.442, 5703.529, 5955.251], "utile": [1264.453, 1920.393, 2082.0], "dipendenti": [19761, 19490, 18965], "spese_personale": [1672.0, 1745.2, 1798.1]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 5.59, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 28.32, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 3.7, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 46.0, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 13.58, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 94811, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 8, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato FABI - Accordo VAP Banco BPM, 17/02/2026", "url": "https://www.fabi.it/wp-content/uploads/2026/02/ComSt_FABI_20260217_AccordoVap_BancoBpmolo-copia.pdf"}},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.37, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 9.2, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 59, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 19.7, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": 10, "fonte": {"titolo": "Comunicato FIRST CISL - Smart working, un nuovo passo avanti per il Gruppo (8 maggio 2026)", "url": "https://www.firstcisl.it/bancobpm/wp-content/uploads/sites/13/2026/05/20260508-Smart-working-un-nuovo-passo-avanti-per-il-Gruppo.pdf"}},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 1320, "fonte": {"titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026", "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"}},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 821, "fonte": {"titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026", "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"}},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": 3.7, "fonte": {"titolo": "Recensioni su Banco BPM - Indeed", "url": "https://it.indeed.com/cmp/Banco-Bpm/reviews"}},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": null, "fonte": null}
+    ],
+    "limiti": ["Spese per il personale 2023 con 10,6 milioni di componenti non ricorrenti.", "Uscite e assunzioni: somma di tre accordi, possibile sovrapposizione tra quelli del 2024 e del 2026."]
+  },
+  {
+    "slug": "bper-banca",
+    "nome": "BPER Banca",
+    "settore": "Banche",
+    "citta": "Modena",
+    "anno_dati": 2025,
+    "dipendenti": 22300,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [5476.7, 5574.6, 6589.3], "utile": [1519.5, 1402.6, 1818.4], "dipendenti": [20224, 19508, 22300], "spese_personale": [2001.4, 1915.5, 1800.6]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 9.69, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 9.39, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": -5.15, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 45.73, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 14.83, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 80744, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 7.0, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato unitario Gruppo BPER del 29 ottobre 2020 - Buoni pasto (FABI, FIRST/CISL, FISAC/CGIL, UILCA, UNISIN), pubblicato da FISAC CGIL", "url": "https://www.fisac-cgil.it/102595/finalmente-nel-gruppo-bper-aumenta-il-buono-pasto"}},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.89, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 6.36, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 57.94, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-13, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 19.31, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-16, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1400, "fonte": {"titolo": "BPER VAP aree e quadri 2025 (accordo sindacale, FIRST Cisl)", "url": "https://www.firstcisl.it/bperbanca/wp-content/uploads/sites/56/2025/07/BPER-VAP-aree-e-quadri-2025.pdf"}},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 800, "fonte": {"titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)", "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"}},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 650, "fonte": {"titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)", "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"}},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 21882, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": "3.5 / 111", "fonte": {"titolo": "Indeed - BPER Banca SpA (recensioni dipendenti)", "url": "https://it.indeed.com/cmp/Bper-Banca-Spa"}},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Via San Carlo, 8/20, Modena", "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025 (PDF, pagina con i dati della società capogruppo)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}}
+    ],
+    "limiti": ["Il 2025 include la Banca Popolare di Sondrio: proventi, costi e dipendenti 2025 non sono confrontabili con il 2024.", "Le spese per il personale 2023 includono costi straordinari per le uscite: il calo 2023-2025 non indica da solo tagli al personale.", "CET1 disponibile solo nella versione transitoria.", "Buono pasto da accordo del 2020, in vigore dal 2023."]
+  },
+  {
+    "slug": "banca-mps",
+    "nome": "Banca Monte dei Paschi di Siena",
+    "settore": "Banche",
+    "citta": "Siena",
+    "anno_dati": 2025,
+    "dipendenti": 22079,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [3796.8, 4033.8, 4073.9], "utile": [2051.8, 1950.8, 2749.9], "dipendenti": [16737, 16727, 16546], "spese_personale": [1179.6, 1228.8, 1281.2]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 3.58, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 15.77, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 4.22, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 46.5, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 16.2, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 77433, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": null, "soglia0": 4, "soglia100": 10, "fonte": null},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.41, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 1.66, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 32.8, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 29.4, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1500, "fonte": {"titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)", "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"}},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": {"titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)", "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"}},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": 3, "fonte": {"titolo": "Accordo di welfare MPS del 10/10/2024 (FIRST CISL, PDF)", "url": "https://www.firstcisl.it/mps/wp-content/uploads/sites/29/2024/10/accordo-Welfare-10.10.24.pdf"}},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 21197, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": null, "fonte": null},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Piazza Salimbeni, 3, 53100 Siena (SI)", "fonte": {"titolo": "Banca MPS - pagina reclami (gruppomps.it)", "url": "https://gruppomps.it/en/complaints.html"}}
+    ],
+    "limiti": ["Dal 2025 il gruppo include Mediobanca. Per confrontare gli anni, crescita, costo medio e grafici usano i dati 2025 senza Mediobanca (proventi 4.073,9, utile 2.749,9, spese per il personale 1.281,2, dipendenti 16.546).", "Divario retributivo di gruppo 29,4%; senza Mediobanca 11,4%.", "Turnover pubblicato solo senza Mediobanca."]
+  },
+  {
+    "slug": "credem",
+    "nome": "Credem",
+    "settore": "Banche",
+    "citta": "Reggio Emilia",
+    "anno_dati": 2025,
+    "dipendenti": 6771,
+    "serie": {"anni": [2023, 2024, 2025], "proventi": [1923.2, 2032.3, 1883.5], "utile": [562.1, 620.1, 621.5], "dipendenti": [6628, 6614, 6731], "spese_personale": [579.1, 613.6, 620.9]},
+    "indicatori": [
+      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": -1.04, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
+      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 5.15, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
+      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 3.55, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
+      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 49.6, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Dati finanziari delle banche in Italia al 31 dicembre 2025, indicatori economici (Centro Studi UILCA)", "url": "https://www.uilca.it/wp-content/uploads/20260219-2231-PDF-DATI-ECONOMICI-E-PATRIMONIALI-BANCHE-AL-311225-002.pdf"}},
+      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 16.99, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
+      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 91700, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
+      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 7, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "La Sveglia n. 232 (First Cisl, gennaio 2024)", "url": "https://www.firstcisl.it/creditoemiliano/wp-content/uploads/sites/27/2024/01/sve232_gennaio-2024.pdf"}},
+      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": null, "soglia0": 90, "soglia100": 100, "fonte": null},
+      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": null, "soglia0": 15, "soglia100": 3, "fonte": null},
+      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": null, "soglia0": 20, "soglia100": 70, "fonte": null},
+      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": null, "soglia0": 35, "soglia100": 5, "fonte": null}
+    ],
+    "altri_dati": [
+      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
+      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
+      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
+      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
+      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 6771, "fonte": {"titolo": "Bilancio consolidato 2025 (EN), sezione rendiconto di sostenibilità, tabella per area geografica", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2025/Bilancio%20consolidato%202025_EN%20def.pdf"}},
+      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": 3.6, "fonte": {"titolo": "Recensioni su CREDEM (Indeed Italia)", "url": "https://it.indeed.com/cmp/Credem/reviews"}},
+      {"id": "sede", "nome": "Sede", "unita": "", "valore": null, "fonte": null}
+    ],
+    "limiti": ["Dati insufficienti per un voto: manca il rendiconto di sostenibilità 2025.", "Proventi: margine di intermediazione.", "Cost/income da tabella UILCA sui bilanci 2025, non dal comunicato Credem.", "Dipendenti nel grafico: dipendenti attivi (6.731 nel 2025). L'utile 2025 include 98,6 milioni dalla cessione di un ramo d'azienda."]
+  }
+];
+
+/* ======================= calcolo comune ======================= */
+function puntiLineari(d, valore) {
   const p = (valore - d.v0) / (d.v100 - d.v0) * 100;
   return Math.max(0, Math.min(100, p));
 }
@@ -780,78 +1067,199 @@ function crescitaMedia(serie) {
   for (let i = 1; i < serie.length; i++) s += (serie[i] / serie[i - 1] - 1) * 100;
   return s / (serie.length - 1);
 }
-function valuta(az) {
-  const valori = Object.assign({ crescitaFatt: crescitaMedia(az.fatturato), crescitaCosto: crescitaMedia(az.costoPersonale) }, az.valori);
-  const pt = {}, pil = {};
-  let totale = 0;
-  for (const p of PILASTRI) {
-    let s = 0;
-    for (const k of p.ind) { pt[k] = punti(k, valori[k]); s += pt[k]; }
-    pil[p.id] = s / p.ind.length;
-    totale += pil[p.id] * p.peso;
-  }
-  const cl = classe(totale);
-  return Object.assign({}, az, { v: valori, pt: pt, pil: pil, totale: totale, voto: cl.v, gc: cl.c });
-}
-const RATED = AZIENDE.map(valuta);
 
-/* Media di confronto: aziende dello stesso settore (azienda inclusa).
-   Sotto le 3 aziende si usa la media di tutte. */
+/* Un modello: aree con pesi, indicatori con soglie, minimo di indicatori per avere un voto.
+   Per aggiungere un settore reale basta un nuovo modello e la funzione che ne legge i dati. */
+const MODELLI = {
+  generale: {
+    id: "generale", demo: true, etichetta: "Aziende demo · dati fittizi",
+    ind: INDICATORI, aree: PILASTRI, minimo: 0,
+    punti(k, v) {
+      if (k === "cig") return PUNTI_CIG[Math.max(0, Math.min(3, Math.round(v)))];
+      return puntiLineari(this.ind[k], v);
+    },
+    /* con almeno un anno di cassa integrazione la Stabilità non supera 50 */
+    tetto(a, pil) {
+      if (a.v.cig >= 1 && pil.stab > TETTO_CIG) { pil.stab = TETTO_CIG; return true; }
+      return false;
+    },
+    quick: [["totale", "Migliori in assoluto"], ["flex", "Migliori per flessibilità e sede"], ["ret", "Migliori per retribuzione"], ["stab", "Migliori per stabilità"]],
+    cmpKeys: ["costoMedio", "buonoPasto", "premio", "smart", "minutiMetro", "crescitaFatt", "termine", "cig", "turnover", "gapGenere"]
+  },
+  banche: (function () {
+    const AREA_ID = { "Solidità": "sol", "Retribuzione": "ret", "Stabilità": "stab", "Crescita e parità": "cresc" };
+    const AREA_NOME = { "Solidità": "Solidità", "Retribuzione": "Retribuzione", "Stabilità": "Stabilità del lavoro", "Crescita e parità": "Crescita e parità" };
+    const unita = (i) => i.unita === "%" ? (/^crescita_/.test(i.id) ? "pctS" : "pct")
+      : i.unita === "€" ? (i.soglia100 >= 1000 ? "eurY" : "eur") : i.unita === "ore" ? "ore" : "n";
+    const ind = {};
+    BANCHE[0].indicatori.forEach(i => { ind[i.id] = { nome: i.nome, v0: i.soglia0, v100: i.soglia100, u: unita(i) }; });
+    const aree = Object.keys(BANCHE_MODELLO.pesi).map(n => ({
+      id: AREA_ID[n], nome: AREA_NOME[n], breve: n, peso: BANCHE_MODELLO.pesi[n] / 100,
+      ind: BANCHE[0].indicatori.filter(i => i.area === n).map(i => i.id)
+    }));
+    return {
+      id: "banche", demo: false, provvisorio: BANCHE_MODELLO.stato === "provvisorio", etichetta: "Banche · dati reali 2025",
+      ind: ind, aree: aree, minimo: BANCHE_MODELLO.minimo_indicatori, totInd: BANCHE_MODELLO.totale_indicatori,
+      punti(k, v) { return puntiLineari(this.ind[k], v); },
+      quick: [["totale", "Migliori in assoluto"], ["ret", "Migliori per retribuzione"], ["stab", "Migliori per stabilità"], ["cresc", "Migliori per crescita e parità"]],
+      cmpKeys: Object.keys(ind)
+    };
+  })()
+};
+
+function valuta(M, az) {
+  const pt = {}, pil = {};
+  let presenti = 0;
+  for (const p of M.aree) {
+    let s = 0, n = 0;
+    for (const k of p.ind) {
+      const v = az.v[k];
+      if (v === null || v === undefined) { pt[k] = null; continue; }
+      pt[k] = M.punti(k, v); s += pt[k]; n++;
+    }
+    presenti += n;
+    pil[p.id] = n ? s / n : null;
+  }
+  const tettoCig = M.tetto ? M.tetto(az, pil) : false;
+  let st = 0, sw = 0;
+  for (const p of M.aree) if (pil[p.id] !== null) { st += pil[p.id] * p.peso; sw += p.peso; }
+  const ok = sw > 0 && presenti >= M.minimo;
+  const totale = ok ? st / sw : null;
+  const cl = ok ? classe(totale) : null;
+  return Object.assign({}, az, {
+    modello: M.id, demo: M.demo, provvisorio: !!M.provvisorio,
+    pt: pt, pil: pil, presenti: presenti, tettoCig: tettoCig,
+    totale: totale, voto: ok ? cl.v : null, gc: ok ? cl.c : "g-nd"
+  });
+}
+
+/* aziende demo: valori calcolati dalle serie + valori del foglio */
+const RATED_GEN = AZIENDE.map(az => valuta(MODELLI.generale, Object.assign({}, az, {
+  v: Object.assign({ crescitaFatt: crescitaMedia(az.fatturato), crescitaCosto: crescitaMedia(az.costoPersonale) }, az.valori),
+  fonti: az.fonti || {},
+  serie: { anni: ANNI, fatturato: az.fatturato, utile: az.utileNetto, dipendenti: az.organico, spese_personale: az.costoPersonale }
+})));
+/* banche: un valore e una fonte per indicatore */
+const RATED_BANCHE = BANCHE.map(b => {
+  const v = {}, fonti = {};
+  b.indicatori.forEach(i => { v[i.id] = i.valore; fonti[i.id] = i.fonte; });
+  return valuta(MODELLI.banche, Object.assign({}, b, { v: v, fonti: fonti }));
+});
+const RATED = RATED_BANCHE.concat(RATED_GEN);
+const listaDi = (id) => id === "banche" ? RATED_BANCHE : RATED_GEN;
+
+/* Media di confronto.
+   Banche: media delle banche, per ogni indicatore solo quelle con il dato.
+   Demo: aziende dello stesso settore (azienda inclusa); sotto le 3 aziende si usa la media di tutte. */
 function mediaConfronto(a) {
-  const stessi = RATED.filter(x => x.settore === a.settore);
-  const settore = stessi.length >= 3;
-  const gruppo = settore ? stessi : RATED;
-  const avg = (f) => gruppo.reduce((s, x) => s + f(x), 0) / gruppo.length;
-  const v = {}, pil = {};
-  Object.keys(INDICATORI).forEach(k => { v[k] = avg(x => x.v[k]); });
-  PILASTRI.forEach(p => { pil[p.id] = avg(x => x.pil[p.id]); });
-  return { settore: settore, n: gruppo.length, v: v, pil: pil,
+  const M = MODELLI[a.modello];
+  let gruppo, settore;
+  if (a.modello === "banche") { gruppo = RATED_BANCHE; settore = true; }
+  else {
+    const stessi = RATED_GEN.filter(x => x.settore === a.settore);
+    settore = stessi.length >= 3;
+    gruppo = settore ? stessi : RATED_GEN;
+  }
+  const avg = (f) => {
+    const xs = gruppo.map(f).filter(x => x !== null && x !== undefined);
+    return xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : null;
+  };
+  const v = {}, pt = {}, pil = {};
+  Object.keys(M.ind).forEach(k => { v[k] = avg(x => x.v[k]); pt[k] = avg(x => x.pt[k]); });
+  M.aree.forEach(p => { pil[p.id] = avg(x => x.pil[p.id]); });
+  if (a.modello === "banche") return { settore: true, banche: true, n: gruppo.length, v: v, pt: pt, pil: pil, nome: "media delle banche", breve: "media banche", col: "Media banche" };
+  return { settore: settore, n: gruppo.length, v: v, pt: pt, pil: pil,
     nome: settore ? "media del settore" : "media di tutte le aziende",
-    breve: settore ? "media settore" : "media di tutte" };
+    breve: settore ? "media settore" : "media di tutte", col: settore ? "Media settore" : "Media di tutte" };
 }
 /* 1 = meglio della media, -1 = peggio, 0 = in linea. Il verso viene dalle soglie. */
-function versoMedia(k, valore, media) {
-  const d = INDICATORI[k];
+function versoMedia(d, valore, media) {
   const diff = (valore - media) * Math.sign(d.v100 - d.v0);
   const tol = Math.abs(d.v100 - d.v0) * 0.02;
   return diff > tol ? 1 : (diff < -tol ? -1 : 0);
+}
+/* Punti forti: migliori della media; deboli: peggiori. Fino a 3, con il distacco maggiore in punti. */
+function strengths(a, bm) {
+  const M = MODELLI[a.modello], best = [], worst = [];
+  M.aree.forEach(p => p.ind.forEach(k => {
+    if (a.v[k] === null || bm.v[k] === null) return;
+    const s = versoMedia(M.ind[k], a.v[k], bm.v[k]);
+    const x = { k: k, p: a.pt[k], dist: a.pt[k] - bm.pt[k], w: p.peso };
+    if (s === 1) best.push(x); else if (s === -1) worst.push(x);
+  }));
+  best.sort((x, y) => (y.dist - x.dist) || (y.w - x.w));
+  worst.sort((x, y) => (x.dist - y.dist) || (y.w - x.w));
+  return { best: best.slice(0, 3), worst: worst.slice(0, 3) };
 }
 /*@@CALC-END@@*/
 
 /* ======================= formattazione ======================= */
 const nf = (d) => new Intl.NumberFormat("it-IT", { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: "always" });
-const f0 = nf(0), f1 = nf(1);
-function fmt(k, v) {
-  const u = INDICATORI[k].u;
-  switch (u) {
+const f0 = nf(0), f1 = nf(1), f2 = nf(2);
+const ND = "non disponibile";
+const isNum = (v) => v !== null && v !== undefined;
+function fmt(d, v) {
+  if (!isNum(v)) return ND;
+  switch (d.u) {
     case "pctS": return (v > 0 ? "+" : "") + f1.format(v) + "%";
     case "pct": return f1.format(v) + "%";
     case "x": return f1.format(v) + "x";
     case "eurY": return f0.format(v) + " €/anno";
-    case "eur": return (Number.isInteger(v) ? f0 : nf(2)).format(v) + " €";
+    case "eur": return (Number.isInteger(v) ? f0 : f2).format(v) + " €";
     case "anni": return v + " su 3";
     case "n": return String(v);
     case "gg": return v + (v === 1 ? " giorno" : " giorni");
     case "min": return v + " min";
+    case "ore": return f1.format(v) + " ore";
     case "bool": return v ? "Sì" : "No";
     case "stelle": return f1.format(v) + " / 5";
   }
   return String(v);
 }
-function fmtSoglia(k, v) {
-  const u = INDICATORI[k].u;
-  if (u === "bool") return v ? "Sì" : "No";
-  if (u === "eurY") return f0.format(v) + " €";
-  return fmt(k, v).replace(" €/anno", " €");
+function fmtSoglia(d, v) {
+  if (d.u === "bool") return v ? "Sì" : "No";
+  if (d.u === "eurY") return f0.format(v) + " €";
+  if (d.u === "ore") return f0.format(v) + " ore";
+  return fmt(d, v).replace(" €/anno", " €");
+}
+function fmtMedia(d, v) {
+  if (!isNum(v)) return ND;
+  switch (d.u) {
+    case "bool": return "Sì nel " + f0.format(v * 100) + "%";
+    case "anni": return f1.format(v) + " su 3";
+    case "n": return f1.format(v);
+    case "gg": return f1.format(v) + " giorni";
+    case "min": return f0.format(v) + " min";
+    case "eur": return fmt(d, Math.round(v * 100) / 100);
+    case "eurY": return fmt(d, Math.round(v));
+  }
+  return fmt(d, v);
 }
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const sc = (x) => f1.format(x);
+const sc = (x) => isNum(x) ? f1.format(x) : "n.d.";
 const BY_SLUG = Object.fromEntries(RATED.map(a => [a.slug, a]));
 const $ = (id) => document.getElementById(id);
-const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const norm = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const M_OF = (a) => MODELLI[a.modello];
+const luogo = (a) => [a.settore, a.citta].filter(Boolean).join(" · ");
+const pct = (p) => Math.round(p * 100) + "%";
 
-function tag(a, lg) { return `<span class="tag ${lg ? "tag-lg " : ""}${a.gc}" aria-label="Voto ${a.voto}">${a.voto}</span>`; }
+function dominio(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; } }
+/* fonte con url: link col titolo (o il dominio); senza url: testo */
+function fonteHTML(f) {
+  if (!f) return "nessuna fonte trovata";
+  if (typeof f === "string") return esc(f);
+  if (f.url) return `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo || dominio(f.url))}</a>`;
+  return esc(f.titolo || "");
+}
+
+function tag(a, lg) {
+  const v = a.voto || "n.d.";
+  return `<span class="tag ${lg ? "tag-lg " : ""}${a.gc}" aria-label="Voto ${v}${a.voto && a.provvisorio ? " provvisorio" : ""}">${v}</span>`;
+}
+function votoHTML(a, lg) { return tag(a, lg) + (a.voto && a.provvisorio ? '<span class="prov mono">provvisorio</span>' : ""); }
 function miniBar(x) {
+  if (!isNum(x)) return `<span class="mb"><span class="mb-track" aria-hidden="true"></span><span class="mb-n">n.d.</span></span>`;
   return `<span class="mb"><span class="mb-track" aria-hidden="true"><i style="width:${x.toFixed(1)}%"></i></span><span class="mb-n">${f0.format(x)}</span></span>`;
 }
 function spark(serie, w, h) {
@@ -863,20 +1271,10 @@ function spark(serie, w, h) {
   const last = pts[pts.length - 1];
   return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${d}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="currentColor"/></svg>`;
 }
+function insuff(a) { return `Dati insufficienti: ${a.presenti} indicatori su ${M_OF(a).totInd || Object.keys(M_OF(a).ind).length}`; }
 
-function fmtMedia(k, v) {
-  switch (INDICATORI[k].u) {
-    case "bool": return "Sì nel " + f0.format(v * 100) + "%";
-    case "anni": return f1.format(v) + " su 3";
-    case "n": return f1.format(v);
-    case "gg": return f1.format(v) + " giorni";
-    case "min": return f0.format(v) + " min";
-    case "eur": return fmt(k, Math.round(v * 100) / 100);
-  }
-  return fmt(k, v);
-}
 const fMln = (v) => f1.format(v) + " mln €";
-function chartHTML(titolo, serie, fv, assoluta) {
+function chartHTML(titolo, anni, serie, fv, assoluta) {
   const W = 240, H = 64, px = 16, py = 6, n = serie.length;
   const min = Math.min.apply(null, serie), max = Math.max.apply(null, serie);
   const span = Math.max(max - min, Math.max(Math.abs(max), Math.abs(min)) * 0.08) || 1;
@@ -888,10 +1286,10 @@ function chartHTML(titolo, serie, fv, assoluta) {
   const line = pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
   const area = `${px},${base.toFixed(1)} ${line} ${(W - px)},${base.toFixed(1)}`;
   const last = pts[n - 1], a0 = serie[0], a1 = serie[n - 1];
-  const pct = !assoluta && a0 > 0;
-  const dv = pct ? (a1 / a0 - 1) * 100 : a1 - a0;
+  const rel = !assoluta && a0 > 0;
+  const dv = rel ? (a1 / a0 - 1) * 100 : a1 - a0;
   const segno = dv > 0 ? "+" : (dv < 0 ? "−" : "");
-  const varTxt = segno + (pct ? f1.format(Math.abs(dv)) + "%" : fv(Math.abs(dv))) + " sul " + ANNI[0];
+  const varTxt = segno + (rel ? f1.format(Math.abs(dv)) + "%" : fv(Math.abs(dv))) + " sul " + anni[0];
   return `<figure class="ch">
       <figcaption class="mono">${titolo}</figcaption>
       <div class="ch-now"><b>${fv(a1)}</b><span>${varTxt}</span></div>
@@ -901,32 +1299,39 @@ function chartHTML(titolo, serie, fv, assoluta) {
         <polyline points="${line}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
         <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.4" fill="currentColor" stroke="var(--sheet)" stroke-width="2"/>
       </svg>
-      <div class="ch-years" aria-hidden="true">${ANNI.map((y, i) => `<span style="left:${(X(i) / W * 100).toFixed(2)}%">${y}</span>`).join("")}</div>
-      <span class="sr-only">${ANNI.map((y, i) => y + ": " + fv(serie[i])).join("; ")}</span>
+      <div class="ch-years" aria-hidden="true">${anni.map((y, i) => `<span style="left:${(X(i) / W * 100).toFixed(2)}%">${y}</span>`).join("")}</div>
+      <span class="sr-only">${anni.map((y, i) => y + ": " + fv(serie[i])).join("; ")}</span>
     </figure>`;
 }
 
 /* ======================= etichetta ======================= */
 function labelHTML(a, opts) {
   opts = opts || {};
+  const M = M_OF(a);
   const rows = CLASSI.map((c, i) => {
     const hit = c.v === a.voto;
     const range = i === 0 ? "90-100" : (c.min === -Infinity ? "0-39" : c.min + "-" + (CLASSI[i - 1].min - 1));
     return `<div class="e-row${hit ? "" : " is-dim"}"><span class="e-bar ${c.c}" style="--w:${34 + i * 11}%;--i:${i}">${c.v}<small>${range}</small></span>${hit ? `<span class="e-marker" aria-hidden="true">${a.voto}</span>` : "<span></span>"}</div>`;
   }).join("");
   const name = opts.link ? `<a href="#${a.slug}">${esc(a.nome)}</a>` : `<strong>${esc(a.nome)}</strong>`;
-  const pill = PILASTRI.map(p => `<div><span class="mono">${p.breve}</span><b>${f0.format(a.pil[p.id])}</b></div>`).join("");
-  return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: voto ${a.voto}, punteggio ${sc(a.totale)} su 100">
-    <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Voto</span></div>
-    <div class="elabel-who">${name}<span>${esc(a.settore)} · ${esc(a.citta)} · ${f0.format(a.dipendenti)} dipendenti</span></div>
+  const pill = M.aree.map(p => `<div><span class="mono">${esc(p.breve)}</span><b>${isNum(a.pil[p.id]) ? f0.format(a.pil[p.id]) : "n.d."}</b></div>`).join("");
+  const nInd = Object.keys(M.ind).length;
+  const score = a.voto
+    ? `<div class="elabel-score"><span class="mono">Punteggio su 100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>`
+    : `<div class="elabel-score"><span class="mono">Senza voto</span><strong><span class="tag g-nd">n.d.</span></strong></div><p class="elabel-nd">${insuff(a)}</p>`;
+  const aria = a.voto ? `voto ${a.voto}${a.provvisorio ? " provvisorio" : ""}, punteggio ${sc(a.totale)} su 100` : "senza voto, " + insuff(a).toLowerCase();
+  return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: ${aria}">
+    <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Voto${a.provvisorio ? " provvisorio" : ""}</span></div>
+    <div class="elabel-who">${name}<span>${esc([luogo(a), f0.format(a.dipendenti) + " dipendenti"].join(" · "))}</span></div>
     <div class="elabel-scale" aria-hidden="true">${rows}</div>
-    <div class="elabel-score"><span class="mono">Punteggio su 100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
-    <div class="elabel-pillars">${pill}</div>
-    <div class="elabel-foot"><span class="mono">20 indicatori · 6 aree</span><span class="mono">Demo</span></div>
+    ${score}
+    <div class="elabel-pillars${M.aree.length % 3 ? " c2" : ""}">${pill}</div>
+    <div class="elabel-foot"><span class="mono">${nInd} indicatori · ${M.aree.length} aree</span><span class="mono">${a.demo ? "Demo" : "Dati reali " + a.anno_dati}</span></div>
   </figure>`;
 }
 const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function countUp(el) {
+  if (!el) return;
   const target = parseFloat(el.getAttribute("data-count"));
   if (reduceMotion()) { el.textContent = sc(target); return; }
   const t0 = performance.now(), dur = 1100, delay = 250;
@@ -939,7 +1344,8 @@ function countUp(el) {
   }
   requestAnimationFrame(step);
 }
-const HERO_ORDER = ["mole-dati", "partenope-software", "brera-digital", "lanterna-logistica", "felsina-biotech", "trulli-mare-hotels", "alfa-meccanica", "salento-call"].filter(s => BY_SLUG[s]);
+/* l'etichetta dell'hero mostra le banche con un voto, dalla migliore */
+const HERO_ORDER = RATED_BANCHE.filter(a => a.voto).sort((x, y) => y.totale - x.totale).map(a => a.slug);
 let heroIdx = 0;
 function renderHero(anim) {
   const a = BY_SLUG[HERO_ORDER[heroIdx]] || RATED[0];
@@ -947,40 +1353,78 @@ function renderHero(anim) {
   if (anim) countUp($("hero-label").querySelector("[data-count]"));
 }
 
-/* ======================= classifica ======================= */
-const SORTS = [{ id: "totale", nome: "Punteggio totale" }].concat(PILASTRI.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome, dalla A alla Z" }]);
-const state = { settore: "", citta: "", voto: "", sort: "totale" };
+/* ======================= insieme scelto: banche o demo ======================= */
+const state = { modello: "banche", settore: "", citta: "", voto: "", q: "", sort: "totale" };
+function sortsOf(M) { return [{ id: "totale", nome: "Punteggio totale" }].concat(M.aree.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome, dalla A alla Z" }]); }
 function sortVal(a, s) { return s === "totale" ? a.totale : a.pil[s]; }
+/* chi non ha un voto va in fondo, tranne nell'ordine alfabetico */
 function sorted(list, s) {
-  return list.slice().sort((x, y) => s === "nome" ? x.nome.localeCompare(y.nome, "it") : (sortVal(y, s) - sortVal(x, s)) || (y.totale - x.totale));
+  return list.slice().sort((x, y) => {
+    if (s === "nome") return x.nome.localeCompare(y.nome, "it");
+    if (!x.voto !== !y.voto) return x.voto ? -1 : 1;
+    const vx = sortVal(x, s), vy = sortVal(y, s);
+    if (!isNum(vx) || !isNum(vy)) return isNum(vx) ? -1 : (isNum(vy) ? 1 : x.nome.localeCompare(y.nome, "it"));
+    return (vy - vx) || ((y.totale || 0) - (x.totale || 0));
+  });
 }
 function fillSelect(sel, opts, value) {
   sel.innerHTML = opts.map(o => `<option value="${esc(o[0])}"${o[0] === value ? " selected" : ""}>${esc(o[1])}</option>`).join("");
 }
+function setPickHTML() {
+  return ["banche", "generale"].map(id => `<button type="button" class="seg" data-set="${id}" aria-pressed="${state.modello === id}">${esc(MODELLI[id].etichetta)}</button>`).join("");
+}
+function setModello(id) {
+  if (state.modello === id) return;
+  state.modello = id;
+  const M = MODELLI[id];
+  if (!sortsOf(M).some(s => s.id === state.sort)) state.sort = "totale";
+  state.settore = state.citta = state.q = "";
+  syncControls();
+  renderRank(); renderCards();
+}
+function syncControls() {
+  const M = MODELLI[state.modello], demo = M.demo;
+  document.querySelectorAll(".set-pick").forEach(g => { g.innerHTML = setPickHTML(); });
+  $("fld-settore").hidden = $("fld-citta").hidden = !demo;
+  $("fld-cerca").hidden = demo;
+  $("f-settore").value = state.settore; $("f-citta").value = state.citta; $("f-cerca").value = state.q;
+  const sortOpts = sortsOf(M).map(s => [s.id, s.nome]);
+  fillSelect($("f-ordina"), sortOpts, state.sort);
+  fillSelect($("g-ordina"), sortOpts, "totale");
+  $("quick-chips").innerHTML = M.quick.map(q => `<button class="chip" type="button" data-sort="${q[0]}">${esc(q[1])}</button>`).join("");
+  $("aziende-note").textContent = demo
+    ? "Voto, punteggio delle sei aree e tre numeri da guardare subito. Aziende e dati sono fittizi."
+    : "Voto provvisorio, punteggio delle quattro aree e tre numeri da guardare subito. Apri una banca per vedere da dove viene ogni dato.";
+}
 function initFilters() {
-  const uniq = (k) => Array.from(new Set(RATED.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
+  const uniq = (k) => Array.from(new Set(RATED_GEN.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
   fillSelect($("f-settore"), [["", "Tutti i settori"]].concat(uniq("settore").map(s => [s, s])), "");
   fillSelect($("f-citta"), [["", "Tutte le città"]].concat(uniq("citta").map(s => [s, s])), "");
   fillSelect($("f-voto"), [["", "Tutti i voti"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v === "A+" ? "Solo A+" : c.v + " o migliore"])), "");
-  const sortOpts = SORTS.map(s => [s.id, s.nome]);
-  fillSelect($("f-ordina"), sortOpts, "totale");
-  fillSelect($("g-ordina"), sortOpts, "totale");
   $("f-settore").addEventListener("change", e => { state.settore = e.target.value; renderRank(); });
   $("f-citta").addEventListener("change", e => { state.citta = e.target.value; renderRank(); });
   $("f-voto").addEventListener("change", e => { state.voto = e.target.value; renderRank(); });
+  $("f-cerca").addEventListener("input", e => { state.q = e.target.value; renderRank(); });
   $("f-ordina").addEventListener("change", e => { state.sort = e.target.value; renderRank(); });
   $("g-ordina").addEventListener("change", () => renderCards());
-  document.querySelectorAll(".quick .chip").forEach(b => b.addEventListener("click", () => { state.sort = b.getAttribute("data-sort"); renderRank(); }));
+  $("quick-chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) { state.sort = b.getAttribute("data-sort"); renderRank(); } });
+  document.addEventListener("click", e => { const b = e.target.closest(".seg"); if (b) setModello(b.getAttribute("data-set")); });
+  syncControls();
 }
+
+/* ======================= classifica ======================= */
 function renderRank() {
+  const M = MODELLI[state.modello];
   const minIdx = state.voto ? CLASSI.findIndex(c => c.v === state.voto) : CLASSI.length;
-  const list = sorted(RATED.filter(a =>
-    (!state.settore || a.settore === state.settore) &&
-    (!state.citta || a.citta === state.citta) &&
-    CLASSI.findIndex(c => c.v === a.voto) <= minIdx), state.sort);
+  const q = norm(state.q.trim());
+  const list = sorted(listaDi(M.id).filter(a =>
+    (!M.demo || !state.settore || a.settore === state.settore) &&
+    (!M.demo || !state.citta || a.citta === state.citta) &&
+    (M.demo || !q || norm(a.nome + " " + luogo(a)).includes(q)) &&
+    (!state.voto || (a.voto && CLASSI.findIndex(c => c.v === a.voto) <= minIdx))), state.sort);
   $("f-ordina").value = state.sort;
-  document.querySelectorAll(".quick .chip").forEach(b => b.setAttribute("aria-pressed", String(b.getAttribute("data-sort") === state.sort)));
-  const cols = [["pos", "#", false], ["nome", "Azienda", true], ["voto", "Voto", false], ["totale", "Punteggio", true]].concat(PILASTRI.map(p => [p.id, p.breve + " " + Math.round(p.peso * 100) + "%", true]));
+  document.querySelectorAll("#quick-chips .chip").forEach(b => b.setAttribute("aria-pressed", String(b.getAttribute("data-sort") === state.sort)));
+  const cols = [["pos", "#", false], ["nome", M.demo ? "Azienda" : "Banca", true], ["voto", M.provvisorio ? "Voto provvisorio" : "Voto", false], ["totale", "Punteggio", true]].concat(M.aree.map(p => [p.id, p.breve + " " + pct(p.peso), true]));
   $("rank-head").innerHTML = "<tr>" + cols.map(c => {
     if (!c[2]) return `<th scope="col"><span class="mono">${c[1]}</span></th>`;
     const on = state.sort === c[0];
@@ -991,89 +1435,127 @@ function renderRank() {
     const nb = $("sort-" + state.sort); if (nb) nb.focus();
   }));
   const top = state.sort !== "nome";
-  $("rank-body").innerHTML = list.length ? list.map((a, i) => `<tr class="${top && i < 3 ? "is-top" : ""}">
-      <td class="pos">${i + 1}</td>
-      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a>${top && i < 3 ? '<span class="top-note sr-only">tra le prime tre</span>' : ""}<span>${esc(a.settore)} · ${esc(a.citta)}</span></td>
-      <td>${tag(a)}</td>
+  $("rank-body").innerHTML = list.length ? list.map((a, i) => {
+    const isTop = top && i < 3 && a.voto;
+    return `<tr class="${isTop ? "is-top" : ""}">
+      <td class="pos">${a.voto || !top ? i + 1 : ""}</td>
+      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a>${isTop ? '<span class="top-note sr-only">tra le prime tre</span>' : ""}<span>${esc(luogo(a))}${a.demo ? " · demo" : ""}</span>${a.voto ? "" : `<span class="nd-note">${insuff(a)}</span>`}</td>
+      <td class="vt">${votoHTML(a)}</td>
       <td class="score">${sc(a.totale)}</td>
-      ${PILASTRI.map(p => `<td>${miniBar(a.pil[p.id])}</td>`).join("")}
-    </tr>`).join("")
+      ${M.aree.map(p => `<td>${miniBar(a.pil[p.id])}</td>`).join("")}
+    </tr>`;
+  }).join("")
     : `<tr><td colspan="${cols.length}" class="empty"><p>Nessuna azienda con questi filtri. Prova ad allargare la ricerca.</p><button type="button" class="btn btn-ghost" id="reset-filters">Togli i filtri</button></td></tr>`;
   const rb = $("reset-filters");
   if (rb) rb.addEventListener("click", () => {
-    state.settore = state.citta = state.voto = "";
-    $("f-settore").value = $("f-citta").value = $("f-voto").value = "";
+    state.settore = state.citta = state.voto = state.q = "";
+    $("f-settore").value = $("f-citta").value = $("f-voto").value = $("f-cerca").value = "";
     renderRank();
   });
-  const sname = state.sort === "nome" ? "nome" : SORTS.find(s => s.id === state.sort).nome.toLowerCase();
-  $("rank-count").textContent = list.length + (list.length === 1 ? " azienda · ordinata per " : " aziende · ordinate per ") + sname;
+  const sname = state.sort === "nome" ? "nome" : sortsOf(M).find(s => s.id === state.sort).nome.toLowerCase();
+  const chi = M.demo ? (list.length === 1 ? " azienda demo" : " aziende demo") : (list.length === 1 ? " banca" : " banche");
+  $("rank-count").textContent = list.length + chi + (list.length === 1 ? " · ordinata per " : " · ordinate per ") + sname;
 }
 
 /* ======================= card ======================= */
+function factsOf(a) {
+  if (a.demo) {
+    const g = a.v.crescitaFatt;
+    return [["Smart working", a.v.smart + " gg/sett."], ["Buono pasto", fmt(INDICATORI.buonoPasto, a.v.buonoPasto)], ["Fatturato", (g > 0 ? "+" : "") + f1.format(g) + "% " + spark(a.serie.fatturato)]];
+  }
+  const I = MODELLI.banche.ind, g = a.v.crescita_proventi;
+  return [["Costo medio", isNum(a.v.costo_medio) ? f0.format(a.v.costo_medio) + " €" : "n.d."],
+    ["Buono pasto", isNum(a.v.buono_pasto) ? fmt(I.buono_pasto, a.v.buono_pasto) : "n.d."],
+    ["Proventi", (isNum(g) ? (g > 0 ? "+" : "") + f1.format(g) + "% " : "") + spark(a.serie.proventi)]];
+}
 function cardHTML(a) {
-  const g = a.v.crescitaFatt;
-  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, voto ${a.voto}, punteggio ${sc(a.totale)} su 100">
-    <div class="card-top">${tag(a, true)}<div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
+  const M = M_OF(a);
+  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, ${a.voto ? "voto " + a.voto + (a.provvisorio ? " provvisorio" : "") + ", punteggio " + sc(a.totale) + " su 100" : "senza voto"}">
+    <div class="card-top"><span class="card-vt">${votoHTML(a, true)}</span><div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
     <div class="card-body">
-      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(a.settore)} · ${esc(a.citta)} <span class="mono">· demo</span></p></div>
-      <div class="pill-bars">${PILASTRI.map(p => `<div><span>${p.breve}</span><span class="mb-track" aria-hidden="true"><i style="width:${a.pil[p.id].toFixed(1)}%"></i></span><span class="mb-n">${f0.format(a.pil[p.id])}</span></div>`).join("")}</div>
-      <dl class="facts">
-        <div><dt>Smart working</dt><dd>${a.v.smart} gg/sett.</dd></div>
-        <div><dt>Buono pasto</dt><dd>${fmt("buonoPasto", a.v.buonoPasto)}</dd></div>
-        <div><dt>Fatturato</dt><dd>${(g > 0 ? "+" : "") + f1.format(g)}% ${spark(a.fatturato)}</dd></div>
-      </dl>
+      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(luogo(a))} <span class="mono">· ${a.demo ? "demo" : "dati reali " + a.anno_dati}</span></p>${a.voto ? "" : `<p class="nd-note">${insuff(a)}</p>`}</div>
+      <div class="pill-bars">${M.aree.map(p => `<div><span>${esc(p.breve)}</span><span class="mb-track" aria-hidden="true">${isNum(a.pil[p.id]) ? `<i style="width:${a.pil[p.id].toFixed(1)}%"></i>` : ""}</span><span class="mb-n">${isNum(a.pil[p.id]) ? f0.format(a.pil[p.id]) : "n.d."}</span></div>`).join("")}</div>
+      <dl class="facts">${factsOf(a).map(f => `<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join("")}</dl>
     </div>
   </a>`;
 }
-function renderCards() { $("card-grid").innerHTML = sorted(RATED, $("g-ordina").value).map(cardHTML).join(""); }
+function renderCards() { $("card-grid").innerHTML = sorted(listaDi(state.modello), $("g-ordina").value).map(cardHTML).join(""); }
 
 /* ======================= scheda ======================= */
-function strengths(a) {
-  const all = [];
-  PILASTRI.forEach(p => p.ind.forEach(k => all.push({ k: k, p: a.pt[k], w: p.peso })));
-  const best = all.slice().sort((x, y) => (y.p - x.p) || (y.w - x.w)).slice(0, 3);
-  const worst = all.slice().sort((x, y) => (x.p - y.p) || (y.w - x.w)).slice(0, 3);
-  return { best: best, worst: worst };
-}
-function fonte(a, k) { return (a.fonti && a.fonti[k]) || INDICATORI[k].fonte; }
 function renderScheda(a) {
-  const sw = strengths(a);
+  const M = M_OF(a);
   const bm = mediaConfronto(a);
-  const confronto = (k) => INDICATORI[k].u === "bool"
-    ? `${fmt(k, a.v[k])}; ${bm.settore ? "nel settore" : "tra tutte le aziende"} ce l'ha il ${f0.format(bm.v[k] * 100)}%`
-    : `${fmt(k, a.v[k])} contro una ${bm.nome} di ${fmtMedia(k, bm.v[k])}`;
-  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(confronto(x.k))} · ${f0.format(x.p)} punti su 100</span></li>`;
+  const sw = strengths(a, bm);
+  const I = M.ind;
+  const confronto = (k) => I[k].u === "bool"
+    ? `${fmt(I[k], a.v[k])}; ${bm.settore ? "nel settore" : "tra tutte le aziende"} ce l'ha il ${f0.format(bm.v[k] * 100)}%`
+    : `${fmt(I[k], a.v[k])} contro una ${bm.nome} di ${fmtMedia(I[k], bm.v[k])}`;
+  const li = (x) => `<li><b>${esc(I[x.k].nome)}</b><span>${esc(confronto(x.k))} · ${f0.format(x.p)} punti su 100</span></li>`;
+  const none = (t) => `<li class="none">${t}</li>`;
   const SIG = { "1": ["up", "▲", "meglio"], "-1": ["", "▼", "peggio"], "0": ["", "=", "in linea"] };
-  const sig = (k) => { const s = SIG[versoMedia(k, a.v[k], bm.v[k])]; return `<span class="sig ${s[0]}"><span aria-hidden="true">${s[1]}</span> ${s[2]}</span>`; };
-  const colMedia = bm.settore ? "Media settore" : "Media di tutte";
-  const contrib = PILASTRI.map(p => `<tr><td>${p.nome}</td><td class="r">${Math.round(p.peso * 100)}%</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${sc(a.pil[p.id] * p.peso)}</td></tr>`).join("");
-  const pillars = PILASTRI.map(p => `<div class="pillar">
-      <div class="pillar-head"><div><span class="mono">Area · vale il ${Math.round(p.peso * 100)}% del punteggio</span><h3>${p.nome}</h3></div>
+  const sig = (k) => {
+    if (!isNum(a.v[k]) || !isNum(bm.v[k])) return "";
+    const s = SIG[versoMedia(I[k], a.v[k], bm.v[k])];
+    return `<span class="sig ${s[0]}"><span aria-hidden="true">${s[1]}</span> ${s[2]}</span>`;
+  };
+  const fonte = (k) => a.demo ? esc((a.fonti && a.fonti[k]) || I[k].fonte) : (isNum(a.v[k]) ? fonteHTML(a.fonti[k]) : "nessuna fonte trovata");
+  const pesoTot = M.aree.reduce((s, p) => s + (isNum(a.pil[p.id]) ? p.peso : 0), 0);
+  const contrib = M.aree.map(p => `<tr><td>${p.nome}</td><td class="r">${pct(p.peso)}</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${a.voto && isNum(a.pil[p.id]) ? sc(a.pil[p.id] * p.peso / pesoTot) : "n.d."}</td></tr>`).join("");
+  const pillars = M.aree.map(p => `<div class="pillar">
+      <div class="pillar-head"><div><span class="mono">Area · vale il ${pct(p.peso)} del punteggio</span><h3>${p.nome}</h3></div>
       <div class="pillar-score"><span class="mono">Punteggio su 100</span><b>${sc(a.pil[p.id])}</b><span class="pm">${bm.breve} ${sc(bm.pil[p.id])}</span>
-        <span class="pbar" role="img" aria-label="Punteggio ${sc(a.pil[p.id])}, ${bm.nome} ${sc(bm.pil[p.id])}"><i style="width:${a.pil[p.id].toFixed(1)}%"></i><em style="left:${bm.pil[p.id].toFixed(1)}%"></em></span></div></div>
+        <span class="pbar" role="img" aria-label="Punteggio ${sc(a.pil[p.id])}, ${bm.nome} ${sc(bm.pil[p.id])}">${isNum(a.pil[p.id]) ? `<i style="width:${a.pil[p.id].toFixed(1)}%"></i>` : ""}${isNum(bm.pil[p.id]) ? `<em style="left:${bm.pil[p.id].toFixed(1)}%"></em>` : ""}</span></div></div>
+      ${p.id === "stab" && a.tettoCig ? `<p class="cap-note">Cassa integrazione negli ultimi 3 anni: la Stabilità del lavoro non può superare ${TETTO_CIG} punti.</p>` : ""}
       <div class="table-wrap" tabindex="0" role="region" aria-label="Indicatori di ${esc(p.nome)}"><table class="ind">
-        <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">${colMedia}</th><th scope="col" class="mono">Fonte</th></tr></thead>
-        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti con ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 con ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="bm">${esc(fmtMedia(k, bm.v[k]))}${sig(k)}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
+        <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">${bm.col}</th><th scope="col" class="mono">Fonte</th></tr></thead>
+        <tbody>${p.ind.map(k => `<tr><td>${esc(I[k].nome)}<span class="range">${k === "cig" ? "100 punti con 0 anni, 20 con 1, 5 con 2, 0 con 3" : `0 punti con ${esc(fmtSoglia(I[k], I[k].v0))}, 100 con ${esc(fmtSoglia(I[k], I[k].v100))}`}</span></td><td class="val${isNum(a.v[k]) ? "" : " nd"}">${esc(fmt(I[k], a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="bm">${esc(fmtMedia(I[k], bm.v[k]))}${sig(k)}</td><td class="src">${fonte(k)}</td></tr>`).join("")}</tbody>
       </table></div></div>`).join("");
-  const costoMedioSerie = a.costoPersonale.map((c, i) => c * 1e6 / a.organico[i]);
+  const s = a.serie;
+  const costoMedioSerie = s.spese_personale.map((c, i) => c * 1e6 / s.dipendenti[i]);
   const charts = [
-    chartHTML("Fatturato", a.fatturato, fMln),
-    chartHTML("Utile netto", a.utileNetto, fMln, true),
-    chartHTML("Numero di dipendenti", a.organico, (v) => f0.format(v)),
-    chartHTML("Costo medio per dipendente", costoMedioSerie, (v) => f0.format(Math.round(v / 100) * 100) + " €")
+    chartHTML(a.demo ? "Fatturato" : "Proventi", s.anni, a.demo ? s.fatturato : s.proventi, fMln),
+    chartHTML("Utile netto", s.anni, s.utile, fMln, true),
+    chartHTML("Numero di dipendenti", s.anni, s.dipendenti, (v) => f0.format(v)),
+    chartHTML("Costo medio per dipendente", s.anni, costoMedioSerie, (v) => f0.format(Math.round(v / 100) * 100) + " €")
   ].join("");
+  const anniTxt = s.anni[0] + "-" + s.anni[s.anni.length - 1];
+  const chartsNote = a.demo
+    ? `Dati ${anniTxt} dai bilanci depositati. Il costo medio è il costo del personale diviso per i dipendenti.`
+    : `Dati ${anniTxt} dai documenti del gruppo, in milioni di euro. Il costo medio è la spesa per il personale divisa per i dipendenti dell'anno.`;
+  const fmtAltro = (x) => {
+    if (!isNum(x.valore)) return ND;
+    if (typeof x.valore === "string") return x.valore;
+    if (x.unita === "%") return f1.format(x.valore) + "%";
+    if (x.unita === "€") return f0.format(x.valore) + " €";
+    if (x.unita === "giorni") return f0.format(x.valore) + " giorni";
+    if (x.unita === "n.") return f0.format(x.valore);
+    return String(x.valore).replace(".", ",");
+  };
+  const extra = a.demo ? "" : `
+    <div class="pillar">
+      <div class="pillar-head"><div><span class="mono">Fuori dal punteggio</span><h3>Altri dati</h3></div></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Altri dati"><table class="ind other">
+        <thead><tr><th scope="col" class="mono">Dato</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Fonte</th></tr></thead>
+        <tbody>${a.altri_dati.map(x => `<tr><td>${esc(x.nome)}</td><td class="val${isNum(x.valore) ? "" : " nd"}">${esc(fmtAltro(x))}</td><td class="src">${isNum(x.valore) ? fonteHTML(x.fonte) : ""}</td></tr>`).join("")}</tbody>
+      </table></div>
+    </div>
+    ${a.limiti && a.limiti.length ? `<aside class="limits" aria-labelledby="limiti-title"><h3 id="limiti-title">Limiti di questi dati</h3><ul>${a.limiti.map(t => `<li>${esc(t)}</li>`).join("")}</ul></aside>` : ""}`;
+  const meta = [["Settore", esc(a.settore)]];
+  if (a.citta) meta.push(["Città", esc(a.citta)]);
+  meta.push(["Dipendenti", `<span class="num">${f0.format(a.dipendenti)}</span>`]);
+  meta.push(a.demo ? ["Contratto nazionale", esc(a.ccnl)] : ["Anno dei dati", String(a.anno_dati)]);
+  const benchNote = !a.demo
+    ? `I confronti usano la media delle ${bm.n} banche: per ogni indicatore contano solo quelle che hanno il dato.`
+    : bm.settore
+      ? `I confronti usano la media delle ${bm.n} aziende del settore ${esc(a.settore)}, questa compresa.`
+      : `Nel settore ${esc(a.settore)} ci sono meno di 3 aziende: i confronti usano la media di tutte le ${bm.n} aziende.`;
   $("scheda-root").innerHTML = `
     <a class="back" href="#classifica">Torna alla classifica</a>
     <div class="sheet-head">
       <div>
-        <span class="mono">Scheda azienda · demo</span>
+        <span class="mono">${a.demo ? "Scheda azienda · demo" : "Scheda banca · dati reali " + a.anno_dati + (a.provvisorio ? " · voto provvisorio" : "")}</span>
         <h2 id="scheda-title">${esc(a.nome)}</h2>
-        <div class="sheet-meta">
-          <div><span class="mono">Settore</span><b>${esc(a.settore)}</b></div>
-          <div><span class="mono">Città</span><b>${esc(a.citta)}</b></div>
-          <div><span class="mono">Dipendenti</span><b class="num">${f0.format(a.dipendenti)}</b></div>
-          <div><span class="mono">Contratto nazionale</span><b>${esc(a.ccnl)}</b></div>
-        </div>
+        <div class="sheet-meta">${meta.map(m => `<div><span class="mono">${m[0]}</span><b>${m[1]}</b></div>`).join("")}</div>
       </div>
       <div>
         <div class="sheet-actions">
@@ -1088,31 +1570,33 @@ function renderScheda(a) {
         ${labelHTML(a, {})}
         <div>
           <div class="charts">${charts}</div>
-          <p class="charts-note">Dati ${ANNI[0]}-${ANNI[ANNI.length - 1]} dai bilanci depositati. Il costo medio è il costo del personale diviso per i dipendenti.</p>
+          <p class="charts-note">${chartsNote}</p>
         </div>
       </div>
       <div>
         <div class="block">
-          <h3>Come si arriva a ${sc(a.totale)}</h3>
+          <h3>${a.voto ? "Come si arriva a " + sc(a.totale) : "Perché manca il voto"}</h3>
+          ${a.voto ? "" : `<p class="nd-box">${insuff(a)}. Per un voto ne servono almeno ${M.minimo}.</p>`}
           <div class="table-wrap"><table class="contrib">
             <thead><tr><th scope="col" class="mono">Area</th><th scope="col" class="mono r">Peso</th><th scope="col" class="mono r">Punteggio</th><th scope="col" class="mono r">Punti sul totale</th></tr></thead>
             <tbody>${contrib}</tbody>
-            <tfoot><tr><td>Totale · voto ${a.voto}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
+            <tfoot><tr><td>${a.voto ? "Totale · voto " + a.voto + (a.provvisorio ? " provvisorio" : "") : "Totale · senza voto"}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
           </table></div>
+          ${a.tettoCig ? `<p class="cap-note">Cassa integrazione negli ultimi 3 anni: la Stabilità del lavoro non può superare ${TETTO_CIG} punti.</p>` : ""}
         </div>
         <div class="fw" style="margin-top:28px">
-          <div class="plus"><h3>Punti forti</h3><ul>${sw.best.map(li).join("")}</ul></div>
-          <div class="minus"><h3>Punti deboli</h3><ul>${sw.worst.map(li).join("")}</ul></div>
+          <div class="plus"><h3>Punti forti</h3><ul>${sw.best.length ? sw.best.map(li).join("") : none("Nessun indicatore sopra la media")}</ul></div>
+          <div class="minus"><h3>Punti deboli</h3><ul>${sw.worst.length ? sw.worst.map(li).join("") : none("Nessun indicatore sotto la media")}</ul></div>
         </div>
-        <p class="bench-note">${bm.settore
-          ? `I confronti usano la media delle ${bm.n} aziende del settore ${esc(a.settore)}, questa compresa.`
-          : `Nel settore ${esc(a.settore)} ci sono meno di 3 aziende: i confronti usano la media di tutte le ${bm.n} aziende.`}</p>
+        <p class="bench-note">${benchNote}</p>
       </div>
     </div>
-    ${pillars}`;
+    ${pillars}
+    ${extra}`;
   $("btn-confronta").addEventListener("click", () => {
-    const cur = loadCmp().filter(s => s !== a.slug);
-    const other = cur[0] || RATED.find(x => x.slug !== a.slug).slug;
+    const pool = listaDi(a.modello);
+    const cur = loadCmp().filter(x => x && x !== a.slug && BY_SLUG[x].modello === a.modello);
+    const other = cur[0] || pool.find(x => x.slug !== a.slug).slug;
     saveCmp([a.slug, other, cur[1] || ""]);
     location.hash = "confronta";
   });
@@ -1128,6 +1612,7 @@ function renderScheda(a) {
 }
 
 /* ======================= confronta ======================= */
+/* si confrontano solo aziende dello stesso modello: banche con banche, demo con demo */
 const CMP_KEY = "cr-ultimo-confronto";
 function loadCmp() {
   try { const v = JSON.parse(localStorage.getItem(CMP_KEY) || "null"); if (Array.isArray(v)) return v.filter(s => s === "" || BY_SLUG[s]); } catch (e) { /* storage non disponibile */ }
@@ -1135,54 +1620,80 @@ function loadCmp() {
 }
 function saveCmp(list) { try { localStorage.setItem(CMP_KEY, JSON.stringify(list)); } catch (e) { /* ignorato */ } cmpSel = list.slice(0, 3); }
 let cmpSel = [];
+const CMP_DEFAULT = { banche: ["banco-bpm", "intesa-sanpaolo", ""], generale: ["brera-digital", "lanterna-logistica", ""] };
+const optsOf = (id) => listaDi(id).slice().sort((x, y) => x.nome.localeCompare(y.nome, "it")).map(a => [a.slug, a.nome + " (" + (a.voto || "n.d.") + ")"]);
+function normCmp(sel) {
+  const first = BY_SLUG[sel[0]] ? sel[0] : CMP_DEFAULT.banche[0];
+  const mod = BY_SLUG[first].modello;
+  const rest = sel.slice(1, 3).map(s => (s && BY_SLUG[s] && BY_SLUG[s].modello === mod) ? s : "");
+  if (!rest[0]) rest[0] = CMP_DEFAULT[mod].find(s => s !== first) || listaDi(mod).find(a => a.slug !== first).slug;
+  return [first, rest[0], rest[1] || ""];
+}
 function initCmp() {
   const saved = loadCmp();
-  cmpSel = saved.length >= 2 ? saved.slice(0, 3) : ["brera-digital", "lanterna-logistica", ""];
-  const base = RATED.slice().sort((x, y) => x.nome.localeCompare(y.nome, "it")).map(a => [a.slug, a.nome + " (" + a.voto + ")"]);
+  cmpSel = normCmp(saved.length >= 2 ? saved.slice(0, 3) : CMP_DEFAULT.banche);
   ["cmp-1", "cmp-2", "cmp-3"].forEach((id, i) => {
     $(id).addEventListener("change", () => {
-      const v = ["cmp-1", "cmp-2", "cmp-3"].map(x => $(x).value);
-      saveCmp(v); renderCmp();
+      let v = ["cmp-1", "cmp-2", "cmp-3"].map(x => $(x).value);
+      if (i === 0 && BY_SLUG[v[0]].modello !== BY_SLUG[cmpSel[0]].modello) v = [v[0], "", ""];
+      saveCmp(normCmp(v)); renderCmp();
     });
-    $(id).dataset.opts = JSON.stringify(i === 2 ? [["", "Nessuna terza azienda"]].concat(base) : base);
   });
 }
 function renderCmp() {
-  ["cmp-1", "cmp-2", "cmp-3"].forEach((id, i) => fillSelect($(id), JSON.parse($(id).dataset.opts), cmpSel[i] || ""));
-  const list = cmpSel.filter((s, i, arr) => s && BY_SLUG[s] && arr.indexOf(s) === i).map(s => BY_SLUG[s]);
+  cmpSel = normCmp(cmpSel);
+  const mod = BY_SLUG[cmpSel[0]].modello, M = MODELLI[mod];
+  $("cmp-1").innerHTML = ["banche", "generale"].map(id => `<optgroup label="${esc(MODELLI[id].etichetta)}">${optsOf(id).map(o => `<option value="${o[0]}"${o[0] === cmpSel[0] ? " selected" : ""}>${esc(o[1])}</option>`).join("")}</optgroup>`).join("");
+  fillSelect($("cmp-2"), optsOf(mod), cmpSel[1]);
+  fillSelect($("cmp-3"), [["", "Nessuna terza azienda"]].concat(optsOf(mod)), cmpSel[2]);
+  $("cmp-note").textContent = M.demo ? "Aziende demo: si confrontano tra loro." : "Banche: si confrontano tra loro. I voti sono provvisori.";
+  const list = cmpSel.filter((s, i, arr) => s && arr.indexOf(s) === i).map(s => BY_SLUG[s]);
   if (list.length < 2) {
     $("cmp-table").innerHTML = `<tbody><tr><td class="empty" style="font-family:var(--f-text)">Scegli almeno due aziende diverse per metterle a confronto.</td></tr></tbody>`;
     return;
   }
   const row = (label, sub, vals, scores) => {
-    const max = Math.max.apply(null, scores);
-    const ties = scores.filter(s => s === max).length;
+    const ok = scores.filter(isNum);
+    const max = ok.length ? Math.max.apply(null, ok) : null;
+    const ties = ok.filter(s => s === max).length;
     return `<tr><th scope="row">${label}${sub ? `<small>${sub}</small>` : ""}</th>${vals.map((v, i) => {
-      const best = scores[i] === max && ties < scores.length;
+      const best = isNum(scores[i]) && scores[i] === max && ties < scores.length;
       return `<td class="${best ? "best" : ""}">${v}${best ? '<span class="best-note">Migliore</span>' : ""}</td>`;
     }).join("")}</tr>`;
   };
-  let body = row("Voto", "", list.map(a => tag(a)), list.map(a => a.totale));
+  const r1 = (x) => isNum(x) ? Math.round(x * 10) / 10 : null;
+  let body = row(M.provvisorio ? "Voto provvisorio" : "Voto", "", list.map(a => tag(a)), list.map(a => a.totale));
   body += row("Punteggio", "su 100", list.map(a => sc(a.totale)), list.map(a => a.totale));
   body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Aree</th></tr>`;
-  PILASTRI.forEach(p => { body += row(p.nome, "vale il " + Math.round(p.peso * 100) + "%", list.map(a => miniBar(a.pil[p.id])), list.map(a => Math.round(a.pil[p.id] * 10) / 10)); });
-  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Numeri chiave</th></tr>`;
-  ["costoMedio", "buonoPasto", "premio", "smart", "minutiMetro", "crescitaFatt", "termine", "turnover", "gapGenere"].forEach(k => {
-    body += row(INDICATORI[k].nome, "", list.map(a => esc(fmt(k, a.v[k]))), list.map(a => Math.round(a.pt[k] * 10) / 10));
+  M.aree.forEach(p => { body += row(p.nome, "vale il " + pct(p.peso), list.map(a => miniBar(a.pil[p.id])), list.map(a => r1(a.pil[p.id]))); });
+  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">${M.demo ? "Numeri chiave" : "Indicatori"}</th></tr>`;
+  M.cmpKeys.forEach(k => {
+    body += row(esc(M.ind[k].nome), "", list.map(a => isNum(a.v[k]) ? esc(fmt(M.ind[k], a.v[k])) : "n.d."), list.map(a => r1(a.pt[k])));
   });
-  $("cmp-table").innerHTML = `<caption class="sr-only">Confronto tra aziende</caption><thead><tr><th scope="col"><span class="mono">Voce</span></th>${list.map(a => `<th scope="col"><a href="#${a.slug}">${esc(a.nome)}</a><span>${esc(a.settore)} · ${esc(a.citta)}</span></th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+  $("cmp-table").innerHTML = `<caption class="sr-only">Confronto tra aziende</caption><thead><tr><th scope="col"><span class="mono">Voce</span></th>${list.map(a => `<th scope="col"><a href="#${a.slug}">${esc(a.nome)}</a><span>${esc(luogo(a))}${a.demo ? " · demo" : ""}</span></th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
 }
 
 /* ======================= metodo ======================= */
+function weightsHTML(M) {
+  return `<thead><tr><th scope="col" class="mono">Area e indicatore</th><th scope="col" class="mono r">0 punti</th><th scope="col" class="mono r">100 punti</th></tr></thead><tbody>${M.aree.map(p =>
+    `<tr class="p-row"><td>${p.nome}</td><td class="r" colspan="2">vale il ${pct(p.peso)}</td></tr>` +
+    p.ind.map(k => {
+      const d = M.ind[k];
+      if (M.id === "generale" && k === "cig") return `<tr><td>${esc(d.nome)}<span class="w-sub">1 anno vale 20 punti, 2 anni 5</span></td><td class="r">3 su 3</td><td class="r">0 su 3</td></tr>`;
+      return `<tr><td>${esc(d.nome)}</td><td class="r">${esc(fmtSoglia(d, d.v0))}</td><td class="r">${esc(fmtSoglia(d, d.v100))}</td></tr>`;
+    }).join("")
+  ).join("")}</tbody>`;
+}
 function renderMetodo() {
   $("scale-key").innerHTML = CLASSI.map((c, i) => {
     const range = i === 0 ? "da 90" : (c.min === -Infinity ? "sotto 40" : "da " + c.min + " a " + (CLASSI[i - 1].min - 1));
     return `<div class="e-row"><span class="e-bar ${c.c}" style="--w:${40 + i * 10}%">${c.v}<small>${range}</small></span></div>`;
   }).join("");
-  $("weights-table").insertAdjacentHTML("beforeend", `<thead><tr><th scope="col" class="mono">Area e indicatore</th><th scope="col" class="mono r">0 punti</th><th scope="col" class="mono r">100 punti</th></tr></thead><tbody>${PILASTRI.map(p =>
-    `<tr class="p-row"><td>${p.nome}</td><td class="r" colspan="2">vale il ${Math.round(p.peso * 100)}%</td></tr>` +
-    p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v0))}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v100))}</td></tr>`).join("")
-  ).join("")}</tbody>`);
+  const B = MODELLI.banche;
+  $("m-banche-aree").textContent = B.aree.map(p => p.breve + " (" + pct(p.peso) + ")").join(", ");
+  $("m-banche-min").textContent = B.minimo + " indicatori su " + B.totInd;
+  $("weights-banche").insertAdjacentHTML("beforeend", weightsHTML(B));
+  $("weights-table").insertAdjacentHTML("beforeend", weightsHTML(MODELLI.generale));
 }
 
 /* ======================= ricerca ======================= */
@@ -1198,9 +1709,11 @@ function initSearch() {
   function update() {
     const q = norm(input.value.trim());
     if (!q) { close(); return; }
-    items = RATED.filter(a => norm(a.nome + " " + a.settore + " " + a.citta).includes(q)).sort((x, y) => y.totale - x.totale).slice(0, 8);
+    /* prima le banche (dati reali), poi le demo */
+    items = RATED.filter(a => norm(a.nome + " " + luogo(a)).includes(q))
+      .sort((x, y) => (x.demo - y.demo) || ((y.totale || -1) - (x.totale || -1))).slice(0, 8);
     idx = -1;
-    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}</span><span class="s-meta">${esc(a.settore)} · ${esc(a.citta)} · punteggio ${sc(a.totale)}</span></span></li>`).join("")
+    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}${a.demo ? ' <span class="s-demo mono">demo</span>' : ""}</span><span class="s-meta">${esc(luogo(a))} · ${a.voto ? "punteggio " + sc(a.totale) + (a.provvisorio ? " · voto provvisorio" : "") : "dati insufficienti"}</span></span></li>`).join("")
       : `<li class="s-empty" role="presentation">Nessuna azienda trovata. Prova con il settore o la città.</li>`;
     list.hidden = false; input.setAttribute("aria-expanded", "true");
   }
@@ -1244,7 +1757,11 @@ function route() {
   document.querySelectorAll("[data-nav]").forEach(a => {
     if (a.getAttribute("data-nav") === view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
-  if (view === "scheda") { renderScheda(BY_SLUG[h]); document.title = BY_SLUG[h].nome + " · voto " + BY_SLUG[h].voto + " · CompanyRatings"; }
+  if (view === "scheda") {
+    const a = BY_SLUG[h];
+    renderScheda(a);
+    document.title = a.nome + " · " + (a.voto ? "voto " + a.voto + (a.provvisorio ? " provvisorio" : "") : "senza voto") + " · CompanyRatings";
+  }
   else document.title = "CompanyRatings";
   if (view === "confronta") renderCmp();
   if (!firstRoute) {

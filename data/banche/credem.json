@@ -279,6 +279,54 @@
       "fonte_url": "",
       "citazione": "",
       "note": "non disponibile: non riletto in questa sessione; il presskit credem.it indica solo 'Palazzo Spalletti Trivelli, sede centrale Credem Reggio Emilia', senza via e numero civico."
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 579.1,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Comunicato stampa risultati preliminari 2024 (Credem), conto economico consolidato riclassificato",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Sala_Stampa/Comunicati-Stampa/in-corso/2025/CREDEM,%20risultati%20preliminari%202024.%20Utile%20a%20620%20milioni,%20impieghi%20a%2036,4%20miliardi,%20oltre%20181%20mila%20nuovi%20clienti%20e%20dividendo%20a%200,75%20euro%20per%20azione.pdf",
+      "fonte_file": "/tmp/fonti/credem/comunicato_fy24.txt",
+      "citazione": "spese del personale                                                -151,6              -150,2             -135,0             -176,8             -613,6              6,0                -579,1",
+      "note": "Conto economico consolidato riclassificato, tabella a pagina 14 del comunicato, riga 'spese del personale' (12/24 e 12/23). Perimetro gruppo. Valori nel comunicato: 613,6 (2024) e 579,1 (2023). Il testo del comunicato riporta 613,8 (voce 190a del conto economico consolidato, non riclassificato): usato il riclassificato come richiesto. Il 2023 è il dato riesposto nel comunicato 2024 (eliminate alcune riclassifiche 2023 legate all'IFRS 17).",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 613.6,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Comunicato stampa risultati preliminari 2024 (Credem), conto economico consolidato riclassificato",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Sala_Stampa/Comunicati-Stampa/in-corso/2025/CREDEM,%20risultati%20preliminari%202024.%20Utile%20a%20620%20milioni,%20impieghi%20a%2036,4%20miliardi,%20oltre%20181%20mila%20nuovi%20clienti%20e%20dividendo%20a%200,75%20euro%20per%20azione.pdf",
+      "fonte_file": "/tmp/fonti/credem/comunicato_fy24.txt",
+      "citazione": "spese del personale                                                -151,6              -150,2             -135,0             -176,8             -613,6              6,0                -579,1",
+      "note": "Conto economico consolidato riclassificato, tabella a pagina 14 del comunicato, riga 'spese del personale' (12/24 e 12/23). Perimetro gruppo. Valori nel comunicato: 613,6 (2024) e 579,1 (2023). Il testo del comunicato riporta 613,8 (voce 190a del conto economico consolidato, non riclassificato): usato il riclassificato come richiesto. Il 2023 è il dato riesposto nel comunicato 2024 (eliminate alcune riclassifiche 2023 legate all'IFRS 17).",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 6628,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "Bilancio consolidato 2024 (EN), relazione sulla gestione, tabella dipendenti per società (Number of employees by company)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2024/Consolidated%20Financial%20Statements%20at%2031.12.2024.pdf",
+      "fonte_file": "/tmp/fonti/credem/fs_2024_en.txt",
+      "citazione": "Consolidated                                   6,614        100.0     6,628           100              -14",
+      "note": "Dipendenti attivi al 31/12/2024 di gruppo (escluse persone assenti dal lavoro), come da tabella 'Number of employees by company' e nota 'Personnel' della relazione sulla gestione. Il 2023 (6.628) è il dato comparativo nello stesso documento. ATTENZIONE: la dichiarazione di sostenibilità del 2024 riporta 6.691 'Total employees' (base diversa, include assenti); dipendenti_2025 usa la base di sostenibilità, quindi la serie 2024-2025 non è omogenea con i valori qui sopra. Pagina non verificata con precisione.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 6614,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "Bilancio consolidato 2024 (EN), relazione sulla gestione, tabella dipendenti per società (Number of employees by company)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2024/Consolidated%20Financial%20Statements%20at%2031.12.2024.pdf",
+      "fonte_file": "/tmp/fonti/credem/fs_2024_en.txt",
+      "citazione": "Consolidated                                   6,614        100.0     6,628           100              -14",
+      "note": "Dipendenti attivi al 31/12/2024 di gruppo (escluse persone assenti dal lavoro), come da tabella 'Number of employees by company' e nota 'Personnel' della relazione sulla gestione. Il 2023 (6.628) è il dato comparativo nello stesso documento. ATTENZIONE: la dichiarazione di sostenibilità del 2024 riporta 6.691 'Total employees' (base diversa, include assenti); dipendenti_2025 usa la base di sostenibilità, quindi la serie 2024-2025 non è omogenea con i valori qui sopra. Pagina non verificata con precisione.",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }

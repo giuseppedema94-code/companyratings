@@ -292,6 +292,54 @@
       "note": "Indirizzo completo dalla stessa frase del sito ufficiale: 'in Piazza Gae Aulenti 3 a Milano'.",
       "verifica": "confermato",
       "verifica_note": "Sito ufficiale: 'La sede di UniCredit si trova nella UniCredit Tower, in Piazza Gae Aulenti 3 a Milano'."
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 5861,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "4Q24 and FY24 Group Results - Press release (UniCredit)",
+      "fonte_url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/en/investors/group-results/2024/4Q24/4Q24_UniCredit_PR_ENG.pdf",
+      "fonte_file": "/tmp/fonti/unicredit/pr4q24_en.pdf.txt",
+      "citazione": "HR costs                                                           -5,861      -5,853      -0.1%     -1,576      -1,427     -1,572     +10.2%      -0.2%",
+      "note": "Tabella 'Reclassified income statement' di gruppo, riga 'HR costs', pagina PDF 15, colonna FY23 (valore positivo). Dato riesposto nel comunicato 2024 (riesposizioni da marzo e giugno 2024 su 2023). Il bilancio 2024 (pagina PDF 126) lo descrive come 'down EUR 8 million' rispetto al 2023, senza riportare il dato 2023 in quella frase.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 5853,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "4Q24 and FY24 Group Results - Press release (UniCredit)",
+      "fonte_url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/en/investors/group-results/2024/4Q24/4Q24_UniCredit_PR_ENG.pdf",
+      "fonte_file": "/tmp/fonti/unicredit/pr4q24_en.pdf.txt",
+      "citazione": "HR costs                                                           -5,861      -5,853      -0.1%     -1,576      -1,427     -1,572     +10.2%      -0.2%",
+      "note": "Tabella 'Reclassified income statement' di gruppo, riga 'HR costs', pagina PDF 15, colonna FY24 (valore positivo). Coincide con il dato 2024 nel bilancio 2025 (colonna precedente, 5.853). Il bilancio 2024 (pagina PDF 126) riporta HR costs 5.853 mln nel commento.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 76580,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "UniCredit 2024 Annual Reports and Accounts (PDF)",
+      "fonte_url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/en/investors/financial-reports/2024/4Q24/2024-Annual-Reports-and-Accounts.pdf",
+      "fonte_file": "/tmp/fonti/unicredit/ar2024_en.pdf.txt",
+      "citazione": "Number of employees previous year                                                                                                                                 76,580",
+      "note": "Bilancio 2024, tabella turnover S1-6 (pagina PDF 291), voce 'Number of employees previous year' = fine 2023. Dato letto dal bilancio 2024 e non dal bilancio 2023. Non usato: 70.752 (tabella 'Staff and Branches', base FTE). Perimetro di gruppo consolidato, come per il 2024.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 75265,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "UniCredit 2024 Annual Reports and Accounts (PDF)",
+      "fonte_url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/en/investors/financial-reports/2024/4Q24/2024-Annual-Reports-and-Accounts.pdf",
+      "fonte_file": "/tmp/fonti/unicredit/ar2024_en.pdf.txt",
+      "citazione": "Total employees                                                                                                     75,265                    75,923",
+      "note": "Bilancio 2024, tabella S1-6 per genere (pagina PDF 289), 'Total employees' head count al 31.12.2024 = 75.265; media annua 75.923 non usata. Il perimetro include circa 1.900 FTE di Alpha Bank Romania (acquisizione 4Q24, pagina PDF 126).",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }

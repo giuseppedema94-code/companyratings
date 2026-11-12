@@ -290,6 +290,78 @@
       "note": "Indirizzo indicato per l'invio dei reclami; la pagina non lo qualifica come sede centrale. Da confermare su una pagina dedicata alla sede legale. Non presente nella pagina contatti mps.it.",
       "verifica": "da confermare",
       "verifica_note": "Da confermare. Nota di verifica precedente: Letto 'Piazza Salimbeni, 3' nella pagina reclami, ma la pagina non lo indica come sede centrale."
+    },
+    {
+      "id": "spese_personale_2023",
+      "valore": 1179.6,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Comunicato stampa risultati FY2023 - Gruppo MPS",
+      "fonte_url": "https://www.gruppomps.it/static/upload/cs-/cs-risultati-fy2023.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy23.pdf.txt",
+      "citazione": "a) spese per il personale                                                                               (1.179,6)                    (1.393,5)              213,9       -15,3%",
+      "note": "Comunicato FY2023 pag. 20, tabella conto economico riclassificato, 'a) spese per il personale' colonna 31/12/2023 (gruppo). Valore positivo. Non verificato contro una riesposizione nel comunicato FY2024.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2024",
+      "valore": 1228.8,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "fonte_url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy25.pdf.txt",
+      "citazione": "a) personnel expenses                                                        (1,520.8)        (239.5)          (1,281.2)      (1,228.8)    (52.4)          4.3%",
+      "note": "Comunicato FY2025 pag. 23, colonna comparativa 2024 'a) personnel expenses'. Perimetro senza Mediobanca (consolidata solo dal 2025). Valore positivo. Non verificato contro il comunicato FY2024 originale.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2023",
+      "valore": 16737,
+      "unita": "n.",
+      "anno": 2023,
+      "fonte_titolo": "Comunicato stampa risultati FY2023 - Gruppo MPS",
+      "fonte_url": "https://www.gruppomps.it/static/upload/cs-/cs-risultati-fy2023.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy23.pdf.txt",
+      "citazione": "Numero Dipendenti - dato puntuale                                                                                            16.737                      17.020               (283)",
+      "note": "Comunicato FY2023 pag. 17, sezione 'Struttura operativa', dato puntuale al 31/12/2023 (gruppo).",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2024",
+      "valore": 16727,
+      "unita": "n.",
+      "anno": 2024,
+      "fonte_titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "fonte_url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy25.pdf.txt",
+      "citazione": "Total headcount - end of period                                                  22,079                 5,533                 16,546                   16,727                (181)",
+      "note": "Comunicato FY2025 pag. 20, tabella 'Operating structure', colonna 31/12/2024 (perimetro senza Mediobanca, consolidata solo dal 2025). Valore fine anno.",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "spese_personale_2025_ex_mediobanca",
+      "valore": 1281.2,
+      "unita": "mln €",
+      "anno": 2025,
+      "fonte_titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "fonte_url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy25.pdf.txt",
+      "citazione": "a) personnel expenses                                                        (1,520.8)        (239.5)          (1,281.2)      (1,228.8)    (52.4)          4.3%",
+      "note": "Comunicato FY2025 pag. 23, 'a) personnel expenses', colonna 'figure net of Mediobanca Group'. Consolidato 2025 (1.520,8) include Mediobanca (239,5).",
+      "verifica": "confermato (controllo automatico)"
+    },
+    {
+      "id": "dipendenti_2025_ex_mediobanca",
+      "valore": 16546,
+      "unita": "n.",
+      "anno": 2025,
+      "fonte_titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "fonte_url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/fy25.pdf.txt",
+      "citazione": "Total headcount - end of period                                                  22,079                 5,533                 16,546                   16,727                (181)",
+      "note": "Comunicato FY2025 pag. 20, tabella 'Operating structure', colonna 'figure net of Mediobanca Group', fine periodo. Consolidato 22.079 include Mediobanca 5.533.",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }
