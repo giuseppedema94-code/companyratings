@@ -350,7 +350,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 .ind th:nth-child(1) { width: 33%; } .ind th:nth-child(2) { width: 15%; } .ind th:nth-child(3) { width: 14%; } .ind th:nth-child(4) { width: 15%; }
 .ind td.bm { font-family: var(--f-mono); font-size: .86rem; }
 .ind td.bm .sig { display: block; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); margin-top: 2px; }
-.ind td.bm .sig.up { color: var(--ink); font-weight: 700; }
+.ind td.bm .sig.up { color: var(--g-a); font-size: .8rem; }
+.ind td.bm .sig.down { color: var(--g-f); font-size: .8rem; }
 .ind th, .ind td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
 .ind thead th { font-weight: 500; }
 .ind td.val { font-family: var(--f-mono); font-weight: 700; white-space: nowrap; }
@@ -1492,11 +1493,11 @@ function renderScheda(a) {
     : `${fmt(I[k], a.v[k])} contro una ${bm.nome} di ${fmtMedia(I[k], bm.v[k])}`;
   const li = (x) => `<li><b>${esc(I[x.k].nome)}</b><span>${esc(confronto(x.k))} · ${f0.format(x.p)} punti su 100</span></li>`;
   const none = (t) => `<li class="none">${t}</li>`;
-  const SIG = { "1": ["up", "▲", "meglio"], "-1": ["", "▼", "peggio"], "0": ["", "=", "in linea"] };
+  const SIG = { "1": ["up", "▲", "meglio della media"], "-1": ["down", "▼", "peggio della media"], "0": ["", "=", "in linea con la media"] };
   const sig = (k) => {
     if (!isNum(a.v[k]) || !isNum(bm.v[k])) return "";
     const s = SIG[versoMedia(I[k], a.v[k], bm.v[k])];
-    return `<span class="sig ${s[0]}"><span aria-hidden="true">${s[1]}</span> ${s[2]}</span>`;
+    return `<span class="sig ${s[0]}" role="img" aria-label="${s[2]}" title="${s[2]}">${s[1]}</span>`;
   };
   const fonte = (k) => a.demo ? esc((a.fonti && a.fonti[k]) || I[k].fonte) : (isNum(a.v[k]) ? fonteHTML(a.fonti[k]) : "nessuna fonte trovata");
   const pesoTot = M.aree.reduce((s, p) => s + (isNum(a.pil[p.id]) ? p.peso : 0), 0);
