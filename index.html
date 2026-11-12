@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CompanyRatings</title>
-<meta name="description" content="CompanyRatings, la pagella delle aziende italiane: un voto da A+ a F calcolato su bilanci, contratti integrativi e accordi sindacali.">
+<meta name="description" content="Il voto da A+ a F delle aziende italiane, calcolato su bilanci, contratti integrativi e accordi sindacali.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -425,17 +425,17 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="CompanyRatings, torna alla home">
+    <a class="brand" href="#" aria-label="CompanyRatings, pagina iniziale">
       <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span><span class="brand-name">CompanyRatings</span><span class="brand-sub">La pagella delle aziende italiane</span></span>
     </a>
-    <nav class="nav" aria-label="Sezioni">
+    <nav class="nav" aria-label="Menu principale">
       <a href="#classifica" data-nav="classifica">Classifica</a>
       <a href="#aziende" data-nav="aziende">Aziende</a>
       <a href="#confronta" data-nav="confronta">Confronta</a>
       <a href="#metodo" data-nav="metodo">Metodo</a>
     </nav>
-    <button class="theme-btn" id="theme-toggle" type="button" aria-label="Cambia tema">Tema: auto</button>
+    <button class="theme-btn" id="theme-toggle" type="button" aria-label="Cambia tema: automatico, chiaro o scuro">Tema: auto</button>
   </div>
 </header>
 
@@ -449,10 +449,10 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
           <label for="search-input">Cerca un'azienda</label>
           <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="Nome, settore o città"
                  role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-list">
-          <ul class="suggest" id="search-list" role="listbox" aria-label="Aziende trovate" hidden></ul>
+          <ul class="suggest" id="search-list" role="listbox" aria-label="Risultati della ricerca" hidden></ul>
         </div>
         <div class="hero-links">
-          <a class="btn" href="#aziende">Sfoglia le aziende</a>
+          <a class="btn" href="#aziende">Vedi tutte le aziende</a>
           <a href="#metodo">Come calcoliamo il voto</a>
         </div>
       </div>
@@ -470,8 +470,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
     <div class="wrap">
       <div class="view-head">
         <div>
-          <h2 id="classifica-title">La classifica</h2>
-          <p>Ordina per il pilastro che ti interessa. Le prime tre sono evidenziate.</p>
+          <h2 id="classifica-title">Classifica</h2>
+          <p>Metti in cima l'area che conta di più per te, dallo stipendio alla stabilità del posto. Le prime tre aziende sono evidenziate.</p>
         </div>
       </div>
       <div class="filters">
@@ -480,16 +480,16 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         <div class="field"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
         <div class="field"><label class="mono" for="f-ordina">Ordina per</label><select id="f-ordina"></select></div>
       </div>
-      <div class="quick" role="group" aria-label="Ordinamenti rapidi">
-        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori per punteggio totale</button>
-        <button class="chip" type="button" id="q-flex" data-sort="flex">Migliori per smart working e sede</button>
+      <div class="quick" role="group" aria-label="Ordina con un clic">
+        <button class="chip" type="button" id="q-totale" data-sort="totale">Migliori in assoluto</button>
+        <button class="chip" type="button" id="q-flex" data-sort="flex">Migliori per flessibilità e sede</button>
         <button class="chip" type="button" id="q-ret" data-sort="ret">Migliori per retribuzione</button>
         <button class="chip" type="button" id="q-stab" data-sort="stab">Migliori per stabilità</button>
         <span class="mono count-line" id="rank-count" aria-live="polite"></span>
       </div>
-      <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella classifica, scorre in orizzontale">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Classifica, scorre in orizzontale">
         <table class="rank" id="rank-table">
-          <caption class="sr-only">Classifica delle aziende per punteggio e pilastri</caption>
+          <caption class="sr-only">Classifica delle aziende per punteggio e per area</caption>
           <thead id="rank-head"></thead>
           <tbody id="rank-body"></tbody>
         </table>
@@ -502,7 +502,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="aziende-title">Tutte le aziende</h2>
-          <p>Per ogni azienda: voto, punteggio dei sei pilastri e tre dati chiave.</p>
+          <p>Voto, punteggio delle sei aree e tre numeri da guardare subito. Apri un'azienda per vedere da dove viene ogni dato.</p>
         </div>
         <div class="field"><label class="mono" for="g-ordina">Ordina per</label><select id="g-ordina"></select></div>
       </div>
@@ -518,8 +518,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
     <div class="wrap">
       <div class="view-head">
         <div>
-          <h2 id="confronta-title">Confronta</h2>
-          <p>Scegli due o tre aziende. Per ogni riga segniamo la migliore.</p>
+          <h2 id="confronta-title">Confronta le aziende</h2>
+          <p>Scegli due o tre aziende. In ogni riga evidenziamo chi fa meglio.</p>
         </div>
       </div>
       <div class="cmp-pick">
@@ -527,7 +527,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         <div class="field"><label class="mono" for="cmp-2">Azienda 2</label><select id="cmp-2"></select></div>
         <div class="field"><label class="mono" for="cmp-3">Azienda 3 (facoltativa)</label><select id="cmp-3"></select></div>
       </div>
-      <div class="table-wrap" tabindex="0" role="region" aria-label="Tabella di confronto, scorre in orizzontale">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Confronto, scorre in orizzontale">
         <table class="cmp" id="cmp-table"></table>
       </div>
     </div>
@@ -537,34 +537,33 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
     <div class="wrap">
       <div class="view-head">
         <div>
-          <h2 id="metodo-title">Come diamo il voto</h2>
-          <p>Il voto si calcola su 19 indicatori, raggruppati in sei pilastri, da dati pubblici o documentati.</p>
+          <h2 id="metodo-title">Come calcoliamo il voto</h2>
+          <p>Il voto nasce da 19 indicatori, divisi in sei aree, presi da bilanci, contratti, accordi sindacali e altre fonti pubbliche. La tabella mostra quanto pesa ogni area e le soglie di ogni indicatore.</p>
         </div>
       </div>
       <div class="method-grid">
         <div class="method-text">
-          <h3>Dal dato al punto</h3>
-          <p>Ogni indicatore ha un valore peggiore, che vale 0 punti, e un valore migliore, che vale 100. In mezzo il punteggio sale in modo lineare. Oltre gli estremi resta fermo a 0 o a 100.</p>
-          <p class="formula">punti = (valore − peggiore) ÷ (migliore − peggiore) × 100<br>poi limitato tra 0 e 100</p>
-          <h3>Dal punto al voto</h3>
-          <p>Il punteggio di un pilastro è la media dei suoi indicatori. Il totale somma i pilastri, ciascuno moltiplicato per il suo peso. Il totale va da 0 a 100 e decide il voto.</p>
+          <h3>Come diamo i punti</h3>
+          <p>Per ogni indicatore fissiamo due soglie: a una corrispondono 0 punti, all'altra 100. Chi sta in mezzo prende i punti in proporzione, chi va oltre si ferma a 0 o a 100. Un esempio: con un buono pasto da 8 €, su una scala da 0 a 10 €, l'azienda prende 80 punti.</p>
+          <p>A volte conta il contrario. Per il turnover meno è meglio, quindi 100 punti vanno a chi perde il 5% dei dipendenti l'anno e 0 a chi ne perde il 25%.</p>
+          <p class="formula">punti = (valore − soglia da 0) ÷ (soglia da 100 − soglia da 0) × 100<br>con un minimo di 0 e un massimo di 100</p>
+          <h3>Dai punti al voto</h3>
+          <p>Il punteggio di un'area è la media dei punti dei suoi indicatori. Il punteggio finale, da 0 a 100, è la media delle sei aree pesata come in tabella: retribuzione e solidità economica valgono un quarto ciascuna. Da lì si ricava il voto.</p>
           <div class="scale-key" id="scale-key" aria-label="Soglie dei voti"></div>
-          <h3>Le recensioni</h3>
-          <p>Glassdoor e Indeed entrano solo con almeno 30 recensioni e pesano il 5%. Poche recensioni positive non bastano a cambiare voto.</p>
         </div>
         <div>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Pesi e soglie, scorre in orizzontale">
             <table class="weights" id="weights-table">
-              <caption class="sr-only">Pilastri, pesi e soglie degli indicatori</caption>
+              <caption class="sr-only">Aree, pesi e soglie degli indicatori</caption>
             </table>
           </div>
         </div>
       </div>
       <div class="principles">
-        <div><h3>Nessuna azienda paga</h3><p>Non vendiamo posizioni in classifica né profili premium.</p></div>
-        <div><h3>Ogni dato ha una fonte</h3><p>Accanto a ogni numero c'è il documento da cui viene: bilancio, contratto, rapporto sulla parità.</p></div>
-        <div><h3>Solo aziende da 100 dipendenti in su</h3><p>Sotto questa soglia i dati pubblici sono pochi e un caso singolo sposta troppo il voto.</p></div>
-        <div><h3>Le recensioni pesano solo il 5%</h3><p>Il 95% del voto viene da dati verificabili.</p></div>
+        <div><h3>Le aziende non pagano</h3><p>Non vendiamo posizioni in classifica né profili a pagamento.</p></div>
+        <div><h3>Ogni dato ha una fonte</h3><p>Nella pagina di ogni azienda, accanto a ogni numero, trovi il documento da cui viene: bilancio, contratto integrativo, rapporto sulla parità.</p></div>
+        <div><h3>Almeno 100 dipendenti</h3><p>Nelle aziende più piccole i dati pubblici sono pochi e un singolo caso sposterebbe troppo il voto.</p></div>
+        <div><h3>Le recensioni contano poco</h3><p>Glassdoor e Indeed valgono il 5% del punteggio, e solo con almeno 30 recensioni. Il resto viene da documenti verificabili.</p></div>
       </div>
     </div>
   </section>
@@ -574,18 +573,18 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   <div class="wrap foot-grid">
     <div>
       <h2>Segnala un dato</h2>
-      <p>Potrai inviarci un contratto integrativo, un accordo o un bilancio che manca, con la fonte allegata.</p>
+      <p>Presto potrai mandarci un contratto integrativo, un accordo o un bilancio che non abbiamo.</p>
       <span class="mono soon">Funzione in arrivo</span>
     </div>
     <div>
       <h2>Contesta un voto</h2>
-      <p>Se un numero della tua azienda non torna, potrai chiedere una revisione indicando il documento corretto.</p>
+      <p>Se un numero della tua azienda non torna, potrai chiederci di correggerlo indicando il documento giusto.</p>
       <span class="mono soon">Funzione in arrivo</span>
     </div>
     <div>
       <h2>Chi siamo</h2>
-      <p>Progetto indipendente e gratuito sulla trasparenza retributiva in Italia.</p>
-      <p><a href="#metodo">Leggi il metodo</a></p>
+      <p>Un progetto indipendente e gratuito. Mettiamo in un posto solo i dati su come le aziende italiane trattano chi ci lavora.</p>
+      <p><a href="#metodo">Come calcoliamo il voto</a></p>
     </div>
   </div>
   <div class="wrap foot-base">
@@ -646,11 +645,11 @@ const AZIENDE = [
   { slug: "arno-sanita", nome: "Arno Sanità S.r.l.", settore: "Sanità privata", citta: "Firenze", dipendenti: 870, ccnl: "Sanità privata",
     fatturato: [254.9, 262.7, 256.6, 263.5],
     valori: { ebitMargin: 4.8, crescitaEbit: 0.9, debitoEbitda: 1.2, costoMedio: 59500, buonoPasto: 5, premio: 2050, welfare: 1340, termine: 10.4, cig: 0, licColl: 0, turnover: 15, smart: 1, minutiMetro: 6, integrativo: 0, vertenze: 2, gapGenere: 3.1, glassdoor: 3.1, indeed: 3.9 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "quadrilatero-moda", nome: "Quadrilatero Moda S.p.A.", settore: "Moda", citta: "Milano", dipendenti: 690, ccnl: "Tessile e abbigliamento",
     fatturato: [115.2, 116.1, 112.9, 112.1],
     valori: { ebitMargin: 2.8, crescitaEbit: 8.3, debitoEbitda: 0.9, costoMedio: 67800, buonoPasto: 7.5, premio: 2030, welfare: 1350, termine: 10.4, cig: 2, licColl: 1, turnover: 10, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 1, gapGenere: 4.7, glassdoor: 3, indeed: 3.2 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "murgia-alimentare", nome: "Murgia Alimentare S.p.A.", settore: "Alimentare", citta: "Bari", dipendenti: 520, ccnl: "Industria alimentare",
     fatturato: [64.5, 65.8, 64.4, 65.1],
     valori: { ebitMargin: 9.8, crescitaEbit: -2.9, debitoEbitda: 3.1, costoMedio: 66500, buonoPasto: 7.5, premio: 2400, welfare: 930, termine: 18.7, cig: 2, licColl: 1, turnover: 14.2, smart: 2, minutiMetro: 19, integrativo: 1, vertenze: 2, gapGenere: 11.5, glassdoor: 3.6, indeed: 3.4 } },
@@ -660,65 +659,65 @@ const AZIENDE = [
   { slug: "porta-romana-media", nome: "Porta Romana Media S.r.l.", settore: "Media", citta: "Milano", dipendenti: 180, ccnl: "Grafici editoriali",
     fatturato: [41.4, 41.6, 43.2, 43.3],
     valori: { ebitMargin: 4.1, crescitaEbit: 5.3, debitoEbitda: 1.7, costoMedio: 61700, buonoPasto: 4.5, premio: 1250, welfare: 1350, termine: 17.1, cig: 2, licColl: 1, turnover: 19.2, smart: 2, minutiMetro: 19, integrativo: 0, vertenze: 2, gapGenere: 8.6, glassdoor: 3.4, indeed: 3.6 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "nettuno-costruzioni", nome: "Nettuno Costruzioni S.p.A.", settore: "Edilizia", citta: "Bologna", dipendenti: 610, ccnl: "Edilizia Industria",
     fatturato: [212.9, 216.6, 222.1, 230.7],
     valori: { ebitMargin: 6.1, crescitaEbit: 1.8, debitoEbitda: 2.3, costoMedio: 51100, buonoPasto: 5.5, premio: 930, welfare: 700, termine: 13, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 12, integrativo: 0, vertenze: 2, gapGenere: 8.9, glassdoor: 3.6, indeed: 3.6 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "etna-lumen", nome: "Etna Lumen S.r.l.", settore: "Energia", citta: "Catania", dipendenti: 210, ccnl: "Elettrico",
     fatturato: [52.9, 51.1, 51.3, 51.8],
     valori: { ebitMargin: 7, crescitaEbit: -5, debitoEbitda: 3.2, costoMedio: 52200, buonoPasto: 4.5, premio: 1010, welfare: 1260, termine: 13.2, cig: 2, licColl: 1, turnover: 12.8, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 15.8, glassdoor: 3.6, indeed: 3.5 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "trulli-mare-hotels", nome: "Trulli e Mare Hotels S.r.l.", settore: "Turismo", citta: "Bari", dipendenti: 350, ccnl: "Turismo",
     fatturato: [78.8, 75, 69.6, 66.1],
     valori: { ebitMargin: 5.4, crescitaEbit: 4.3, debitoEbitda: 3.7, costoMedio: 42400, buonoPasto: 3.5, premio: 1930, welfare: 620, termine: 13.3, cig: 2, licColl: 1, turnover: 18.5, smart: 1, minutiMetro: 15, integrativo: 1, vertenze: 2, gapGenere: 14.9, glassdoor: 3.4, indeed: 3.5 } },
   { slug: "sette-colli-retail", nome: "Sette Colli Retail S.p.A.", settore: "Grande distribuzione", citta: "Roma", dipendenti: 2300, ccnl: "Commercio e Terziario",
     fatturato: [347.3, 333.9, 318.5, 302.9],
     valori: { ebitMargin: 5.4, crescitaEbit: -10.4, debitoEbitda: 3.8, costoMedio: 48600, buonoPasto: 4, premio: 670, welfare: 1210, termine: 20.4, cig: 2, licColl: 1, turnover: 16.5, smart: 2, minutiMetro: 11, integrativo: 0, vertenze: 2, gapGenere: 7.7, glassdoor: 3.3, indeed: 3.5 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "vesuvio-trasporti", nome: "Vesuvio Trasporti S.r.l.", settore: "Logistica", citta: "Napoli", dipendenti: 730, ccnl: "Logistica e spedizione",
     fatturato: [260.6, 256.7, 256.2, 245.9],
     valori: { ebitMargin: 2, crescitaEbit: -11.2, debitoEbitda: 4, costoMedio: 53500, buonoPasto: 2.5, premio: 960, welfare: 860, termine: 14.3, cig: 2, licColl: 1, turnover: 19, smart: 2, minutiMetro: 18, integrativo: 0, vertenze: 2, gapGenere: 14.5, glassdoor: 2.7, indeed: 2.6 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "tiburtina-servizi", nome: "Tiburtina Servizi S.r.l.", settore: "Contact center", citta: "Roma", dipendenti: 1650, ccnl: "Telecomunicazioni",
     fatturato: [549.5, 522.2, 484.4, 450.7],
     valori: { ebitMargin: -3.2, crescitaEbit: 0.1, debitoEbitda: 4.1, costoMedio: 54900, buonoPasto: 4, premio: 830, welfare: 160, termine: 16.3, cig: 2, licColl: 2, turnover: 17.5, smart: 1, minutiMetro: 13, integrativo: 0, vertenze: 3, gapGenere: 12.3, glassdoor: 2.9, indeed: 3.1 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } },
   { slug: "salento-call", nome: "Salento Call S.r.l.", settore: "Contact center", citta: "Lecce", dipendenti: 940, ccnl: "Telecomunicazioni",
     fatturato: [182.4, 160.3, 140.9, 128.5],
     valori: { ebitMargin: -1.3, crescitaEbit: -2, debitoEbitda: 4.2, costoMedio: 45900, buonoPasto: 0, premio: 600, welfare: 700, termine: 25.9, cig: 2, licColl: 1, turnover: 16.8, smart: 0, minutiMetro: 25, integrativo: 0, vertenze: 2, gapGenere: 20.2, glassdoor: 2.7, indeed: 3.1 },
-    fonti: { integrativo: "Nessun integrativo depositato in archivio CNEL", buonoPasto: "CCNL e regolamento aziendale" } }
+    fonti: { integrativo: "Nessun integrativo depositato al CNEL", buonoPasto: "CCNL e regolamento aziendale" } }
 ];
 
 /* Modello: identico al foglio rating_aziende_esempio.xlsx */
 const INDICATORI = {
-  crescitaFatt: { nome: "Crescita del fatturato, media 3 anni", v0: -10, v100: 10, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
-  ebitMargin:   { nome: "EBIT margin, media 3 anni", v0: -5, v100: 15, u: "pct", fonte: "Bilanci depositati 2023-2025" },
-  crescitaEbit: { nome: "Crescita dell'EBIT, media 3 anni", v0: -15, v100: 15, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
-  debitoEbitda: { nome: "Debito netto / EBITDA", v0: 5, v100: 0, u: "x", fonte: "Bilancio depositato 2025, nota integrativa" },
-  costoMedio:   { nome: "Costo medio per dipendente", v0: 35000, v100: 75000, u: "eurY", fonte: "Bilancio 2025, costo del personale / organico medio" },
-  buonoPasto:   { nome: "Buono pasto giornaliero", v0: 0, v100: 10, u: "eur", fonte: "Contratto integrativo" },
+  crescitaFatt: { nome: "Crescita del fatturato (media annua, 3 anni)", v0: -10, v100: 10, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
+  ebitMargin:   { nome: "Utile operativo in % dei ricavi (EBIT margin, media 3 anni)", v0: -5, v100: 15, u: "pct", fonte: "Bilanci depositati 2023-2025" },
+  crescitaEbit: { nome: "Crescita dell'utile operativo (EBIT, media 3 anni)", v0: -15, v100: 15, u: "pctS", fonte: "Bilanci depositati 2022-2025" },
+  debitoEbitda: { nome: "Anni di margine lordo per ripagare i debiti (debito netto / EBITDA)", v0: 5, v100: 0, u: "x", fonte: "Bilancio depositato 2025, nota integrativa" },
+  costoMedio:   { nome: "Costo aziendale medio per dipendente", v0: 35000, v100: 75000, u: "eurY", fonte: "Bilancio 2025: costo del personale diviso per l'organico medio" },
+  buonoPasto:   { nome: "Buono pasto al giorno", v0: 0, v100: 10, u: "eur", fonte: "Contratto integrativo" },
   premio:       { nome: "Premio di risultato medio", v0: 0, v100: 3000, u: "eurY", fonte: "Accordo sul premio di risultato" },
-  welfare:      { nome: "Welfare e contributo ai fondi", v0: 0, v100: 2000, u: "eurY", fonte: "Contratto integrativo e CCNL" },
-  termine:      { nome: "Contratti a termine e somministrati", v0: 30, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità" },
-  cig:          { nome: "Anni con cassa integrazione, ultimi 3", v0: 3, v100: 0, u: "anni", fonte: "Accordi sindacali e decreti INPS" },
-  licColl:      { nome: "Licenziamenti collettivi, ultimi 5 anni", v0: 2, v100: 0, u: "n", fonte: "Procedure ex L. 223/1991" },
-  turnover:     { nome: "Turnover annuo", v0: 25, v100: 5, u: "pct", fonte: "Rapporto biennale sulla parità" },
-  smart:        { nome: "Smart working a settimana", v0: 0, v100: 3, u: "gg", fonte: "Accordo aziendale sul lavoro agile" },
-  minutiMetro:  { nome: "Minuti a piedi da metro o treno", v0: 30, v100: 0, u: "min", fonte: "Indirizzo sede e mappa trasporto pubblico" },
-  integrativo:  { nome: "Contratto integrativo", v0: 0, v100: 1, u: "bool", fonte: "Archivio contratti CNEL" },
-  vertenze:     { nome: "Vertenze o scioperi aziendali, ultimi 3 anni", v0: 3, v100: 0, u: "n", fonte: "Comunicati sindacali e stampa locale" },
-  gapGenere:    { nome: "Gap retributivo di genere", v0: 20, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità 2024" },
-  glassdoor:    { nome: "Media recensioni Glassdoor", v0: 2, v100: 4.5, u: "stelle", fonte: "Glassdoor, almeno 30 recensioni" },
-  indeed:       { nome: "Media recensioni Indeed", v0: 2, v100: 4.5, u: "stelle", fonte: "Indeed, almeno 30 recensioni" }
+  welfare:      { nome: "Welfare e contributi a fondi pensione e sanitari", v0: 0, v100: 2000, u: "eurY", fonte: "Contratto integrativo e CCNL" },
+  termine:      { nome: "Quota di contratti a termine e in somministrazione", v0: 30, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità" },
+  cig:          { nome: "Anni con cassa integrazione (ultimi 3)", v0: 3, v100: 0, u: "anni", fonte: "Accordi sindacali e decreti INPS" },
+  licColl:      { nome: "Licenziamenti collettivi (ultimi 5 anni)", v0: 2, v100: 0, u: "n", fonte: "Procedure di licenziamento collettivo (legge 223/1991)" },
+  turnover:     { nome: "Dipendenti che lasciano ogni anno (turnover)", v0: 25, v100: 5, u: "pct", fonte: "Rapporto biennale sulla parità" },
+  smart:        { nome: "Giorni di smart working a settimana", v0: 0, v100: 3, u: "gg", fonte: "Accordo aziendale sul lavoro agile" },
+  minutiMetro:  { nome: "Minuti a piedi dalla metro o dal treno", v0: 30, v100: 0, u: "min", fonte: "Indirizzo della sede e mappe del trasporto pubblico" },
+  integrativo:  { nome: "Ha un contratto integrativo", v0: 0, v100: 1, u: "bool", fonte: "Archivio dei contratti del CNEL" },
+  vertenze:     { nome: "Vertenze o scioperi (ultimi 3 anni)", v0: 3, v100: 0, u: "n", fonte: "Comunicati sindacali e stampa locale" },
+  gapGenere:    { nome: "Differenza di stipendio tra uomini e donne", v0: 20, v100: 0, u: "pct", fonte: "Rapporto biennale sulla parità 2024" },
+  glassdoor:    { nome: "Stelle medie su Glassdoor", v0: 2, v100: 4.5, u: "stelle", fonte: "Glassdoor, con almeno 30 recensioni" },
+  indeed:       { nome: "Stelle medie su Indeed", v0: 2, v100: 4.5, u: "stelle", fonte: "Indeed, con almeno 30 recensioni" }
 };
 const PILASTRI = [
   { id: "eco",  nome: "Solidità economica", breve: "Solidità", peso: 0.25, ind: ["crescitaFatt", "ebitMargin", "crescitaEbit", "debitoEbitda"] },
   { id: "ret",  nome: "Retribuzione e benefit", breve: "Retribuzione", peso: 0.25, ind: ["costoMedio", "buonoPasto", "premio", "welfare"] },
   { id: "stab", nome: "Stabilità del lavoro", breve: "Stabilità", peso: 0.20, ind: ["termine", "cig", "licColl", "turnover"] },
   { id: "flex", nome: "Flessibilità e sede", breve: "Flessibilità", peso: 0.15, ind: ["smart", "minutiMetro"] },
-  { id: "rel",  nome: "Relazioni industriali e parità", breve: "Relazioni", peso: 0.10, ind: ["integrativo", "vertenze", "gapGenere"] },
-  { id: "perc", nome: "Percezione dei dipendenti", breve: "Percezione", peso: 0.05, ind: ["glassdoor", "indeed"] }
+  { id: "rel",  nome: "Relazioni sindacali e parità", breve: "Sindacato", peso: 0.10, ind: ["integrativo", "vertenze", "gapGenere"] },
+  { id: "perc", nome: "Recensioni dei dipendenti", breve: "Recensioni", peso: 0.05, ind: ["glassdoor", "indeed"] }
 ];
 const CLASSI = [
   { v: "A+", min: 90, c: "g-ap" }, { v: "A", min: 80, c: "g-a" }, { v: "B", min: 70, c: "g-b" },
@@ -812,9 +811,9 @@ function labelHTML(a, opts) {
     <div class="elabel-head"><span class="brand-name">CompanyRatings</span><span class="mono">Voto</span></div>
     <div class="elabel-who">${name}<span>${esc(a.settore)} · ${esc(a.citta)} · ${f0.format(a.dipendenti)} dipendenti</span></div>
     <div class="elabel-scale" aria-hidden="true">${rows}</div>
-    <div class="elabel-score"><span class="mono">Punteggio 0–100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
+    <div class="elabel-score"><span class="mono">Punteggio su 100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>
     <div class="elabel-pillars">${pill}</div>
-    <div class="elabel-foot"><span class="mono">Schema CR-2026 · 19 indicatori</span><span class="mono">Demo</span></div>
+    <div class="elabel-foot"><span class="mono">19 indicatori · 6 aree</span><span class="mono">Demo</span></div>
   </figure>`;
 }
 const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -840,7 +839,7 @@ function renderHero(anim) {
 }
 
 /* ======================= classifica ======================= */
-const SORTS = [{ id: "totale", nome: "Punteggio totale" }].concat(PILASTRI.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome (A-Z)" }]);
+const SORTS = [{ id: "totale", nome: "Punteggio totale" }].concat(PILASTRI.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome, dalla A alla Z" }]);
 const state = { settore: "", citta: "", voto: "", sort: "totale" };
 function sortVal(a, s) { return s === "totale" ? a.totale : a.pil[s]; }
 function sorted(list, s) {
@@ -853,7 +852,7 @@ function initFilters() {
   const uniq = (k) => Array.from(new Set(RATED.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
   fillSelect($("f-settore"), [["", "Tutti i settori"]].concat(uniq("settore").map(s => [s, s])), "");
   fillSelect($("f-citta"), [["", "Tutte le città"]].concat(uniq("citta").map(s => [s, s])), "");
-  fillSelect($("f-voto"), [["", "Tutti i voti"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v + " o superiore"])), "");
+  fillSelect($("f-voto"), [["", "Tutti i voti"]].concat(CLASSI.slice(0, -1).map(c => [c.v, c.v === "A+" ? "Solo A+" : c.v + " o migliore"])), "");
   const sortOpts = SORTS.map(s => [s.id, s.nome]);
   fillSelect($("f-ordina"), sortOpts, "totale");
   fillSelect($("g-ordina"), sortOpts, "totale");
@@ -885,26 +884,26 @@ function renderRank() {
   const top = state.sort !== "nome";
   $("rank-body").innerHTML = list.length ? list.map((a, i) => `<tr class="${top && i < 3 ? "is-top" : ""}">
       <td class="pos">${i + 1}</td>
-      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a>${top && i < 3 ? '<span class="top-note sr-only">Prime tre</span>' : ""}<span>${esc(a.settore)} · ${esc(a.citta)}</span></td>
+      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a>${top && i < 3 ? '<span class="top-note sr-only">tra le prime tre</span>' : ""}<span>${esc(a.settore)} · ${esc(a.citta)}</span></td>
       <td>${tag(a)}</td>
       <td class="score">${sc(a.totale)}</td>
       ${PILASTRI.map(p => `<td>${miniBar(a.pil[p.id])}</td>`).join("")}
     </tr>`).join("")
-    : `<tr><td colspan="${cols.length}" class="empty"><p>Nessuna azienda corrisponde a questi filtri.</p><button type="button" class="btn btn-ghost" id="reset-filters">Azzera i filtri</button></td></tr>`;
+    : `<tr><td colspan="${cols.length}" class="empty"><p>Nessuna azienda con questi filtri. Prova ad allargare la ricerca.</p><button type="button" class="btn btn-ghost" id="reset-filters">Togli i filtri</button></td></tr>`;
   const rb = $("reset-filters");
   if (rb) rb.addEventListener("click", () => {
     state.settore = state.citta = state.voto = "";
     $("f-settore").value = $("f-citta").value = $("f-voto").value = "";
     renderRank();
   });
-  const sname = SORTS.find(s => s.id === state.sort).nome.toLowerCase();
-  $("rank-count").textContent = list.length + " aziende · ordinate per " + sname;
+  const sname = state.sort === "nome" ? "nome" : SORTS.find(s => s.id === state.sort).nome.toLowerCase();
+  $("rank-count").textContent = list.length + (list.length === 1 ? " azienda · ordinata per " : " aziende · ordinate per ") + sname;
 }
 
 /* ======================= card ======================= */
 function cardHTML(a) {
   const g = a.v.crescitaFatt;
-  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, voto ${a.voto}, punteggio ${sc(a.totale)}">
+  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, voto ${a.voto}, punteggio ${sc(a.totale)} su 100">
     <div class="card-top">${tag(a, true)}<div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
     <div class="card-body">
       <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(a.settore)} · ${esc(a.citta)} <span class="mono">· demo</span></p></div>
@@ -930,14 +929,14 @@ function strengths(a) {
 function fonte(a, k) { return (a.fonti && a.fonti[k]) || INDICATORI[k].fonte; }
 function renderScheda(a) {
   const sw = strengths(a);
-  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(fmt(x.k, a.v[x.k]))} · ${f0.format(x.p)} punti</span></li>`;
+  const li = (x) => `<li><b>${esc(INDICATORI[x.k].nome)}</b><span>${esc(fmt(x.k, a.v[x.k]))} · ${f0.format(x.p)} punti su 100</span></li>`;
   const contrib = PILASTRI.map(p => `<tr><td>${p.nome}</td><td class="r">${Math.round(p.peso * 100)}%</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${sc(a.pil[p.id] * p.peso)}</td></tr>`).join("");
   const pillars = PILASTRI.map(p => `<div class="pillar">
-      <div class="pillar-head"><div><span class="mono">Pilastro · peso ${Math.round(p.peso * 100)}%</span><h3>${p.nome}</h3></div>
-      <div class="pillar-score"><span class="mono">Punteggio 0–100</span><b>${sc(a.pil[p.id])}</b></div></div>
+      <div class="pillar-head"><div><span class="mono">Area · vale il ${Math.round(p.peso * 100)}% del punteggio</span><h3>${p.nome}</h3></div>
+      <div class="pillar-score"><span class="mono">Punteggio su 100</span><b>${sc(a.pil[p.id])}</b></div></div>
       <div class="table-wrap" tabindex="0" role="region" aria-label="Indicatori di ${esc(p.nome)}"><table class="ind">
         <thead><tr><th scope="col" class="mono">Indicatore</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Punti</th><th scope="col" class="mono">Fonte</th></tr></thead>
-        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti a ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 a ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
+        <tbody>${p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}<span class="range">0 punti con ${esc(fmtSoglia(k, INDICATORI[k].v0))}, 100 con ${esc(fmtSoglia(k, INDICATORI[k].v100))}</span></td><td class="val">${esc(fmt(k, a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="src">${esc(fonte(a, k))}</td></tr>`).join("")}</tbody>
       </table></div></div>`).join("");
   const years = a.fatturato.map((v, i) => `<div><span class="mono">${ANNI[i]}</span><b>${f1.format(v)}</b></div>`).join("");
   $("scheda-root").innerHTML = `
@@ -950,13 +949,13 @@ function renderScheda(a) {
           <div><span class="mono">Settore</span><b>${esc(a.settore)}</b></div>
           <div><span class="mono">Città</span><b>${esc(a.citta)}</b></div>
           <div><span class="mono">Dipendenti</span><b class="num">${f0.format(a.dipendenti)}</b></div>
-          <div><span class="mono">CCNL applicato</span><b>${esc(a.ccnl)}</b></div>
+          <div><span class="mono">Contratto nazionale</span><b>${esc(a.ccnl)}</b></div>
         </div>
       </div>
       <div>
         <div class="sheet-actions">
-          <button type="button" class="btn" id="btn-confronta">Confronta</button>
-          <button type="button" class="btn btn-ghost" id="btn-copia">Copia link</button>
+          <button type="button" class="btn" id="btn-confronta">Confronta con altre</button>
+          <button type="button" class="btn btn-ghost" id="btn-copia">Copia il link</button>
         </div>
         <p class="status" id="copy-status" role="status" aria-live="polite"></p>
       </div>
@@ -965,7 +964,7 @@ function renderScheda(a) {
       <div class="sheet-side">
         ${labelHTML(a, {})}
         <div class="rev">
-          <span class="mono">Fatturato, milioni di euro · fonte bilanci depositati</span>
+          <span class="mono">Fatturato in milioni di euro, dai bilanci depositati</span>
           <div style="margin-top:8px">${spark(a.fatturato, 320, 64).replace('class="spark"', 'class="spark" style="width:100%;height:64px" preserveAspectRatio="none"')}</div>
           <div class="rev-years">${years}</div>
         </div>
@@ -974,14 +973,14 @@ function renderScheda(a) {
         <div class="block">
           <h3>Come si arriva a ${sc(a.totale)}</h3>
           <div class="table-wrap"><table class="contrib">
-            <thead><tr><th scope="col" class="mono">Pilastro</th><th scope="col" class="mono r">Peso</th><th scope="col" class="mono r">Punteggio</th><th scope="col" class="mono r">Contributo</th></tr></thead>
+            <thead><tr><th scope="col" class="mono">Area</th><th scope="col" class="mono r">Peso</th><th scope="col" class="mono r">Punteggio</th><th scope="col" class="mono r">Punti sul totale</th></tr></thead>
             <tbody>${contrib}</tbody>
             <tfoot><tr><td>Totale · voto ${a.voto}</td><td class="r">100%</td><td class="r"></td><td class="r">${sc(a.totale)}</td></tr></tfoot>
           </table></div>
         </div>
         <div class="fw" style="margin-top:28px">
-          <div class="plus"><h3>Punti di forza</h3><ul>${sw.best.map(li).join("")}</ul></div>
-          <div class="minus"><h3>Attenzione a</h3><ul>${sw.worst.map(li).join("")}</ul></div>
+          <div class="plus"><h3>Punti forti</h3><ul>${sw.best.map(li).join("")}</ul></div>
+          <div class="minus"><h3>Punti deboli</h3><ul>${sw.worst.map(li).join("")}</ul></div>
         </div>
       </div>
     </div>
@@ -998,7 +997,7 @@ function renderScheda(a) {
       await navigator.clipboard.writeText(url);
       $("copy-status").textContent = "Link copiato.";
     } catch (e) {
-      $("copy-status").textContent = "Copia non riuscita. Il link è: " + url;
+      $("copy-status").textContent = "Non siamo riusciti a copiarlo. Ecco il link: " + url;
     }
   });
 }
@@ -1020,14 +1019,14 @@ function initCmp() {
       const v = ["cmp-1", "cmp-2", "cmp-3"].map(x => $(x).value);
       saveCmp(v); renderCmp();
     });
-    $(id).dataset.opts = JSON.stringify(i === 2 ? [["", "Nessuna"]].concat(base) : base);
+    $(id).dataset.opts = JSON.stringify(i === 2 ? [["", "Nessuna terza azienda"]].concat(base) : base);
   });
 }
 function renderCmp() {
   ["cmp-1", "cmp-2", "cmp-3"].forEach((id, i) => fillSelect($(id), JSON.parse($(id).dataset.opts), cmpSel[i] || ""));
   const list = cmpSel.filter((s, i, arr) => s && BY_SLUG[s] && arr.indexOf(s) === i).map(s => BY_SLUG[s]);
   if (list.length < 2) {
-    $("cmp-table").innerHTML = `<tbody><tr><td class="empty" style="font-family:var(--f-text)">Scegli almeno due aziende diverse per vedere il confronto.</td></tr></tbody>`;
+    $("cmp-table").innerHTML = `<tbody><tr><td class="empty" style="font-family:var(--f-text)">Scegli almeno due aziende diverse per metterle a confronto.</td></tr></tbody>`;
     return;
   }
   const row = (label, sub, vals, scores) => {
@@ -1039,10 +1038,10 @@ function renderCmp() {
     }).join("")}</tr>`;
   };
   let body = row("Voto", "", list.map(a => tag(a)), list.map(a => a.totale));
-  body += row("Punteggio totale", "0–100", list.map(a => sc(a.totale)), list.map(a => a.totale));
-  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Pilastri</th></tr>`;
-  PILASTRI.forEach(p => { body += row(p.nome, "peso " + Math.round(p.peso * 100) + "%", list.map(a => miniBar(a.pil[p.id])), list.map(a => Math.round(a.pil[p.id] * 10) / 10)); });
-  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Fatti chiave</th></tr>`;
+  body += row("Punteggio", "su 100", list.map(a => sc(a.totale)), list.map(a => a.totale));
+  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Aree</th></tr>`;
+  PILASTRI.forEach(p => { body += row(p.nome, "vale il " + Math.round(p.peso * 100) + "%", list.map(a => miniBar(a.pil[p.id])), list.map(a => Math.round(a.pil[p.id] * 10) / 10)); });
+  body += `<tr class="sep"><th colspan="${list.length + 1}" scope="rowgroup">Numeri chiave</th></tr>`;
   ["costoMedio", "buonoPasto", "premio", "smart", "minutiMetro", "crescitaFatt", "termine", "turnover", "gapGenere"].forEach(k => {
     body += row(INDICATORI[k].nome, "", list.map(a => esc(fmt(k, a.v[k]))), list.map(a => Math.round(a.pt[k] * 10) / 10));
   });
@@ -1055,8 +1054,8 @@ function renderMetodo() {
     const range = i === 0 ? "da 90" : (c.min === -Infinity ? "sotto 40" : "da " + c.min + " a " + (CLASSI[i - 1].min - 1));
     return `<div class="e-row"><span class="e-bar ${c.c}" style="--w:${40 + i * 10}%">${c.v}<small>${range}</small></span></div>`;
   }).join("");
-  $("weights-table").insertAdjacentHTML("beforeend", `<thead><tr><th scope="col" class="mono">Pilastro e indicatore</th><th scope="col" class="mono r">0 punti</th><th scope="col" class="mono r">100 punti</th></tr></thead><tbody>${PILASTRI.map(p =>
-    `<tr class="p-row"><td>${p.nome}</td><td class="r" colspan="2">peso ${Math.round(p.peso * 100)}%</td></tr>` +
+  $("weights-table").insertAdjacentHTML("beforeend", `<thead><tr><th scope="col" class="mono">Area e indicatore</th><th scope="col" class="mono r">0 punti</th><th scope="col" class="mono r">100 punti</th></tr></thead><tbody>${PILASTRI.map(p =>
+    `<tr class="p-row"><td>${p.nome}</td><td class="r" colspan="2">vale il ${Math.round(p.peso * 100)}%</td></tr>` +
     p.ind.map(k => `<tr><td>${esc(INDICATORI[k].nome)}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v0))}</td><td class="r">${esc(fmtSoglia(k, INDICATORI[k].v100))}</td></tr>`).join("")
   ).join("")}</tbody>`);
 }
@@ -1076,8 +1075,8 @@ function initSearch() {
     if (!q) { close(); return; }
     items = RATED.filter(a => norm(a.nome + " " + a.settore + " " + a.citta).includes(q)).sort((x, y) => y.totale - x.totale).slice(0, 8);
     idx = -1;
-    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}</span><span class="s-meta">${esc(a.settore)} · ${esc(a.citta)} · ${sc(a.totale)}</span></span></li>`).join("")
-      : `<li class="s-empty" role="presentation">Nessuna azienda trovata. Prova con un settore o una città.</li>`;
+    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}</span><span class="s-meta">${esc(a.settore)} · ${esc(a.citta)} · punteggio ${sc(a.totale)}</span></span></li>`).join("")
+      : `<li class="s-empty" role="presentation">Nessuna azienda trovata. Prova con il settore o la città.</li>`;
     list.hidden = false; input.setAttribute("aria-expanded", "true");
   }
   input.addEventListener("input", update);
