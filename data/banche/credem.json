@@ -1,0 +1,281 @@
+{
+  "azienda": "Credem (Credito Emiliano)",
+  "slug": "credem",
+  "raccolto_il": "2026-11-12",
+  "dati": [
+    {
+      "id": "proventi_2023",
+      "valore": 1923.2,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Bilancio consolidato 2023 (EN), conto economico riclassificato",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2023/Consolidated%20Financial%20Statements%20at%2031.12.2023.pdf",
+      "citazione": "Net interest and other banking income 1,923.2",
+      "note": "margine di intermediazione (non proventi operativi netti). Pagina 26 del PDF, letta il 12/11/2026 con estrazione assistita: verificare la riga a occhio. Il 2023 non era nelle fonti precedenti.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 'Net interest and other banking income 1,923.2' nel conto economico riclassificato 2023."
+    },
+    {
+      "id": "proventi_2024",
+      "valore": 2032.3,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "Margine di Intermediazione 465,5 481,0 3,3% 2.032,3 1.883,5 -7,3%",
+      "note": "margine di intermediazione (non proventi operativi netti: la voce non compare con questo nome). Pagina 7. Il valore 2.000 precedente era un arrotondamento da giornale (Il Resto del Carlino): sostituito.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 2.032,3 (FY24) nella riga Margine di Intermediazione, presentazione FY25."
+    },
+    {
+      "id": "proventi_2025",
+      "valore": 1883.5,
+      "unita": "mln €",
+      "anno": 2025,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "Margine di Intermediazione 465,5 481,0 3,3% 2.032,3 1.883,5 -7,3%",
+      "note": "margine di intermediazione (non proventi operativi netti). Pagina 7. Stesso valore in Bilancio 2025 (EN) p.26 'Net interest and other banking income'. Sostituisce il 1.883 da AziendaBanca (fonte non ammessa).",
+      "verifica": "confermato",
+      "verifica_note": "Letto 1.883,5 (FY25) nella riga Margine di Intermediazione, presentazione FY25."
+    },
+    {
+      "id": "utile_2023",
+      "valore": 562.1,
+      "unita": "mln €",
+      "anno": 2023,
+      "fonte_titolo": "Bilancio consolidato 2023 (EN), conto economico",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2023/Consolidated%20Financial%20Statements%20at%2031.12.2023.pdf",
+      "citazione": "Net profit 562.1 326.1 72.4",
+      "note": "utile netto consolidato; interessi di minoranza 0,0 (p.26), quindi coincide con la quota di pertinenza. Sostituisce la fonte FinanzaOnline (non ammessa).",
+      "verifica": "confermato",
+      "verifica_note": "Letto 'Net profit 562.1'; minoranze 0.0."
+    },
+    {
+      "id": "utile_2024",
+      "valore": 620.1,
+      "unita": "mln €",
+      "anno": 2024,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "Utile Netto 134,6 115,1 -14,5% 620,1 621,5 0,2%",
+      "note": "utile netto consolidato; minoranze 0,0 nel Bilancio 2025 (EN) p.26. Pagina 7. Sostituisce la fonte Il Resto del Carlino (non ammessa).",
+      "verifica": "confermato",
+      "verifica_note": "Letto 620,1 (FY24) nella riga Utile Netto."
+    },
+    {
+      "id": "utile_2025",
+      "valore": 621.5,
+      "unita": "mln €",
+      "anno": 2025,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "L'Utile Netto FY25 si attesta a 621,5 milioni.",
+      "note": "utile netto consolidato, non rettificato (regola 3); minoranze 0,0 (Bilancio 2025 EN p.26). Voce straordinaria: beneficio di 98,6 mln dalla cessione del merchant acquiring; utile normalizzato 522,8 mln (pagina 7). Credemholding riporta 487 mln: perimetro diverso, non usato. Sostituisce il dato AziendaBanca (non ammesso).",
+      "verifica": "confermato",
+      "verifica_note": "Letto 621,5 e frase 'L'Utile Netto FY25 si attesta a 621,5 milioni'; la parte su cessione merchant acquiring in nota non riletta."
+    },
+    {
+      "id": "cost_income_2025",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile nelle fonti ufficiali lette (comunicato risultati definitivi 2025, presentazione FY25, bilancio 2025 EN). Il 49,6% precedente era di AziendaBanca (fonte non ammessa) e coincideva con un calcolo non ammesso (costi 934,2 / margine 1.883,5): rimosso. Bilancio 2025 p.43 riporta 64,3% solo per Credembanca (perimetro diverso)."
+    },
+    {
+      "id": "cet1_2025",
+      "valore": 16.99,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "CET1 Ratio 16,75% 16,99% 15,53% 15,82%",
+      "note": "CET1 Gruppo bancario, dato fully phased (la pagina 20 riporta 'Dati fully phased'). Holding perimetro prudenziale 15,82%. Conferma Bilancio 2025 (EN) p.59. Sostituisce il dato AziendaBanca, che non indicava la versione.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 'CET 1 Ratio 16,75% 16,99% ...' con 'Dati fully phased'; 16,99 e' colonna FY25 gruppo bancario."
+    },
+    {
+      "id": "spese_personale_2025",
+      "valore": 620.9,
+      "unita": "mln €",
+      "anno": 2025,
+      "fonte_titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf",
+      "citazione": "Spese del Pers. -141,3 -172,9 22,3% -613,8 -620,9 1,2%",
+      "note": "conto economico riclassificato. Pagina 7. 2024: 613,8. Coincide con 'Personnel expenses' -620,9 del Bilancio 2025 (EN) p.26.",
+      "verifica": "confermato",
+      "verifica_note": "Letto -620,9 (FY25), -613,8 (FY24) nella riga Spese del Pers."
+    },
+    {
+      "id": "dipendenti_2025",
+      "valore": 6771,
+      "unita": "n.",
+      "anno": 2025,
+      "fonte_titolo": "Bilancio consolidato 2025 (EN), sezione rendiconto di sostenibilità, tabella per area geografica",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2025/Bilancio%20consolidato%202025_EN%20def.pdf",
+      "citazione": "Total employees 6,771 6,691",
+      "note": "pagina 92 del PDF, perimetro di gruppo (la tabella include la riga Lussemburgo). Il 2024 è 6.691. Attenzione: p.63 riporta 6.731 come forza attiva escluse le assenze (asterisco): differenza non chiarita, usato il totale della tabella di sostenibilità.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 'Total employees 6,771 6,691' in 'Number of employees by geographical area' (Italia Nord 4,663, Centro 665, Sud 1,443, Lussemburgo -). A p.40 il consolidato e' 6,731: differenza non spiegata."
+    },
+    {
+      "id": "dipendenti_italia_2025",
+      "valore": 6771,
+      "unita": "n.",
+      "anno": 2025,
+      "fonte_titolo": "Bilancio consolidato 2025 (EN), sezione rendiconto di sostenibilità, tabella per area geografica",
+      "fonte_url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2025/Bilancio%20consolidato%202025_EN%20def.pdf",
+      "citazione": "",
+      "note": "Somma regola 13: Nord 4.663 + Centro 665 + Sud 1.443 = 6.771, tabella pag. 92 del Bilancio 2025 (Lussemburgo '-'). Nota precedente (superata dal controllo): non disponibile come totale riportato. Tabella p.92: Nord 4.663, Centro 665, Sud 1.443, Lussemburgo '-'. Il totale Italia non è una riga della fonte e la somma non è calcolata (regole di calcolo). Se accettata la lettura, il valore sarebbe 6.771 coincidente con il totale.",
+      "verifica_note": "Somma Nord 4.663 + Centro 665 + Sud 1.443, tabella pag. 92 del Bilancio 2025 (Lussemburgo '-').",
+      "verifica": "confermato"
+    },
+    {
+      "id": "tempo_indeterminato_2025",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: la tabella S1-6 per tipo di contratto non compare nelle pagine lette del Bilancio 2025 (EN), pp. 26-150 letti in parte. Rendiconto non trovato come documento separato."
+    },
+    {
+      "id": "turnover_2025",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nelle pagine lette (p.126) il turnover in entrata è citato come metrica senza valori."
+    },
+    {
+      "id": "gender_pay_gap_2025",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: pagine S1 lette (pp.97-150 in parte) citano la certificazione di parità salariale senza percentuale (ESRS S1-16 non trovato)."
+    },
+    {
+      "id": "donne_dirigenti_2025",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nelle pagine S1 lette non compaiono percentuali per livello professionale."
+    },
+    {
+      "id": "formazione_2025",
+      "valore": null,
+      "unita": "ore",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: pagine S1 lette (p.120) descrivono il catalogo formativo senza ore medie."
+    },
+    {
+      "id": "buono_pasto",
+      "valore": 7,
+      "unita": "€",
+      "anno": 2024,
+      "fonte_titolo": "La Sveglia n. 232 (First Cisl, gennaio 2024)",
+      "fonte_url": "https://www.firstcisl.it/creditoemiliano/wp-content/uploads/sites/27/2024/01/sve232_gennaio-2024.pdf",
+      "citazione": "Fino a 7€ per i dipendenti con rapporto di lavoro",
+      "note": "tempo pieno; 4 € per part-time orizzontale. Decorrenza 01/01/2024 dal rinnovo del contratto integrativo del 28/12/2022 (riletto il 12/11/2026). Accordo in vigore al 31/12/2026 non verificato: la newsletter First Cisl nov-dic 2025 non cita il buono pasto.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 'Fino a 7€' tempo pieno, 4€ part-time orizzontale, decorrenza 01/01/2024. Numero ok; vigenza al 31/12/2026 (regola 8) non dimostrata dalla fonte (newsletter gennaio 2024)."
+    },
+    {
+      "id": "smart_working",
+      "valore": null,
+      "unita": "giorni",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nelle fonti sindacali lette non compare un numero di giorni; la newsletter First Cisl nov-dic 2025 non ne parla."
+    },
+    {
+      "id": "premio_aziendale_2025",
+      "valore": null,
+      "unita": "€",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nelle fonti sindacali lette non compare un importo del premio per Credem."
+    },
+    {
+      "id": "previdenza_azienda",
+      "valore": null,
+      "unita": "%",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nessuna fonte letta riporta il contributo aziendale."
+    },
+    {
+      "id": "uscite_accordo",
+      "valore": null,
+      "unita": "n.",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nessuna fonte letta riporta uscite volontarie previste da accordi firmati dal 2024."
+    },
+    {
+      "id": "assunzioni_accordo",
+      "valore": null,
+      "unita": "n.",
+      "anno": 2025,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: nessuna fonte letta riporta assunzioni previste da accordi firmati dal 2024."
+    },
+    {
+      "id": "glassdoor",
+      "valore": null,
+      "unita": "stelle, n.",
+      "anno": 2026,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: non riletto in questa sessione; in precedenza la ricerca aveva dato solo recensioni singole, senza media aggregata."
+    },
+    {
+      "id": "indeed",
+      "valore": 3.6,
+      "unita": "stelle, n.",
+      "anno": 2025,
+      "fonte_titolo": "Recensioni su CREDEM (Indeed Italia)",
+      "fonte_url": "https://it.indeed.com/cmp/Credem/reviews",
+      "citazione": "3,6 su 5 stelle. 3,6 Basato su 66 recensioni",
+      "note": "valore = stelle medie su 5; n. recensioni = 66 nel riquadro, 63 nell'intestazione della stessa pagina (non risolto). Pagina letta il 12/11/2026; aggiornamento pagina 8/9/2025.",
+      "verifica": "confermato",
+      "verifica_note": "Letto 3,6 su 5; 66 recensioni nel riquadro, 63 in meta description/intestazione elenco: incoerenza confermata."
+    },
+    {
+      "id": "sede",
+      "valore": null,
+      "unita": "testo",
+      "anno": 2026,
+      "fonte_titolo": "",
+      "fonte_url": "",
+      "citazione": "",
+      "note": "non disponibile: non riletto in questa sessione; il presskit credem.it indica solo 'Palazzo Spalletti Trivelli, sede centrale Credem Reggio Emilia', senza via e numero civico."
+    }
+  ]
+}

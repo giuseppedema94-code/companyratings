@@ -1,0 +1,26 @@
+id,intesa-sanpaolo,unicredit,banco-bpm,bper-banca,banca-mps,credem
+proventi_2023,25227,23843,5341.442,5476.7,3796.8,1923.2
+proventi_2024,27107,24844,5703.529,5574.6,4033.8,2032.3
+proventi_2025,27270,24536,5955.251,6589.3,4956.6,1883.5
+utile_2023,7724,9507,1264.453,1519.5,2051.8,562.1
+utile_2024,8666,9719,1920.393,1402.6,1950.8,620.1
+utile_2025,9321,10915,2082.0,1818.4,2715.7,621.5
+cost_income_2025,42.2,38.5,46.0,45.73,46.5,
+cet1_2025,13.2,14.75,13.58,14.83,16.2,16.99
+spese_personale_2025,7019,5872,1798.1,1800.6,1520.8,620.9
+dipendenti_2025,90789,72110,18965,22300,22079,6771
+dipendenti_italia_2025,68894,34903,,21882,21197,6771
+tempo_indeterminato_2025,97.0,96.8,99.37,99.89,99.41,
+turnover_2025,8.24,6.2,9.2,6.36,1.66,
+gender_pay_gap_2025,26.8,32,19.7,19.31,29.4,
+donne_dirigenti_2025,31.3,,,8,22.45,
+formazione_2025,63.9,38,59,57.94,32.8,
+buono_pasto,10,8,8,,,7
+smart_working,,,10,,,
+premio_aziendale_2025,,,,1400,1500,
+previdenza_azienda,4.5,,,,,
+uscite_accordo,,1130,,800,,
+assunzioni_accordo,,1624,,650,,
+glassdoor,,,,,,
+indeed,3.8/365,,3.7,3.5/111,,3.6
+sede,,"UniCredit Tower, Piazza Gae Aulenti 3, Milano",,,"Piazza Salimbeni, 3, 53100 Siena (SI)",
