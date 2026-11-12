@@ -197,13 +197,16 @@
     },
     {
       "id": "buono_pasto",
-      "valore": null,
+      "valore": 7.0,
       "unita": "€",
-      "anno": null,
-      "fonte_titolo": null,
-      "fonte_url": null,
-      "citazione": null,
-      "note": "non disponibile come accordo firmato. Verbale FIRST Cisl del 14/04/2026 (armonizzazione, include BPER Banca S.p.A.) indica 7,50 € dal 01/07/2026 per full-time e turnisti, ma il documento non mostra firme e il testo dice che le trattative sono in corso: non usato (regola 8). Accordo Manovra 19.12.2025 non riporta importi."
+      "anno": 2026,
+      "fonte_titolo": "Comunicato unitario Gruppo BPER del 29 ottobre 2020 - Buoni pasto (FABI, FIRST/CISL, FISAC/CGIL, UILCA, UNISIN), pubblicato da FISAC CGIL",
+      "fonte_url": "https://www.fisac-cgil.it/102595/finalmente-nel-gruppo-bper-aumenta-il-buono-pasto",
+      "fonte_file": "/tmp/fonti/bper-banca/buono_pasto_fisac.txt",
+      "citazione": "al personale full time ed ai turnisti nella misura di Euro 7,00;",
+      "note": "Importo giornaliero in formato elettronico dal 01/01/2023 (paragrafo 'Importo'): 7,00 € per full-time e turnisti, 4,30 € per part-time. Decorrenza 01/01/2023, valida al 31/12/2026. Non trovato nelle ricerche un accordo successivo firmato che la modifichi: verificare. Verbale FIRST Cisl del 14/04/2026 indica 7,50 € dal 01/07/2026, ma non mostra firme e il testo dice che le trattative sono in corso: non usato (regola 8).",
+      "verifica": "confermato (controllo automatico)",
+      "verifica_note": "Letto nel txt: 'dal 1° gennaio 2023: al personale full time ed ai turnisti nella misura di Euro 7,00'. Fonte di 2020, firmatari indicati nel comunicato; nessun accordo successivo trovato."
     },
     {
       "id": "smart_working",
@@ -213,7 +216,7 @@
       "fonte_titolo": null,
       "fonte_url": null,
       "citazione": null,
-      "note": "non disponibile. L'Accordo Manovra 19.12.2025 (art. 9) rinvia al CCNL senza numero di giorni. Il verbale premio 2026 del 07/07/2026 non lo riporta. Nessun accordo BPER con giorni trovato nelle ricerche."
+      "note": "non disponibile. L'Accordo Manovra 19.12.2025 (art. 9) rinvia al CCNL senza numero di giorni. Il verbale premio 2026 del 07/07/2026 non lo riporta. Resoconto 2025 (sezione smart working): gestione 'in linea con le disposizioni previste dal CCNL', senza numero di giorni. Nessun accordo BPER con giorni trovato nelle ricerche (il risultato Banco BPM non e' pertinente)."
     },
     {
       "id": "premio_aziendale_2025",
@@ -235,7 +238,7 @@
       "fonte_titolo": null,
       "fonte_url": null,
       "citazione": null,
-      "note": "non disponibile come accordo firmato. Il verbale FIRST Cisl del 14/04/2026 indica un contributo minimo del 3,90% (4,00% dal 01/01/2027), ma il documento non mostra firme: non usato (regola 8; il valore 2027 non e' ammesso). Il 6% per neoassunti under 36 non e' il dato generale."
+      "note": "non disponibile come accordo firmato. Il verbale FIRST Cisl del 14/04/2026 indica un contributo minimo del 3,90% (4,00% dal 01/01/2027), ma il documento non mostra firme: non usato (regola 8; il valore 2027 non e' ammesso). Il 6% per neoassunti under 36 non e' il dato generale. Ricerca del 2026-11-12 su accordi firmati BPER sul contributo aziendale: nessuno trovato."
     },
     {
       "id": "uscite_accordo",
@@ -269,7 +272,7 @@
       "fonte_titolo": null,
       "fonte_url": null,
       "citazione": null,
-      "note": "non disponibile: nessuna pagina Glassdoor di BPER trovata nelle ricerche. Una recensione Glassdoor (ID E100431) non si e' aperta: errore del sito."
+      "note": "non disponibile: nessuna pagina Glassdoor di BPER trovata nelle ricerche. Una recensione Glassdoor (ID E100431) letta il 2026-11-12 ha restituito solo la pagina di controllo Cloudflare, senza punteggio."
     },
     {
       "id": "indeed",
@@ -288,13 +291,16 @@
     },
     {
       "id": "sede",
-      "valore": null,
+      "valore": "Via San Carlo, 8/20, Modena",
       "unita": "testo",
-      "anno": null,
-      "fonte_titolo": null,
-      "fonte_url": null,
-      "citazione": null,
-      "note": "non disponibile: home e pagina contatti di group.bper.it non riportano indirizzo; la ricerca web ha dato solo fonti non ufficiali."
+      "anno": 2025,
+      "fonte_titolo": "BPER Group - Resoconti dell'esercizio 2025 (PDF, pagina con i dati della società capogruppo)",
+      "fonte_url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf",
+      "fonte_file": "/tmp/fonti/bper-banca/resoconti2025.pdf.txt",
+      "citazione": "con sede legale in Modena, Via San Carlo, 8/20 - Italia",
+      "note": "Sede legale della capogruppo (non la sede operativa). Home e contatti di group.bper.it non riportano indirizzo, quindi il dato viene dal resoconto 2025 (fonte non tra quelle del regolamento: il sito non lo riporta). Il CAP non compare nel testo letto e non e' stato aggiunto.",
+      "verifica": "confermato (controllo automatico)",
+      "verifica_note": "Letto nel txt: 'con sede legale in Modena, Via San Carlo, 8/20 - Italia' (BPER Banca s.p.a., capogruppo). Fonte diversa dal sito, da segnalare."
     }
   ]
 }

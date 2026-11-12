@@ -77,13 +77,16 @@
     },
     {
       "id": "cost_income_2025",
-      "valore": null,
+      "valore": 49.6,
       "unita": "%",
       "anno": 2025,
-      "fonte_titolo": "",
-      "fonte_url": "",
-      "citazione": "",
-      "note": "non disponibile nelle fonti ufficiali lette (comunicato risultati definitivi 2025, presentazione FY25, bilancio 2025 EN). Il 49,6% precedente era di AziendaBanca (fonte non ammessa) e coincideva con un calcolo non ammesso (costi 934,2 / margine 1.883,5): rimosso. Bilancio 2025 p.43 riporta 64,3% solo per Credembanca (perimetro diverso)."
+      "fonte_titolo": "Dati finanziari delle banche in Italia al 31 dicembre 2025, indicatori economici (Centro Studi UILCA)",
+      "fonte_url": "https://www.uilca.it/wp-content/uploads/20260219-2231-PDF-DATI-ECONOMICI-E-PATRIMONIALI-BANCHE-AL-311225-002.pdf",
+      "citazione": "Credem                                            49,6%",
+      "note": "Fonte sindacale (UILCA, dati al 31/12/2025), colonna Cost/Income 31/12/25. Controllo: costi operativi 934 (tabella costi operativi stessa fonte) / margine 1.883,5 = 49,6%, coerente con la regola 4. Il valore 49,6% era gia stato citato da AziendaBanca (fonte non ammessa); ora riscontrato su fonte ammessa. Cifra del perimetro banca Credem, non esplicitamente di gruppo consolidato.",
+      "fonte_file": "/tmp/fonti/credem/uilca_dati_banche_2025.txt",
+      "verifica": "confermato (controllo automatico)",
+      "verifica_note": "Letto Credem 49,6% nella tabella Cost/Income 31/12/25 e Credem 934 costi operativi nella stessa fonte."
     },
     {
       "id": "cet1_2025",

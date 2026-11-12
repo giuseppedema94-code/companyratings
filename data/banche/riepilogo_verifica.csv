@@ -5,7 +5,7 @@ proventi_2025,confermato,confermato,confermato,confermato,confermato,confermato
 utile_2023,confermato con riserva,confermato,confermato,confermato,confermato,confermato
 utile_2024,confermato,confermato,confermato,confermato,confermato,confermato
 utile_2025,confermato,confermato,confermato,confermato,confermato,confermato
-cost_income_2025,confermato,confermato,confermato,confermato,confermato,
+cost_income_2025,confermato,confermato,confermato,confermato,confermato,confermato (controllo automatico)
 cet1_2025,confermato,confermato,confermato,confermato,confermato,confermato
 spese_personale_2025,confermato,confermato,confermato,confermato,confermato,confermato
 dipendenti_2025,confermato,confermato,confermato,confermato,confermato,confermato
@@ -15,12 +15,12 @@ turnover_2025,confermato,confermato,confermato,confermato,perimetro diverso,
 gender_pay_gap_2025,confermato,confermato,confermato,confermato,confermato,
 donne_dirigenti_2025,confermato,,,definizione diversa,definizione diversa,
 formazione_2025,confermato,confermato,confermato,confermato,confermato,
-buono_pasto,confermato,confermato,confermato,,,confermato
+buono_pasto,confermato,confermato,confermato,confermato (controllo automatico),,confermato
 smart_working,,,confermato,,,
-premio_aziendale_2025,,,,confermato,confermato,
-previdenza_azienda,confermato,,,,,
-uscite_accordo,,confermato,,parziale,,
-assunzioni_accordo,,confermato,,confermato,,
+premio_aziendale_2025,,confermato (controllo automatico),,confermato,confermato,
+previdenza_azienda,confermato,,,,confermato (controllo automatico),
+uscite_accordo,,confermato,confermato (controllo automatico),parziale,,
+assunzioni_accordo,,confermato,confermato (controllo automatico),confermato,,
 glassdoor,,,,,,
 indeed,confermato,,confermato,confermato,,confermato
-sede,,confermato,,,da confermare,
+sede,confermato (controllo automatico),confermato,,confermato (controllo automatico),da confermare,

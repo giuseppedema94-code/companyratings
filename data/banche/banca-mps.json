@@ -203,7 +203,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile in fonte sindacale letta. Un quotidiano riporta 8 € (full time) e 6 € (part time) con decorrenza 1/10/2026: fonte di stampa, non ammessa (regola 1). Da cercare nel comunicato sindacale dell'accordo 2026 (regola 8)."
+      "note": "non disponibile in fonte sindacale letta. Accordo welfare 10/10/2024 (FIRST CISL): buono pasto 7 € dall'erogazione di dicembre 2024, ma il comunicato Fisac del 10/02/2026 indica l'importo come da aggiornare. Stampa riporta 8 € (full time) e 6 € (part time) con decorrenza 1/10/2026: fonte non ammessa (regola 1), comunicato sindacale dell'accordo 2026 non trovato in questa sessione."
     },
     {
       "id": "smart_working",
@@ -213,7 +213,7 @@
       "fonte_titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)",
       "fonte_url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525",
       "citazione": "12 giorni annui di lavoro agile, di norma uno al mese",
-      "note": "Non trovato per le strutture centrali (regola 9). Dato originale: 12 giorni annui, di norma uno al mese, per la Rete commerciale: la conversione non si applica alle strutture centrali. Non verificato che l'accordo sia in vigore al 31/12/2026. Fonte UILCA precedente non riletta."
+      "note": "Non trovato per le strutture centrali (regola 9). Dato originale: 12 giorni annui, di norma uno al mese, per la Rete commerciale: la conversione non si applica alle strutture centrali. Non verificato che l'accordo sia in vigore al 31/12/2026. Fonte UILCA precedente non riletta. Il comunicato Fisac del 10/02/2026 cita la 'esigibilità del lavoro agile in Rete' come ancora in elaborazione, senza numeri per le centrali."
     },
     {
       "id": "premio_aziendale_2025",
@@ -229,13 +229,15 @@
     },
     {
       "id": "previdenza_azienda",
-      "valore": null,
+      "valore": 3,
       "unita": "%",
-      "anno": null,
-      "fonte_titolo": "",
-      "fonte_url": "",
-      "citazione": "",
-      "note": "non disponibile per il 2025 in fonte sindacale letta. Il 3,25% dal 1/1/2027 (fonte di stampa) non è ammesso: decorre nel 2027 (regola 8). Percentuale in vigore nel 2026 non trovata."
+      "anno": 2025,
+      "fonte_titolo": "Accordo di welfare MPS del 10/10/2024 (FIRST CISL, PDF)",
+      "fonte_url": "https://www.firstcisl.it/mps/wp-content/uploads/sites/29/2024/10/accordo-Welfare-10.10.24.pdf",
+      "fonte_file": "/tmp/fonti/banca-mps/firstcisl-welfare-2024.pdf.txt",
+      "citazione": "incrementare al 3% la misura del contributo a carico della Banca",
+      "note": "Accordo welfare 10/10/2024, art. 10 Articolato II livello. Decorrenza 1/1/2025 ('La previsione decorre dal 1.1.2025'). In vigore al 31/12/2026: il comunicato Fisac del 10/02/2026 (/tmp/fonti/banca-mps/fisac-156122.txt) indica il contributo come ancora da aggiornare. Il 3,25% dal 1/1/2027 (stampa) non è usato (regola 8).",
+      "verifica": "confermato (controllo automatico)"
     },
     {
       "id": "uscite_accordo",
@@ -245,7 +247,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile: nessun accordo 2024-2026 con numero di uscite letto in fonte sindacale. Comunicati Fisac dell'11/07/2025 e del 14/05/2026 non riportano numeri. Accordo esodi del 2022 (3.500 uscite) fuori perimetro."
+      "note": "non disponibile: nessun accordo 2024-2026 con numero di uscite letto in fonte sindacale. Comunicati Fisac dell'11/07/2025 e del 14/05/2026 non riportano numeri. Accordo esodi del 2022 (3.500 uscite) fuori perimetro. Stampa (gonews) riporta un accordo su 650 esodi: non ammesso, comunicato sindacale non trovato in questa sessione."
     },
     {
       "id": "assunzioni_accordo",
@@ -255,7 +257,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile: nessun accordo 2024-2026 con numero di assunzioni letto in fonte sindacale. Comunicato Fisac dell'11/07/2025 senza numeri. Accordo 2022 (1.750 giovani) fuori perimetro."
+      "note": "non disponibile: nessun accordo 2024-2026 con numero di assunzioni letto in fonte sindacale. Comunicato Fisac dell'11/07/2025 senza numeri; comunicato del 14/05/2026 indica le assunzioni come tema ancora aperto, senza numeri. Accordo 2022 (1.750 giovani) fuori perimetro."
     },
     {
       "id": "glassdoor",
@@ -265,7 +267,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile: nessuna pagina Glassdoor di MPS aperta in questa sessione."
+      "note": "non disponibile: nessuna pagina Glassdoor di MPS letta in questo giro (limite di chiamate web esaurito prima di arrivarci)."
     },
     {
       "id": "indeed",
@@ -275,7 +277,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile: nessuna pagina Indeed di MPS aperta in questa sessione."
+      "note": "non disponibile: nessuna pagina Indeed di MPS letta in questo giro (limite di chiamate web esaurito prima di arrivarci)."
     },
     {
       "id": "sede",

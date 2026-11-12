@@ -213,17 +213,19 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile. Il comunicato sindacale trovato (Uilca, accordo 13/04/2018) prevede 1 giorno a settimana, ma e' del 2018 e non risulta in vigore a fine 2026. Notizie di novembre 2026 (non ammesse) parlano di stop al lavoro agile di default da gennaio 2027: nessun comunicato ufficiale o sindacale letto. Serve il testo 2026 dell'accordo."
+      "note": "non disponibile. Il comunicato Uilca del 2018 (1 giorno a settimana) non e in vigore a fine 2026 (regola 8), non usato. Comunicazioni FISAC e First Cisl del 03/11/2026 parlano di una revisione dello smart working, senza un numero di giorni per le strutture centrali. Serve il testo 2026 dell'accordo."
     },
     {
       "id": "premio_aziendale_2025",
-      "valore": null,
+      "valore": 1100,
       "unita": "€",
       "anno": 2025,
-      "fonte_titolo": "",
-      "fonte_url": "",
-      "citazione": "",
-      "note": "non disponibile: le due fonti sindacali danno cifre diverse per lo stesso premio VAP 2025. FABI (comunicato 10/02/2026, accordo): cash 2.270 €, welfare 2.770 €. First Cisl (comunicato 10/02/2026): cash 1.100 € 'lordi', welfare 1.600 €. Da chiarire sul testo dell'accordo firmato. Il 2.770 precedente era l'importo welfare, che la regola 10 non ammette: tolto."
+      "fonte_titolo": "Vap 2025 definitivo (First Cisl Gruppo UniCredit, aprile 2026)",
+      "fonte_url": "https://www.firstcisl.it/gruppounicredit/wp-content/uploads/sites/8/2026/04/Vap-2025-definitivo.pdf",
+      "fonte_file": "/tmp/fonti/unicredit/vap_definitivo.pdf.txt",
+      "citazione": "L’azienda erogherà un importo di € 1.100 quale premio di produttività",
+      "note": "Importo cash lordo per il tempo pieno (37,5 ore), riparametrato per il part-time; tassazione agevolata 1%. Non incluso (regola 10): 500 € extra se destinati a welfare, 961,30 € welfare e 88,70 € contributo polizza odontoiatrica. Fonte di secondo livello: nel testo dei comunicati FABI e First Cisl del 10/02/2026 le cifre differivano; qui usata la versione definitiva.",
+      "verifica": "confermato (controllo automatico)"
     },
     {
       "id": "previdenza_azienda",
@@ -233,7 +235,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile. Nei comunicati sindacali letti (VAP 10/02/2026, Uilca 21/04/2026, Uilca 30/12/2025) non compare la percentuale del contributo aziendale alla previdenza complementare."
+      "note": "non disponibile. Nei comunicati sindacali letti (VAP 2025 definitivo, Uilca 30/12/2025) non compare la percentuale. Una nota del Fondo Pensione di Gruppo su uilca.it cita un contributo aziendale del 2% nella Sezione a Contribuzione, ma e dentro un'offerta di trasferimento, senza data e senza accordo: non usata."
     },
     {
       "id": "uscite_accordo",
@@ -267,7 +269,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile. Pagina glassdoor.it (UniCredit-Recensioni-E7) restituisce errore client, non aperta, anche nel secondo tentativo."
+      "note": "non disponibile. Pagina glassdoor.it (UniCredit-Recensioni-E7) restituisce una pagina di sicurezza senza valutazioni, letta il 12/11/2026."
     },
     {
       "id": "indeed",
@@ -277,7 +279,7 @@
       "fonte_titolo": "",
       "fonte_url": "",
       "citazione": "",
-      "note": "non disponibile. it.indeed.com/cmp/Unicredit/reviews restituisce errore client, non aperta (anche nella sessione precedente)."
+      "note": "non disponibile. Pagina it.indeed.com/cmp/Unicredit/reviews letta il 12/11/2026: nel testo estratto nessuna valutazione o numero di recensioni."
     },
     {
       "id": "sede",

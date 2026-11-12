@@ -215,7 +215,7 @@
       "fonte_titolo": "",
       "fonte_url": null,
       "citazione": "",
-      "note": "non disponibile: né il comunicato dic. 2025 né il comunicato FABI dell'11/12/2025 riportano giorni di lavoro agile (letto 12/11/2026)"
+      "note": "non disponibile: né il comunicato dic. 2025 né il comunicato FABI dell'11/12/2025 riportano giorni di lavoro agile; una ricerca su accordi e comunicati sindacali (23/05/2023 e successivi) non ha restituito giorni per le strutture centrali (letto 12/11/2026)"
     },
     {
       "id": "premio_aziendale_2025",
@@ -225,7 +225,7 @@
       "fonte_titolo": "",
       "fonte_url": null,
       "citazione": "",
-      "note": "non calcolata: il comunicato Intesa sul PVR 2025 (aprile 2025) indica un premio base da un minimo di 1.275 a un massimo di 3.140 euro, senza importo medio né livello di riferimento; la quota eccellenza non è quantificata (letto 12/11/2026)"
+      "note": "non calcolata: il comunicato Intesa sul PVR 2025 (aprile 2025) indica un premio base da un minimo di 1.275 a un massimo di 3.140 euro, senza importo medio né livello di riferimento; la quota eccellenza non è quantificata. Il consuntivo PVR 2025 del FISAC (incontro 26/03/2026, /tmp/fonti/intesa-sanpaolo/fisac_pvr2025_consuntivo.txt) dà solo la Quota 1 per figura professionale, senza premio medio; Eccellenza non quantificata (letto 12/11/2026)"
     },
     {
       "id": "previdenza_azienda",
@@ -247,7 +247,7 @@
       "fonte_titolo": "",
       "fonte_url": null,
       "citazione": "",
-      "note": "non disponibile: né il comunicato dic. 2025 né il comunicato FABI dell'11/12/2025 riportano il numero totale di uscite volontarie dell'accordo (letto 12/11/2026); il FABI cita 'circa 450 lavoratori' per l'accordo del 23/10/2024 senza chiarire se sono uscite: non sommato"
+      "note": "non disponibile per regola 11: il comunicato Intesa del 23/10/2024 (accordo 2024) indica 4.000 uscite volontarie entro il 2027 (testo in /tmp/fonti/intesa-sanpaolo/ispr_20241023.txt), ma l'accordo del 11/12/2025 (FABI) non riporta un totale di uscite, quindi la somma 2024-2026 non è completa: non sommato. Letto 12/11/2026"
     },
     {
       "id": "assunzioni_accordo",
@@ -257,7 +257,7 @@
       "fonte_titolo": "",
       "fonte_url": null,
       "citazione": "",
-      "note": "non disponibile: il comunicato FABI dell'11/12/2025 riporta il rapporto 'un ingresso a tempo indeterminato ogni due uscite' senza totale; non sommato (letto 12/11/2026)"
+      "note": "non disponibile per regola 11: il comunicato Intesa del 23/10/2024 indica 3.500 assunzioni a tempo indeterminato entro giugno 2028 (testo in /tmp/fonti/intesa-sanpaolo/ispr_20241023.txt), ma il FABI dell'11/12/2025 riporta solo il rapporto 'un ingresso a tempo indeterminato ogni due uscite' senza totale; somma non completa: non sommato (letto 12/11/2026)"
     },
     {
       "id": "glassdoor",
@@ -267,7 +267,7 @@
       "fonte_titolo": "",
       "fonte_url": null,
       "citazione": "",
-      "note": "non disponibile per regola 12: i valori 3,6 su 5 e 328 recensioni sono stati letti su glassdoor.ie (pagina in inglese, non quella italiana) il 12/11/2026; la pagina italiana non è stata trovata"
+      "note": "non disponibile per regola 12: i valori 3,6 su 5 e 328 recensioni sono stati letti su glassdoor.ie (pagina in inglese, non quella italiana) il 12/11/2026; la pagina italiana non è stata trovata nella ricerca del 12/11/2026"
     },
     {
       "id": "indeed",
@@ -286,13 +286,15 @@
     },
     {
       "id": "sede",
-      "valore": null,
+      "valore": "Piazza San Carlo, 156 - 10121 Torino",
       "unita": "testo",
       "anno": null,
-      "fonte_titolo": "",
-      "fonte_url": null,
-      "citazione": "",
-      "note": "non disponibile: la ricerca web non ha restituito una pagina ufficiale del gruppo con l'indirizzo della sede centrale (letto 12/11/2026)"
+      "fonte_titolo": "Intesa Sanpaolo - Contatti (pagina footer, sede sociale)",
+      "fonte_url": "https://group.intesasanpaolo.com/it/pagine-footer/contatti",
+      "fonte_file": "/tmp/fonti/intesa-sanpaolo/ispr_contatti.txt",
+      "citazione": "Piazza San carlo, 156  10121 Torino",
+      "note": "Indirizzo della sede sociale (Torino), non della direzione generale: la pagina contatti indica come 'Sede secondaria' Via Monte di Pietà 8, Milano. Letto 12/11/2026",
+      "verifica": "confermato (controllo automatico)"
     }
   ]
 }
