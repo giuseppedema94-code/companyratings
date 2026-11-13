@@ -616,7 +616,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="metodo-title">Come calcoliamo il voto</h2>
-          <p>Usiamo due modelli. Le banche hanno un modello proprio, con 11 indicatori in quattro aree e dati presi dai documenti ufficiali. Le aziende demo usano il modello generale, con 20 indicatori in sei aree e dati fittizi. Il modo di dare i punti è lo stesso.</p>
+          <p>Usiamo due modelli. Le banche hanno un modello proprio, con <span class="m-banche-n"></span> e dati presi dai documenti ufficiali. Le aziende demo usano il modello generale, con 20 indicatori in sei aree e dati fittizi. Il modo di dare i punti è lo stesso.</p>
         </div>
       </div>
       <div class="method-part">
@@ -626,7 +626,8 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="method-grid">
         <div class="method-text">
           <h3>Aree e pesi</h3>
-          <p>I bilanci delle banche non hanno fatturato ed EBIT come quelli delle altre aziende, quindi usano indicatori propri. Le aree sono quattro: <span id="m-banche-aree"></span>.</p>
+          <p>I bilanci delle banche non hanno fatturato ed EBIT come quelli delle altre aziende, quindi usano indicatori propri. Le aree sono <span id="m-banche-aree"></span>.</p>
+          <p>Nella solidità conta anche la dimensione del gruppo, misurata con i proventi: un gruppo grande ha meno rischio di crisi e più percorsi interni. La dimensione usa una scala logaritmica: passare da 1 a 3 miliardi vale quanto passare da 10 a 30.</p>
           <p>Ogni indicatore vale da 0 a 100 punti tra due soglie, con la formula qui sotto. Il punteggio di un'area è la media degli indicatori che hanno un dato. Il punteggio finale è la media pesata delle aree con dati.</p>
           <h3>Quando manca il voto</h3>
           <p>Il voto c'è solo se la banca ha almeno <span id="m-banche-min"></span>. Con meno dati mostriamo i numeri che abbiamo e un'etichetta grigia "n.d.".</p>
@@ -886,13 +887,14 @@ const TETTO_CIG = 50;
 /*DATI_BANCHE_INIZIO*/ const DATI_BANCHE = {
  "modello": {
   "pesi": {
-   "Solidità": 35,
+   "Solidità": 25,
+   "Crescita": 10,
    "Retribuzione": 25,
    "Stabilità": 20,
-   "Crescita e parità": 20
+   "Formazione e parità": 20
   },
-  "minimo_indicatori": 8,
-  "totale_indicatori": 11,
+  "minimo_indicatori": 10,
+  "totale_indicatori": 13,
   "stato": "provvisorio"
  },
  "banche": [
@@ -932,42 +934,45 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 3.97,
-     "punti": 59.8,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 27270,
+     "punti": 97.2,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)",
       "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 9.85,
-     "punti": 66.2,
-     "soglia0": -10,
-     "soglia100": 20,
+     "valore": 34.18,
+     "punti": 97.7,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
      }
     },
     {
-     "id": "crescita_costo_personale",
+     "id": "cet1",
      "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
-     "valore": -0.05,
-     "punti": 49.5,
-     "soglia0": -5,
-     "soglia100": 5,
+     "valore": 13.2,
+     "punti": 64.0,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -979,23 +984,55 @@ const TETTO_CIG = 50;
      "nome": "Costi su ricavi (cost/income)",
      "unita": "%",
      "valore": 42.2,
-     "punti": 91.2,
-     "soglia0": 65,
+     "punti": 92.7,
+     "soglia0": 70,
      "soglia100": 40,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)",
       "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"
      }
     },
     {
-     "id": "cet1",
-     "area": "Solidità",
-     "nome": "Solidità patrimoniale (CET1)",
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
      "unita": "%",
-     "valore": 13.2,
-     "punti": 36.7,
-     "soglia0": 11,
-     "soglia100": 17,
+     "valore": 3.97,
+     "punti": 59.8,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)",
+      "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.85,
+     "punti": 66.2,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -0.05,
+     "punti": 49.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -1010,6 +1047,7 @@ const TETTO_CIG = 50;
      "punti": 43.3,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -1024,6 +1062,7 @@ const TETTO_CIG = 50;
      "punti": 100,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)",
       "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"
@@ -1038,6 +1077,7 @@ const TETTO_CIG = 50;
      "punti": 70.0,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -1052,6 +1092,7 @@ const TETTO_CIG = 50;
      "punti": 56.3,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -1059,13 +1100,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 63.9,
      "punti": 87.8,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Intesa Sanpaolo - Impegno verso le persone: i numeri (sostenibilità)",
       "url": "https://group.intesasanpaolo.com/it/sostenibilita/persone/impegno-verso-le-persone-i-numeri"
@@ -1073,13 +1115,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 26.8,
      "punti": 27.3,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci 2025",
       "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
@@ -1087,13 +1130,14 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 60.7,
+    "Solidità": 87.9,
+    "Crescita": 58.5,
     "Retribuzione": 71.7,
     "Stabilità": 63.1,
-    "Crescita e parità": 57.5
+    "Formazione e parità": 57.5
    },
-   "indicatori_presenti": 11,
-   "punteggio": 63.3,
+   "indicatori_presenti": 13,
+   "punteggio": 69.9,
    "voto": "C",
    "altri_dati": [
     {
@@ -1206,56 +1250,30 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 1.44,
-     "punti": 42.9,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 24536,
+     "punti": 94.1,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Financial highlights - UniCredit",
       "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 7.15,
-     "punti": 57.2,
-     "soglia0": -10,
-     "soglia100": 20,
-     "fonte": {
-      "titolo": "Financial highlights - UniCredit",
-      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
-     }
-    },
-    {
-     "id": "crescita_costo_personale",
-     "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 0.09,
-     "punti": 50.9,
-     "soglia0": -5,
-     "soglia100": 5,
-     "fonte": {
-      "titolo": "Bilanci e Relazioni 2025 (PDF)",
-      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
-     }
-    },
-    {
-     "id": "cost_income",
-     "area": "Solidità",
-     "nome": "Costi su ricavi (cost/income)",
-     "unita": "%",
-     "valore": 38.5,
+     "valore": 44.49,
      "punti": 100,
-     "soglia0": 65,
-     "soglia100": 40,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Financial highlights - UniCredit",
       "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
@@ -1267,12 +1285,73 @@ const TETTO_CIG = 50;
      "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
      "valore": 14.75,
-     "punti": 62.5,
-     "soglia0": 11,
-     "soglia100": 17,
+     "punti": 95.0,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Financial highlights - UniCredit",
       "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 38.5,
+     "punti": 100,
+     "soglia0": 70,
+     "soglia100": 40,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 1.44,
+     "punti": 42.9,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 7.15,
+     "punti": 57.2,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 0.09,
+     "punti": 50.9,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF)",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
      }
     },
     {
@@ -1284,6 +1363,7 @@ const TETTO_CIG = 50;
      "punti": 53.6,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci e Relazioni 2025 (PDF)",
       "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
@@ -1298,6 +1378,7 @@ const TETTO_CIG = 50;
      "punti": 66.7,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato Uilca/First Cisl su VAP e buoni pasto UniCredit (10/02/2026)",
       "url": "https://www.firstcisl.it/wp-content/uploads/2026/02/Comunicato_Unicredit_20260210_Vap_2025.pdf"
@@ -1312,6 +1393,7 @@ const TETTO_CIG = 50;
      "punti": 68.0,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per tipo di contratto",
       "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
@@ -1326,6 +1408,7 @@ const TETTO_CIG = 50;
      "punti": 73.3,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 turnover",
       "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
@@ -1333,13 +1416,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 38,
      "punti": 36.0,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-13 formazione",
       "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
@@ -1347,13 +1431,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 32,
      "punti": 10.0,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Bilanci e Relazioni 2025 (PDF), S1-16 divario retributivo",
       "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
@@ -1361,14 +1446,15 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 62.7,
+    "Solidità": 97.3,
+    "Crescita": 50.3,
     "Retribuzione": 60.2,
     "Stabilità": 70.7,
-    "Crescita e parità": 23.0
+    "Formazione e parità": 23.0
    },
-   "indicatori_presenti": 11,
-   "punteggio": 55.7,
-   "voto": "D",
+   "indicatori_presenti": 13,
+   "punteggio": 63.1,
+   "voto": "C",
    "altri_dati": [
     {
      "id": "premio_aziendale_2025",
@@ -1485,56 +1571,30 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 5.59,
-     "punti": 70.6,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 5955.251,
+     "punti": 52.5,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
       "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 28.32,
-     "punti": 100,
-     "soglia0": -10,
-     "soglia100": 20,
-     "fonte": {
-      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
-      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
-     }
-    },
-    {
-     "id": "crescita_costo_personale",
-     "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 3.7,
-     "punti": 87.0,
-     "soglia0": -5,
-     "soglia100": 5,
-     "fonte": {
-      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
-      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
-     }
-    },
-    {
-     "id": "cost_income",
-     "area": "Solidità",
-     "nome": "Costi su ricavi (cost/income)",
-     "unita": "%",
-     "valore": 46.0,
-     "punti": 76.0,
-     "soglia0": 65,
-     "soglia100": 40,
+     "valore": 34.96,
+     "punti": 99.9,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
       "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
@@ -1546,9 +1606,70 @@ const TETTO_CIG = 50;
      "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
      "valore": 13.58,
-     "punti": 43.0,
-     "soglia0": 11,
-     "soglia100": 17,
+     "punti": 71.6,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 46.0,
+     "punti": 80.0,
+     "soglia0": 70,
+     "soglia100": 40,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 5.59,
+     "punti": 70.6,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 28.32,
+     "punti": 100,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.7,
+     "punti": 87.0,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
       "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
@@ -1563,6 +1684,7 @@ const TETTO_CIG = 50;
      "punti": 87.0,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
       "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
@@ -1577,6 +1699,7 @@ const TETTO_CIG = 50;
      "punti": 66.7,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato FABI - Accordo VAP Banco BPM, 17/02/2026",
       "url": "https://www.fabi.it/wp-content/uploads/2026/02/ComSt_FABI_20260217_AccordoVap_BancoBpmolo-copia.pdf"
@@ -1591,6 +1714,7 @@ const TETTO_CIG = 50;
      "punti": 93.7,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
       "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
@@ -1605,6 +1729,7 @@ const TETTO_CIG = 50;
      "punti": 48.3,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
       "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
@@ -1612,13 +1737,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 59,
      "punti": 78.0,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
       "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
@@ -1626,13 +1752,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 19.7,
      "punti": 51.0,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
       "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
@@ -1640,13 +1767,14 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 75.3,
+    "Solidità": 76.0,
+    "Crescita": 85.9,
     "Retribuzione": 76.8,
     "Stabilità": 71.0,
-    "Crescita e parità": 64.5
+    "Formazione e parità": 64.5
    },
-   "indicatori_presenti": 11,
-   "punteggio": 72.7,
+   "indicatori_presenti": 13,
+   "punteggio": 73.9,
    "voto": "B",
    "altri_dati": [
     {
@@ -1759,56 +1887,30 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 9.69,
-     "punti": 97.9,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 6589.3,
+     "punti": 55.4,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
       "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 9.39,
-     "punti": 64.6,
-     "soglia0": -10,
-     "soglia100": 20,
-     "fonte": {
-      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
-      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
-     }
-    },
-    {
-     "id": "crescita_costo_personale",
-     "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
-     "unita": "%",
-     "valore": -5.15,
-     "punti": 0,
-     "soglia0": -5,
-     "soglia100": 5,
-     "fonte": {
-      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
-      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
-     }
-    },
-    {
-     "id": "cost_income",
-     "area": "Solidità",
-     "nome": "Costi su ricavi (cost/income)",
-     "unita": "%",
-     "valore": 45.73,
-     "punti": 77.1,
-     "soglia0": 65,
-     "soglia100": 40,
+     "valore": 27.6,
+     "punti": 78.9,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
       "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
@@ -1820,9 +1922,70 @@ const TETTO_CIG = 50;
      "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
      "valore": 14.83,
-     "punti": 63.8,
-     "soglia0": 11,
-     "soglia100": 17,
+     "punti": 96.6,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 45.73,
+     "punti": 80.9,
+     "soglia0": 70,
+     "soglia100": 40,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.69,
+     "punti": 97.9,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.39,
+     "punti": 64.6,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -5.15,
+     "punti": 0,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
       "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
@@ -1837,6 +2000,7 @@ const TETTO_CIG = 50;
      "punti": 51.9,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
       "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
@@ -1851,6 +2015,7 @@ const TETTO_CIG = 50;
      "punti": 50.0,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato unitario Gruppo BPER del 29 ottobre 2020 - Buoni pasto (FABI, FIRST/CISL, FISAC/CGIL, UILCA, UNISIN), pubblicato da FISAC CGIL",
       "url": "https://www.fisac-cgil.it/102595/finalmente-nel-gruppo-bper-aumenta-il-buono-pasto"
@@ -1865,6 +2030,7 @@ const TETTO_CIG = 50;
      "punti": 98.9,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)",
       "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
@@ -1879,6 +2045,7 @@ const TETTO_CIG = 50;
      "punti": 72.0,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)",
       "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
@@ -1886,13 +2053,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 57.94,
      "punti": 75.9,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-13, PDF)",
       "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
@@ -1900,13 +2068,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 19.31,
      "punti": 52.3,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-16, PDF)",
       "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
@@ -1914,13 +2083,14 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 60.7,
+    "Solidità": 78.0,
+    "Crescita": 54.2,
     "Retribuzione": 51.0,
     "Stabilità": 85.5,
-    "Crescita e parità": 64.1
+    "Formazione e parità": 64.1
    },
-   "indicatori_presenti": 11,
-   "punteggio": 63.9,
+   "indicatori_presenti": 13,
+   "punteggio": 67.6,
    "voto": "C",
    "altri_dati": [
     {
@@ -2041,56 +2211,30 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 3.58,
-     "punti": 57.2,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 4956.6,
+     "punti": 47.1,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
       "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 15.77,
-     "punti": 85.9,
-     "soglia0": -10,
-     "soglia100": 20,
-     "fonte": {
-      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
-      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
-     }
-    },
-    {
-     "id": "crescita_costo_personale",
-     "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
-     "unita": "%",
-     "valore": 4.22,
-     "punti": 92.2,
-     "soglia0": -5,
-     "soglia100": 5,
-     "fonte": {
-      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
-      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
-     }
-    },
-    {
-     "id": "cost_income",
-     "area": "Solidità",
-     "nome": "Costi su ricavi (cost/income)",
-     "unita": "%",
-     "valore": 46.5,
-     "punti": 74.0,
-     "soglia0": 65,
-     "soglia100": 40,
+     "valore": 54.79,
+     "punti": 100,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
       "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
@@ -2102,9 +2246,70 @@ const TETTO_CIG = 50;
      "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
      "valore": 16.2,
-     "punti": 86.7,
-     "soglia0": 11,
-     "soglia100": 17,
+     "punti": 100,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 46.5,
+     "punti": 78.3,
+     "soglia0": 70,
+     "soglia100": 40,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.58,
+     "punti": 57.2,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 15.77,
+     "punti": 85.9,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 4.22,
+     "punti": 92.2,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
       "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
@@ -2119,6 +2324,7 @@ const TETTO_CIG = 50;
      "punti": 43.6,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
       "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
@@ -2133,6 +2339,7 @@ const TETTO_CIG = 50;
      "punti": null,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": null
     },
     {
@@ -2144,6 +2351,7 @@ const TETTO_CIG = 50;
      "punti": 94.1,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
       "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
@@ -2158,6 +2366,7 @@ const TETTO_CIG = 50;
      "punti": 100,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
       "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
@@ -2165,13 +2374,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 32.8,
      "punti": 25.6,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
       "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
@@ -2179,13 +2389,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 29.4,
      "punti": 18.7,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
       "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
@@ -2193,13 +2404,14 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 79.2,
+    "Solidità": 81.3,
+    "Crescita": 78.4,
     "Retribuzione": 43.6,
     "Stabilità": 97.0,
-    "Crescita e parità": 22.1
+    "Formazione e parità": 22.1
    },
-   "indicatori_presenti": 10,
-   "punteggio": 62.4,
+   "indicatori_presenti": 12,
+   "punteggio": 62.9,
    "voto": "C",
    "altri_dati": [
     {
@@ -2316,42 +2528,45 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": -1.04,
-     "punti": 26.4,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 1883.5,
+     "punti": 18.6,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
       "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
-     "valore": 5.15,
-     "punti": 50.5,
-     "soglia0": -10,
-     "soglia100": 20,
+     "valore": 33.0,
+     "punti": 94.3,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
       "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
      }
     },
     {
-     "id": "crescita_costo_personale",
+     "id": "cet1",
      "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
-     "valore": 3.55,
-     "punti": 85.5,
-     "soglia0": -5,
-     "soglia100": 5,
+     "valore": 16.99,
+     "punti": 100,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
       "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
@@ -2363,23 +2578,55 @@ const TETTO_CIG = 50;
      "nome": "Costi su ricavi (cost/income)",
      "unita": "%",
      "valore": 49.6,
-     "punti": 61.6,
-     "soglia0": 65,
+     "punti": 68.0,
+     "soglia0": 70,
      "soglia100": 40,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Dati finanziari delle banche in Italia al 31 dicembre 2025, indicatori economici (Centro Studi UILCA)",
       "url": "https://www.uilca.it/wp-content/uploads/20260219-2231-PDF-DATI-ECONOMICI-E-PATRIMONIALI-BANCHE-AL-311225-002.pdf"
      }
     },
     {
-     "id": "cet1",
-     "area": "Solidità",
-     "nome": "Solidità patrimoniale (CET1)",
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
      "unita": "%",
-     "valore": 16.99,
-     "punti": 99.8,
-     "soglia0": 11,
-     "soglia100": 17,
+     "valore": -1.04,
+     "punti": 26.4,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 5.15,
+     "punti": 50.5,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.55,
+     "punti": 85.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
       "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
@@ -2394,6 +2641,7 @@ const TETTO_CIG = 50;
      "punti": 79.2,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
       "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
@@ -2408,6 +2656,7 @@ const TETTO_CIG = 50;
      "punti": 50.0,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "La Sveglia n. 232 (First Cisl, gennaio 2024)",
       "url": "https://www.firstcisl.it/creditoemiliano/wp-content/uploads/sites/27/2024/01/sve232_gennaio-2024.pdf"
@@ -2422,6 +2671,7 @@ const TETTO_CIG = 50;
      "punti": null,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": null
     },
     {
@@ -2433,36 +2683,40 @@ const TETTO_CIG = 50;
      "punti": null,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": null
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": null,
      "punti": null,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": null
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": null,
      "punti": null,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": null
     }
    ],
    "aree": {
-    "Solidità": 64.8,
+    "Solidità": 70.2,
+    "Crescita": 54.1,
     "Retribuzione": 64.6
    },
-   "indicatori_presenti": 7,
+   "indicatori_presenti": 9,
    "punteggio": null,
    "voto": null,
    "altri_dati": [
@@ -2572,42 +2826,45 @@ const TETTO_CIG = 50;
    },
    "indicatori": [
     {
-     "id": "crescita_proventi",
+     "id": "dimensione",
      "area": "Solidità",
-     "nome": "Crescita dei proventi (media annua 2023-2025)",
-     "unita": "%",
-     "valore": -2.72,
-     "punti": 15.2,
-     "soglia0": -5,
-     "soglia100": 10,
+     "nome": "Dimensione (proventi 2025, scala logaritmica)",
+     "unita": "mln €",
+     "valore": 789.5,
+     "punti": 0,
+     "soglia0": 1000,
+     "soglia100": 30000,
+     "scala": "log",
      "fonte": {
       "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
       "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
      }
     },
     {
-     "id": "crescita_utile",
+     "id": "redditivita",
      "area": "Solidità",
-     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "nome": "Utile netto in % dei proventi",
      "unita": "%",
      "valore": null,
      "punti": null,
-     "soglia0": -10,
-     "soglia100": 20,
+     "soglia0": 0,
+     "soglia100": 35,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
       "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
      }
     },
     {
-     "id": "crescita_costo_personale",
+     "id": "cet1",
      "area": "Solidità",
-     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "nome": "Solidità patrimoniale (CET1)",
      "unita": "%",
-     "valore": 3.95,
-     "punti": 89.5,
-     "soglia0": -5,
-     "soglia100": 5,
+     "valore": 12.95,
+     "punti": 59.0,
+     "soglia0": 10,
+     "soglia100": 15,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2619,23 +2876,55 @@ const TETTO_CIG = 50;
      "nome": "Costi su ricavi (cost/income)",
      "unita": "%",
      "valore": 63.3,
-     "punti": 6.8,
-     "soglia0": 65,
+     "punti": 22.3,
+     "soglia0": 70,
      "soglia100": 40,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
      }
     },
     {
-     "id": "cet1",
-     "area": "Solidità",
-     "nome": "Solidità patrimoniale (CET1)",
+     "id": "crescita_proventi",
+     "area": "Crescita",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
      "unita": "%",
-     "valore": 12.95,
-     "punti": 32.5,
-     "soglia0": 11,
-     "soglia100": 17,
+     "valore": -2.72,
+     "punti": 15.2,
+     "soglia0": -5,
+     "soglia100": 10,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Crescita",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": -10,
+     "soglia100": 20,
+     "scala": "lineare",
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Crescita",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.95,
+     "punti": 89.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2650,6 +2939,7 @@ const TETTO_CIG = 50;
      "punti": 70.8,
      "soglia0": 60000,
      "soglia100": 100000,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2664,6 +2954,7 @@ const TETTO_CIG = 50;
      "punti": null,
      "soglia0": 4,
      "soglia100": 10,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2678,6 +2969,7 @@ const TETTO_CIG = 50;
      "punti": 83.0,
      "soglia0": 90,
      "soglia100": 100,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2692,6 +2984,7 @@ const TETTO_CIG = 50;
      "punti": 75.0,
      "soglia0": 15,
      "soglia100": 3,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2699,13 +2992,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "formazione",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Ore di formazione per dipendente",
      "unita": "ore",
      "valore": 31,
      "punti": 22.0,
      "soglia0": 20,
      "soglia100": 70,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2713,13 +3007,14 @@ const TETTO_CIG = 50;
     },
     {
      "id": "gpg",
-     "area": "Crescita e parità",
+     "area": "Formazione e parità",
      "nome": "Differenza di stipendio tra uomini e donne",
      "unita": "%",
      "valore": 26,
      "punti": 30.0,
      "soglia0": 35,
      "soglia100": 5,
+     "scala": "lineare",
      "fonte": {
       "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
       "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
@@ -2727,13 +3022,14 @@ const TETTO_CIG = 50;
     }
    ],
    "aree": {
-    "Solidità": 36.0,
+    "Solidità": 27.1,
+    "Crescita": 52.4,
     "Retribuzione": 70.8,
     "Stabilità": 79.0,
-    "Crescita e parità": 26.0
+    "Formazione e parità": 26.0
    },
-   "indicatori_presenti": 9,
-   "punteggio": 51.3,
+   "indicatori_presenti": 10,
+   "punteggio": 50.7,
    "voto": "D",
    "altri_dati": [
     {
@@ -8157,6 +8453,12 @@ function puntiLineari(d, valore) {
   const p = (valore - d.v0) / (d.v100 - d.v0) * 100;
   return Math.max(0, Math.min(100, p));
 }
+/* scala log: passare da 1 a 3 vale quanto passare da 10 a 30 */
+function puntiLog(d, valore) {
+  if (!(valore > 0)) return 0;
+  const p = (Math.log(valore) - Math.log(d.v0)) / (Math.log(d.v100) - Math.log(d.v0)) * 100;
+  return Math.max(0, Math.min(100, p));
+}
 function classe(score) { return CLASSI.find(c => score >= c.min); }
 function crescitaMedia(serie) {
   let s = 0;
@@ -8183,21 +8485,21 @@ const MODELLI = {
     cmpKeys: ["costoMedio", "buonoPasto", "premio", "smart", "minutiMetro", "crescitaFatt", "termine", "cig", "turnover", "gapGenere"]
   },
   banche: (function () {
-    const AREA_ID = { "Solidità": "sol", "Retribuzione": "ret", "Stabilità": "stab", "Crescita e parità": "cresc" };
-    const AREA_NOME = { "Solidità": "Solidità", "Retribuzione": "Retribuzione", "Stabilità": "Stabilità del lavoro", "Crescita e parità": "Crescita e parità" };
+    const AREA_ID = { "Solidità": "sol", "Crescita": "cresc", "Retribuzione": "ret", "Stabilità": "stab", "Formazione e parità": "form" };
+    const AREA_NOME = { "Stabilità": "Stabilità del lavoro" };
     const unita = (i) => i.unita === "%" ? (/^crescita_/.test(i.id) ? "pctS" : "pct")
-      : i.unita === "€" ? (i.soglia100 >= 1000 ? "eurY" : "eur") : i.unita === "ore" ? "ore" : "n";
+      : i.unita === "€" ? (i.soglia100 >= 1000 ? "eurY" : "eur") : i.unita === "mln €" ? "mln" : i.unita === "ore" ? "ore" : "n";
     const ind = {};
-    BANCHE[0].indicatori.forEach(i => { ind[i.id] = { nome: i.nome, v0: i.soglia0, v100: i.soglia100, u: unita(i) }; });
-    const aree = Object.keys(BANCHE_MODELLO.pesi).map(n => ({
-      id: AREA_ID[n], nome: AREA_NOME[n], breve: n, peso: BANCHE_MODELLO.pesi[n] / 100,
+    BANCHE[0].indicatori.forEach(i => { ind[i.id] = { nome: i.nome, v0: i.soglia0, v100: i.soglia100, u: unita(i), log: i.scala === "log" }; });
+    const aree = Object.keys(BANCHE_MODELLO.pesi).map((n, j) => ({
+      id: AREA_ID[n] || "a" + j, nome: AREA_NOME[n] || n, breve: n, peso: BANCHE_MODELLO.pesi[n] / 100,
       ind: BANCHE[0].indicatori.filter(i => i.area === n).map(i => i.id)
     }));
     return {
       id: "banche", demo: false, provvisorio: BANCHE_MODELLO.stato === "provvisorio", etichetta: "Banche",
       ind: ind, aree: aree, minimo: BANCHE_MODELLO.minimo_indicatori, totInd: BANCHE_MODELLO.totale_indicatori,
-      punti(k, v) { return puntiLineari(this.ind[k], v); },
-      quick: [["totale", "Migliori in assoluto"], ["ret", "Migliori per retribuzione"], ["stab", "Migliori per stabilità"], ["cresc", "Migliori per crescita e parità"]],
+      punti(k, v) { const d = this.ind[k]; return d.log ? puntiLog(d, v) : puntiLineari(d, v); },
+      quick: [["totale", "Migliori in assoluto"], ["sol", "Migliori per solidità"], ["cresc", "Migliori per crescita"], ["ret", "Migliori per retribuzione"], ["stab", "Migliori per stabilità"], ["form", "Migliori per formazione e parità"]],
       cmpKeys: Object.keys(ind)
     };
   })(),
@@ -8287,6 +8589,11 @@ function mediaConfronto(a) {
 }
 /* 1 = meglio della media, -1 = peggio, 0 = in linea. Il verso viene dalle soglie. */
 function versoMedia(d, valore, media) {
+  if (d.log && valore > 0 && media > 0) {
+    const l = (x) => Math.log(x);
+    const diffL = (l(valore) - l(media)) * Math.sign(d.v100 - d.v0), tolL = Math.abs(l(d.v100) - l(d.v0)) * 0.02;
+    return diffL > tolL ? 1 : (diffL < -tolL ? -1 : 0);
+  }
   const diff = (valore - media) * Math.sign(d.v100 - d.v0);
   const tol = Math.abs(d.v100 - d.v0) * 0.02;
   return diff > tol ? 1 : (diff < -tol ? -1 : 0);
@@ -8319,6 +8626,7 @@ function fmt(d, v) {
     case "x": return f1.format(v) + "x";
     case "eurY": return f0.format(v) + " €/anno";
     case "eur": return (Number.isInteger(v) ? f0 : f2).format(v) + " €";
+    case "mln": return f0.format(v) + " mln €";
     case "anni": return v + " su 3";
     case "n": return String(v);
     case "gg": return v + (v === 1 ? " giorno" : " giorni");
@@ -8551,7 +8859,7 @@ function syncControls() {
   $("aziende-note").textContent = M.senzaVoto ? M.nota
     : demo
     ? "Voto, punteggio delle sei aree e tre numeri da guardare subito. Aziende e dati sono fittizi."
-    : "Voto provvisorio, punteggio delle quattro aree e tre numeri da guardare subito. Apri una banca per vedere da dove viene ogni dato.";
+    : "Voto provvisorio, punteggio delle " + M.aree.length + " aree e tre numeri da guardare subito. Apri una banca per vedere da dove viene ogni dato.";
 }
 function initFilters() {
   const uniq = (k) => Array.from(new Set(RATED_GEN.map(a => a[k]))).sort((a, b) => a.localeCompare(b, "it"));
@@ -8938,6 +9246,7 @@ function weightsHTML(M) {
     p.ind.map(k => {
       const d = M.ind[k];
       if (M.id === "generale" && k === "cig") return `<tr><td>${esc(d.nome)}<span class="w-sub">1 anno vale 20 punti, 2 anni 5</span></td><td class="r">3 su 3</td><td class="r">0 su 3</td></tr>`;
+      if (d.log) return `<tr><td>${esc(d.nome)}<span class="w-sub">scala logaritmica</span></td><td class="r">${esc(fmtSoglia(d, d.v0))}</td><td class="r">${esc(fmtSoglia(d, d.v100))}</td></tr>`;
       return `<tr><td>${esc(d.nome)}</td><td class="r">${esc(fmtSoglia(d, d.v0))}</td><td class="r">${esc(fmtSoglia(d, d.v100))}</td></tr>`;
     }).join("")
   ).join("")}</tbody>`;
@@ -8948,7 +9257,8 @@ function renderMetodo() {
     return `<div class="e-row"><span class="e-bar ${c.c}" style="--w:${40 + i * 10}%">${c.v}<small>${range}</small></span></div>`;
   }).join("");
   const B = MODELLI.banche;
-  $("m-banche-aree").textContent = B.aree.map(p => p.breve + " (" + pct(p.peso) + ")").join(", ");
+  $("m-banche-aree").textContent = B.aree.length + ": " + B.aree.map(p => p.breve + " (" + pct(p.peso) + ")").join(", ");
+  document.querySelectorAll(".m-banche-n").forEach(el => { el.textContent = B.totInd + " indicatori in " + B.aree.length + " aree"; });
   $("m-banche-min").textContent = B.minimo + " indicatori su " + B.totInd;
   $("weights-banche").insertAdjacentHTML("beforeend", weightsHTML(B));
   $("weights-table").insertAdjacentHTML("beforeend", weightsHTML(MODELLI.generale));

@@ -33,7 +33,7 @@ Voti: A+ ≥90 · A ≥80 · B ≥70 · C ≥60 · D ≥50 · E ≥40 · F <40
 
 `index.html` è un unico file statico, senza dipendenze: classifica, card, scheda azienda, confronto e metodo. Contiene due modelli.
 
-- **Banche, dati reali 2025**: 7 banche, 11 indicatori in 4 aree (Solidità 35%, Retribuzione 25%, Stabilità 20%, Crescita e parità 20%). Voto solo con almeno 8 indicatori su 11; i voti sono provvisori. Ogni numero ha la fonte con il link al documento ufficiale.
+- **Banche, dati reali 2025**: 7 banche, 13 indicatori in 5 aree (Solidità 25%, Crescita 10%, Retribuzione 25%, Stabilità 20%, Formazione e parità 20%). La solidità include dimensione (proventi, scala logaritmica) e redditività. Voto solo con almeno 10 indicatori su 13; i voti sono provvisori. Ogni numero ha la fonte con il link al documento ufficiale.
 - **Aziende demo, dati fittizi**: modello generale con 20 indicatori in 6 aree. Cassa integrazione: 0 anni negli ultimi 3 valgono 100 punti, 1 anno 20, 2 anni 5, 3 anni 0; con almeno un anno la Stabilità del lavoro non supera 50 punti.
 
 Dati e regole delle banche sono in `data/banche/`: `sito.json` è la fonte dei dati copiati nel sito, `SCHEMA.md` le regole di raccolta, `PUNTEGGI.md` le soglie.

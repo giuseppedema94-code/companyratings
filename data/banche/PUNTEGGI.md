@@ -2,21 +2,25 @@
 
 Stato: applicato sul sito dal 12/11/2026, con voti marcati "provvisorio". I dati usati dal sito sono in `sito.json`.
 
-Formula uguale al resto del progetto: ogni indicatore vale da 0 a 100 punti in proporzione tra le due soglie; il punteggio di un'area è la media dei suoi indicatori; il totale è la media pesata delle aree con dati. Voto solo se sono presenti almeno 8 indicatori su 11.
+Formula uguale al resto del progetto: ogni indicatore vale da 0 a 100 punti in proporzione tra le due soglie; il punteggio di un'area è la media dei suoi indicatori; il totale è la media pesata delle aree con dati. Voto solo se sono presenti almeno 10 indicatori su 13. Scala logaritmica: punti = (ln valore − ln soglia 0) / (ln soglia 100 − ln soglia 0) × 100, limitati tra 0 e 100.
 
 | Area (peso) | Indicatore | 0 punti | 100 punti |
 |---|---|---|---|
-| Solidità (35%) | Crescita media annua dei proventi 2023-2025 | -5% | +10% |
+| Solidità (25%) | Dimensione: proventi 2025, scala logaritmica | 1.000 mln € | 30.000 mln € |
+| | Utile netto in % dei proventi 2025 | 0% | 35% |
+| | CET1 2025 | 10% | 15% |
+| | Cost/income 2025 | 70% | 40% |
+| Crescita (10%) | Crescita media annua dei proventi 2023-2025 | -5% | +10% |
 | | Crescita media annua dell'utile 2023-2025 | -10% | +20% |
 | | Andamento del costo del personale, media annua 2023-2025 (un calo indica tagli) | -5% | +5% |
-| | Cost/income 2025 | 65% | 40% |
-| | CET1 2025 | 11% | 17% |
-| Retribuzione (25%) | Costo medio per dipendente (spese per il personale / dipendenti) | 60.000 € | 100.000 € |
+| Retribuzione (25%) | Costo medio per dipendente | 60.000 € | 100.000 € |
 | | Buono pasto | 4 € | 10 € |
 | Stabilità (20%) | Dipendenti a tempo indeterminato | 90% | 100% |
 | | Turnover | 15% | 3% |
-| Crescita e parità (20%) | Ore di formazione per dipendente | 20 | 70 |
+| Formazione e parità (20%) | Ore di formazione per dipendente | 20 | 70 |
 | | Divario retributivo di genere | 35% | 5% |
+
+Dimensione e redditività usano i dati consolidati 2025, anche dopo acquisizioni: misurano quanto è grande e redditizio oggi il gruppo in cui si lavora. Crescita e costo medio usano il perimetro costante dove indicato nei limiti.
 
 ## Limiti noti
 
