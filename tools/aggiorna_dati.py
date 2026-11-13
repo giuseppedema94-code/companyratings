@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Copia data/banche/sito.json e data/npl/sito.json dentro index.html.
+"""Copia data/banche/sito.json, data/npl/sito.json e data/imprese/sito.json dentro index.html.
 
-Sostituisce i due blocchi delimitati da /*DATI_BANCHE_INIZIO*/ ... /*DATI_BANCHE_FINE*/
-e /*DATI_NPL_INIZIO*/ ... /*DATI_NPL_FINE*/. Solo libreria standard.
+Sostituisce i blocchi delimitati da /*DATI_BANCHE_INIZIO*/ ... /*DATI_BANCHE_FINE*/,
+/*DATI_NPL_INIZIO*/ ... /*DATI_NPL_FINE*/ e /*DATI_IMPRESE_INIZIO*/ ... /*DATI_IMPRESE_FINE*/.
+Solo libreria standard.
 Uso: python3 tools/aggiorna_dati.py
 """
 import json
@@ -15,6 +16,7 @@ SITO = RADICE / "index.html"
 BLOCCHI = [
     ("DATI_BANCHE", RADICE / "data" / "banche" / "sito.json"),
     ("DATI_NPL", RADICE / "data" / "npl" / "sito.json"),
+    ("DATI_IMPRESE", RADICE / "data" / "imprese" / "sito.json"),
 ]
 
 

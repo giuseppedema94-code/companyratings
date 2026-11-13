@@ -39,5 +39,6 @@ Voti: A+ ≥90 · A ≥80 · B ≥70 · C ≥60 · D ≥50 · E ≥40 · F <40
 Dati e regole delle banche sono in `data/banche/`: `sito.json` è la fonte dei dati copiati nel sito, `SCHEMA.md` le regole di raccolta, `PUNTEGGI.md` le soglie.
 
 Gestione crediti (doValue, AMCO, Intrum Italy, Cerved Group): solo dati da `data/npl/sito.json`, senza voto finché il modello non è definito.
+Grandi imprese (20 società di tech, moda, alimentare, bevande e grande distribuzione): solo dati da `data/imprese/sito.json`, senza voto finché il modello non è approvato.
 
-`tools/aggiorna_dati.py` copia `data/banche/sito.json` e `data/npl/sito.json` dentro `index.html` (blocchi `DATI_BANCHE` e `DATI_NPL`): `python3 tools/aggiorna_dati.py`.
+`tools/aggiorna_dati.py` copia `data/banche/sito.json`, `data/npl/sito.json` e `data/imprese/sito.json` dentro `index.html` (blocchi `DATI_BANCHE`, `DATI_NPL` e `DATI_IMPRESE`): `python3 tools/aggiorna_dati.py`.

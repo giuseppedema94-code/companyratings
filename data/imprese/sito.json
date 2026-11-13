@@ -1,0 +1,4532 @@
+{
+ "stato": "solo dati, senza voto",
+ "societa": [
+  {
+   "slug": "armani",
+   "nome": "Giorgio Armani",
+   "settore": "Moda",
+   "citta": "Milano",
+   "perimetro": "Gruppo Armani consolidato (capogruppo Giorgio Armani S.p.A., italiana). Non quotata; pubblica comunicato sui risultati e report di sostenibilita'.",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 0,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Nessun documento ufficiale con dati 2025 raggiungibile tra le fonti ammesse.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "barilla",
+   "nome": "Barilla Holding S.r.l. (gruppo Barilla)",
+   "settore": "Alimentare",
+   "citta": "Parma",
+   "perimetro": "Gruppo consolidato (capogruppo Barilla Holding S.r.l., italiana)",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 8823,
+   "voto": null,
+   "dati_presenti": 15,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     4883.0,
+     4837
+    ],
+    "ebitda": [
+     null,
+     534.2,
+     577.4
+    ],
+    "utile": [
+     null,
+     111.7,
+     194.3
+    ],
+    "dipendenti": [
+     null,
+     8827,
+     8823
+    ],
+    "spese_personale": [
+     null,
+     685.0,
+     652.2
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 4837,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 577.4,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 370.9,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 194.3,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": -230.2,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 652.2,
+     "fonte": {
+      "titolo": "Gruppo Barilla - Bilancio economico 2025 (IT)",
+      "url": "https://www.barillagroup.com/media/filer_public/c2/ee/c2eedfba-a92a-4dd0-9445-2f04f5667b62/gruppo_barilla_bilancio_economico_2025_it.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 8823,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 3838,
+     "fonte": {
+      "titolo": "Barilla Group Annual Report 2025 (EN)",
+      "url": "https://www.barillagroup.com/media/filer_public/15/b6/15b6a2f3-0ed2-4aab-a1c3-02e2b14f1996/barilla_group_annual_report_2025_en.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Industria Alimentare",
+     "fonte": {
+      "titolo": "Barilla - Accordo integrativo 2026-2029, verbale del 16/07/2026 (pubblicato da Flai)",
+      "url": "https://www.flai.it/wp-content/uploads/2023/08/Barilla-Accordo-integrativo-2026-2029.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "testo",
+     "valore": "Buono pasto (ticket restaurant) ove presente; nessuna quota di partecipazione a carico del lavoratore dal 1/9/2026; esteso al tempo determinato dal 1/1/2027. Importo nominale fissato dagli accordi di sito, non indicato",
+     "fonte": {
+      "titolo": "Barilla - Accordo integrativo 2026-2029, verbale del 16/07/2026 (pubblicato da Flai)",
+      "url": "https://www.flai.it/wp-content/uploads/2023/08/Barilla-Accordo-integrativo-2026-2029.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "EUR",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "brunello-cucinelli",
+   "nome": "Brunello Cucinelli S.p.A.",
+   "settore": "Moda",
+   "citta": "Solomeo",
+   "perimetro": "gruppo consolidato",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 3539,
+   "voto": null,
+   "dati_presenti": 18,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     1139.42,
+     1278.54,
+     1407.951
+    ],
+    "ebitda": [
+     326.3,
+     364.7,
+     408.4
+    ],
+    "utile": [
+     114.617,
+     119.478,
+     135.034
+    ],
+    "dipendenti": [
+     null,
+     null,
+     3539
+    ],
+    "spese_personale": [
+     194.969,
+     233.492,
+     255.367
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln EUR",
+     "valore": 1407.951,
+     "fonte": {
+      "titolo": "The Board of Directors approves the consolidated financial statements and the 2025 draft financial statements",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/The%20Board%20of%20Directors%20approves%20the%20consolidated%20financial%20statements%20and%20the%202025%20draft%20financial%20statements.2.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln EUR",
+     "valore": 408.4,
+     "fonte": {
+      "titolo": "Presentazione risultati FY 2025",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/Presentazione_risultati_FY_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln EUR",
+     "valore": 227.8,
+     "fonte": {
+      "titolo": "The Board of Directors approves the consolidated financial statements and the 2025 draft financial statements",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/The%20Board%20of%20Directors%20approves%20the%20consolidated%20financial%20statements%20and%20the%202025%20draft%20financial%20statements.2.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln EUR",
+     "valore": 135.034,
+     "fonte": {
+      "titolo": "The Board of Directors approves the consolidated financial statements and the 2025 draft financial statements",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/The%20Board%20of%20Directors%20approves%20the%20consolidated%20financial%20statements%20and%20the%202025%20draft%20financial%20statements.2.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln EUR",
+     "valore": 198.4,
+     "fonte": {
+      "titolo": "The Board of Directors approves the consolidated financial statements and the 2025 draft financial statements",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/The%20Board%20of%20Directors%20approves%20the%20consolidated%20financial%20statements%20and%20the%202025%20draft%20financial%20statements.2.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln EUR",
+     "valore": 255.367,
+     "fonte": {
+      "titolo": "The Board of Directors approves the consolidated financial statements and the 2025 draft financial statements",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/The%20Board%20of%20Directors%20approves%20the%20consolidated%20financial%20statements%20and%20the%202025%20draft%20financial%20statements.2.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 3539,
+     "fonte": {
+      "titolo": "Relazione 2025 - Report on Humanistic Capitalism and Human Sustainability",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/009_RELAZIONE%202025_EN4.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 86,
+     "fonte": {
+      "titolo": "Relazione 2025 - Report on Humanistic Capitalism and Human Sustainability",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/009_RELAZIONE%202025_EN4.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 23,
+     "fonte": {
+      "titolo": "Relazione 2025 - Report on Humanistic Capitalism and Human Sustainability",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/009_RELAZIONE%202025_EN4.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Abbigliamento e Confezioni (Brunello Cucinelli S.p.A.); CCNL Commercio per altre risorse",
+     "fonte": {
+      "titolo": "Relazione 2025 - Report on Humanistic Capitalism and Human Sustainability",
+      "url": "https://investor.brunellocucinelli.com/yep-content/media/009_RELAZIONE%202025_EN4.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Debito netto del solo 'core business', come pubblicato.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "campari",
+   "nome": "Davide Campari-Milano N.V. (Campari Group)",
+   "settore": "Bevande",
+   "citta": "Milano",
+   "perimetro": "Gruppo consolidato",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 15,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     2918.6,
+     3069.7,
+     3051.2
+    ],
+    "ebitda": [
+     728.9,
+     732.6,
+     785.2
+    ],
+    "utile": [
+     330.5,
+     201.6,
+     346.3
+    ],
+    "dipendenti": [
+     4933,
+     5254,
+     null
+    ],
+    "spese_personale": [
+     502.1,
+     649.7,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 3051.2,
+     "fonte": {
+      "titolo": "Campari Group FY 2025 Results Press Release (4 marzo 2026)",
+      "url": "https://www.camparigroup.com/sites/default/files/downloads/20260304%202025%20Results%20Press%20Release_vF.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 785.2,
+     "fonte": {
+      "titolo": "Campari Group FY 2025 Results Press Release (4 marzo 2026)",
+      "url": "https://www.camparigroup.com/sites/default/files/downloads/20260304%202025%20Results%20Press%20Release_vF.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 567.5,
+     "fonte": {
+      "titolo": "Campari Group FY 2025 Results Press Release (4 marzo 2026)",
+      "url": "https://www.camparigroup.com/sites/default/files/downloads/20260304%202025%20Results%20Press%20Release_vF.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 346.3,
+     "fonte": {
+      "titolo": "Campari Group FY 2025 Results Press Release (4 marzo 2026)",
+      "url": "https://www.camparigroup.com/sites/default/files/downloads/20260304%202025%20Results%20Press%20Release_vF.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 1958.0,
+     "fonte": {
+      "titolo": "Campari Group FY 2025 Results Press Release (4 marzo 2026)",
+      "url": "https://www.camparigroup.com/sites/default/files/downloads/20260304%202025%20Results%20Press%20Release_vF.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Dati 2025 sul personale mancanti: il bilancio 2025 non è stato scaricato.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "conad",
+   "nome": "Conad",
+   "settore": "Grande distribuzione",
+   "citta": "Bologna",
+   "perimetro": "Conad Consorzio Nazionale Dettaglianti (consolidato del Consorzio con controllate). Dati di rete e di sistema solo in note.",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 321,
+   "voto": null,
+   "dati_presenti": 8,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     2694,
+     2878
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     321
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 2878,
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 321,
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio, S1-6)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 98.8,
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio, S1-6)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 5.45,
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio, S1-6)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 27.84,
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio, S1-13)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": "un giorno a settimana, su richiesta del dipendente e previo accordo con il Responsabile diretto",
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, rendicontazione di sostenibilità del Consorzio, sezione S1 welfare)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "via Michelino 59, Bologna",
+     "fonte": {
+      "titolo": "Conad Annual Report 2025 (Sistema Conad, sezione finale: dati della società)",
+      "url": "https://chisiamo.conad.it/assets/documents/annual-report-2025/Conad_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Dati del Consorzio nazionale (321 dipendenti), non dell'intera rete di cooperative e punti vendita.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "coop-alleanza",
+   "nome": "Coop Alleanza 3.0",
+   "settore": "Grande distribuzione",
+   "citta": "Castenaso",
+   "perimetro": "Gruppo Coop Alleanza 3.0 consolidato (capogruppo italiana; cooperativa)",
+   "chiusura_esercizio": "31/12/2025",
+   "dipendenti": 15234,
+   "voto": null,
+   "dati_presenti": 3,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     38.5
+    ],
+    "dipendenti": [
+     null,
+     null,
+     15234
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 38.5,
+     "fonte": {
+      "titolo": "Comunicato stampa: Coop Alleanza 3.0, utile di gruppo 38,5 milioni di euro (bilancio 2025)",
+      "url": "https://www.coopalleanza3-0.it/dam/relation/comunicati/documenti/Comunicato-Stampa-Bilancio230426.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 15234,
+     "fonte": {
+      "titolo": "Booklet sostenibilita' Coop Alleanza 3.0 2026 (dati dal Bilancio di Sostenibilita' 2025)",
+      "url": "https://www.coopalleanza3-0.it/dam/relation/attachments/files/Booklet-sostenibilità-Coop-Alleanza-3.0--2026.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via Villanova 29/7, 40055 Castenaso (BO)",
+     "fonte": {
+      "titolo": "Booklet sostenibilita' Coop Alleanza 3.0 2026 (sede legale)",
+      "url": "https://www.coopalleanza3-0.it/dam/relation/attachments/files/Booklet-sostenibilità-Coop-Alleanza-3.0--2026.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Bilancio consolidato e rendiconto di sostenibilità completi non trovati tra le fonti ammesse.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "esselunga",
+   "nome": "Esselunga S.p.A.",
+   "settore": "Grande distribuzione",
+   "citta": "Limito di Pioltello",
+   "perimetro": "gruppo consolidato (capogruppo italiana Esselunga S.p.A.)",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 28305,
+   "voto": null,
+   "dati_presenti": 24,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     9144.1,
+     9229.4,
+     9439.6
+    ],
+    "ebitda": [
+     699.0,
+     609.4,
+     725.5
+    ],
+    "utile": [
+     118.7,
+     55.9,
+     163.8
+    ],
+    "dipendenti": [
+     25436,
+     29391,
+     28305
+    ],
+    "spese_personale": [
+     1108.6,
+     1231.4,
+     1268.6
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 9439.6,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 725.5,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 294.7,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 163.8,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 2168.8,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 1268.6,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 28305,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 28305,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 94.3,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 8.5,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 12.4,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 19,
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Distribuzione Moderna Organizzata (rinnovo firmato il 23 aprile 2024, valido fino al 2027)",
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Milano, via Vittor Pisani n. 20 (sede legale)",
+     "fonte": {
+      "titolo": "Bilancio Consolidato del Gruppo Esselunga al 31 dicembre 2025",
+      "url": "https://www.esselunga.it/media/investor-relations/financial-information/2025/esselunga-bilancio-consolidato-2025-ita.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "EBITDA: margine operativo lordo ricorrente.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "eurospin",
+   "nome": "Eurospin",
+   "settore": "Grande distribuzione",
+   "citta": "San Martino Buon Albergo",
+   "perimetro": "Gruppo Eurospin (capogruppo Eurospin Italia S.p.A., sede legale San Martino Buon Albergo VR). Non quotata.",
+   "chiusura_esercizio": "31 dicembre (ultimo bilancio consultato: 2024; bilancio 2025 non reperito nelle fonti ammesse)",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 6,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     9000,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     20581,
+     21557,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "testo",
+     "valore": "Mensa diffusa gratuita per il personale di sede (nessun buono pasto per i punti vendita trovato)",
+     "fonte": {
+      "titolo": "Eurospin - Bilancio di Sostenibilita 2024 (Dentro la Spesa Intelligente)",
+      "url": "https://www.eurospin.it/wp-content/uploads/Bilancio-Sostenibilita-2024.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": "Possibilita di lavorare in smartworking per il personale di sede; giorni non indicati",
+     "fonte": {
+      "titolo": "Eurospin - Bilancio di Sostenibilita 2024 (Dentro la Spesa Intelligente)",
+      "url": "https://www.eurospin.it/wp-content/uploads/Bilancio-Sostenibilita-2024.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "San Martino Buon Albergo (VR)",
+     "fonte": {
+      "titolo": "Eurospin - Bilancio di Sostenibilita 2024 (Dentro la Spesa Intelligente)",
+      "url": "https://www.eurospin.it/wp-content/uploads/Bilancio-Sostenibilita-2024.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Ultimo bilancio di sostenibilità pubblicato: 2024. Nessun dato 2025 da fonti ammesse.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "ferragamo",
+   "nome": "Salvatore Ferragamo S.p.A.",
+   "settore": "Moda",
+   "citta": "Firenze",
+   "perimetro": "gruppo consolidato",
+   "chiusura_esercizio": "31 dicembre",
+   "dipendenti": 3356,
+   "voto": null,
+   "dati_presenti": 20,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     1156.271,
+     1035.106,
+     976.531
+    ],
+    "ebitda": [
+     251.811,
+     215.218,
+     165.713
+    ],
+    "utile": [
+     26.06,
+     -68.087,
+     -49.431
+    ],
+    "dipendenti": [
+     null,
+     3585,
+     3356
+    ],
+    "spese_personale": [
+     null,
+     231.758,
+     216.382
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 976.531,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 165.713,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": -21.427,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": -49.431,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 439.473,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 216.382,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 3356,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 33.22,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 28.1,
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Industria delle Calzature",
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": "possibilità di usufruire dello smart working per diverse funzioni aziendali durante la giornata del venerdì",
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via Tornabuoni, 2 - 50123 Firenze, Italia",
+     "fonte": {
+      "titolo": "Relazione Finanziaria Annuale 2025 (Annual Report 2025)",
+      "url": "https://group.ferragamo.com/resource/blob/1187490/37f4c57755d405505c676b97f9644cc5/relazione-finanziaria-annuale-2025-data.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "ferrero",
+   "nome": "Ferrero",
+   "settore": "Alimentare",
+   "citta": "Alba",
+   "perimetro": "Gruppo Ferrero (Ferrero International S.A., capogruppo operativa; esercizio chiuso al 31 agosto)",
+   "chiusura_esercizio": "31 agosto",
+   "dipendenti": 48697,
+   "voto": null,
+   "dati_presenti": 8,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     19300
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     47212,
+     47517,
+     48697
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 19300,
+     "fonte": {
+      "titolo": "Ferrero Group reports Consolidated Financial Statements for the 2024/2025 Financial Year",
+      "url": "https://www.ferrero.com/int/en/news-stories/news/ferrero-group-reports-consolidated-financial-statements-for-the-2024-2025-financial-year"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 48697,
+     "fonte": {
+      "titolo": "Ferrero Group Sustainability Report 2025",
+      "url": "https://www.ferrero.com/int/sites/ferrero_int/files/2026-06/ferrero-sustainability-report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 84.99,
+     "fonte": {
+      "titolo": "Ferrero Group Sustainability Report 2025",
+      "url": "https://www.ferrero.com/int/sites/ferrero_int/files/2026-06/ferrero-sustainability-report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 9.86,
+     "fonte": {
+      "titolo": "Ferrero Group Sustainability Report 2025",
+      "url": "https://www.ferrero.com/int/sites/ferrero_int/files/2026-06/ferrero-sustainability-report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 23.44,
+     "fonte": {
+      "titolo": "Ferrero Group Sustainability Report 2025",
+      "url": "https://www.ferrero.com/int/sites/ferrero_int/files/2026-06/ferrero-sustainability-report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Industria Alimentare",
+     "fonte": {
+      "titolo": "Ferrero Contratto INTEGRATIVO 2018-2022 (ipotesi di accordo, 18 luglio 2018)",
+      "url": "https://www.flai.it/wp-content/uploads/2023/08/Ferrero-Contratto-INTEGRATIVO-2018-2022.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Esercizio chiuso al 31 agosto 2025. Dati del gruppo mondiale: nessun dato separato per l'Italia.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "lavazza",
+   "nome": "Lavazza Group (gruppo Luigi Lavazza S.p.A.)",
+   "settore": "Bevande",
+   "citta": "Torino",
+   "perimetro": "Gruppo consolidato",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 5865,
+   "voto": null,
+   "dati_presenti": 20,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     3100,
+     3349.133,
+     3875.329
+    ],
+    "ebitda": [
+     263,
+     312,
+     340
+    ],
+    "utile": [
+     68,
+     82,
+     92
+    ],
+    "dipendenti": [
+     null,
+     5802,
+     5865
+    ],
+    "spese_personale": [
+     null,
+     213.422,
+     226.568
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 3875.329,
+     "fonte": {
+      "titolo": "Lavazza Group - Relazioni e Bilanci 2025 (bilancio consolidato al 31 dicembre 2025)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/bilanci/LavazzaGroupBilanci2025-IT.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 340,
+     "fonte": {
+      "titolo": "Lavazza Group: Financial results as at 31 December 2025 (comunicato stampa, 30 marzo 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/chi_siamo/risultati/PR_LavazzaGroup_FY2025_FinancialResults.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 157,
+     "fonte": {
+      "titolo": "Lavazza Group: Financial results as at 31 December 2025 (comunicato stampa, 30 marzo 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/chi_siamo/risultati/PR_LavazzaGroup_FY2025_FinancialResults.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 92,
+     "fonte": {
+      "titolo": "Lavazza Group: Financial results as at 31 December 2025 (comunicato stampa, 30 marzo 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/chi_siamo/risultati/PR_LavazzaGroup_FY2025_FinancialResults.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": -432,
+     "fonte": {
+      "titolo": "Lavazza Group: Financial results as at 31 December 2025 (comunicato stampa, 30 marzo 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/chi_siamo/risultati/PR_LavazzaGroup_FY2025_FinancialResults.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 226.568,
+     "fonte": {
+      "titolo": "Lavazza Group - Relazioni e Bilanci 2025 (bilancio consolidato al 31 dicembre 2025)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/bilanci/LavazzaGroupBilanci2025-IT.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 5865,
+     "fonte": {
+      "titolo": "Lavazza Group - Relazioni e Bilanci 2025 (bilancio consolidato al 31 dicembre 2025)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza-corporate/bilanci/LavazzaGroupBilanci2025-IT.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 97.1,
+     "fonte": {
+      "titolo": "Lavazza Group - Bilancio di sostenibilita 2025 (versione interattiva, maggio 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza/sostenibilità/aggiornamento-maggio-26/260520_Lavazza_BdS2025_ITA_interattivo.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 20.2,
+     "fonte": {
+      "titolo": "Lavazza Group - Bilancio di sostenibilita 2025 (versione interattiva, maggio 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza/sostenibilità/aggiornamento-maggio-26/260520_Lavazza_BdS2025_ITA_interattivo.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 14.1,
+     "fonte": {
+      "titolo": "Lavazza Group - Bilancio di sostenibilita 2025 (versione interattiva, maggio 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza/sostenibilità/aggiornamento-maggio-26/260520_Lavazza_BdS2025_ITA_interattivo.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": "fino a dieci giornate lavorative mensili",
+     "fonte": {
+      "titolo": "Lavazza, nuovo contratto: smart working, venerdi corti e congedo parentale al 100% (QuiFinanza)",
+      "url": "https://quifinanza.it/lavoro/lavazza-contratto-2026/1010495/"
+     },
+     "giornalistica": true
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via Bologna, 32 - 10152 Torino",
+     "fonte": {
+      "titolo": "Lavazza Group - Bilancio di sostenibilita 2025 (versione interattiva, maggio 2026)",
+      "url": "https://www.lavazzagroup.com/content/dam/lavazza/sostenibilità/aggiornamento-maggio-26/260520_Lavazza_BdS2025_ITA_interattivo.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Lavoro agile da fonte giornalistica.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "lidl-italia",
+   "nome": "Lidl Italia S.r.l.",
+   "settore": "Grande distribuzione",
+   "citta": "Arcole",
+   "perimetro": "Lidl Italia S.r.l., filiale italiana del gruppo Schwarz (dati del gruppo mondiale esclusi). Il magazine 2025 scrive che i dati sono relativi a Lidl Italia e Lidl Servizi Immobiliari.",
+   "chiusura_esercizio": "2026-02-28",
+   "dipendenti": 23000,
+   "voto": null,
+   "dati_presenti": 6,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     23000
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln (valuta del bilancio)",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 23000,
+     "fonte": {
+      "titolo": "Lidl Italia - Magazine di sostenibilità, Risultati 2025",
+      "url": "https://corporate.lidl.it/asset/download/18710/file/Lidl%20Italia_magazine_sostenibilit%C3%A0_AF2025_web.pdf?version=2"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 23000,
+     "fonte": {
+      "titolo": "Lidl Italia - Magazine di sostenibilità, Risultati 2025",
+      "url": "https://corporate.lidl.it/asset/download/18710/file/Lidl%20Italia_magazine_sostenibilit%C3%A0_AF2025_web.pdf?version=2"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 86.7,
+     "fonte": {
+      "titolo": "Lidl Italia - Magazine di sostenibilità, Risultati 2025",
+      "url": "https://corporate.lidl.it/asset/download/18710/file/Lidl%20Italia_magazine_sostenibilit%C3%A0_AF2025_web.pdf?version=2"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 10.7,
+     "fonte": {
+      "titolo": "Lidl Italia - Magazine di sostenibilità, Risultati 2025",
+      "url": "https://corporate.lidl.it/asset/download/18710/file/Lidl%20Italia_magazine_sostenibilit%C3%A0_AF2025_web.pdf?version=2"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Terziario Distribuzione Servizi (Confcommercio), come citato dal comunicato Filcams",
+     "fonte": {
+      "titolo": "Filcams CGIL - Lidl Italia, raggiunta l'intesa sul nuovo Contratto integrativo aziendale (20/02/2026)",
+      "url": "https://www.filcams.cgil.it/article/homepage/lidl_italia_raggiunta_l_intesa_sul_nuovo_contratto_integrativo_aziendale_piu_salario_piu_diritti_e_nuove_regole_sull_organizzazione_del_lavoro_"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Bolzano, via Carlo Maria Giulini, 4",
+     "fonte": {
+      "titolo": "Lidl Italia - Magazine di sostenibilità, Risultati 2025",
+      "url": "https://corporate.lidl.it/asset/download/18710/file/Lidl%20Italia_magazine_sostenibilit%C3%A0_AF2025_web.pdf?version=2"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Filiale italiana del gruppo Schwarz: nessun bilancio della società italiana letto. Esercizio chiuso a febbraio 2026.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "luxottica",
+   "nome": "Luxottica",
+   "settore": "Moda",
+   "citta": "Agordo",
+   "perimetro": "Attività italiane di EssilorLuxottica (Luxottica Group / Luxottica S.r.l.). I dati del gruppo mondiale EssilorLuxottica non sono usati come valore.",
+   "chiusura_esercizio": "31 dicembre (non verificato nelle fonti lette)",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 1,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": 3090,
+     "fonte": {
+      "titolo": "Nota congiunta EssilorLuxottica, Filctem Cgil, Femca Cisl, Uiltec Uil, 22/04/2026",
+      "url": "https://www.filctemcgil.it/images/comunicati_stampa/260422_Nota_Congiunta_Premio_di_Risultato.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Attività italiane di EssilorLuxottica: nessun bilancio separato per l'Italia. Premio dall'accordo sindacale.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "moncler",
+   "nome": "Moncler S.p.A.",
+   "settore": "Moda",
+   "citta": "Milano",
+   "perimetro": "gruppo consolidato",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 0,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln EUR",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Il sito Moncler blocca lo scarico dei documenti: i numeri letti non sono stati verificati sul testo originale e non sono mostrati.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "newprinces",
+   "nome": "NewPrinces S.p.A. (ex Newlat Food)",
+   "settore": "Alimentare",
+   "citta": "Reggio Emilia",
+   "perimetro": "Gruppo consolidato (capogruppo italiana NewPrinces S.p.A., Reggio Emilia)",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 7,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     1641.109,
+     2959.932
+    ],
+    "ebitda": [
+     null,
+     null,
+     240
+    ],
+    "utile": [
+     null,
+     160.632,
+     375.094
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln (valuta del bilancio)",
+     "valore": 2959.932,
+     "fonte": {
+      "titolo": "Comunicato stampa NewPrinces 31/03/2026 - Approvazione FY 2025",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260331_180631.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 240,
+     "fonte": {
+      "titolo": "Comunicato stampa NewPrinces 31/03/2026 - Approvazione FY 2025",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260331_180631.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 430.768,
+     "fonte": {
+      "titolo": "Comunicato stampa NewPrinces 31/03/2026 - Approvazione FY 2025",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260331_180631.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 375.094,
+     "fonte": {
+      "titolo": "Comunicato stampa NewPrinces 31/03/2026 - Approvazione FY 2025",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260331_180631.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 83,
+     "fonte": {
+      "titolo": "Comunicato stampa NewPrinces 31/03/2026 - Approvazione FY 2025",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260331_180631.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Perimetro molto cambiato tra 2024 e 2025 (Princes, Plasmon, ex Carrefour Italia): gli anni non sono confrontabili.",
+    "L'utile 2025 include 319,7 milioni di proventi straordinari da acquisizioni.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "ovs",
+   "nome": "OVS S.p.A.",
+   "settore": "Moda",
+   "citta": "Venezia Mestre",
+   "perimetro": "gruppo consolidato (capogruppo italiana OVS S.p.A.)",
+   "chiusura_esercizio": "2026-01-31",
+   "dipendenti": 10343,
+   "voto": null,
+   "dati_presenti": 18,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     1535.2,
+     1632.0,
+     1746.0
+    ],
+    "ebitda": [
+     182.2,
+     195.3,
+     218.2
+    ],
+    "utile": [
+     52.4,
+     52.1,
+     49.2
+    ],
+    "dipendenti": [
+     null,
+     null,
+     10343
+    ],
+    "spese_personale": [
+     312.2,
+     337.9,
+     370.4
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 1746.0,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 218.2,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 147.5,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 49.2,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 1316.2,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 370.4,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Comunicato stampa risultati FY 2025 (esercizio chiuso al 31/1/2026), 16 aprile 2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-04/ovs_spa_comunicato_stampa_fy_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 10343,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Sintesi KPI di Sostenibilita, esercizio chiuso al 31/1/2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-09/ovs_kpi_esg_2025_ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 9886,
+     "fonte": {
+      "titolo": "OVS S.p.A. - Sintesi KPI di Sostenibilita, esercizio chiuso al 31/1/2026",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2026-09/ovs_kpi_esg_2025_ita.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Distribuzione Moderna Organizzata (DMO), Federdistribuzione",
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2024 (Gruppo OVS, esercizio chiuso al 31/1/2025)",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2025-05/gruppo_ovs_relazione_finanziaria_annuale_2024_def.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "EUR o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "EUR",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "OVS S.p.A., Via Terraglio n. 17 - 30174 Venezia-Mestre",
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2024 (Gruppo OVS, esercizio chiuso al 31/1/2025)",
+      "url": "https://www.ovscorporate.it/sites/default/files/documents/2025-05/gruppo_ovs_relazione_finanziaria_annuale_2024_def.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Esercizio chiuso il 31 gennaio 2026.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "prada",
+   "nome": "Prada S.p.A. (Prada Group)",
+   "settore": "Moda",
+   "citta": "Milano",
+   "perimetro": "gruppo consolidato (capogruppo Prada S.p.A., italiana)",
+   "chiusura_esercizio": "2025-12-31",
+   "dipendenti": 17901,
+   "voto": null,
+   "dati_presenti": 17,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     4726,
+     5431.557,
+     5717.521
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     671,
+     838.907,
+     851.936
+    ],
+    "dipendenti": [
+     14876,
+     15216,
+     17901
+    ],
+    "spese_personale": [
+     null,
+     907.836,
+     949.949
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 5717.521,
+     "fonte": {
+      "titolo": "Prada Group Annual Report 2025 (bilancio consolidato)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 1299,
+     "fonte": {
+      "titolo": "Prada Group FY25 press release (5 marzo 2026)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/investors/FY-2025/Prada-Group-FY25-PR.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 851.936,
+     "fonte": {
+      "titolo": "Prada Group Annual Report 2025 (bilancio consolidato)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 465.81,
+     "fonte": {
+      "titolo": "Prada Group Annual Report 2025 (bilancio consolidato)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 949.949,
+     "fonte": {
+      "titolo": "Prada Group Annual Report 2025 (bilancio consolidato)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 17901,
+     "fonte": {
+      "titolo": "Prada Group Annual Report 2025 (bilancio consolidato)",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Annual_Report_2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 6766,
+     "fonte": {
+      "titolo": "Prada Group Sustainability Report 2025",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Sustainability-Report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 91,
+     "fonte": {
+      "titolo": "Prada Group Sustainability Report 2025",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Sustainability-Report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 19.4,
+     "fonte": {
+      "titolo": "Prada Group Sustainability Report 2025",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Sustainability-Report-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via Antonio Fogazzaro 28, 20135 Milano",
+     "fonte": {
+      "titolo": "Prada Group Sustainability Report 2025",
+      "url": "https://www.pradagroup.com/content/dam/pradagroup/documents/Shareholderinformation/2026/inglese/e_Sustainability-Report-2025.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Il bilancio 2025 include Versace dal 2 dicembre 2025 (17.901 dipendenti). Il rendiconto di sostenibilità la esclude (15.490 dipendenti, 6.766 in Italia).",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "reply",
+   "nome": "Reply S.p.A.",
+   "settore": "Tech",
+   "citta": "Torino",
+   "perimetro": "gruppo consolidato (capogruppo Reply S.p.A., italiana)",
+   "chiusura_esercizio": "31 dicembre 2025",
+   "dipendenti": 17073,
+   "voto": null,
+   "dati_presenti": 21,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     2121.454,
+     2300.519,
+     2483.629
+    ],
+    "ebitda": [
+     352.093,
+     410.611,
+     467.637
+    ],
+    "utile": [
+     186.699,
+     211.139,
+     250.889
+    ],
+    "dipendenti": [
+     null,
+     16007,
+     17073
+    ],
+    "spese_personale": [
+     null,
+     1266.432,
+     1376.509
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln EUR",
+     "valore": 2483.629,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln EUR",
+     "valore": 467.637,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln EUR",
+     "valore": 391.689,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln EUR",
+     "valore": 250.889,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln EUR",
+     "valore": -467.577,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln EUR",
+     "valore": 1376.509,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 17073,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 10208,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 96.7,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 13.4,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 11.45,
+     "fonte": {
+      "titolo": "Relazione sulla gestione 2025 (pagina HTML)",
+      "url": "https://www.reply.com/it/investors/financial-reports/2025/relazione-sulla-gestione.html"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 28.64,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via Nizza 250, 10126 Torino (TO)",
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (PDF)",
+      "url": "https://www.reply.com/contents/REPLY_Bilancio_2025_ITA.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "sesa",
+   "nome": "Sesa S.p.A.",
+   "settore": "Tech",
+   "citta": "Empoli",
+   "perimetro": "gruppo consolidato (capogruppo italiana Sesa S.p.A.)",
+   "chiusura_esercizio": "30 aprile",
+   "dipendenti": 6694,
+   "voto": null,
+   "dati_presenti": 23,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     3210.417,
+     3273.1,
+     3620.8
+    ],
+    "ebitda": [
+     239.502,
+     235.5,
+     260.4
+    ],
+    "utile": [
+     78.269,
+     62.2,
+     71.7
+    ],
+    "dipendenti": [
+     5691,
+     6449,
+     6694
+    ],
+    "spese_personale": [
+     298.659,
+     358.8,
+     395.6
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 3620.8,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 260.4,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 152.0,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 71.7,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 17.5,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 395.6,
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 6694,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 6084,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 97.4,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 6.7,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 15,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 19,
+     "fonte": {
+      "titolo": "Sesa - Relazione Annuale Integrata al 30/04/2026 (pubblicata 29/07/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260729_187441.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via della Piovola 138, Empoli (FI)",
+     "fonte": {
+      "titolo": "Sesa - comunicato regolamentato 16/07/2026: approvazione risultati al 30/04/2026 e Piano FY 2027-28",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-07/20260716_186917.pdf"
+     },
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Esercizio chiuso il 30 aprile 2026.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  },
+  {
+   "slug": "tim",
+   "nome": "TIM (Telecom Italia)",
+   "settore": "Tech",
+   "citta": "Milano",
+   "perimetro": "Gruppo consolidato (capogruppo TIM S.p.A., italiana). Dati 2023 su perimetro pubblicato nel 2024; 2024-2025 come riesposti nel 2026, con Sparkle in discontinued operations.",
+   "chiusura_esercizio": "31/12/2025",
+   "dipendenti": 26177,
+   "voto": null,
+   "dati_presenti": 25,
+   "dati_totali": 29,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     16296,
+     13653,
+     13734
+    ],
+    "ebitda": [
+     5710,
+     4677,
+     4353
+    ],
+    "utile": [
+     -1441,
+     -610,
+     297
+    ],
+    "dipendenti": [
+     47180,
+     26824,
+     26177
+    ],
+    "spese_personale": [
+     null,
+     1414,
+     1474
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln",
+     "valore": 13734,
+     "fonte": {
+      "titolo": "Allegati al comunicato risultati FY 2025 (11 marzo 2026)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/ALLEGATI-CS-FINAL-RESULTS-FY-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025",
+     "unita": "mln",
+     "valore": 4353,
+     "fonte": {
+      "titolo": "Comunicato stampa CdA 11 marzo 2026 (bilancio 2025)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/Comunicato-Stampa-CdA-11marzo2026.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ebit_2025",
+     "nome": "EBIT 2025",
+     "unita": "mln",
+     "valore": 1564,
+     "fonte": {
+      "titolo": "Allegati al comunicato risultati FY 2025 (11 marzo 2026)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/ALLEGATI-CS-FINAL-RESULTS-FY-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln",
+     "valore": 297,
+     "fonte": {
+      "titolo": "Comunicato stampa CdA 11 marzo 2026 (bilancio 2025)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/Comunicato-Stampa-CdA-11marzo2026.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "debito_netto_2025",
+     "nome": "Debito netto a fine 2025 (negativo = cassa netta)",
+     "unita": "mln",
+     "valore": 9875,
+     "fonte": {
+      "titolo": "Comunicato stampa CdA 11 marzo 2026 (bilancio 2025)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/Comunicato-Stampa-CdA-11marzo2026.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Costo del personale 2025",
+     "unita": "mln",
+     "valore": 1474,
+     "fonte": {
+      "titolo": "Allegati al comunicato risultati FY 2025 (11 marzo 2026)",
+      "url": "https://www.gruppotim.it/content/dam/gt/investitori/doc---avvisi/anno-2026/ALLEGATI-CS-FINAL-RESULTS-FY-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n",
+     "valore": 26177,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n",
+     "valore": 17231,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.32,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 12.75,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 24.49,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 29.2,
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": "CCNL Telecomunicazioni (CCNL TLC)",
+     "fonte": {
+      "titolo": "TIM Sustainability Reporting 2025",
+      "url": "https://www.gruppotim.it/content/dam/gt/sostenibilit%C3%A0/2025/TIM-Sustainability-Reporting-2025.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto o mensa",
+     "unita": "€ o testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile",
+     "unita": "testo",
+     "valore": "3 giorni da remoto e 2 in sede su base settimanale (modello giornaliero); 1 settimana in sede e 3 da remoto (modello settimanale)",
+     "fonte": {
+      "titolo": "Comunicato unitario TIM accordi 8 luglio 2025 (Slc, Fistel, Uilcom)",
+      "url": "https://www.uilcom.it/wp-content/uploads/2025/07/TIM-Comunicato-unitario-accordi-8-luglio.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio di risultato 2025",
+     "unita": "€",
+     "valore": 1500,
+     "fonte": {
+      "titolo": "Comunicato unitario TIM accordi 8 luglio 2025 (Slc, Fistel, Uilcom)",
+      "url": "https://www.uilcom.it/wp-content/uploads/2025/07/TIM-Comunicato-unitario-accordi-8-luglio.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "cassa_integrazione",
+     "nome": "Anni con cassa integrazione 2023-2025",
+     "unita": "n",
+     "valore": 1,
+     "fonte": {
+      "titolo": "Comunicato unitario TIM accordi 8 luglio 2025 (Slc, Fistel, Uilcom)",
+      "url": "https://www.uilcom.it/wp-content/uploads/2025/07/TIM-Comunicato-unitario-accordi-8-luglio.pdf"
+     },
+     "giornalistica": false
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null,
+     "giornalistica": false
+    }
+   ],
+   "limiti": [
+    "Gli anni 2024 e 2025 sono riesposti senza Sparkle; il 2023 no.",
+    "I documenti riportano tre numeri diversi di dipendenti a fine 2025; qui il rendiconto di sostenibilità.",
+    "Senza voto: modello di punteggio per questi settori ancora da approvare."
+   ]
+  }
+ ]
+}
