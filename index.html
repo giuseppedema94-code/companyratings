@@ -404,6 +404,10 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 
 /* voto provvisorio, senza voto */
 .g-nd { background: var(--rule); color: var(--ink); }
+.sv { display: inline-block; padding: 3px 8px; border-radius: var(--r); background: var(--rule); color: var(--ink); white-space: nowrap; }
+.sc100 { display: inline-flex; align-items: baseline; gap: 5px; }
+.card-score .sc100 { justify-content: flex-end; }
+.ch-years span.nd { opacity: .45; }
 .prov { display: inline-block; margin-left: 6px; font-size: .6rem; vertical-align: 6px; }
 .tag-lg + .prov { display: block; margin: 4px 0 0; vertical-align: 0; }
 .card-vt { display: block; }
@@ -434,6 +438,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 /* scheda: fonti, cassa integrazione, limiti */
 .ind td.src a { color: var(--accent); overflow-wrap: anywhere; }
 .ind td.val.nd { font-weight: 400; color: var(--ink-2); white-space: normal; }
+.ind td.val.txt { white-space: normal; font-weight: 500; }
 .ind.other { min-width: 640px; }
 .ind.other th:nth-child(1) { width: 40%; } .ind.other th:nth-child(2) { width: 22%; } .ind.other th:nth-child(3) { width: auto; }
 .cap-note { margin-top: 10px; padding: 8px 12px; border-left: 3px solid var(--g-e); background: var(--sheet); font-size: .9rem; }
@@ -485,7 +490,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
 </style>
 </head>
 <body>
-<div class="demo-banner" role="note"><div class="wrap">Banche: dati reali 2025, voti provvisori. Le altre aziende sono demo con dati fittizi.</div></div>
+<div class="demo-banner" role="note"><div class="wrap">Banche e gestione crediti: dati reali 2025, voti provvisori. Le altre aziende sono demo con dati fittizi.</div></div>
 
 <header class="site-head">
   <div class="wrap">
@@ -522,7 +527,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       </div>
       <div class="hero-aside">
         <div class="hero-aside-bar">
-          <span class="mono">Banche · dati reali 2025</span>
+          <span class="mono">Banche</span>
           <button class="link-btn" id="hero-next" type="button">Mostra un'altra azienda</button>
         </div>
         <div id="hero-label" aria-live="polite"></div>
@@ -543,7 +548,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         <div class="field" id="fld-cerca"><label class="mono" for="f-cerca">Cerca</label><input id="f-cerca" type="search" autocomplete="off" spellcheck="false" placeholder="Nome della banca"></div>
         <div class="field" id="fld-settore"><label class="mono" for="f-settore">Settore</label><select id="f-settore"></select></div>
         <div class="field" id="fld-citta"><label class="mono" for="f-citta">Città</label><select id="f-citta"></select></div>
-        <div class="field"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
+        <div class="field" id="fld-voto"><label class="mono" for="f-voto">Voto minimo</label><select id="f-voto"></select></div>
         <div class="field"><label class="mono" for="f-ordina">Ordina per</label><select id="f-ordina"></select></div>
       </div>
       <div class="quick" role="group" aria-label="Ordina con un clic">
@@ -584,6 +589,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
         <div>
           <h2 id="confronta-title">Confronta le aziende</h2>
           <p>Scegli due o tre aziende dello stesso gruppo: banche con banche, demo con demo. In ogni riga evidenziamo chi fa meglio.</p>
+          <p>Le società di gestione crediti non hanno un voto, quindi per ora non si possono confrontare.</p>
           <p class="mono" id="cmp-note"></p>
         </div>
       </div>
@@ -603,11 +609,11 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
       <div class="view-head">
         <div>
           <h2 id="metodo-title">Come calcoliamo il voto</h2>
-          <p>Usiamo due modelli. Le banche hanno un modello proprio, con 11 indicatori in quattro aree e dati reali del 2025. Le aziende demo usano il modello generale, con 20 indicatori in sei aree e dati fittizi. Il modo di dare i punti è lo stesso.</p>
+          <p>Usiamo due modelli. Le banche hanno un modello proprio, con 11 indicatori in quattro aree e dati presi dai documenti ufficiali. Le aziende demo usano il modello generale, con 20 indicatori in sei aree e dati fittizi. Il modo di dare i punti è lo stesso.</p>
         </div>
       </div>
       <div class="method-part">
-        <span class="mono">Modello banche · dati reali 2025</span>
+        <span class="mono">Modello banche</span>
         <h3 class="part-title">Banche</h3>
       </div>
       <div class="method-grid">
@@ -628,6 +634,13 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
             </table>
           </div>
         </div>
+      </div>
+      <div class="method-part">
+        <span class="mono">Solo dati · senza voto</span>
+        <h3 class="part-title">Gestione crediti</h3>
+      </div>
+      <div class="method-text" style="margin-bottom:8px">
+        <p>Per doValue, AMCO, Intrum Italy e Cerved Group raccogliamo i dati con le stesse regole delle banche: solo documenti ufficiali, una fonte per ogni numero, nessuna stima. Per ora non diamo un voto, finché i dati pubblici non bastano e il modello per questo gruppo non è definito.</p>
       </div>
       <div class="method-part">
         <span class="mono">Modello generale · aziende demo</span>
@@ -683,7 +696,7 @@ th[aria-sort] .sort-btn { color: var(--accent); font-weight: 700; }
   </div>
   <div class="wrap foot-base">
     <span class="mono">CompanyRatings · 2026</span>
-    <span class="mono">Banche: dati reali 2025 · altre aziende: demo</span>
+    <span class="mono">Banche e gestione crediti da documenti ufficiali · altre aziende: demo</span>
   </div>
 </footer>
 
@@ -853,209 +866,2740 @@ const TETTO_CIG = 50;
 
 /* =========================================================================
    MODELLO BANCHE. Dati reali, esercizio 2025: copia di data/banche/sito.json
-   (senza i campi calcolati: punti, aree, punteggio e voto li calcola il sito).
+   (i campi calcolati, cioè punti, aree, punteggio e voto, li ignora: li ricalcola il sito).
+   I due blocchi DATI_* si aggiornano con tools/aggiorna_dati.py.
    ========================================================================= */
-const BANCHE_MODELLO = {"pesi": {"Solidità": 35, "Retribuzione": 25, "Stabilità": 20, "Crescita e parità": 20}, "minimo_indicatori": 8, "totale_indicatori": 11, "stato": "provvisorio"};
-const BANCHE = [
+/*DATI_BANCHE_INIZIO*/ const DATI_BANCHE = {
+ "modello": {
+  "pesi": {
+   "Solidità": 35,
+   "Retribuzione": 25,
+   "Stabilità": 20,
+   "Crescita e parità": 20
+  },
+  "minimo_indicatori": 8,
+  "totale_indicatori": 11,
+  "stato": "provvisorio"
+ },
+ "banche": [
   {
-    "slug": "intesa-sanpaolo",
-    "nome": "Intesa Sanpaolo",
-    "settore": "Banche",
-    "citta": "Torino",
-    "anno_dati": 2025,
-    "dipendenti": 90789,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [25227, 27107, 27270], "utile": [7724, 8666, 9321], "dipendenti": [95366, 94736, 90831], "spese_personale": [7026, 7185, 7019]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 3.97, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)", "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 9.85, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": -0.05, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 42.2, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)", "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 13.2, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 77311, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 10, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)", "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"}},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 97.0, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 8.24, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 63.9, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Intesa Sanpaolo - Impegno verso le persone: i numeri (sostenibilità)", "url": "https://group.intesasanpaolo.com/it/sostenibilita/persone/impegno-verso-le-persone-i-numeri"}},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 26.8, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}}
+   "slug": "intesa-sanpaolo",
+   "nome": "Intesa Sanpaolo",
+   "settore": "Banche",
+   "citta": "Torino",
+   "anno_dati": 2025,
+   "dipendenti": 90789,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": 4.5, "fonte": {"titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)", "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"}},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 68894, "fonte": {"titolo": "Bilanci 2025", "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"}},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": "3.8 / 365", "fonte": {"titolo": "Indeed - Intesa Sanpaolo (valutazioni aziendali, it.indeed.com)", "url": "https://it.indeed.com/cmp/Intesa-Sanpaolo"}},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Piazza San Carlo, 156 - 10121 Torino", "fonte": {"titolo": "Intesa Sanpaolo - Contatti (pagina footer, sede sociale)", "url": "https://group.intesasanpaolo.com/it/pagine-footer/contatti"}}
+    "proventi": [
+     25227,
+     27107,
+     27270
     ],
-    "limiti": ["Dipendenti nel grafico: perimetro 'Struttura operativa', che include i collaboratori (90.831 nel 2025). Per gli indicatori vale il dato del rendiconto di sostenibilità (90.789).", "Utile 2023 dal comunicato 2024, senza lettura della riga dei soci di minoranza."]
+    "utile": [
+     7724,
+     8666,
+     9321
+    ],
+    "dipendenti": [
+     95366,
+     94736,
+     90831
+    ],
+    "spese_personale": [
+     7026,
+     7185,
+     7019
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.97,
+     "punti": 59.8,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)",
+      "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.85,
+     "punti": 66.2,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -0.05,
+     "punti": 49.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 42.2,
+     "punti": 91.2,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Risultati consolidati al 31 dicembre 2025 (comunicato 2 febbraio 2026)",
+      "url": "https://group.intesasanpaolo.com/it/investor-relations/comunicati-stampa-price-sensitive/2026/02/20260202-ris-fy25-it"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 13.2,
+     "punti": 36.7,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 77311,
+     "punti": 43.3,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 10,
+     "punti": 100,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)",
+      "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 97.0,
+     "punti": 70.0,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 8.24,
+     "punti": 56.3,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 63.9,
+     "punti": 87.8,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Impegno verso le persone: i numeri (sostenibilità)",
+      "url": "https://group.intesasanpaolo.com/it/sostenibilita/persone/impegno-verso-le-persone-i-numeri"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 26.8,
+     "punti": 27.3,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 60.7,
+    "Retribuzione": 71.7,
+    "Stabilità": 63.1,
+    "Crescita e parità": 57.5
+   },
+   "indicatori_presenti": 11,
+   "punteggio": 63.3,
+   "voto": "C",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": 4.5,
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Firma contratto di secondo livello con le organizzazioni sindacali (dicembre 2025)",
+      "url": "https://group.intesasanpaolo.com/it/newsroom/comunicati-stampa/2025/12/intesa-sanpaolo-firma-contratto-di-secondo-livello--con-le-organ"
+     }
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 68894,
+     "fonte": {
+      "titolo": "Bilanci 2025",
+      "url": "https://group.intesasanpaolo.com/content/dam/portalgroup/repository-documenti/investor-relations/bilanci-relazioni-it/2025/Bilanci_2025.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": "3.8 / 365",
+     "fonte": {
+      "titolo": "Indeed - Intesa Sanpaolo (valutazioni aziendali, it.indeed.com)",
+      "url": "https://it.indeed.com/cmp/Intesa-Sanpaolo"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "Piazza San Carlo, 156 - 10121 Torino",
+     "fonte": {
+      "titolo": "Intesa Sanpaolo - Contatti (pagina footer, sede sociale)",
+      "url": "https://group.intesasanpaolo.com/it/pagine-footer/contatti"
+     }
+    }
+   ],
+   "limiti": [
+    "Dipendenti nel grafico: perimetro 'Struttura operativa', che include i collaboratori (90.831 nel 2025). Per gli indicatori vale il dato del rendiconto di sostenibilità (90.789).",
+    "Utile 2023 dal comunicato 2024, senza lettura della riga dei soci di minoranza."
+   ]
   },
   {
-    "slug": "unicredit",
-    "nome": "UniCredit",
-    "settore": "Banche",
-    "citta": "Milano",
-    "anno_dati": 2025,
-    "dipendenti": 72110,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [23843, 24844, 24536], "utile": [9507, 9719, 10915], "dipendenti": [76580, 75265, 72110], "spese_personale": [5861, 5853, 5872]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 1.44, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 7.15, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 0.09, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF)", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 38.5, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 14.75, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Financial highlights - UniCredit", "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 81431, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF)", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 8, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato Uilca/First Cisl su VAP e buoni pasto UniCredit (10/02/2026)", "url": "https://www.firstcisl.it/wp-content/uploads/2026/02/Comunicato_Unicredit_20260210_Vap_2025.pdf"}},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 96.8, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per tipo di contratto", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 6.2, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 turnover", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 38, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-13 formazione", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 32, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), S1-16 divario retributivo", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}}
+   "slug": "unicredit",
+   "nome": "UniCredit",
+   "settore": "Banche",
+   "citta": "Milano",
+   "anno_dati": 2025,
+   "dipendenti": 72110,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1100, "fonte": {"titolo": "Vap 2025 definitivo (First Cisl Gruppo UniCredit, aprile 2026)", "url": "https://www.firstcisl.it/gruppounicredit/wp-content/uploads/sites/8/2026/04/Vap-2025-definitivo.pdf"}},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 1130, "fonte": {"titolo": "Uilca - comunicato accordo uscite e ricambio generazionale (21/04/2026)", "url": "https://www.uilca.it/wp-content/uploads/CS-Uilca_Unicredit-21042026.pdf"}},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 1624, "fonte": null},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 34903, "fonte": {"titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per paese", "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"}},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": null, "fonte": null},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": "UniCredit Tower, Piazza Gae Aulenti 3, Milano", "fonte": {"titolo": "UniCredit in breve - UniCredit", "url": "https://www.unicreditgroup.eu/it/unicredit-at-a-glance.html?topmenu=INT-TM_ABO0_it060"}}
+    "proventi": [
+     23843,
+     24844,
+     24536
     ],
-    "limiti": ["Circa metà del personale lavora fuori dall'Italia: i dati di gruppo descrivono solo in parte il lavoro in Italia.", "Turnover pubblicato (6,2%) senza base di calcolo dichiarata.", "Spese per il personale 2023 riesposte nel comunicato 2024."]
+    "utile": [
+     9507,
+     9719,
+     10915
+    ],
+    "dipendenti": [
+     76580,
+     75265,
+     72110
+    ],
+    "spese_personale": [
+     5861,
+     5853,
+     5872
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 1.44,
+     "punti": 42.9,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 7.15,
+     "punti": 57.2,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 0.09,
+     "punti": 50.9,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF)",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 38.5,
+     "punti": 100,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 14.75,
+     "punti": 62.5,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Financial highlights - UniCredit",
+      "url": "https://www.unicreditgroup.eu/en/investors/financial-reporting/financial-highlights.html"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 81431,
+     "punti": 53.6,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF)",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 8,
+     "punti": 66.7,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Comunicato Uilca/First Cisl su VAP e buoni pasto UniCredit (10/02/2026)",
+      "url": "https://www.firstcisl.it/wp-content/uploads/2026/02/Comunicato_Unicredit_20260210_Vap_2025.pdf"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 96.8,
+     "punti": 68.0,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per tipo di contratto",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 6.2,
+     "punti": 73.3,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 turnover",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 38,
+     "punti": 36.0,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-13 formazione",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 32,
+     "punti": 10.0,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF), S1-16 divario retributivo",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 62.7,
+    "Retribuzione": 60.2,
+    "Stabilità": 70.7,
+    "Crescita e parità": 23.0
+   },
+   "indicatori_presenti": 11,
+   "punteggio": 55.7,
+   "voto": "D",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": 1100,
+     "fonte": {
+      "titolo": "Vap 2025 definitivo (First Cisl Gruppo UniCredit, aprile 2026)",
+      "url": "https://www.firstcisl.it/gruppounicredit/wp-content/uploads/sites/8/2026/04/Vap-2025-definitivo.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 1130,
+     "fonte": {
+      "titolo": "Uilca - comunicato accordo uscite e ricambio generazionale (21/04/2026)",
+      "url": "https://www.uilca.it/wp-content/uploads/CS-Uilca_Unicredit-21042026.pdf"
+     }
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 1624,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 34903,
+     "fonte": {
+      "titolo": "Bilanci e Relazioni 2025 (PDF), tabella S1-6 per paese",
+      "url": "https://www.unicreditgroup.eu/content/dam/unicreditgroup-eu/documents/it/investors/bilanci-e-relazioni/2025/4q25/Bilanci-e-Relazioni-2025.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "UniCredit Tower, Piazza Gae Aulenti 3, Milano",
+     "fonte": {
+      "titolo": "UniCredit in breve - UniCredit",
+      "url": "https://www.unicreditgroup.eu/it/unicredit-at-a-glance.html?topmenu=INT-TM_ABO0_it060"
+     }
+    }
+   ],
+   "limiti": [
+    "Circa metà del personale lavora fuori dall'Italia: i dati di gruppo descrivono solo in parte il lavoro in Italia.",
+    "Turnover pubblicato (6,2%) senza base di calcolo dichiarata.",
+    "Spese per il personale 2023 riesposte nel comunicato 2024."
+   ]
   },
   {
-    "slug": "banco-bpm",
-    "nome": "Banco BPM",
-    "settore": "Banche",
-    "citta": null,
-    "anno_dati": 2025,
-    "dipendenti": 18965,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [5341.442, 5703.529, 5955.251], "utile": [1264.453, 1920.393, 2082.0], "dipendenti": [19761, 19490, 18965], "spese_personale": [1672.0, 1745.2, 1798.1]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 5.59, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 28.32, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 3.7, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 46.0, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 13.58, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 94811, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Comunicato stampa - Risultati al 31 dicembre 2025", "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 8, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato FABI - Accordo VAP Banco BPM, 17/02/2026", "url": "https://www.fabi.it/wp-content/uploads/2026/02/ComSt_FABI_20260217_AccordoVap_BancoBpmolo-copia.pdf"}},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.37, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 9.2, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 59, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 19.7, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)", "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"}}
+   "slug": "banco-bpm",
+   "nome": "Banco BPM",
+   "settore": "Banche",
+   "citta": null,
+   "anno_dati": 2025,
+   "dipendenti": 18965,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": 10, "fonte": {"titolo": "Comunicato FIRST CISL - Smart working, un nuovo passo avanti per il Gruppo (8 maggio 2026)", "url": "https://www.firstcisl.it/bancobpm/wp-content/uploads/sites/13/2026/05/20260508-Smart-working-un-nuovo-passo-avanti-per-il-Gruppo.pdf"}},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 1320, "fonte": {"titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026", "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"}},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 821, "fonte": {"titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026", "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"}},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": 3.7, "fonte": {"titolo": "Recensioni su Banco BPM - Indeed", "url": "https://it.indeed.com/cmp/Banco-Bpm/reviews"}},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": null, "fonte": null}
+    "proventi": [
+     5341.442,
+     5703.529,
+     5955.251
     ],
-    "limiti": ["Spese per il personale 2023 con 10,6 milioni di componenti non ricorrenti.", "Uscite e assunzioni: somma di tre accordi, possibile sovrapposizione tra quelli del 2024 e del 2026."]
+    "utile": [
+     1264.453,
+     1920.393,
+     2082.0
+    ],
+    "dipendenti": [
+     19761,
+     19490,
+     18965
+    ],
+    "spese_personale": [
+     1672.0,
+     1745.2,
+     1798.1
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 5.59,
+     "punti": 70.6,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 28.32,
+     "punti": 100,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.7,
+     "punti": 87.0,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 46.0,
+     "punti": 76.0,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 13.58,
+     "punti": 43.0,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 94811,
+     "punti": 87.0,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Comunicato stampa - Risultati al 31 dicembre 2025",
+      "url": "https://gruppo.bancobpm.it/download/press-bbpm-fy2025"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 8,
+     "punti": 66.7,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Comunicato FABI - Accordo VAP Banco BPM, 17/02/2026",
+      "url": "https://www.fabi.it/wp-content/uploads/2026/02/ComSt_FABI_20260217_AccordoVap_BancoBpmolo-copia.pdf"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.37,
+     "punti": 93.7,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
+      "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 9.2,
+     "punti": 48.3,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
+      "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 59,
+     "punti": 78.0,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
+      "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 19.7,
+     "punti": 51.0,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Relazione sulla gestione - Rendicontazione di sostenibilità, informazioni sociali (2025)",
+      "url": "https://gruppo.bancobpm.it/download/10-relazione-sulla-gestione-del-gruppo-rendicontazione-di-sostenibilita-informazioni-sociali-2"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 75.3,
+    "Retribuzione": 76.8,
+    "Stabilità": 71.0,
+    "Crescita e parità": 64.5
+   },
+   "indicatori_presenti": 11,
+   "punteggio": 72.7,
+   "voto": "B",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": 10,
+     "fonte": {
+      "titolo": "Comunicato FIRST CISL - Smart working, un nuovo passo avanti per il Gruppo (8 maggio 2026)",
+      "url": "https://www.firstcisl.it/bancobpm/wp-content/uploads/sites/13/2026/05/20260508-Smart-working-un-nuovo-passo-avanti-per-il-Gruppo.pdf"
+     }
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 1320,
+     "fonte": {
+      "titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026",
+      "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"
+     }
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 821,
+     "fonte": {
+      "titolo": "Comunicato FABI - Accordi su ricambio generazionale, premi e welfare (19/12/2024), con accordi 28/11/2025 e 24/02/2026",
+      "url": "https://fabi.it/wp-content/uploads/2024/12/ComSt_FABI_20241219_BancoBpm_def.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": 3.7,
+     "fonte": {
+      "titolo": "Recensioni su Banco BPM - Indeed",
+      "url": "https://it.indeed.com/cmp/Banco-Bpm/reviews"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": null,
+     "fonte": null
+    }
+   ],
+   "limiti": [
+    "Spese per il personale 2023 con 10,6 milioni di componenti non ricorrenti.",
+    "Uscite e assunzioni: somma di tre accordi, possibile sovrapposizione tra quelli del 2024 e del 2026."
+   ]
   },
   {
-    "slug": "bper-banca",
-    "nome": "BPER Banca",
-    "settore": "Banche",
-    "citta": "Modena",
-    "anno_dati": 2025,
-    "dipendenti": 22300,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [5476.7, 5574.6, 6589.3], "utile": [1519.5, 1402.6, 1818.4], "dipendenti": [20224, 19508, 22300], "spese_personale": [2001.4, 1915.5, 1800.6]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 9.69, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 9.39, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": -5.15, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 45.73, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 14.83, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 80744, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)", "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 7.0, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "Comunicato unitario Gruppo BPER del 29 ottobre 2020 - Buoni pasto (FABI, FIRST/CISL, FISAC/CGIL, UILCA, UNISIN), pubblicato da FISAC CGIL", "url": "https://www.fisac-cgil.it/102595/finalmente-nel-gruppo-bper-aumenta-il-buono-pasto"}},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.89, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 6.36, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 57.94, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-13, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 19.31, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-16, PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}}
+   "slug": "bper-banca",
+   "nome": "BPER Banca",
+   "settore": "Banche",
+   "citta": "Modena",
+   "anno_dati": 2025,
+   "dipendenti": 22300,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1400, "fonte": {"titolo": "BPER VAP aree e quadri 2025 (accordo sindacale, FIRST Cisl)", "url": "https://www.firstcisl.it/bperbanca/wp-content/uploads/sites/56/2025/07/BPER-VAP-aree-e-quadri-2025.pdf"}},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": 800, "fonte": {"titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)", "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"}},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": 650, "fonte": {"titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)", "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"}},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 21882, "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (PDF)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": "3.5 / 111", "fonte": {"titolo": "Indeed - BPER Banca SpA (recensioni dipendenti)", "url": "https://it.indeed.com/cmp/Bper-Banca-Spa"}},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Via San Carlo, 8/20, Modena", "fonte": {"titolo": "BPER Group - Resoconti dell'esercizio 2025 (PDF, pagina con i dati della società capogruppo)", "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"}}
+    "proventi": [
+     5476.7,
+     5574.6,
+     6589.3
     ],
-    "limiti": ["Il 2025 include la Banca Popolare di Sondrio: proventi, costi e dipendenti 2025 non sono confrontabili con il 2024.", "Le spese per il personale 2023 includono costi straordinari per le uscite: il calo 2023-2025 non indica da solo tagli al personale.", "CET1 disponibile solo nella versione transitoria.", "Buono pasto da accordo del 2020, in vigore dal 2023."]
+    "utile": [
+     1519.5,
+     1402.6,
+     1818.4
+    ],
+    "dipendenti": [
+     20224,
+     19508,
+     22300
+    ],
+    "spese_personale": [
+     2001.4,
+     1915.5,
+     1800.6
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.69,
+     "punti": 97.9,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 9.39,
+     "punti": 64.6,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -5.15,
+     "punti": 0,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 45.73,
+     "punti": 77.1,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 14.83,
+     "punti": 63.8,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 80744,
+     "punti": 51.9,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "BPER Group - Risultati consolidati al 31 dicembre 2025 (comunicato stampa, PDF)",
+      "url": "https://group.bper.it/documents/133577364/2799448628/26.02.05+BPER+Risultati+2025+EN.pdf/83773efa-185c-c6d8-31a4-98aab75c7dfc?t=1770269357135"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 7.0,
+     "punti": 50.0,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Comunicato unitario Gruppo BPER del 29 ottobre 2020 - Buoni pasto (FABI, FIRST/CISL, FISAC/CGIL, UILCA, UNISIN), pubblicato da FISAC CGIL",
+      "url": "https://www.fisac-cgil.it/102595/finalmente-nel-gruppo-bper-aumenta-il-buono-pasto"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.89,
+     "punti": 98.9,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 6.36,
+     "punti": 72.0,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-6, PDF)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 57.94,
+     "punti": 75.9,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-13, PDF)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 19.31,
+     "punti": 52.3,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (ESRS S1-16, PDF)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 60.7,
+    "Retribuzione": 51.0,
+    "Stabilità": 85.5,
+    "Crescita e parità": 64.1
+   },
+   "indicatori_presenti": 11,
+   "punteggio": 63.9,
+   "voto": "C",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": 1400,
+     "fonte": {
+      "titolo": "BPER VAP aree e quadri 2025 (accordo sindacale, FIRST Cisl)",
+      "url": "https://www.firstcisl.it/bperbanca/wp-content/uploads/sites/56/2025/07/BPER-VAP-aree-e-quadri-2025.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 800,
+     "fonte": {
+      "titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)",
+      "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"
+     }
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 650,
+     "fonte": {
+      "titolo": "Accordo BPER del 19.12.2025 (manovra sul personale, FIRST Cisl)",
+      "url": "https://www.firstcisl.it/gruppobper/wp-content/uploads/sites/54/2025/12/Accordo-Manovra-19.12.2025.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 21882,
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025, Rendicontazione consolidata di sostenibilità (PDF)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": "3.5 / 111",
+     "fonte": {
+      "titolo": "Indeed - BPER Banca SpA (recensioni dipendenti)",
+      "url": "https://it.indeed.com/cmp/Bper-Banca-Spa"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "Via San Carlo, 8/20, Modena",
+     "fonte": {
+      "titolo": "BPER Group - Resoconti dell'esercizio 2025 (PDF, pagina con i dati della società capogruppo)",
+      "url": "https://group.bper.it/documents/d/bper-istituzionale/resoconti-dell-esercizio-2025_pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Il 2025 include la Banca Popolare di Sondrio: proventi, costi e dipendenti 2025 non sono confrontabili con il 2024.",
+    "Le spese per il personale 2023 includono costi straordinari per le uscite: il calo 2023-2025 non indica da solo tagli al personale.",
+    "CET1 disponibile solo nella versione transitoria.",
+    "Buono pasto da accordo del 2020, in vigore dal 2023."
+   ]
   },
   {
-    "slug": "banca-mps",
-    "nome": "Banca Monte dei Paschi di Siena",
-    "settore": "Banche",
-    "citta": "Siena",
-    "anno_dati": 2025,
-    "dipendenti": 22079,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [3796.8, 4033.8, 4073.9], "utile": [2051.8, 1950.8, 2749.9], "dipendenti": [16737, 16727, 16546], "spese_personale": [1179.6, 1228.8, 1281.2]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": 3.58, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 15.77, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 4.22, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 46.5, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 16.2, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 77433, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)", "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": null, "soglia0": 4, "soglia100": 10, "fonte": null},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": 99.41, "soglia0": 90, "soglia100": 100, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": 1.66, "soglia0": 15, "soglia100": 3, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": 32.8, "soglia0": 20, "soglia100": 70, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": 29.4, "soglia0": 35, "soglia100": 5, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}}
+   "slug": "banca-mps",
+   "nome": "Banca Monte dei Paschi di Siena",
+   "settore": "Banche",
+   "citta": "Siena",
+   "anno_dati": 2025,
+   "dipendenti": 22079,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": 1500, "fonte": {"titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)", "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"}},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": {"titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)", "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"}},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": 3, "fonte": {"titolo": "Accordo di welfare MPS del 10/10/2024 (FIRST CISL, PDF)", "url": "https://www.firstcisl.it/mps/wp-content/uploads/sites/29/2024/10/accordo-Welfare-10.10.24.pdf"}},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 21197, "fonte": {"titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità", "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"}},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": null, "fonte": null},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": "Piazza Salimbeni, 3, 53100 Siena (SI)", "fonte": {"titolo": "Banca MPS - pagina reclami (gruppomps.it)", "url": "https://gruppomps.it/en/complaints.html"}}
+    "proventi": [
+     3796.8,
+     4033.8,
+     4073.9
     ],
-    "limiti": ["Dal 2025 il gruppo include Mediobanca. Per confrontare gli anni, crescita, costo medio e grafici usano i dati 2025 senza Mediobanca (proventi 4.073,9, utile 2.749,9, spese per il personale 1.281,2, dipendenti 16.546).", "Divario retributivo di gruppo 29,4%; senza Mediobanca 11,4%.", "Turnover pubblicato solo senza Mediobanca."]
+    "utile": [
+     2051.8,
+     1950.8,
+     2749.9
+    ],
+    "dipendenti": [
+     16737,
+     16727,
+     16546
+    ],
+    "spese_personale": [
+     1179.6,
+     1228.8,
+     1281.2
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.58,
+     "punti": 57.2,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 15.77,
+     "punti": 85.9,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 4.22,
+     "punti": 92.2,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 46.5,
+     "punti": 74.0,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 16.2,
+     "punti": 86.7,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 77433,
+     "punti": 43.6,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY2025 - Gruppo MPS (pr-4q25-fy25-results)",
+      "url": "https://gruppomps.it/static/upload/pr-/pr-4q25-fy25-results.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "punti": null,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": null
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.41,
+     "punti": 94.1,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
+      "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 1.66,
+     "punti": 100,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
+      "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 32.8,
+     "punti": 25.6,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
+      "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 29.4,
+     "punti": 18.7,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
+      "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 79.2,
+    "Retribuzione": 43.6,
+    "Stabilità": 97.0,
+    "Crescita e parità": 22.1
+   },
+   "indicatori_presenti": 10,
+   "punteggio": 62.4,
+   "voto": "C",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": 1500,
+     "fonte": {
+      "titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)",
+      "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": {
+      "titolo": "Accordo rinnovo CIA e premio aziendale del 25 luglio 2025 (Fisac CGIL)",
+      "url": "https://www.fisac-cgil.it/151525/mps-accordo-su-rinnovo-cia-e-premio-aziendale?pdf=151525"
+     }
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": 3,
+     "fonte": {
+      "titolo": "Accordo di welfare MPS del 10/10/2024 (FIRST CISL, PDF)",
+      "url": "https://www.firstcisl.it/mps/wp-content/uploads/sites/29/2024/10/accordo-Welfare-10.10.24.pdf"
+     }
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 21197,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 (annual report) - Gruppo MPS, sezione di rendicontazione di sostenibilità",
+      "url": "https://gruppomps.it/static/upload/ann/annual-report-gmps-2025-.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "Piazza Salimbeni, 3, 53100 Siena (SI)",
+     "fonte": {
+      "titolo": "Banca MPS - pagina reclami (gruppomps.it)",
+      "url": "https://gruppomps.it/en/complaints.html"
+     }
+    }
+   ],
+   "limiti": [
+    "Dal 2025 il gruppo include Mediobanca. Per confrontare gli anni, crescita, costo medio e grafici usano i dati 2025 senza Mediobanca (proventi 4.073,9, utile 2.749,9, spese per il personale 1.281,2, dipendenti 16.546).",
+    "Divario retributivo di gruppo 29,4%; senza Mediobanca 11,4%.",
+    "Turnover pubblicato solo senza Mediobanca."
+   ]
   },
   {
-    "slug": "credem",
-    "nome": "Credem",
-    "settore": "Banche",
-    "citta": "Reggio Emilia",
-    "anno_dati": 2025,
-    "dipendenti": 6771,
-    "serie": {"anni": [2023, 2024, 2025], "proventi": [1923.2, 2032.3, 1883.5], "utile": [562.1, 620.1, 621.5], "dipendenti": [6628, 6614, 6731], "spese_personale": [579.1, 613.6, 620.9]},
-    "indicatori": [
-      {"id": "crescita_proventi", "area": "Solidità", "nome": "Crescita dei proventi (media annua 2023-2025)", "unita": "%", "valore": -1.04, "soglia0": -5, "soglia100": 10, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
-      {"id": "crescita_utile", "area": "Solidità", "nome": "Crescita dell'utile netto (media annua 2023-2025)", "unita": "%", "valore": 5.15, "soglia0": -10, "soglia100": 20, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
-      {"id": "crescita_costo_personale", "area": "Solidità", "nome": "Andamento del costo del personale (media annua 2023-2025)", "unita": "%", "valore": 3.55, "soglia0": -5, "soglia100": 5, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
-      {"id": "cost_income", "area": "Solidità", "nome": "Costi su ricavi (cost/income)", "unita": "%", "valore": 49.6, "soglia0": 65, "soglia100": 40, "fonte": {"titolo": "Dati finanziari delle banche in Italia al 31 dicembre 2025, indicatori economici (Centro Studi UILCA)", "url": "https://www.uilca.it/wp-content/uploads/20260219-2231-PDF-DATI-ECONOMICI-E-PATRIMONIALI-BANCHE-AL-311225-002.pdf"}},
-      {"id": "cet1", "area": "Solidità", "nome": "Solidità patrimoniale (CET1)", "unita": "%", "valore": 16.99, "soglia0": 11, "soglia100": 17, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
-      {"id": "costo_medio", "area": "Retribuzione", "nome": "Costo medio per dipendente", "unita": "€", "valore": 91700, "soglia0": 60000, "soglia100": 100000, "fonte": {"titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"}},
-      {"id": "buono_pasto", "area": "Retribuzione", "nome": "Buono pasto giornaliero", "unita": "€", "valore": 7, "soglia0": 4, "soglia100": 10, "fonte": {"titolo": "La Sveglia n. 232 (First Cisl, gennaio 2024)", "url": "https://www.firstcisl.it/creditoemiliano/wp-content/uploads/sites/27/2024/01/sve232_gennaio-2024.pdf"}},
-      {"id": "tempo_indet", "area": "Stabilità", "nome": "Dipendenti a tempo indeterminato", "unita": "%", "valore": null, "soglia0": 90, "soglia100": 100, "fonte": null},
-      {"id": "turnover", "area": "Stabilità", "nome": "Dipendenti che lasciano ogni anno (turnover)", "unita": "%", "valore": null, "soglia0": 15, "soglia100": 3, "fonte": null},
-      {"id": "formazione", "area": "Crescita e parità", "nome": "Ore di formazione per dipendente", "unita": "ore", "valore": null, "soglia0": 20, "soglia100": 70, "fonte": null},
-      {"id": "gpg", "area": "Crescita e parità", "nome": "Differenza di stipendio tra uomini e donne", "unita": "%", "valore": null, "soglia0": 35, "soglia100": 5, "fonte": null}
+   "slug": "credem",
+   "nome": "Credem",
+   "settore": "Banche",
+   "citta": "Reggio Emilia",
+   "anno_dati": 2025,
+   "dipendenti": 6771,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
     ],
-    "altri_dati": [
-      {"id": "premio_aziendale_2025", "nome": "Premio aziendale 2025 (lordo, in denaro)", "unita": "€", "valore": null, "fonte": null},
-      {"id": "smart_working", "nome": "Lavoro agile, giorni al mese (sedi centrali)", "unita": "giorni", "valore": null, "fonte": null},
-      {"id": "previdenza_azienda", "nome": "Contributo dell'azienda alla previdenza complementare", "unita": "%", "valore": null, "fonte": null},
-      {"id": "uscite_accordo", "nome": "Uscite volontarie da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "assunzioni_accordo", "nome": "Assunzioni da accordi 2024-2026", "unita": "n.", "valore": null, "fonte": null},
-      {"id": "dipendenti_italia_2025", "nome": "Dipendenti in Italia", "unita": "n.", "valore": 6771, "fonte": {"titolo": "Bilancio consolidato 2025 (EN), sezione rendiconto di sostenibilità, tabella per area geografica", "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2025/Bilancio%20consolidato%202025_EN%20def.pdf"}},
-      {"id": "indeed", "nome": "Recensioni Indeed (stelle / numero)", "unita": "", "valore": 3.6, "fonte": {"titolo": "Recensioni su CREDEM (Indeed Italia)", "url": "https://it.indeed.com/cmp/Credem/reviews"}},
-      {"id": "sede", "nome": "Sede", "unita": "", "valore": null, "fonte": null}
+    "proventi": [
+     1923.2,
+     2032.3,
+     1883.5
     ],
-    "limiti": ["Dati insufficienti per un voto: manca il rendiconto di sostenibilità 2025.", "Proventi: margine di intermediazione.", "Cost/income da tabella UILCA sui bilanci 2025, non dal comunicato Credem.", "Dipendenti nel grafico: dipendenti attivi (6.731 nel 2025). L'utile 2025 include 98,6 milioni dalla cessione di un ramo d'azienda."]
+    "utile": [
+     562.1,
+     620.1,
+     621.5
+    ],
+    "dipendenti": [
+     6628,
+     6614,
+     6731
+    ],
+    "spese_personale": [
+     579.1,
+     613.6,
+     620.9
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -1.04,
+     "punti": 26.4,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 5.15,
+     "punti": 50.5,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.55,
+     "punti": 85.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 49.6,
+     "punti": 61.6,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Dati finanziari delle banche in Italia al 31 dicembre 2025, indicatori economici (Centro Studi UILCA)",
+      "url": "https://www.uilca.it/wp-content/uploads/20260219-2231-PDF-DATI-ECONOMICI-E-PATRIMONIALI-BANCHE-AL-311225-002.pdf"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 16.99,
+     "punti": 99.8,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 91700,
+     "punti": 79.2,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Risultati FY25 Gruppo Credem (presentazione ufficiale)",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/Presentazioni/archivio/2026/Risultati%20FY25%20Gruppo%20Credem.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 7,
+     "punti": 50.0,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "La Sveglia n. 232 (First Cisl, gennaio 2024)",
+      "url": "https://www.firstcisl.it/creditoemiliano/wp-content/uploads/sites/27/2024/01/sve232_gennaio-2024.pdf"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": null
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": null
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "punti": null,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": null
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": null
+    }
+   ],
+   "aree": {
+    "Solidità": 64.8,
+    "Retribuzione": 64.6
+   },
+   "indicatori_presenti": 7,
+   "punteggio": null,
+   "voto": null,
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 6771,
+     "fonte": {
+      "titolo": "Bilancio consolidato 2025 (EN), sezione rendiconto di sostenibilità, tabella per area geografica",
+      "url": "https://www.credem.it/content/dam/credem/documenti/Investor_Relations/EN_Investor_Relations/Financials/2025/Bilancio%20consolidato%202025_EN%20def.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": 3.6,
+     "fonte": {
+      "titolo": "Recensioni su CREDEM (Indeed Italia)",
+      "url": "https://it.indeed.com/cmp/Credem/reviews"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": null,
+     "fonte": null
+    }
+   ],
+   "limiti": [
+    "Dati insufficienti per un voto: manca il rendiconto di sostenibilità 2025.",
+    "Proventi: margine di intermediazione.",
+    "Cost/income da tabella UILCA sui bilanci 2025, non dal comunicato Credem.",
+    "Dipendenti nel grafico: dipendenti attivi (6.731 nel 2025). L'utile 2025 include 98,6 milioni dalla cessione di un ramo d'azienda."
+   ]
+  },
+  {
+   "slug": "banca-ifis",
+   "nome": "Banca Ifis",
+   "settore": "Banche",
+   "citta": "Venezia Mestre",
+   "anno_dati": 2025,
+   "dipendenti": 2695,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "proventi": [
+     704.6,
+     699.2,
+     666.8
+    ],
+    "utile": [
+     160.1,
+     161.6,
+     328.0
+    ],
+    "dipendenti": [
+     null,
+     2013,
+     2004
+    ],
+    "spese_personale": [
+     163.8,
+     169.9,
+     177.0
+    ]
+   },
+   "indicatori": [
+    {
+     "id": "crescita_proventi",
+     "area": "Solidità",
+     "nome": "Crescita dei proventi (media annua 2023-2025)",
+     "unita": "%",
+     "valore": -2.72,
+     "punti": 15.2,
+     "soglia0": -5,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_utile",
+     "area": "Solidità",
+     "nome": "Crescita dell'utile netto (media annua 2023-2025)",
+     "unita": "%",
+     "valore": null,
+     "punti": null,
+     "soglia0": -10,
+     "soglia100": 20,
+     "fonte": {
+      "titolo": "Banca Ifis - Risultati consolidati preliminari 2025 (comunicato stampa)",
+      "url": "https://www.bancaifis.it/en/press-releases/banca-ifis-2025-sees-net-profit-of-328-million-euro-including-the-effects-of-the-first-consolidation-of-illimity-distribution-approved-of-a-total-dividend-in-2025-of-129-million-euro/"
+     }
+    },
+    {
+     "id": "crescita_costo_personale",
+     "area": "Solidità",
+     "nome": "Andamento del costo del personale (media annua 2023-2025)",
+     "unita": "%",
+     "valore": 3.95,
+     "punti": 89.5,
+     "soglia0": -5,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "cost_income",
+     "area": "Solidità",
+     "nome": "Costi su ricavi (cost/income)",
+     "unita": "%",
+     "valore": 63.3,
+     "punti": 6.8,
+     "soglia0": 65,
+     "soglia100": 40,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "cet1",
+     "area": "Solidità",
+     "nome": "Solidità patrimoniale (CET1)",
+     "unita": "%",
+     "valore": 12.95,
+     "punti": 32.5,
+     "soglia0": 11,
+     "soglia100": 17,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "costo_medio",
+     "area": "Retribuzione",
+     "nome": "Costo medio per dipendente",
+     "unita": "€",
+     "valore": 88323,
+     "punti": 70.8,
+     "soglia0": 60000,
+     "soglia100": 100000,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "buono_pasto",
+     "area": "Retribuzione",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "punti": null,
+     "soglia0": 4,
+     "soglia100": 10,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "tempo_indet",
+     "area": "Stabilità",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 98.3,
+     "punti": 83.0,
+     "soglia0": 90,
+     "soglia100": 100,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "turnover",
+     "area": "Stabilità",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": 6,
+     "punti": 75.0,
+     "soglia0": 15,
+     "soglia100": 3,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "formazione",
+     "area": "Crescita e parità",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 31,
+     "punti": 22.0,
+     "soglia0": 20,
+     "soglia100": 70,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "gpg",
+     "area": "Crescita e parità",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 26,
+     "punti": 30.0,
+     "soglia0": 35,
+     "soglia100": 5,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    }
+   ],
+   "aree": {
+    "Solidità": 36.0,
+    "Retribuzione": 70.8,
+    "Stabilità": 79.0,
+    "Crescita e parità": 26.0
+   },
+   "indicatori_presenti": 9,
+   "punteggio": 51.3,
+   "voto": "D",
+   "altri_dati": [
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": {
+      "titolo": "FABI - Accordo PVR 2022 Gruppo Ifis (22/12/2022)",
+      "url": "https://www.fabi.it/wp-content/uploads/2023/01/2022_12_22_cu_gruppoifis_accordo_PVRWelfareRiorganizzazione.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese (sedi centrali)",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "previdenza_azienda",
+     "nome": "Contributo dell'azienda alla previdenza complementare",
+     "unita": "%",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "uscite_accordo",
+     "nome": "Uscite volontarie da accordi 2024-2026",
+     "unita": "n.",
+     "valore": 120,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "assunzioni_accordo",
+     "nome": "Assunzioni da accordi 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 2668,
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed (stelle / numero)",
+     "unita": "",
+     "valore": null,
+     "fonte": {
+      "titolo": "Banca Ifis - Sustainability performance (pagina sito)",
+      "url": "https://www.bancaifis.it/en/about-us/sustainability/performance/"
+     }
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "",
+     "valore": "Via Terraglio, 63 30174 Mestre - Venice (Italy)",
+     "fonte": {
+      "titolo": "Banca Ifis - Annual Report 2025 (bilancio consolidato e rendiconto di sostenibilita, versione inglese)",
+      "url": "https://www.bancaifis.it/app/uploads/2026/04/Annual-Report-2025.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Dal 1° luglio 2025 il gruppo include illimity Bank. Per confrontare gli anni, crescita dei proventi, andamento e costo medio del personale e grafici usano i dati 2025 senza illimity (proventi 666,8, spese per il personale 177,0, dipendenti 2.004).",
+    "Crescita dell'utile non calcolata: l'utile 2025 (328,0 milioni) include un provento straordinario di 309,9 milioni legato all'acquisizione. Utile normalizzato pubblicato: 108,1 milioni.",
+    "Cost/income, CET1, turnover, divario retributivo, formazione e tempo indeterminato sono di gruppo, illimity inclusa.",
+    "CET1 12,95%: il documento non dichiara se è a regime. Pro forma 13,7%.",
+    "Dipendenti 2023 non pubblicati nei documenti letti."
+   ]
   }
-];
+ ]
+}; /*DATI_BANCHE_FINE*/
+/* Società di gestione crediti: copia di data/npl/sito.json. Solo dati, senza voto. */
+/*DATI_NPL_INIZIO*/ const DATI_NPL = {
+ "stato": "solo dati, senza voto",
+ "societa": [
+  {
+   "slug": "dovalue",
+   "nome": "doValue",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Verona",
+   "perimetro": "Gruppo consolidato",
+   "anno_dati": 2025,
+   "dipendenti": 3072,
+   "voto": null,
+   "dati_presenti": 19,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     485.7,
+     482.1,
+     580.4
+    ],
+    "ebitda": [
+     178.4,
+     164.8,
+     217.2
+    ],
+    "utile": [
+     -18.9,
+     1.9,
+     -8.2
+    ],
+    "dipendenti": [
+     null,
+     2754,
+     3072
+    ],
+    "spese_personale": [
+     196.2,
+     203.4,
+     236.4
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": 580.4,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": 217.2,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": -8.2,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": 2.0,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": 236.4,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati 2025 (approvazione progetto di bilancio, 18/03/2026)",
+      "url": "https://www.emarketstorage.it/sites/default/files/comunicati/2026-03/20260318_179189.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 3072,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 1219,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": 99.7,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": 26.66,
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Viale del Commercio, 47 - 37135 Verona",
+     "fonte": {
+      "titolo": "Relazione finanziaria annuale 2025 con rendiconto di sostenibilita",
+      "url": "https://dovalue.it/sites/default/files/2026-03/2025%20AR_voluntary%20pdf_0.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: il modello di punteggio per le società di gestione crediti non è ancora definito e mancano turnover, formazione e dati contrattuali.",
+    "Il 2025 include Gardant, acquisita: ricavi, costi e dipendenti non sono confrontabili con il 2024.",
+    "Il 2023 include le attività in Portogallo, poi cedute.",
+    "Utile 2025 negativo per 8,2 milioni; senza voci straordinarie è positivo per 25,3 milioni.",
+    "Dei 3.072 dipendenti, 1.219 lavorano in Italia.",
+    "Turnover e formazione sono pubblicati solo per paese o per genere, non per il gruppo."
+   ]
+  },
+  {
+   "slug": "amco",
+   "nome": "AMCO",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Milano",
+   "perimetro": "Gruppo consolidato",
+   "anno_dati": 2025,
+   "dipendenti": 743,
+   "voto": null,
+   "dati_presenti": 18,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     484.7,
+     437.7,
+     408.8
+    ],
+    "ebitda": [
+     304.3,
+     237.1,
+     191.5
+    ],
+    "utile": [
+     -388.0,
+     28.941,
+     26.095
+    ],
+    "dipendenti": [
+     null,
+     444,
+     743
+    ],
+    "spese_personale": [
+     49.6,
+     53.3,
+     68.5
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": 408.8,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": 191.5,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": 26.095,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": 68.5,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": 743,
+     "fonte": {
+      "titolo": "Comunicato stampa risultati FY25 (Milano, 26 marzo 2026)",
+      "url": "https://www.amco.it/wp-content/uploads/2026/03/CS-AMCO-risultati-FY25_F.pdf"
+     }
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": 31,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": 10,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": 8,
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Milano, sede legale e Direzione Generale",
+     "fonte": {
+      "titolo": "Report di Sostenibilita 2025",
+      "url": "https://www.amco.it/wp-content/uploads/2026/05/report-di-sostenibilita-2025-it.pdf"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: il modello di punteggio per le società di gestione crediti non è ancora definito e mancano turnover, tempo indeterminato e divario retributivo.",
+    "Nel 2025 sono entrate Exacta (dal 30 aprile) e GHT (dal 31 agosto): ricavi, costi e dipendenti non sono confrontabili con il 2024.",
+    "Utile 2023 negativo per 388,0 milioni, dato di gruppo.",
+    "Divario retributivo pubblicato solo come 'inferiore al 5%' per categoria, senza un numero unico.",
+    "Buono pasto e lavoro agile dall'accordo 2026-2028 firmato a dicembre 2025."
+   ]
+  },
+  {
+   "slug": "intrum-italy",
+   "nome": "Intrum Italy",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "Milano",
+   "perimetro": "Attività in Italia del gruppo svedese Intrum",
+   "anno_dati": 2025,
+   "dipendenti": 655,
+   "voto": null,
+   "dati_presenti": 4,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "SEK",
+    "ricavi": [
+     1981,
+     2040,
+     2003
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln SEK",
+     "valore": 2003,
+     "fonte": {
+      "titolo": "Intrum Annual Report 2025 (inglese)",
+      "url": "https://www.intrum.com/media/ccgbzhb3/intrum-ar-2025-eng.pdf"
+     }
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln SEK",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": 655,
+     "fonte": {
+      "titolo": "Intrum Annual Report 2025 (inglese)",
+      "url": "https://www.intrum.com/media/ccgbzhb3/intrum-ar-2025-eng.pdf"
+     }
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    }
+   ],
+   "limiti": [
+    "Senza voto: per l'Italia il gruppo pubblica solo i ricavi e il numero di dipendenti.",
+    "Ricavi in milioni di corone svedesi (SEK), come pubblicati. Nessuna conversione in euro.",
+    "I dati sul personale del gruppo mondiale (8.695 dipendenti, turnover 22,6%, divario retributivo 31%) non riguardano l'Italia e non sono usati."
+   ]
+  },
+  {
+   "slug": "cerved",
+   "nome": "Cerved Group",
+   "settore": "Gestione crediti (NPL)",
+   "citta": "San Donato Milanese",
+   "perimetro": "Gruppo Cerved",
+   "anno_dati": 2025,
+   "dipendenti": null,
+   "voto": null,
+   "dati_presenti": 1,
+   "dati_totali": 28,
+   "serie": {
+    "anni": [
+     2023,
+     2024,
+     2025
+    ],
+    "valuta": "EUR",
+    "ricavi": [
+     null,
+     null,
+     null
+    ],
+    "ebitda": [
+     null,
+     null,
+     null
+    ],
+    "utile": [
+     null,
+     null,
+     null
+    ],
+    "dipendenti": [
+     null,
+     null,
+     null
+    ],
+    "spese_personale": [
+     null,
+     null,
+     null
+    ]
+   },
+   "dati": [
+    {
+     "id": "ricavi_2025",
+     "nome": "Ricavi 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ebitda_2025",
+     "nome": "EBITDA 2025 (senza voci straordinarie)",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "utile_2025",
+     "nome": "Utile netto 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "leva_2025",
+     "nome": "Debito netto / EBITDA",
+     "unita": "x",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "spese_personale_2025",
+     "nome": "Spese per il personale 2025",
+     "unita": "mln €",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_2025",
+     "nome": "Dipendenti a fine 2025",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "dipendenti_italia_2025",
+     "nome": "Dipendenti in Italia",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "tempo_indeterminato_2025",
+     "nome": "Dipendenti a tempo indeterminato",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "turnover_2025",
+     "nome": "Dipendenti che lasciano ogni anno (turnover)",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "gender_pay_gap_2025",
+     "nome": "Differenza di stipendio tra uomini e donne",
+     "unita": "%",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "formazione_2025",
+     "nome": "Ore di formazione per dipendente",
+     "unita": "ore",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "ccnl",
+     "nome": "Contratto collettivo applicato",
+     "unita": "testo",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "buono_pasto",
+     "nome": "Buono pasto giornaliero",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "smart_working",
+     "nome": "Lavoro agile, giorni al mese",
+     "unita": "giorni",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "premio_aziendale_2025",
+     "nome": "Premio aziendale 2025 (lordo, in denaro)",
+     "unita": "€",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "licenziamenti_collettivi",
+     "nome": "Esuberi dichiarati 2024-2026",
+     "unita": "n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "indeed",
+     "nome": "Recensioni Indeed",
+     "unita": "stelle, n.",
+     "valore": null,
+     "fonte": null
+    },
+    {
+     "id": "sede",
+     "nome": "Sede",
+     "unita": "testo",
+     "valore": "Via dell’Unione Europea n. 6/A-6/B – 20097 San Donato Milanese (MI)",
+     "fonte": {
+      "titolo": "Sustainability Report - Cerved (footer del sito)",
+      "url": "https://company.cerved.com/en/sustainability-report"
+     }
+    }
+   ],
+   "limiti": [
+    "Senza voto: nessun bilancio 2025 e nessun comunicato sui risultati trovato tra le fonti ammesse.",
+    "La società non è quotata dal 2021.",
+    "L'ultimo rendiconto di sostenibilità trovato riguarda il 2023 e usa definizioni diverse: non usato."
+   ]
+  }
+ ]
+}; /*DATI_NPL_FINE*/
+const BANCHE_MODELLO = DATI_BANCHE.modello;
+const BANCHE = DATI_BANCHE.banche;
 
 /* ======================= calcolo comune ======================= */
 function puntiLineari(d, valore) {
@@ -1073,7 +3617,7 @@ function crescitaMedia(serie) {
    Per aggiungere un settore reale basta un nuovo modello e la funzione che ne legge i dati. */
 const MODELLI = {
   generale: {
-    id: "generale", demo: true, etichetta: "Aziende demo · dati fittizi",
+    id: "generale", demo: true, etichetta: "Aziende demo",
     ind: INDICATORI, aree: PILASTRI, minimo: 0,
     punti(k, v) {
       if (k === "cig") return PUNTI_CIG[Math.max(0, Math.min(3, Math.round(v)))];
@@ -1099,13 +3643,15 @@ const MODELLI = {
       ind: BANCHE[0].indicatori.filter(i => i.area === n).map(i => i.id)
     }));
     return {
-      id: "banche", demo: false, provvisorio: BANCHE_MODELLO.stato === "provvisorio", etichetta: "Banche · dati reali 2025",
+      id: "banche", demo: false, provvisorio: BANCHE_MODELLO.stato === "provvisorio", etichetta: "Banche",
       ind: ind, aree: aree, minimo: BANCHE_MODELLO.minimo_indicatori, totInd: BANCHE_MODELLO.totale_indicatori,
       punti(k, v) { return puntiLineari(this.ind[k], v); },
       quick: [["totale", "Migliori in assoluto"], ["ret", "Migliori per retribuzione"], ["stab", "Migliori per stabilità"], ["cresc", "Migliori per crescita e parità"]],
       cmpKeys: Object.keys(ind)
     };
-  })()
+  })(),
+  /* gestione crediti: solo dati, nessun indicatore e nessun voto */
+  npl: { id: "npl", demo: false, senzaVoto: true, etichetta: "Gestione crediti", ind: {}, aree: [], quick: [], cmpKeys: [] }
 };
 
 function valuta(M, az) {
@@ -1146,8 +3692,12 @@ const RATED_BANCHE = BANCHE.map(b => {
   b.indicatori.forEach(i => { v[i.id] = i.valore; fonti[i.id] = i.fonte; });
   return valuta(MODELLI.banche, Object.assign({}, b, { v: v, fonti: fonti }));
 });
+/* gestione crediti: nessun calcolo, solo i dati del file */
+const RATED_NPL = DATI_NPL.societa.map(n => Object.assign({}, n, {
+  modello: "npl", demo: false, provvisorio: false, senzaVoto: true, totale: null, voto: null, gc: "g-nd", pil: {}, v: {}
+}));
 const RATED = RATED_BANCHE.concat(RATED_GEN);
-const listaDi = (id) => id === "banche" ? RATED_BANCHE : RATED_GEN;
+const listaDi = (id) => id === "banche" ? RATED_BANCHE : (id === "npl" ? RATED_NPL : RATED_GEN);
 
 /* Media di confronto.
    Banche: media delle banche, per ogni indicatore solo quelle con il dato.
@@ -1238,7 +3788,7 @@ function fmtMedia(d, v) {
 }
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const sc = (x) => isNum(x) ? f1.format(x) : "n.d.";
-const BY_SLUG = Object.fromEntries(RATED.map(a => [a.slug, a]));
+const BY_SLUG = Object.fromEntries(RATED.concat(RATED_NPL).map(a => [a.slug, a]));
 const $ = (id) => document.getElementById(id);
 const norm = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 const M_OF = (a) => MODELLI[a.modello];
@@ -1275,22 +3825,29 @@ function spark(serie, w, h) {
 function insuff(a) { return `Dati insufficienti: ${a.presenti} indicatori su ${M_OF(a).totInd || Object.keys(M_OF(a).ind).length}`; }
 
 const fMln = (v) => f1.format(v) + " mln €";
+/* serie con valori mancanti: la linea unisce solo gli anni con un dato,
+   la variazione parte dal primo anno disponibile e gli anni mancanti sono scritti in chiaro */
 function chartHTML(titolo, anni, serie, fv, assoluta) {
   const W = 240, H = 64, px = 16, py = 6, n = serie.length;
-  const min = Math.min.apply(null, serie), max = Math.max.apply(null, serie);
+  const ix = serie.map((v, i) => isNum(v) ? i : -1).filter(i => i >= 0);
+  const vals = ix.map(i => serie[i]);
+  const min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
   const span = Math.max(max - min, Math.max(Math.abs(max), Math.abs(min)) * 0.08) || 1;
   const lo = (max + min) / 2 - span / 2, hi = lo + span;
   const X = (i) => px + i * (W - 2 * px) / (n - 1), Y = (v) => py + (H - 2 * py) * (1 - (v - lo) / (hi - lo));
-  const pts = serie.map((v, i) => [X(i), Y(v)]);
+  const pts = ix.map(i => [X(i), Y(serie[i])]);
   const zero = lo < 0 && hi > 0;
   const base = zero ? Y(0) : (hi <= 0 ? 0 : H);
   const line = pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
-  const area = `${px},${base.toFixed(1)} ${line} ${(W - px)},${base.toFixed(1)}`;
-  const last = pts[n - 1], a0 = serie[0], a1 = serie[n - 1];
+  const first = pts[0], last = pts[pts.length - 1];
+  const area = `${first[0].toFixed(1)},${base.toFixed(1)} ${line} ${last[0].toFixed(1)},${base.toFixed(1)}`;
+  const i0 = ix[0], a0 = serie[i0], a1 = serie[ix[ix.length - 1]];
   const rel = !assoluta && a0 > 0;
   const dv = rel ? (a1 / a0 - 1) * 100 : a1 - a0;
   const segno = dv > 0 ? "+" : (dv < 0 ? "−" : "");
-  const varTxt = segno + (rel ? f1.format(Math.abs(dv)) + "%" : fv(Math.abs(dv))) + " sul " + anni[0];
+  const mancanti = anni.filter((y, i) => !isNum(serie[i]));
+  const varTxt = segno + (rel ? f1.format(Math.abs(dv)) + "%" : fv(Math.abs(dv))) + " sul " + anni[i0]
+    + (mancanti.length ? " · " + mancanti.join(", ") + " n.d." : "");
   return `<figure class="ch">
       <figcaption class="mono">${titolo}</figcaption>
       <div class="ch-now"><b>${fv(a1)}</b><span>${varTxt}</span></div>
@@ -1300,10 +3857,32 @@ function chartHTML(titolo, anni, serie, fv, assoluta) {
         <polyline points="${line}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
         <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.4" fill="currentColor" stroke="var(--sheet)" stroke-width="2"/>
       </svg>
-      <div class="ch-years" aria-hidden="true">${anni.map((y, i) => `<span style="left:${(X(i) / W * 100).toFixed(2)}%">${y}</span>`).join("")}</div>
-      <span class="sr-only">${anni.map((y, i) => y + ": " + fv(serie[i])).join("; ")}</span>
+      <div class="ch-years" aria-hidden="true">${anni.map((y, i) => `<span style="left:${(X(i) / W * 100).toFixed(2)}%"${isNum(serie[i]) ? "" : ' class="nd"'}>${y}</span>`).join("")}</div>
+      <span class="sr-only">${anni.map((y, i) => y + ": " + (isNum(serie[i]) ? fv(serie[i]) : ND)).join("; ")}</span>
     </figure>`;
 }
+/* serve almeno due anni con un dato per disegnare un grafico */
+const chartSe = (titolo, anni, serie, fv, assoluta) => serie && serie.filter(isNum).length >= 2 ? chartHTML(titolo, anni, serie, fv, assoluta) : "";
+const costoMedio = (s) => s.spese_personale.map((c, i) => isNum(c) && isNum(s.dipendenti[i]) && s.dipendenti[i] > 0 ? c * 1e6 / s.dipendenti[i] : null);
+const fEur100 = (v) => f0.format(Math.round(v / 100) * 100) + " €";
+/* valore di un dato fuori punteggio, con la sua unità */
+function fmtAltro(x) {
+  if (!isNum(x.valore)) return ND;
+  if (typeof x.valore === "string") return x.valore;
+  const u = x.unita || "";
+  if (u === "%") return f1.format(x.valore) + "%";
+  if (u === "€") return (Number.isInteger(x.valore) ? f0 : f2).format(x.valore) + " €";
+  if (u === "giorni") return f0.format(x.valore) + " giorni";
+  if (u === "n.") return f0.format(x.valore);
+  if (u === "x") return f1.format(x.valore) + "x";
+  if (u === "ore") return f1.format(x.valore) + " ore";
+  if (/^mln /.test(u)) return f1.format(x.valore) + " " + u;
+  if (typeof x.valore === "number") return (Number.isInteger(x.valore) ? f0 : f1).format(x.valore) + (u && u !== "testo" ? " " + u : "");
+  return String(x.valore);
+}
+/* "/100" accanto al numero, con il carattere piccolo che aveva la dicitura */
+const SU100 = '<span class="mono su100">/100</span>';
+function sv() { return '<span class="sv mono">senza voto</span>'; }
 
 /* ======================= etichetta ======================= */
 function labelHTML(a, opts) {
@@ -1318,7 +3897,7 @@ function labelHTML(a, opts) {
   const pill = M.aree.map(p => `<div><span class="mono">${esc(p.breve)}</span><b>${isNum(a.pil[p.id]) ? f0.format(a.pil[p.id]) : "n.d."}</b></div>`).join("");
   const nInd = Object.keys(M.ind).length;
   const score = a.voto
-    ? `<div class="elabel-score"><span class="mono">Punteggio su 100</span><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong></div>`
+    ? `<div class="elabel-score"><span class="sc100" role="img" aria-label="Punteggio ${sc(a.totale)} su 100"><strong data-count="${a.totale.toFixed(1)}">${sc(a.totale)}</strong>${SU100}</span></div>`
     : `<div class="elabel-score"><span class="mono">Senza voto</span><strong><span class="tag g-nd">n.d.</span></strong></div><p class="elabel-nd">${insuff(a)}</p>`;
   const aria = a.voto ? `voto ${a.voto}${a.provvisorio ? " provvisorio" : ""}, punteggio ${sc(a.totale)} su 100` : "senza voto, " + insuff(a).toLowerCase();
   return `<figure class="elabel${opts.anim ? " is-anim" : ""}" aria-label="Etichetta di ${esc(a.nome)}: ${aria}">
@@ -1327,7 +3906,7 @@ function labelHTML(a, opts) {
     <div class="elabel-scale" aria-hidden="true">${rows}</div>
     ${score}
     <div class="elabel-pillars${M.aree.length % 3 ? " c2" : ""}">${pill}</div>
-    <div class="elabel-foot"><span class="mono">${nInd} indicatori · ${M.aree.length} aree</span><span class="mono">${a.demo ? "Demo" : "Dati reali " + a.anno_dati}</span></div>
+    <div class="elabel-foot"><span class="mono">${nInd} indicatori · ${M.aree.length} aree</span>${a.demo ? '<span class="mono">Demo</span>' : ""}</div>
   </figure>`;
 }
 const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1356,8 +3935,11 @@ function renderHero(anim) {
 
 /* ======================= insieme scelto: banche o demo ======================= */
 const state = { modello: "banche", settore: "", citta: "", voto: "", q: "", sort: "totale" };
-function sortsOf(M) { return [{ id: "totale", nome: "Punteggio totale" }].concat(M.aree.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome, dalla A alla Z" }]); }
-function sortVal(a, s) { return s === "totale" ? a.totale : a.pil[s]; }
+function sortsOf(M) {
+  if (M.senzaVoto) return [{ id: "nome", nome: "Nome, dalla A alla Z" }, { id: "dati", nome: "Dati trovati" }];
+  return [{ id: "totale", nome: "Punteggio totale" }].concat(M.aree.map(p => ({ id: p.id, nome: p.nome }))).concat([{ id: "nome", nome: "Nome, dalla A alla Z" }]);
+}
+function sortVal(a, s) { return s === "totale" ? a.totale : (s === "dati" ? a.dati_presenti : a.pil[s]); }
 /* chi non ha un voto va in fondo, tranne nell'ordine alfabetico */
 function sorted(list, s) {
   return list.slice().sort((x, y) => {
@@ -1365,20 +3947,20 @@ function sorted(list, s) {
     if (!x.voto !== !y.voto) return x.voto ? -1 : 1;
     const vx = sortVal(x, s), vy = sortVal(y, s);
     if (!isNum(vx) || !isNum(vy)) return isNum(vx) ? -1 : (isNum(vy) ? 1 : x.nome.localeCompare(y.nome, "it"));
-    return (vy - vx) || ((y.totale || 0) - (x.totale || 0));
+    return (vy - vx) || ((y.totale || 0) - (x.totale || 0)) || x.nome.localeCompare(y.nome, "it");
   });
 }
 function fillSelect(sel, opts, value) {
   sel.innerHTML = opts.map(o => `<option value="${esc(o[0])}"${o[0] === value ? " selected" : ""}>${esc(o[1])}</option>`).join("");
 }
 function setPickHTML() {
-  return ["banche", "generale"].map(id => `<button type="button" class="seg" data-set="${id}" aria-pressed="${state.modello === id}">${esc(MODELLI[id].etichetta)}</button>`).join("");
+  return ["banche", "npl", "generale"].map(id => `<button type="button" class="seg" data-set="${id}" aria-pressed="${state.modello === id}">${esc(MODELLI[id].etichetta)}</button>`).join("");
 }
 function setModello(id) {
   if (state.modello === id) return;
   state.modello = id;
   const M = MODELLI[id];
-  if (!sortsOf(M).some(s => s.id === state.sort)) state.sort = "totale";
+  if (!sortsOf(M).some(s => s.id === state.sort)) state.sort = sortsOf(M)[0].id;
   state.settore = state.citta = state.q = "";
   syncControls();
   renderRank(); renderCards();
@@ -1388,12 +3970,16 @@ function syncControls() {
   document.querySelectorAll(".set-pick").forEach(g => { g.innerHTML = setPickHTML(); });
   $("fld-settore").hidden = $("fld-citta").hidden = !demo;
   $("fld-cerca").hidden = demo;
+  $("fld-voto").hidden = !!M.senzaVoto;
+  $("f-cerca").placeholder = M.senzaVoto ? "Nome della società" : "Nome della banca";
   $("f-settore").value = state.settore; $("f-citta").value = state.citta; $("f-cerca").value = state.q;
   const sortOpts = sortsOf(M).map(s => [s.id, s.nome]);
   fillSelect($("f-ordina"), sortOpts, state.sort);
-  fillSelect($("g-ordina"), sortOpts, "totale");
+  fillSelect($("g-ordina"), sortOpts, sortOpts[0][0]);
   $("quick-chips").innerHTML = M.quick.map(q => `<button class="chip" type="button" data-sort="${q[0]}">${esc(q[1])}</button>`).join("");
-  $("aziende-note").textContent = demo
+  $("aziende-note").textContent = M.senzaVoto
+    ? "Società di gestione crediti: per ora solo i dati trovati, senza voto. Apri una società per vedere da dove viene ogni dato."
+    : demo
     ? "Voto, punteggio delle sei aree e tre numeri da guardare subito. Aziende e dati sono fittizi."
     : "Voto provvisorio, punteggio delle quattro aree e tre numeri da guardare subito. Apri una banca per vedere da dove viene ogni dato.";
 }
@@ -1414,8 +4000,32 @@ function initFilters() {
 }
 
 /* ======================= classifica ======================= */
+function renderRankNpl(M) {
+  const q = norm(state.q.trim());
+  const list = sorted(RATED_NPL.filter(a => !q || norm(a.nome + " " + luogo(a) + " " + a.perimetro).includes(q)), state.sort);
+  $("f-ordina").value = state.sort;
+  const cols = [["pos", "#", false], ["nome", "Società", true], ["voto", "Voto", false], ["dati", "Dati trovati", true]];
+  $("rank-head").innerHTML = "<tr>" + cols.map(c => {
+    if (!c[2]) return `<th scope="col"><span class="mono">${c[1]}</span></th>`;
+    const on = state.sort === c[0];
+    return `<th scope="col"${on ? ` aria-sort="${c[0] === "nome" ? "ascending" : "descending"}"` : ""}><button type="button" class="sort-btn" id="sort-${c[0]}" data-sort="${c[0]}">${esc(c[1])}<span class="arr" aria-hidden="true">${on ? (c[0] === "nome" ? "▲" : "▼") : ""}</span></button></th>`;
+  }).join("") + "</tr>";
+  $("rank-head").querySelectorAll(".sort-btn").forEach(b => b.addEventListener("click", () => {
+    state.sort = b.getAttribute("data-sort"); renderRank();
+    const nb = $("sort-" + state.sort); if (nb) nb.focus();
+  }));
+  $("rank-body").innerHTML = list.length ? list.map((a, i) => `<tr>
+      <td class="pos">${i + 1}</td>
+      <td class="az"><a href="#${a.slug}">${esc(a.nome)}</a><span>${esc(a.citta)} · ${esc(a.perimetro)}</span></td>
+      <td class="vt">${sv()}</td>
+      <td class="score">${a.dati_presenti} su ${a.dati_totali}</td>
+    </tr>`).join("")
+    : `<tr><td colspan="${cols.length}" class="empty"><p>Nessuna società con questo nome.</p></td></tr>`;
+  $("rank-count").textContent = list.length + (list.length === 1 ? " società · ordinata per " : " società · ordinate per ") + (state.sort === "nome" ? "nome" : "dati trovati");
+}
 function renderRank() {
   const M = MODELLI[state.modello];
+  if (M.senzaVoto) { renderRankNpl(M); return; }
   const minIdx = state.voto ? CLASSI.findIndex(c => c.v === state.voto) : CLASSI.length;
   const q = norm(state.q.trim());
   const list = sorted(listaDi(M.id).filter(a =>
@@ -1460,6 +4070,11 @@ function renderRank() {
 
 /* ======================= card ======================= */
 function factsOf(a) {
+  if (a.modello === "npl") {
+    const d = Object.fromEntries(a.dati.map(x => [x.id, x]));
+    return [["Ricavi 2025", d.ricavi_2025], ["Dipendenti", d.dipendenti_2025], ["Buono pasto", d.buono_pasto]]
+      .filter(f => f[1] && isNum(f[1].valore)).map(f => [f[0], esc(fmtAltro(f[1]))]);
+  }
   if (a.demo) {
     const g = a.v.crescitaFatt;
     return [["Smart working", a.v.smart + " gg/sett."], ["Buono pasto", fmt(INDICATORI.buonoPasto, a.v.buonoPasto)], ["Fatturato", (g > 0 ? "+" : "") + f1.format(g) + "% " + spark(a.serie.fatturato)]];
@@ -1469,12 +4084,23 @@ function factsOf(a) {
     ["Buono pasto", isNum(a.v.buono_pasto) ? fmt(I.buono_pasto, a.v.buono_pasto) : "n.d."],
     ["Proventi", (isNum(g) ? (g > 0 ? "+" : "") + f1.format(g) + "% " : "") + spark(a.serie.proventi)]];
 }
+function cardNplHTML(a) {
+  const facts = factsOf(a);
+  return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, senza voto, ${datiTrovati(a).toLowerCase()}">
+    <div class="card-top"><span class="card-vt">${sv()}</span></div>
+    <div class="card-body">
+      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(a.citta)} · ${esc(a.perimetro)}</p><p class="nd-note">${datiTrovati(a)}</p></div>
+      ${facts.length ? `<dl class="facts">${facts.map(f => `<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join("")}</dl>` : ""}
+    </div>
+  </a>`;
+}
 function cardHTML(a) {
+  if (a.modello === "npl") return cardNplHTML(a);
   const M = M_OF(a);
   return `<a class="card" href="#${a.slug}" aria-label="${esc(a.nome)}, ${a.voto ? "voto " + a.voto + (a.provvisorio ? " provvisorio" : "") + ", punteggio " + sc(a.totale) + " su 100" : "senza voto"}">
-    <div class="card-top"><span class="card-vt">${votoHTML(a, true)}</span><div class="card-score" style="padding-right:18px"><span class="mono">Punteggio</span><b>${sc(a.totale)}</b></div></div>
+    <div class="card-top"><span class="card-vt">${votoHTML(a, true)}</span><div class="card-score" style="padding-right:18px"><span class="sc100" role="img" aria-label="Punteggio ${sc(a.totale)} su 100"><b>${sc(a.totale)}</b>${SU100}</span></div></div>
     <div class="card-body">
-      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(luogo(a))} <span class="mono">· ${a.demo ? "demo" : "dati reali " + a.anno_dati}</span></p>${a.voto ? "" : `<p class="nd-note">${insuff(a)}</p>`}</div>
+      <div><h3>${esc(a.nome)}</h3><p class="meta">${esc(luogo(a))}${a.demo ? ' <span class="mono">· demo</span>' : ""}</p>${a.voto ? "" : `<p class="nd-note">${insuff(a)}</p>`}</div>
       <div class="pill-bars">${M.aree.map(p => `<div><span>${esc(p.breve)}</span><span class="mb-track" aria-hidden="true">${isNum(a.pil[p.id]) ? `<i style="width:${a.pil[p.id].toFixed(1)}%"></i>` : ""}</span><span class="mb-n">${isNum(a.pil[p.id]) ? f0.format(a.pil[p.id]) : "n.d."}</span></div>`).join("")}</div>
       <dl class="facts">${factsOf(a).map(f => `<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join("")}</dl>
     </div>
@@ -1483,7 +4109,75 @@ function cardHTML(a) {
 function renderCards() { $("card-grid").innerHTML = sorted(listaDi(state.modello), $("g-ordina").value).map(cardHTML).join(""); }
 
 /* ======================= scheda ======================= */
+function datiTrovati(a) { return `Dati trovati: ${a.dati_presenti} su ${a.dati_totali}`; }
+function limitiHTML(a) {
+  return a.limiti && a.limiti.length ? `<aside class="limits" aria-labelledby="limiti-title"><h3 id="limiti-title">Limiti di questi dati</h3><ul>${a.limiti.map(t => `<li>${esc(t)}</li>`).join("")}</ul></aside>` : "";
+}
+function copiaLink(a) {
+  $("btn-copia").addEventListener("click", async () => {
+    const url = location.href.split("#")[0] + "#" + a.slug;
+    try {
+      await navigator.clipboard.writeText(url);
+      $("copy-status").textContent = "Link copiato.";
+    } catch (e) {
+      $("copy-status").textContent = "Non siamo riusciti a copiarlo. Ecco il link: " + url;
+    }
+  });
+}
+/* scheda di una società di gestione crediti: solo dati, nessun voto né confronto */
+function renderSchedaNpl(a) {
+  const s = a.serie, eur = s.valuta === "EUR";
+  const u = eur ? "mln €" : "mln " + s.valuta;
+  const fv = (v) => f1.format(v) + " " + u;
+  const charts = [
+    chartSe("Ricavi", s.anni, s.ricavi, fv),
+    chartSe("Utile netto", s.anni, s.utile, fv, true),
+    chartSe("Numero di dipendenti", s.anni, s.dipendenti, (v) => f0.format(v)),
+    eur ? chartSe("Costo medio per dipendente", s.anni, costoMedio(s), fEur100) : ""
+  ].join("");
+  const anniTxt = s.anni[0] + "-" + s.anni[s.anni.length - 1];
+  const chartsNote = `Dati ${anniTxt} dai documenti della società, in milioni di ${eur ? "euro" : "corone svedesi (SEK), senza conversione"}.` + (eur ? " Il costo medio è la spesa per il personale divisa per i dipendenti dell'anno." : "");
+  const meta = [["Settore", esc(a.settore)]];
+  if (a.citta) meta.push(["Città", esc(a.citta)]);
+  meta.push(["Perimetro", esc(a.perimetro)]);
+  if (isNum(a.dipendenti)) meta.push(["Dipendenti", `<span class="num">${f0.format(a.dipendenti)}</span>`]);
+  meta.push(["Anno dei dati", String(a.anno_dati)]);
+  $("scheda-root").innerHTML = `
+    <a class="back" href="#classifica">Torna alla classifica</a>
+    <div class="sheet-head">
+      <div>
+        <span class="mono">Scheda gestione crediti · ${sv()}</span>
+        <h2 id="scheda-title">${esc(a.nome)}</h2>
+        <div class="sheet-meta">${meta.map(m => `<div><span class="mono">${m[0]}</span><b>${m[1]}</b></div>`).join("")}</div>
+      </div>
+      <div>
+        <div class="sheet-actions">
+          <button type="button" class="btn btn-ghost" id="btn-copia">Copia il link</button>
+        </div>
+        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="sheet-grid">
+      <div class="sheet-side">
+        <div class="block">
+          <h3>Andamento</h3>
+          ${charts ? `<div class="charts">${charts}</div><p class="charts-note">${chartsNote}</p>` : `<p class="nd-box">Non ci sono almeno due anni di dati per disegnare un grafico.</p>`}
+        </div>
+        ${limitiHTML(a)}
+      </div>
+      <div class="block">
+        <h3>Dati</h3>
+        <p class="bench-note" style="margin:0 0 12px">${datiTrovati(a)}. Senza voto: il modello per questo gruppo non è ancora definito.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Dati"><table class="ind other">
+          <thead><tr><th scope="col" class="mono">Dato</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Fonte</th></tr></thead>
+          <tbody>${a.dati.map(x => `<tr><td>${esc(x.nome)}</td><td class="val${isNum(x.valore) ? (typeof x.valore === "string" ? " txt" : "") : " nd"}">${esc(fmtAltro(x))}</td><td class="src">${isNum(x.valore) ? fonteHTML(x.fonte) : ""}</td></tr>`).join("")}</tbody>
+        </table></div>
+      </div>
+    </div>`;
+  copiaLink(a);
+}
 function renderScheda(a) {
+  if (a.modello === "npl") { renderSchedaNpl(a); return; }
   const M = M_OF(a);
   const bm = mediaConfronto(a);
   const sw = strengths(a, bm);
@@ -1504,7 +4198,7 @@ function renderScheda(a) {
   const contrib = M.aree.map(p => `<tr><td>${p.nome}</td><td class="r">${pct(p.peso)}</td><td class="r">${sc(a.pil[p.id])}</td><td class="r">${a.voto && isNum(a.pil[p.id]) ? sc(a.pil[p.id] * p.peso / pesoTot) : "n.d."}</td></tr>`).join("");
   const pillars = M.aree.map(p => `<div class="pillar">
       <div class="pillar-head"><div><span class="mono">Area · vale il ${pct(p.peso)} del punteggio</span><h3>${p.nome}</h3></div>
-      <div class="pillar-score"><span class="mono">Punteggio su 100</span><b>${sc(a.pil[p.id])}</b><span class="pm">${bm.breve} ${sc(bm.pil[p.id])}</span>
+      <div class="pillar-score"><span class="sc100" role="img" aria-label="Punteggio ${sc(a.pil[p.id])} su 100"><b>${sc(a.pil[p.id])}</b>${SU100}</span><span class="pm">${bm.breve} ${sc(bm.pil[p.id])}</span>
         <span class="pbar" role="img" aria-label="Punteggio ${sc(a.pil[p.id])}, ${bm.nome} ${sc(bm.pil[p.id])}">${isNum(a.pil[p.id]) ? `<i style="width:${a.pil[p.id].toFixed(1)}%"></i>` : ""}${isNum(bm.pil[p.id]) ? `<em style="left:${bm.pil[p.id].toFixed(1)}%"></em>` : ""}</span></div></div>
       ${p.id === "stab" && a.tettoCig ? `<p class="cap-note">Cassa integrazione negli ultimi 3 anni: la Stabilità del lavoro non può superare ${TETTO_CIG} punti.</p>` : ""}
       <div class="table-wrap" tabindex="0" role="region" aria-label="Indicatori di ${esc(p.nome)}"><table class="ind">
@@ -1512,35 +4206,25 @@ function renderScheda(a) {
         <tbody>${p.ind.map(k => `<tr><td>${esc(I[k].nome)}<span class="range">${k === "cig" ? "100 punti con 0 anni, 20 con 1, 5 con 2, 0 con 3" : `0 punti con ${esc(fmtSoglia(I[k], I[k].v0))}, 100 con ${esc(fmtSoglia(I[k], I[k].v100))}`}</span></td><td class="val${isNum(a.v[k]) ? "" : " nd"}">${esc(fmt(I[k], a.v[k]))}</td><td>${miniBar(a.pt[k])}</td><td class="bm">${esc(fmtMedia(I[k], bm.v[k]))}${sig(k)}</td><td class="src">${fonte(k)}</td></tr>`).join("")}</tbody>
       </table></div></div>`).join("");
   const s = a.serie;
-  const costoMedioSerie = s.spese_personale.map((c, i) => c * 1e6 / s.dipendenti[i]);
   const charts = [
-    chartHTML(a.demo ? "Fatturato" : "Proventi", s.anni, a.demo ? s.fatturato : s.proventi, fMln),
-    chartHTML("Utile netto", s.anni, s.utile, fMln, true),
-    chartHTML("Numero di dipendenti", s.anni, s.dipendenti, (v) => f0.format(v)),
-    chartHTML("Costo medio per dipendente", s.anni, costoMedioSerie, (v) => f0.format(Math.round(v / 100) * 100) + " €")
+    chartSe(a.demo ? "Fatturato" : "Proventi", s.anni, a.demo ? s.fatturato : s.proventi, fMln),
+    chartSe("Utile netto", s.anni, s.utile, fMln, true),
+    chartSe("Numero di dipendenti", s.anni, s.dipendenti, (v) => f0.format(v)),
+    chartSe("Costo medio per dipendente", s.anni, costoMedio(s), fEur100)
   ].join("");
   const anniTxt = s.anni[0] + "-" + s.anni[s.anni.length - 1];
   const chartsNote = a.demo
     ? `Dati ${anniTxt} dai bilanci depositati. Il costo medio è il costo del personale diviso per i dipendenti.`
     : `Dati ${anniTxt} dai documenti del gruppo, in milioni di euro. Il costo medio è la spesa per il personale divisa per i dipendenti dell'anno.`;
-  const fmtAltro = (x) => {
-    if (!isNum(x.valore)) return ND;
-    if (typeof x.valore === "string") return x.valore;
-    if (x.unita === "%") return f1.format(x.valore) + "%";
-    if (x.unita === "€") return f0.format(x.valore) + " €";
-    if (x.unita === "giorni") return f0.format(x.valore) + " giorni";
-    if (x.unita === "n.") return f0.format(x.valore);
-    return String(x.valore).replace(".", ",");
-  };
   const extra = a.demo ? "" : `
     <div class="pillar">
       <div class="pillar-head"><div><span class="mono">Fuori dal punteggio</span><h3>Altri dati</h3></div></div>
       <div class="table-wrap" tabindex="0" role="region" aria-label="Altri dati"><table class="ind other">
         <thead><tr><th scope="col" class="mono">Dato</th><th scope="col" class="mono">Valore</th><th scope="col" class="mono">Fonte</th></tr></thead>
-        <tbody>${a.altri_dati.map(x => `<tr><td>${esc(x.nome)}</td><td class="val${isNum(x.valore) ? "" : " nd"}">${esc(fmtAltro(x))}</td><td class="src">${isNum(x.valore) ? fonteHTML(x.fonte) : ""}</td></tr>`).join("")}</tbody>
+        <tbody>${a.altri_dati.map(x => `<tr><td>${esc(x.nome)}</td><td class="val${isNum(x.valore) ? (typeof x.valore === "string" ? " txt" : "") : " nd"}">${esc(fmtAltro(x))}</td><td class="src">${isNum(x.valore) ? fonteHTML(x.fonte) : ""}</td></tr>`).join("")}</tbody>
       </table></div>
     </div>
-    ${a.limiti && a.limiti.length ? `<aside class="limits" aria-labelledby="limiti-title"><h3 id="limiti-title">Limiti di questi dati</h3><ul>${a.limiti.map(t => `<li>${esc(t)}</li>`).join("")}</ul></aside>` : ""}`;
+    ${limitiHTML(a)}`;
   const meta = [["Settore", esc(a.settore)]];
   if (a.citta) meta.push(["Città", esc(a.citta)]);
   meta.push(["Dipendenti", `<span class="num">${f0.format(a.dipendenti)}</span>`]);
@@ -1554,7 +4238,7 @@ function renderScheda(a) {
     <a class="back" href="#classifica">Torna alla classifica</a>
     <div class="sheet-head">
       <div>
-        <span class="mono">${a.demo ? "Scheda azienda · demo" : "Scheda banca · dati reali " + a.anno_dati + (a.provvisorio ? " · voto provvisorio" : "")}</span>
+        <span class="mono">${a.demo ? "Scheda azienda · demo" : "Scheda banca" + (a.provvisorio ? " · voto provvisorio" : "")}</span>
         <h2 id="scheda-title">${esc(a.nome)}</h2>
         <div class="sheet-meta">${meta.map(m => `<div><span class="mono">${m[0]}</span><b>${m[1]}</b></div>`).join("")}</div>
       </div>
@@ -1601,22 +4285,14 @@ function renderScheda(a) {
     saveCmp([a.slug, other, cur[1] || ""]);
     location.hash = "confronta";
   });
-  $("btn-copia").addEventListener("click", async () => {
-    const url = location.href.split("#")[0] + "#" + a.slug;
-    try {
-      await navigator.clipboard.writeText(url);
-      $("copy-status").textContent = "Link copiato.";
-    } catch (e) {
-      $("copy-status").textContent = "Non siamo riusciti a copiarlo. Ecco il link: " + url;
-    }
-  });
+  copiaLink(a);
 }
 
 /* ======================= confronta ======================= */
 /* si confrontano solo aziende dello stesso modello: banche con banche, demo con demo */
 const CMP_KEY = "cr-ultimo-confronto";
 function loadCmp() {
-  try { const v = JSON.parse(localStorage.getItem(CMP_KEY) || "null"); if (Array.isArray(v)) return v.filter(s => s === "" || BY_SLUG[s]); } catch (e) { /* storage non disponibile */ }
+  try { const v = JSON.parse(localStorage.getItem(CMP_KEY) || "null"); if (Array.isArray(v)) return v.filter(s => s === "" || (BY_SLUG[s] && BY_SLUG[s].modello !== "npl")); } catch (e) { /* storage non disponibile */ }
   return [];
 }
 function saveCmp(list) { try { localStorage.setItem(CMP_KEY, JSON.stringify(list)); } catch (e) { /* ignorato */ } cmpSel = list.slice(0, 3); }
@@ -1711,10 +4387,10 @@ function initSearch() {
     const q = norm(input.value.trim());
     if (!q) { close(); return; }
     /* prima le banche (dati reali), poi le demo */
-    items = RATED.filter(a => norm(a.nome + " " + luogo(a)).includes(q))
+    items = RATED.concat(RATED_NPL).filter(a => norm(a.nome + " " + luogo(a)).includes(q))
       .sort((x, y) => (x.demo - y.demo) || ((y.totale || -1) - (x.totale || -1))).slice(0, 8);
     idx = -1;
-    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}${a.demo ? ' <span class="s-demo mono">demo</span>' : ""}</span><span class="s-meta">${esc(luogo(a))} · ${a.voto ? "punteggio " + sc(a.totale) + (a.provvisorio ? " · voto provvisorio" : "") : "dati insufficienti"}</span></span></li>`).join("")
+    list.innerHTML = items.length ? items.map(a => `<li role="option" id="opt-${a.slug}" data-slug="${a.slug}" aria-selected="false">${tag(a)}<span><span class="s-name">${esc(a.nome)}${a.demo ? ' <span class="s-demo mono">demo</span>' : ""}</span><span class="s-meta">${esc(luogo(a))} · ${a.voto ? "punteggio " + sc(a.totale) + (a.provvisorio ? " · voto provvisorio" : "") : (a.senzaVoto ? "senza voto · " + datiTrovati(a).toLowerCase() : "dati insufficienti")}</span></span></li>`).join("")
       : `<li class="s-empty" role="presentation">Nessuna azienda trovata. Prova con il settore o la città.</li>`;
     list.hidden = false; input.setAttribute("aria-expanded", "true");
   }
