@@ -43,6 +43,7 @@ Perimetro: gruppo consolidato, esercizio chiuso nel 2025.
 11. **Uscite e assunzioni.** Somma degli accordi firmati dal 1/1/2024 al 31/12/2026; elencare gli accordi in `note`.
 12. **Recensioni.** Media e numero di recensioni della pagina italiana dell'azienda, con data di lettura in `note`.
 13. **Somme.** Oltre ai calcoli delle regole 7 e 9 sono ammesse le somme tra righe della stessa tabella o tra accordi (regola 11), con gli addendi in `note`.
+14. **Lavoro agile da giornali.** Solo per il lavoro agile, se manca un documento ufficiale o sindacale è ammesso un articolo di giornale. In scheda il dato porta la dicitura "fonte giornalistica" e `verifica` vale "fonte giornalistica".
 
 Formato di ogni dato nel file `<slug>.json`:
 

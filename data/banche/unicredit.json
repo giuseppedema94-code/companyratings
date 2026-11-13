@@ -207,13 +207,16 @@
     },
     {
       "id": "smart_working",
-      "valore": null,
-      "unita": "giorni",
-      "anno": null,
-      "fonte_titolo": "",
-      "fonte_url": "",
-      "citazione": "",
-      "note": "non disponibile. Il comunicato Uilca del 2018 (1 giorno a settimana) non e in vigore a fine 2026 (regola 8), non usato. Comunicazioni FISAC e First Cisl del 03/11/2026 parlano di una revisione dello smart working, senza un numero di giorni per le strutture centrali. Serve il testo 2026 dell'accordo."
+      "valore": 10,
+      "unita": "giorni al mese",
+      "anno": 2026,
+      "fonte_titolo": "Open, 5 novembre 2026 (fonte giornalistica)",
+      "fonte_url": "https://www.open.online/2026/11/05/unicredit-stop-smart-working-reazione-sindacati/",
+      "citazione": "lavoro a distanza per 10 giorni al mese",
+      "note": "Valido fino a fine 2026. Da gennaio 2027 il lavoro agile non è più automatico: resta garantito a chi ha figli minorenni o patologie, gli altri devono chiederlo. Per i manager lo stop è immediato.",
+      "fonte_file": null,
+      "verifica": "fonte giornalistica",
+      "verifica_note": "Dato da articolo di giornale, ammesso dalla regola 14. Stessa cifra su Wall Street Italia. Nota unitaria dei sindacati non trovata in originale."
     },
     {
       "id": "premio_aziendale_2025",

@@ -499,8 +499,11 @@
      "id": "smart_working",
      "nome": "Lavoro agile, giorni al mese (sedi centrali)",
      "unita": "giorni",
-     "valore": null,
-     "fonte": null
+     "valore": 10,
+     "fonte": {
+      "titolo": "Open, 5 novembre 2026 (fonte giornalistica)",
+      "url": "https://www.open.online/2026/11/05/unicredit-stop-smart-working-reazione-sindacati/"
+     }
     },
     {
      "id": "previdenza_azienda",
@@ -557,7 +560,8 @@
    "limiti": [
     "Circa metà del personale lavora fuori dall'Italia: i dati di gruppo descrivono solo in parte il lavoro in Italia.",
     "Turnover pubblicato (6,2%) senza base di calcolo dichiarata.",
-    "Spese per il personale 2023 riesposte nel comunicato 2024."
+    "Spese per il personale 2023 riesposte nel comunicato 2024.",
+    "Lavoro agile: 10 giorni al mese fino a fine 2026, dato da fonte giornalistica. Da gennaio 2027 non è più automatico: resta garantito a chi ha figli minorenni o patologie, gli altri devono chiederlo."
    ]
   },
   {
